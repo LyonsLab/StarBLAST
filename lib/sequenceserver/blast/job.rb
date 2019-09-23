@@ -19,27 +19,48 @@ module SequenceServer
           end
         else
           validate params
+
+          @id = Job.cache.exist?(cache_key params)
+          if @id != nil
+            @cache_hit = true
+            puts "===== Hit ====="
+            return
+          end
           super do
             @method    = params[:method]
             @qfile     = store('query.fa', params[:sequence])
             @databases = Database[params[:databases]]
             @options   = params[:advanced].to_s.strip + defaults
             @advanced_params = parse_advanced params[:advanced]
+            @sequence = params[:sequence]
           end
         end
       end
 
-      attr_reader :advanced_params
+      attr_reader :advanced_params, :cache_hit
 
       # :nodoc:
       # Attributes used by us - should be considered private.
-      attr_reader :method, :qfile, :databases, :options
+      attr_reader :method, :qfile, :databases, :options, :sequence
 
       # :nodoc:
       # Returns path to the imported xml file if the job was created using the
       # --import switch. Returns nil otherwise.
       def imported_xml_file
         File.join(dir, @imported_xml_file) if @imported_xml_file
+      end
+
+      def cache_key(params = nil)
+        if params == nil
+            key = @method + @databases.join(' ') + @options + @sequence
+        else
+            method    = params[:method]
+            databases = Database[params[:databases]]
+            options   = params[:advanced].to_s.strip + defaults
+            advanced_params = parse_advanced params[:advanced]
+            sequence = params[:sequence]
+            key = method + databases.join(' ') + options + sequence
+        end
       end
 
       # Returns the command that will be executed. Job super class takes care
