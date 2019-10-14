@@ -119,6 +119,8 @@ int handle_network_activity(int epfd, int listen_sock, struct work_queue *q)
                 handle_msg(msg, q);
                 free(msg);
             }
+            // Close Connection
+            close(events[i].data.fd);
             
         }
     }
@@ -203,7 +205,7 @@ int parse_msg(const char *msg, char **local_infile, char **local_outfile, char *
 }
 
 /*
- * e.g. blastn -db /db/est_human /db/vector -query 12345.fa -evalue 1e-5
+ * e.g. blastn -db '/db/est_human /db/vector' -query '12345.fa' -evalue 1e-5
  */
 char *parse_infile_from_cmd(const char *cmd, int *len)
 {
@@ -226,9 +228,24 @@ char *parse_infile_from_cmd(const char *cmd, int *len)
     else
         *len = end - start;
 
+
+    // if qfile is in single quote
+    if(*start == '\'' && *(end-1) == '\'')
+    {
+        start++;
+        *len -= 2;
+    }
     return start;
 }
 
+
+/*
+ * e.g.
+ * from:
+ * blastn -db '/db/est_human /db/vector' -query '/var/www/12345.fa' -evalue 1e-5
+ * to:
+ * blastn -db '/db/est_human /db/vector' -query '12345.fa' -evalue 1e-5 > blast-wq-XXXX.out
+ */
 int augument_cmd(char **cmd, char *local_infile, char *remote_outfile)
 {
     int alloc_len = strlen(*cmd) + strlen(remote_outfile) + 20;
