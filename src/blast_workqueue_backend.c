@@ -72,9 +72,18 @@ int start_recv_jobs(struct work_queue *q)
 
     // Create Socket
     int listen_sock = listening_socket_init(ip_addr, WQAPP_BACKEND_PORT);
+    if(listen_sock < 0)
+    {
+        return -1;
+    }
 
     // Listen, and Create EPOLL
     int epfd = listen_connection(listen_sock);
+    if(epfd < 0)
+    {
+        close(listen_sock);
+        return -1;
+    }
     fprintf(stdout, "listening on port %d...\n", WQAPP_BACKEND_PORT);
 
     while(1)
@@ -114,9 +123,10 @@ int handle_network_activity(int epfd, int listen_sock, struct work_queue *q)
             int total_bytes = 0;
             char *msg = read_from_sock(events[i].data.fd, &total_bytes);
 
-            if(msg != NULL && total_bytes > 0)
+            if(msg != NULL)
             {
-                handle_msg(msg, q);
+                if(total_bytes > 0)
+                    rc = handle_msg(msg, q);
                 free(msg);
             }
             // Close Connection
@@ -138,9 +148,19 @@ int handle_msg(char *msg, struct work_queue *q)
     char *cmd = NULL;
 
     rc = parse_msg(msg, &local_infile, &local_outfile, &cmd);
+    if(rc < 0)
+    {
+        return -1;
+    }
     rc = augument_cmd(&cmd, local_infile, basename(local_outfile));
+    if(rc < 0)
+    {
+        free(local_infile);
+        free(local_outfile);
+        free(cmd);
+        return -1;
+    }
 
-    //fprintf(stdout, "creating task\nin:%s\nout:%s\n", local_infile, local_outfile);
     fprintf(stdout, "creating task\n");
 
     // Create and submit task
@@ -177,6 +197,7 @@ int parse_msg(const char *msg, char **local_infile, char **local_outfile, char *
     if(f == NULL)
     {
         fprintf(stderr, "Unable to open cmdfile\n");
+        free(*local_outfile);
         return -1;
     }
     else
@@ -186,6 +207,9 @@ int parse_msg(const char *msg, char **local_infile, char **local_outfile, char *
         if(byte_read <= 0)
         {
             fprintf(stderr, "Unable to read anything from cmdfile, read %d bytes\n", byte_read);
+            free(*local_outfile);
+            free(buffer);
+            return -1;
         }
         *cmd = calloc(strlen(buffer) + 10, sizeof(char));
         strcpy(*cmd, buffer);
@@ -193,6 +217,13 @@ int parse_msg(const char *msg, char **local_infile, char **local_outfile, char *
         // Read out filename of input file
         int infilename_len = 0;
         char *infile = parse_infile_from_cmd(*cmd, &infilename_len);
+        if(infile == NULL)
+        {
+            free(*local_outfile);
+            free(buffer);
+            free(*cmd);
+            return -1;
+        }
         *local_infile = calloc(infilename_len + 10, sizeof(char));
         strncpy(*local_infile, infile, infilename_len);
         (*local_infile)[infilename_len] = '\0';
@@ -264,7 +295,10 @@ int augument_cmd(char **cmd, char *local_infile, char *remote_outfile)
     }
     *ptr1 = '\0';
 
-    *cmd = realloc(*cmd, sizeof(char) * alloc_len);
+    char *new_alloc = realloc(*cmd, sizeof(char) * alloc_len);
+    if(new_alloc == NULL)
+        return -1;
+    *cmd = new_alloc;
     snprintf(*cmd + strlen(*cmd), alloc_len, " > %s", remote_outfile);
 
     return 0;
