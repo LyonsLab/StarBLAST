@@ -1,5 +1,7 @@
 # blast-workqueue
 
+[![Build Status](https://travis-ci.com/zhxu73/blast-workqueue.svg?branch=master)](https://travis-ci.com/zhxu73/blast-workqueue)
+
 Integrate WorkQueue with SequenceServer.
 
 Currently it still require some modification on the SequenceServer code.
