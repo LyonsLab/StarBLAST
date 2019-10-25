@@ -1,13 +1,40 @@
 
 #include "socket_comm.h"
+
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
 #include <errno.h>
+#include <unistd.h>
+#include <arpa/inet.h>
+#include <sys/socket.h>
+#include <fcntl.h>
+#include <sys/epoll.h>
+#include <sys/types.h>
+#include <sys/un.h>
 
 
 int listening_socket_init(const char *ip_addr, const int port)
 {
-
+    int rc;
     // Create Socket
     int sock = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
+    if(sock < 0)
+    {
+        fprintf(stderr, "socket() failed to create socket, %s\n", strerror(errno));
+        return -1;
+    }
+
+    // SO_REUSEADDR
+    int enable = 1;
+    rc = setsockopt(sock, SOL_SOCKET, SO_REUSEADDR, &enable, sizeof(int));
+    if(rc < 0)
+    {
+        fprintf(stderr, "setsockopt() failed to set SO_REUSEADDR, %s\n", strerror(errno));
+        close(sock);
+        return -1;
+    }
 
     // Bind Socket with IP addr and Port
     struct sockaddr_in serv_addr;
@@ -15,11 +42,21 @@ int listening_socket_init(const char *ip_addr, const int port)
     serv_addr.sin_family = AF_INET;  // IPv4 Addr
     serv_addr.sin_addr.s_addr = inet_addr(ip_addr);
     serv_addr.sin_port = htons(port);
-    bind(sock, (struct sockaddr*)&serv_addr, sizeof(serv_addr));
+    rc = bind(sock, (struct sockaddr*)&serv_addr, sizeof(serv_addr));
+    if(rc < 0)
+    {
+        fprintf(stderr, "bind() failed to bind the socket to the addr and port, %s\n", strerror(errno));
+        close(sock);
+        return -1;
+    }
 
     // Set socket to be NONBLOCK
-    int flags = fcntl(sock, F_GETFL, 0);
-    fcntl(sock, F_SETFL, flags | O_NONBLOCK);
+    rc = set_fd_nonblock(sock);
+    if(rc < 0)
+    {
+        close(sock);
+        return -1;
+    }
 
     return sock;
 }
@@ -32,25 +69,25 @@ int listen_connection(int sock)
     int epfd = epoll_create(10);
     if(epfd < 0)
     {
-        fprintf(stderr, "epoll_create() failed, %d\n", errno);
-        exit(-1);
+        fprintf(stderr, "epoll_create() failed, %s\n", strerror(errno));
+        return -1;
     }
 
     // Add to epoll
-    add_to_epoll(epfd, sock);
+    rc = add_to_epoll(epfd, sock);
     if(rc < 0)
     {
-        fprintf(stderr, "epoll_ctl() failed, %d\n", errno);
-        exit(-1);
+        close(epfd);
+        return -1;
     }
 
     // Listen, wait for new connection
-    printf("Start listen for connection\n");
     rc = listen(sock, 20);
     if(rc < 0)
     {
-        fprintf(stderr, "listen() failed, unable to listen on the socket, %d\n", errno);
-        exit(-1);
+        close(epfd);
+        fprintf(stderr, "listen() failed to listen on the socket, %s\n", strerror(errno));
+        return -1;
     }
 
     return epfd;
@@ -64,17 +101,16 @@ int accept_connection(int listen_sock)
     int conn_sock = accept(listen_sock, (struct sockaddr*)&clnt_addr, &clnt_addr_size);
     if(conn_sock < 0)
     {
-        //fprintf(stderr, "accept() failed, unable to accept new connection\n");
+        fprintf(stderr, "accept() failed to accept new connection, %s\n", strerror(errno));
         return -1;
     }
-    fprintf(stdout, "Connection accepted\n");
 
-    // Set server socket as non-blocking
-    int flags = fcntl(conn_sock, F_GETFL, 0);
-    if(fcntl(listen_sock, F_SETFL, flags | O_NONBLOCK) == -1)
+    // Set connection socket to be non-blocking
+    int rc = set_fd_nonblock(conn_sock);
+    if(rc < 0)
     {
-        fprintf(stderr, "fcntl() failed, unable to set socket as non-blocking\n");
-        exit(-1);
+        close(conn_sock);
+        return -1;
     }
 
     return conn_sock;
@@ -82,13 +118,12 @@ int accept_connection(int listen_sock)
 
 char *read_from_sock(int sock, int *total_byte_read)
 {
-
     // Read Request
     char buffer[1024];
-    char *data = malloc(1024 * sizeof(*data));
-    int data_len = 0;
+    char *data = NULL;
 
-    size_t total_bytes = 0;
+    size_t total_alloc = 1;     // save for '\0'
+    size_t data_len = 0;
     int byte_read = 0;
     do
     {
@@ -96,26 +131,40 @@ char *read_from_sock(int sock, int *total_byte_read)
 
         if(byte_read < 0)
         {
-            free(data);
+            if(data != NULL)
+                free(data);
             return NULL;
         }
+        else if(byte_read == 0)
+            break;
 
-        total_bytes += byte_read;
+        total_alloc += byte_read;
+
+        // First alloc
+        if(data == NULL)
+            data = malloc(total_alloc * sizeof(*data));
+        else
+        {
+            char *new_alloc = realloc(data, total_alloc * sizeof(*data));
+            if(new_alloc == NULL)
+            {
+                free(data);
+                return NULL;
+            }
+            data = new_alloc;
+        }
 
         memcpy(data + data_len, buffer, byte_read);
         data_len += byte_read;
-        if(byte_read > 0)
-            data = realloc(data, data_len + 10);
-        //printf("read %d byte\n", byte_read);
 
     }
     while(byte_read == 1024);
 
-    // null-terminate, in case the data is string
-    data[total_bytes] = '\0';
+    // null-terminate, in case the data is string and not null-term
+    data[data_len] = '\0';
 
     if(total_byte_read != NULL)
-        *total_byte_read = total_bytes;
+        *total_byte_read = data_len;
 
     return data;
 }
@@ -129,8 +178,29 @@ int add_to_epoll(int epfd, int fd)
     int rc = epoll_ctl(epfd, EPOLL_CTL_ADD, ev.data.fd, &ev);
     if(rc < 0)
     {
-        fprintf(stderr, "epoll_ctl() failed, %d\n", errno);
+        fprintf(stderr, "epoll_ctl() failed, %s\n", strerror(errno));
     }
+    return rc;
+}
+
+int set_fd_nonblock(int fd)
+{
+    // Get the status flag of fd
+    int flags = fcntl(fd, F_GETFL, 0);
+    if(flags < 0)
+    {
+        fprintf(stderr, "fcntl() failed to retrieve flags, %s\n", strerror(errno));
+        return -1;
+    }
+
+    // Add O_NONBLOCK to the status flag
+    int rc = fcntl(fd, F_SETFL, flags | O_NONBLOCK);
+    if(rc < 0)
+    {
+        fprintf(stderr, "fcntl() failed to set socket with O_NONBLOCK, %s\n", strerror(errno));
+        return -1;
+    }
+
     return rc;
 }
 
@@ -152,7 +222,7 @@ void test1_read_from_sock(CuTest *tc)
 
     CuAssertPtrNotNull(tc, result);
     CuAssertStrEquals(tc, result, msg);
-    CuAssertIntEquals(tc, total_byte, strlen(msg)+1);
+    CuAssertIntEquals(tc, strlen(msg)+1, total_byte);
 
     close(pipefd[0]);
     close(pipefd[1]);
@@ -180,9 +250,34 @@ void test2_read_from_sock(CuTest *tc)
 }
 
 /*
- * Read from write end of pipe
+ * Read from pipe, long msg
  */
 void test3_read_from_sock(CuTest *tc)
+{
+    int pipefd[2];
+    CuAssertTrue(tc, pipe(pipefd) != -1);
+    const size_t msg_len = 2200;
+    char *msg = calloc(msg_len + 1, sizeof(char));
+    for(size_t i = 0; i < msg_len; i++)
+        msg[i] = 'a' + i % 10;
+    msg[msg_len] = '\0';
+    write(pipefd[1], msg, strlen(msg)+1);
+
+    char *result = read_from_sock(pipefd[0], NULL);
+
+    CuAssertPtrNotNull(tc, result);
+    CuAssertStrEquals(tc, result, msg);
+
+    close(pipefd[0]);
+    close(pipefd[1]);
+    free(result);
+    free(msg);
+}
+
+/*
+ * Read from write end of pipe
+ */
+void test4_read_from_sock(CuTest *tc)
 {
     int pipefd[2];
     CuAssertTrue(tc, pipe(pipefd) != -1);
@@ -198,7 +293,7 @@ void test3_read_from_sock(CuTest *tc)
 /*
  * Read from empty pipe, NONBLOCK
  */
-void test4_read_from_sock(CuTest *tc)
+void test5_read_from_sock(CuTest *tc)
 {
     int pipefd[2];
     CuAssertTrue(tc, pipe(pipefd) != -1);

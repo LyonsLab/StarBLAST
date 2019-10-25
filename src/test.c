@@ -9,14 +9,17 @@ void RunAllTests(void) {
     CuString *output = CuStringNew();
     CuSuite* suite = CuSuiteNew();
     
-    CuSuiteAddSuite(suite, socket_comm_suite());
+    CuSuite* s1 = socket_comm_suite();
+    CuSuiteAddSuite(suite, s1);
 
     CuSuiteRun(suite);
     CuSuiteSummary(suite, output);
     CuSuiteDetails(suite, output);
     printf("%s\n", output->buffer);
-    free(suite);
-    free(output);
+
+    free(s1);
+    CuSuiteDelete(suite);
+    CuStringDelete(output);
 }
 
 int main(void)
