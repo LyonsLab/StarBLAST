@@ -13,4 +13,6 @@ install:
 
 script:
   - make -C src/
+  - make clean -C src/
+  - make test -C src/
   - ./src/test
