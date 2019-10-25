@@ -61,6 +61,48 @@ int listening_socket_init(const char *ip_addr, const int port)
     return sock;
 }
 
+int listening_unix_socket_init(const char *pathname)
+{
+    int rc;
+    struct sockaddr_un serv_addr;
+
+    if(pathname == NULL) return -1;
+    if(strlen(pathname) >= sizeof(serv_addr.sun_path)) return -1;
+
+    // Create socket
+    int sock = socket(AF_UNIX, SOCK_STREAM, 0);
+    if (sock == -1)
+    {
+        fprintf(stderr, "socket() failed to create socket, %s\n", strerror(errno));
+        return -1;
+    }
+    
+    // Config path
+    serv_addr.sun_family = AF_UNIX;
+    strcpy(serv_addr.sun_path, pathname);
+    int len = sizeof(serv_addr);
+    
+    // Unlink the path and bind
+    unlink(pathname);
+    rc = bind(sock, (struct sockaddr *) &serv_addr, len);
+    if (rc == -1)
+    {
+        fprintf(stderr, "bind() failed to bind the socket to path %s, %s\n", pathname, strerror(errno));
+        close(sock);
+        return -1;
+    }
+
+    // Set socket to be NONBLOCK
+    rc = set_fd_nonblock(sock);
+    if(rc < 0)
+    {
+        close(sock);
+        return -1;
+    }
+
+    return sock;
+}
+
 int listen_connection(int sock)
 {
     int rc = 0;

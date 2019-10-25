@@ -4,6 +4,7 @@
 
 
 int listening_socket_init(const char *ip_addr, const int port);
+int listening_unix_socket_init(const char *pathname);
 int listen_connection(int sock);
 int accept_connection(int listen_sock);
 char *read_from_sock(int sock, int *total_byte_read);
