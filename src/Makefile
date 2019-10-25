@@ -1,8 +1,10 @@
 
 CC=gcc
 CFLAGS=-g -std=c11 -Wall -Werror
-CCTOOLS_INCLUDE=/usr/include/cctools-7.0.18/cctools
-CCTOOLS_LIB=/usr/lib/cctools-7.0.18
+#CCTOOLS_INCLUDE=/usr/include/cctools-7.0.18/cctools/
+#CCTOOLS_LIB=/usr/lib/cctools-7.0.18/
+CCTOOLS_INCLUDE=$(HOME)/cctools/include/cctools
+CCTOOLS_LIB=$(HOME)/cctools/lib
 LIB=-lwork_queue -ldttools -lm -lz
 
 CUTEST_INCLUDE=../cutest-1.5
@@ -15,7 +17,7 @@ release: CFLAGS=-O3 -std=c11 -Wall -Werror -Wextra
 release: blast_workqueue blast_workqueue-backend
 
 .PHONY: simple
-simple: blast_wq_simple
+simple: blast_workqueue-simple
 
 blast_workqueue-simple: blast_wq_simple.c
 	$(CC) $^ $(CFLAGS) -o $@ -I$(CCTOOLS_INCLUDE) -L$(CCTOOLS_LIB) $(LIB) 
