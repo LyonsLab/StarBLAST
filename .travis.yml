@@ -1,0 +1,24 @@
+dist: bionic
+sudo: false
+language: c
+compiler: gcc
+
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - cmake
+
+before_install:
+  - sudo add-apt-repository --yes ppa:ubuntu-toolchain-r/test
+  - sudo apt-get update -qq
+
+install: 
+  - wget http://ccl.cse.nd.edu/software/files/cctools-7.0.19-x86_64-centos7.tar.gz
+  - tar -xvf cctools-7.0.19-x86_64-centos7.tar.gz
+  - mv cctools-7.0.19-x86_64-centos7 cctools
+
+script:
+  - make -C src/
+  - ./src/test
