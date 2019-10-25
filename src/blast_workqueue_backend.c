@@ -10,23 +10,30 @@
 #include <errno.h>
 #include <unistd.h>
 #include <libgen.h>
+#include <signal.h>
 
 #include <sys/epoll.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
 
-#define WQAPP_BACKEND_PORT 1999
-FILE *log_file;
+#define WQAPP_BACKEND_SOCKET_PATH "/var/www/sequenceserver/backend.server"
+
+char *socket_path = NULL;
+char *backend_ip = NULL;
+int backend_port = -1;
 
 int start_recv_jobs(struct work_queue *q);
 int handle_network_activity(int epfd, int listen_sock, struct work_queue *q);
+int handle_new_conn(uint32_t events, int listen_sock, int epfd);
+int handle_incoming_data(uint32_t events, int fd, struct work_queue *q);
 int handle_msg(char *msg, struct work_queue *q);
 int parse_msg(const char *msg, char **local_infile, char **local_outfile, char **cmd);
 char *parse_infile_from_cmd(const char *cmd, int *len);
 int augument_cmd(char **cmd, char *local_infile, char *remote_outfile);
 int create_task(struct work_queue *q, char *cmd_str, char *local_infile, char *local_outfile);
 int wait_result(struct work_queue *q);
+void sigint_handler(int sig);
 
 int main(int argc, char *argv[])
 {
@@ -34,44 +41,71 @@ int main(int argc, char *argv[])
     int port = WORK_QUEUE_DEFAULT_PORT;
     int rc = 0;
 
-    // Open the log file
-    // stdout reserved for BLAST output, logging has to go through file
-    log_file = fopen("/tmp/blast-wq-backend-app.log", "w+");
-    if(log_file == NULL)
+    // Unix, default path
+    if(argc == 1)
     {
-        fprintf(stderr, "Unable to open log file\n");
-        exit(1);
+        socket_path = WQAPP_BACKEND_SOCKET_PATH;
+    }
+    // Unix
+    else if(argc == 2)
+    {
+        socket_path = argv[1];
+    }
+    // TCP
+    else if(argc == 3)
+    {
+        backend_ip = argv[1];
+        backend_port = atoi(argv[2]);
+    }
+    else
+    {
+        fprintf(stdout, "Usage:\n");
+        fprintf(stdout, "listen on unix socket, %s\n", WQAPP_BACKEND_SOCKET_PATH);
+        fprintf(stdout, "\t./blast_workqueue-backend\n");
+        fprintf(stdout, "listen on unix socket\n");
+        fprintf(stdout, "\t./blast_workqueue-backend <unix-sock-path>\n");
+        fprintf(stdout, "listen on tcp socket\n");
+        fprintf(stdout, "\t./blast_workqueue-backend <ip> <port>\n");
+        return 2;
     }
 
+    if(signal(SIGINT, sigint_handler) == SIG_ERR)
+    {
+        fprintf(stderr, "Cannot catch SIGINT\n");
+        return -1;
+    }
+    
     // Create job queue
     q = work_queue_create(port);
     if(!q)
     {
         fprintf(stderr, "couldn't listen on port %d: %s\n", port, strerror(errno));
-        return 1;
+        return -1;
     }
     fprintf(stdout, "WorkQueue listening on port %d...\n", work_queue_port(q));
 
 
     // Main Loop
     rc = start_recv_jobs(q);
-    if(rc < 0)
+    if(rc < 0)  // when encounter fatal error, exit
     {
-        exit(-1);
+        work_queue_delete(q);
+        return -1;
     }
-
-    fclose(log_file);
 
     return rc;
 }
 
 int start_recv_jobs(struct work_queue *q)
 {
-    const char ip_addr[] = "127.0.0.1";
     int rc = 0;
 
     // Create Socket
-    int listen_sock = listening_socket_init(ip_addr, WQAPP_BACKEND_PORT);
+    int listen_sock;
+    if(socket_path != NULL)
+        listen_sock = listening_unix_socket_init(socket_path);
+    else
+        listen_sock = listening_socket_init(backend_ip, backend_port);
     if(listen_sock < 0)
     {
         return -1;
@@ -84,7 +118,7 @@ int start_recv_jobs(struct work_queue *q)
         close(listen_sock);
         return -1;
     }
-    fprintf(stdout, "listening on port %d...\n", WQAPP_BACKEND_PORT);
+    fprintf(stdout, "listening for frontend conn...\n");
 
     while(1)
     {
@@ -111,31 +145,62 @@ int handle_network_activity(int epfd, int listen_sock, struct work_queue *q)
         // New Conn
         if(events[i].data.fd == listen_sock)
         {
-            int conn_sock = accept_connection(listen_sock);
-            if(conn_sock < 0) continue;
-
-            rc = add_to_epoll(epfd, conn_sock);
-            if(rc < 0) close(conn_sock);
+            rc = handle_new_conn(events[i].events, events[i].data.fd, epfd);
+            if(rc < 0) return rc;
         }
         // Incoming Data
         else
         {
-            int total_bytes = 0;
-            char *msg = read_from_sock(events[i].data.fd, &total_bytes);
-
-            if(msg != NULL)
-            {
-                if(total_bytes > 0)
-                    rc = handle_msg(msg, q);
-                free(msg);
-            }
-            // Close Connection
-            close(events[i].data.fd);
-            
+            rc = handle_incoming_data(events[i].events, events[i].data.fd, q);
+            if(rc < 0) return rc;
         }
     }
 
     return rc;
+}
+
+int handle_new_conn(uint32_t events, int listen_sock, int epfd)
+{
+    int rc;
+
+    if((events & EPOLLERR) || (events & EPOLLRDHUP) || (events & EPOLLRDHUP))
+    {
+        return -1;
+    }
+    int conn_sock = accept_connection(listen_sock);
+    if(conn_sock < 0) return 1;
+
+    rc = add_to_epoll(epfd, conn_sock);
+    if(rc < 0)
+    {
+        close(conn_sock);
+        return 1;
+    }
+
+    return 0;
+}
+
+int handle_incoming_data(uint32_t events, int fd, struct work_queue *q)
+{
+    if((events & EPOLLERR) || (events & EPOLLRDHUP) || (events & EPOLLRDHUP))
+    {
+        close(fd);
+        return -1;
+    }
+
+    int total_bytes = 0;
+    char *msg = read_from_sock(fd, &total_bytes);
+
+    if(msg != NULL)
+    {
+        if(total_bytes > 0)
+            handle_msg(msg, q);
+        free(msg);
+    }
+    // Close Connection
+    close(fd);
+
+    return 0;
 }
 
 int handle_msg(char *msg, struct work_queue *q)
@@ -344,3 +409,8 @@ int wait_result(struct work_queue *q)
     return 0;
 }
 
+void sigint_handler(int sig)
+{
+    fprintf(stdout, "SIGINT, clean up\n");
+    exit(0);
+}
