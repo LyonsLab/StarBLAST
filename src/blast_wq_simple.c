@@ -64,7 +64,6 @@ int main(int argc, char *argv[])
     struct work_queue_task *t;
     int port = WORK_QUEUE_DEFAULT_PORT;
     int taskid;
-    char *blast_path;
     int rc;
 
     // Check number of argument
