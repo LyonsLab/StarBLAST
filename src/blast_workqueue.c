@@ -13,6 +13,7 @@
 #include <errno.h>
 #include <unistd.h>
 #include <time.h>
+#include <signal.h>
 
 #include <sys/types.h>
 #include <sys/stat.h>
@@ -32,10 +33,12 @@ int backend_port = -1;
 char *backend_sock_path = NULL;
 char *job_dir = NULL;
 
+int sock_fd;
 
 int print_file(const char *filename);
 int connect_to_backend(const char *serv_ip_addr, int port);
 int connect_to_backen_unix(const char *path);
+void sigint_handler(int sig);
 
 
 /*
@@ -85,6 +88,13 @@ int main(int argc, char *argv[])
         fprintf(stderr, "blast_workqueue <job-dir> <backend-ip> <backend-port> <cmd-from-sequenceserver>\n");
         exit(1);
     }
+
+    if(signal(SIGINT, sigint_handler) == SIG_ERR)
+    {
+        fprintf(stderr, "Cannot catch SIGINT\n");
+        return -1;
+    }
+
     if(access(job_dir, R_OK | W_OK | X_OK) < 0)
     {
         fprintf(stderr, "Cannot access job-dir, %s\n", strerror(errno));
@@ -103,7 +113,6 @@ int main(int argc, char *argv[])
     }
 
     // Connect to the backend
-    int sock_fd;
     if(backend_sock_path != NULL)
         sock_fd = connect_to_backen_unix(backend_sock_path);
     else
@@ -256,3 +265,10 @@ int print_file(const char *filename)
     return -1;
 }
 
+void sigint_handler(int sig)
+{
+    fprintf(stdout, "SIGINT, clean up\n");
+    close(sock_fd);
+    fclose(log_file);
+    exit(0);
+}
