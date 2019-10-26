@@ -24,11 +24,13 @@
 #include "socket_comm.h"
 
 #define WQAPP_BACKEND_SOCKET_PATH "/var/www/sequenceserver/backend.server"
+#define DEFAULT_JOB_DIR "/tmp"
 
 FILE *log_file;
 char *backend_ip = NULL;
 int backend_port = -1;
 char *backend_sock_path = NULL;
+char *job_dir = NULL;
 
 
 int print_file(const char *filename);
@@ -46,35 +48,53 @@ int main(int argc, char *argv[])
     char *blast_cmd = NULL;
 
     // Check number of argument
-    if(argc == 4)
+    if(argc == 5)
     {
-        backend_ip = argv[1];
-        backend_port = atoi(argv[2]);
+        job_dir = argv[1];
+        backend_ip = argv[2];
+        backend_port = atoi(argv[3]);
+        blast_cmd = argv[4];
+    }
+    else if(argc == 4)
+    {
+        job_dir = argv[1];
+        backend_sock_path = argv[2];
         blast_cmd = argv[3];
     }
     else if(argc == 3)
     {
-        backend_sock_path = argv[1];
+        backend_sock_path = WQAPP_BACKEND_SOCKET_PATH;
+        job_dir = argv[1];
         blast_cmd = argv[2];
     }
     else if(argc == 2)
     {
         backend_sock_path = WQAPP_BACKEND_SOCKET_PATH;
+        job_dir = DEFAULT_JOB_DIR;
         blast_cmd = argv[1];
     }
     else
     {
+        fprintf(stderr, "Default:\n");
+        fprintf(stderr, "job-dir: %s\n", DEFAULT_JOB_DIR);
+        fprintf(stderr, "unix-socket-path: %s\n\n", WQAPP_BACKEND_SOCKET_PATH);
         fprintf(stderr, "Usage:\n");
         fprintf(stderr, "blast_workqueue <cmd-from-sequenceserver>\n");
-        fprintf(stderr, "blast_workqueue <backend-unix-sock-path> <cmd-from-sequenceserver>\n");
-        fprintf(stderr, "blast_workqueue <backend-ip> <backend-port> <cmd-from-sequenceserver>\n");
+        fprintf(stderr, "blast_workqueue <job-dir> <cmd-from-sequenceserver>\n");
+        fprintf(stderr, "blast_workqueue <job-dir> <backend-unix-sock-path> <cmd-from-sequenceserver>\n");
+        fprintf(stderr, "blast_workqueue <job-dir> <backend-ip> <backend-port> <cmd-from-sequenceserver>\n");
         exit(1);
+    }
+    if(access(job_dir, R_OK | W_OK | X_OK) < 0)
+    {
+        fprintf(stderr, "Cannot access job-dir, %s\n", strerror(errno));
+        exit(-1);
     }
 
     // Open the log file
     // stdout reserved for BLAST output, logging has to go through file
     char log_filename[64];
-    snprintf(log_filename, 64, "/tmp/blast-wq-app-%d.log", getpid());
+    snprintf(log_filename, 64, "%s/blast-wq-app-%d.log", job_dir, getpid());
     log_file = fopen(log_filename, "w+");
     if(log_file == NULL)
     {
@@ -95,8 +115,13 @@ int main(int argc, char *argv[])
     }
 
     // Generate a input filename
-    char cmd_file[100];
-    snprintf(cmd_file, 100, "/tmp/blast-wq-%d.in", getpid());
+    char cmd_file[256];
+    rc = snprintf(cmd_file, sizeof(cmd_file), "%s/blast-wq-%d.in", job_dir, getpid());
+    if(rc < 0)
+    {
+        fprintf(stderr, "job_dir too long\n");
+        exit(-1);
+    }
 
     // Store the cmd in the input file
     FILE *file = fopen(cmd_file, "w+");
@@ -104,8 +129,13 @@ int main(int argc, char *argv[])
     fclose(file);
 
     // Generate a output filename
-    char local_outfile[100];
-    snprintf(local_outfile, 100, "/tmp/blast-wq-%d.out", getpid());
+    char local_outfile[256];
+    rc = snprintf(local_outfile, sizeof(local_outfile), "%s/blast-wq-%d.out", job_dir, getpid());
+    if(rc < 0)
+    {
+        fprintf(stderr, "job_dir too long\n");
+        exit(-1);
+    }
 
     // Compose msg in the format of <blast-cmd-filename> <output-filename>
     int alloc_len = strlen(local_outfile) + strlen(cmd_file) + 10;
