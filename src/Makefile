@@ -22,11 +22,14 @@ simple: blast_workqueue-simple
 blast_workqueue-simple: blast_wq_simple.c
 	$(CC) $^ $(CFLAGS) -o $@ -I$(CCTOOLS_INCLUDE) -L$(CCTOOLS_LIB) $(LIB) 
 
-blast_workqueue: blast_workqueue.c
+blast_workqueue: blast_workqueue.o socket_comm.o
 	$(CC) $^ $(CFLAGS) -o $@ -I$(CCTOOLS_INCLUDE) -L$(CCTOOLS_LIB) $(LIB)
 
 blast_workqueue-backend: blast_workqueue_backend.o socket_comm.o
 	$(CC) $^ $(CFLAGS) -o $@ -I$(CCTOOLS_INCLUDE) -L$(CCTOOLS_LIB) $(LIB)
+
+blast_workqueue.o: blast_workqueue.c
+	$(CC) $^ $(CFLAGS) -c -o $@ -I$(CCTOOLS_INCLUDE) -L$(CCTOOLS_LIB) $(LIB)
 
 blast_workqueue_backend.o: blast_workqueue_backend.c
 	$(CC) $< $(CFLAGS) -c -o $@ -I$(CCTOOLS_INCLUDE) -L$(CCTOOLS_LIB) $(LIB)

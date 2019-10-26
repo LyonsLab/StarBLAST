@@ -19,15 +19,21 @@
 #include <sys/socket.h>
 #include <arpa/inet.h>
 #include <fcntl.h>
+#include <sys/un.h>
 
-#define WQAPP_BACKEND_PORT 1999
+#include "socket_comm.h"
+
+#define WQAPP_BACKEND_SOCKET_PATH "/var/www/sequenceserver/backend.server"
 
 FILE *log_file;
+char *backend_ip = NULL;
+int backend_port = -1;
+char *backend_sock_path = NULL;
 
 
 int print_file(const char *filename);
-int connect_to_backend(const char *serv_ip_addr);
-char *read_from_socket(int sock);
+int connect_to_backend(const char *serv_ip_addr, int port);
+int connect_to_backen_unix(const char *path);
 
 
 /*
@@ -40,20 +46,28 @@ int main(int argc, char *argv[])
     char *blast_cmd = NULL;
 
     // Check number of argument
-    if(argc == 3)
+    if(argc == 4)
     {
         backend_ip = argv[1];
+        backend_port = atoi(argv[2]);
+        blast_cmd = argv[3];
+    }
+    else if(argc == 3)
+    {
+        backend_sock_path = argv[1];
         blast_cmd = argv[2];
     }
     else if(argc == 2)
     {
-        backend_ip = "127.0.0.1";
+        backend_sock_path = WQAPP_BACKEND_SOCKET_PATH;
         blast_cmd = argv[1];
     }
     else
     {
+        fprintf(stderr, "Usage:\n");
         fprintf(stderr, "blast_workqueue <cmd-from-sequenceserver>\n");
-        fprintf(stderr, "blast_workqueue <backend-ip> <cmd-from-sequenceserver>\n");
+        fprintf(stderr, "blast_workqueue <backend-unix-sock-path> <cmd-from-sequenceserver>\n");
+        fprintf(stderr, "blast_workqueue <backend-ip> <backend-port> <cmd-from-sequenceserver>\n");
         exit(1);
     }
 
@@ -69,7 +83,11 @@ int main(int argc, char *argv[])
     }
 
     // Connect to the backend
-    int sock_fd = connect_to_backend(backend_ip);
+    int sock_fd;
+    if(backend_sock_path != NULL)
+        sock_fd = connect_to_backen_unix(backend_sock_path);
+    else
+        sock_fd = connect_to_backend(backend_ip, backend_port);
     if(sock_fd < 0)
     {
         fprintf(stderr, "Unable to connect to backend\n");
@@ -99,6 +117,7 @@ int main(int argc, char *argv[])
     if(byte_sent <= 0)
     {
         fprintf(stderr, "Unable to send BLAST cmd to backend, %d\n", errno);
+        close(sock_fd);
         exit(-1);
     }
 
@@ -122,7 +141,7 @@ int main(int argc, char *argv[])
     return 0;
 }
 
-int connect_to_backend(const char *serv_ip_addr)
+int connect_to_backend(const char *serv_ip_addr, int port)
 {
     int rc;
 
@@ -135,7 +154,7 @@ int connect_to_backend(const char *serv_ip_addr)
 
     struct sockaddr_in serv_addr;
     serv_addr.sin_family = AF_INET;
-    serv_addr.sin_port = htons(WQAPP_BACKEND_PORT);
+    serv_addr.sin_port = htons(port);
 
     // Convert IPv4 and IPv6 addresses from text to binary form 
     rc = inet_pton(AF_INET, serv_ip_addr, &serv_addr.sin_addr);
@@ -148,6 +167,32 @@ int connect_to_backend(const char *serv_ip_addr)
     // Connect to backend
     socklen_t serv_addr_size = sizeof(serv_addr);
     rc = connect(clnt_sock, (struct sockaddr*)&serv_addr, serv_addr_size);
+    if (rc < 0)
+    {
+        fprintf(stderr, "connect() failed, Unable to initiate a connection on socket, return code %d, errno %d\n", rc, errno);
+        return -1;
+    }
+
+    return clnt_sock;
+}
+
+int connect_to_backen_unix(const char *path)
+{
+    int clnt_sock, rc;
+    struct sockaddr_un serv_addr; 
+    memset(&serv_addr, 0, sizeof(struct sockaddr_un));
+
+    clnt_sock = socket(AF_UNIX, SOCK_STREAM, 0);
+    if (clnt_sock == -1)
+    {
+        fprintf(stderr, "socket() failed, Unable to create socket\n");
+        return -1;
+    }
+
+    serv_addr.sun_family = AF_UNIX;
+    strcpy(serv_addr.sun_path, path);
+    socklen_t serv_addr_size = sizeof(serv_addr);
+    rc = connect(clnt_sock, (struct sockaddr *) &serv_addr, serv_addr_size);
     if (rc < 0)
     {
         fprintf(stderr, "connect() failed, Unable to initiate a connection on socket, return code %d, errno %d\n", rc, errno);
@@ -180,33 +225,4 @@ int print_file(const char *filename)
 
     return -1;
 }
-
-char *read_from_socket(int sock)
-{
-
-    // Read Request
-    char buffer[1024];
-    char *request_str = malloc(1024 * sizeof(*request_str));
-    int request_str_len = 0;
-
-    int byte_read = 0;
-    do
-    {
-        byte_read = read(sock, buffer, sizeof(buffer));
-
-        if(byte_read < 0) return NULL;
-
-        memcpy(request_str + request_str_len, buffer, byte_read);
-        request_str_len += byte_read;
-        request_str = realloc(request_str, request_str_len);
-        fprintf(log_file, "read %d byte\n", byte_read);
-
-    }
-    while(byte_read == 1024);
-
-    fprintf(log_file, "\"%s\"\n", request_str);
-
-    return request_str;
-}
-
 

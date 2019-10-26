@@ -169,7 +169,7 @@ char *read_from_sock(int sock, int *total_byte_read)
     int byte_read = 0;
     do
     {
-        byte_read = read(sock, buffer, sizeof(buffer));
+        byte_read = recv(sock, buffer, sizeof(buffer), 0);
 
         if(byte_read < 0)
         {
@@ -203,7 +203,8 @@ char *read_from_sock(int sock, int *total_byte_read)
     while(byte_read == 1024);
 
     // null-terminate, in case the data is string and not null-term
-    data[data_len] = '\0';
+    if(data != NULL)
+        data[data_len] = '\0';
 
     if(total_byte_read != NULL)
         *total_byte_read = data_len;
