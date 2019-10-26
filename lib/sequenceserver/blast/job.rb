@@ -45,7 +45,7 @@ module SequenceServer
       # Returns the command that will be executed. Job super class takes care
       # of actual execution.
       def command
-        @command ||= "blast_workqueue #{qfile} \"#{method} -db '#{databases.map(&:name).join(' ')}'" \
+        @command ||= "blast_workqueue \"#{method} -db '#{databases.map(&:name).join(' ')}'" \
                      " -query '#{qfile}' #{options}\""
       end
 
