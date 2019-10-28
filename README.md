@@ -31,6 +31,7 @@ Commuication is done via socket, (support both unix socket and tcp socket).
 
 Use Unix socket by default, with a path of ```"/var/www/sequenceserver/backend.server"```
 ```bash
+./blast_workqueue-backend
 ./blast_workqueue-backend <unix-sock-path>
 ./blast_workqueue-backend <ip> <port>
 ```
