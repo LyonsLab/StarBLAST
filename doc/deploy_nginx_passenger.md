@@ -1,4 +1,6 @@
 # Deploy with Passenger + Nginx
+This guide use Ubuntu 18.04LTS, the process on other distribution might vary slightly.
+
 ## Install Ruby, Passenger, Nginx.
 [Reference Guide from Passenger](https://www.phusionpassenger.com/library/walkthroughs/deploy/)
 ```bash
@@ -12,7 +14,7 @@ sudo sh -c 'echo deb https://oss-binaries.phusionpassenger.com/apt/passenger bio
 sudo apt-get update
 
 # Install nginx passenger ruby
-sudo apt-get install -y nginx libnginx-mod-http-passenger ruby ruby-dev git wget curl build-essential redis-server
+sudo apt-get install -y nginx libnginx-mod-http-passenger ruby ruby-dev git wget curl build-essential redis-server zlib1g-dev
 ```
 ## Download sequenceserver-scale
 `git clone https://github.com/zhxu73/sequenceserver-scale.git /var/www/sequenceserver/app`
@@ -64,7 +66,7 @@ Compile and install blast-workqueue
 git clone https://github.com/zhxu73/blast-workqueue
 cd blast-workqueue/src
 make
-make install
+sudo make install
 ```
 
 ## Download sample BLAST database
