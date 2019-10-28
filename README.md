@@ -117,7 +117,7 @@ By default the backend listen on a unix socket(`"/var/www/sequenceserver/backend
 ```
 blast_workqueue-backend
 ```
-### Start a WorkQueue worker for testing
+### Start a WorkQueue worker locally for testing
 ```
 work_queue_worker localhost 9123
 ```
