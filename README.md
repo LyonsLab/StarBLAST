@@ -28,7 +28,7 @@ sudo sh -c 'echo deb https://oss-binaries.phusionpassenger.com/apt/passenger bio
 sudo apt-get update
 
 # Install nginx passenger ruby
-sudo apt-get install -y nginx libnginx-mod-http-passenger ruby ruby-dev
+sudo apt-get install -y nginx libnginx-mod-http-passenger ruby ruby-dev git wget curl build-essential redis-server
 ```
 ### Download sequenceserver-scale
 `git clone https://github.com/zhxu73/sequenceserver-scale.git /var/www/sequenceserver/app`
