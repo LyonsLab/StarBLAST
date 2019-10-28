@@ -16,6 +16,11 @@ all: blast_workqueue blast_workqueue-backend
 release: CFLAGS=-O3 -std=c11 -Wall -Werror -Wextra
 release: blast_workqueue blast_workqueue-backend
 
+.PHONY: install
+install: blast_workqueue blast_workqueue-backend
+	mv blast_workqueue /usr/bin/
+	mv blast_workqueue-backend /usr/bin/
+
 .PHONY: simple
 simple: blast_workqueue-simple
 
