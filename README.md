@@ -27,7 +27,10 @@ Called for every single BLAST search:
 Constantly running, upon receiving msg from a frontend, create a WorkQueue task and dispatch it to work_queue_worker connect to the backend.
 
 ## Communication between Frontend and Backend
-Commuication is done via socket, (support both unix socket and tcp socket)
-Use Unix socket by default, with a path of "/var/www/sequenceserver/backend.server"
+Commuication is done via socket, (support both unix socket and tcp socket).
+
+Use Unix socket by default, with a path of ```"/var/www/sequenceserver/backend.server"```
+```bash
 ./blast_workqueue-backend <unix-sock-path>
 ./blast_workqueue-backend <ip> <port>
+```
