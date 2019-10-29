@@ -1,5 +1,13 @@
 /*
  * Backend
+ * 
+ * Receiving blast job from frontend via socket (unix or tcp), parse the job construct
+ * a WorkQueue task and dispatch to any connected worker for execution.
+ * After the the result come back, the result are stored in a file whose filename is
+ * specificed by the frontend.
+ * Message from frontend is in the format of "<cmd_file> <outfile>", which <cmd_file> is
+ * the filename of a file contains the blast command, and <outfile> is the filename that
+ * the frontend will be attempt to read for result.
  */
 #include "work_queue.h"
 #include "socket_comm.h"
@@ -36,6 +44,9 @@ int create_task(struct work_queue *q, char *cmd_str, char *local_infile, char *l
 int wait_result(struct work_queue *q);
 void sigint_handler(int sig);
 
+/*
+ * Main
+ */
 int main(int argc, char *argv[])
 {
     struct work_queue *q;
@@ -116,6 +127,16 @@ int main(int argc, char *argv[])
     return rc;
 }
 
+/*
+ * Main loop of this program.
+ * Listen on unix socket or tcp socket for frontend connection based on the cmd
+ * line option.
+ * Create a epoll instance for managing the network activity in a async fashion.
+ * Event-based processing of the epoll events.
+ * 
+ * @param q A pointer to WorkQueue instance already created
+ * @return 0 if success, -1 if error
+ */
 int start_recv_jobs(struct work_queue *q)
 {
     int rc = 0;
@@ -153,6 +174,20 @@ int start_recv_jobs(struct work_queue *q)
     return rc;
 }
 
+/*
+ * Handle network activity with frontends
+ * Using epoll for notification on any new network activity, categorized the activity
+ * based on the fd.
+ * If the fd belongs to the listen_sock, then it means a new connection.
+ * Otherwise the connection means incoming data from connected frontend.
+ * Note: events could be error, e.g. EPOLLERR, in that case the event should be handled
+ * by the corrsponding function.
+ * 
+ * @param epfd FD of epoll
+ * @param listen_sock FD of the listening socket, listening for frontend
+ * @param q A pointer to WorkQueue instance already created
+ * @return 0 if success, -1 if error
+ */
 int handle_network_activity(int epfd, int listen_sock, struct work_queue *q)
 {
     int rc = 0;
@@ -179,6 +214,16 @@ int handle_network_activity(int epfd, int listen_sock, struct work_queue *q)
     return rc;
 }
 
+/*
+ * Handle new connection from frontend.
+ * Once a new connection hit, accept the connection, and add the fd of the
+ * new connection to epoll.
+ * 
+ * @param events events member of struct epoll_event, see man 2 epoll_ctl
+ * @param listen_sock FD of the socket listening for frontend connection
+ * @param epfd FD of epoll
+ * @return Return 0 if successful, return -1 if error
+ */
 int handle_new_conn(uint32_t events, int listen_sock, int epfd)
 {
     int rc;
@@ -200,6 +245,20 @@ int handle_new_conn(uint32_t events, int listen_sock, int epfd)
     return 0;
 }
 
+/*
+ * Handle incoming data from frontend.
+ * If the event is not an error, read from the socket connection indicated by fd.
+ * Pass the read message to handler, if any.
+ * Connection will be closed after handling the message is finished, can be used
+ * as indication for result back for frontend.
+ * 
+ * Note: msg is dynamically allocated, and this function is responsible for free it.
+ * 
+ * @param events events member of struct epoll_event, see man 2 epoll_ctl
+ * @param fd FD of the frontend connection.
+ * @param q A pointer to WorkQueue instance already created
+ * @return Return 0 if successful, return -1 if error
+ */
 int handle_incoming_data(uint32_t events, int fd, struct work_queue *q)
 {
     if((events & EPOLLERR) || (events & EPOLLRDHUP) || (events & EPOLLRDHUP))
@@ -223,6 +282,20 @@ int handle_incoming_data(uint32_t events, int fd, struct work_queue *q)
     return 0;
 }
 
+/*
+ * Handle message from frontend.
+ * Call parse_msg() to parse the msg for filename of the local input file (query file),
+ * the filename of the local output file (files that the frontend will read for success
+ * output), and the blast command.
+ * And then calls augument_cmd() to augment the command to make it fit to execution
+ * on WorkQueue worker.
+ * Afterwards, create the task and submit it.
+ * Note: this function is responsible for free local_outfile, local_infile, cmd
+ * 
+ * @msg Message from frontend, needs to be null-terminated
+ * @q A pointer to WorkQueue instance already created
+ * @return Return 0 if successful, return -1 if error
+ */
 int handle_msg(char *msg, struct work_queue *q)
 {
     int rc = 0;
@@ -259,7 +332,22 @@ int handle_msg(char *msg, struct work_queue *q)
 }
 
 /*
- * msg is in the format of "<cmd_file> <outfile>"
+ * Parse the msg for filename of the local input file (query file), the filename
+ * of the local output file (files that the frontend will read for success output),
+ * and the blast command.
+ * msg is in the format of "<cmd_file> <outfile>".
+ * parse out the filename of the cmd file from msg, reads the blast command from it.
+ * call parse_infile_from_cmd() for parsing out input filename from the blast command.
+ * parse out the filename of the output file from msg.
+ * 
+ * Note: local_file, local_outfile, cmd are allocated in this function, and needs to be
+ * freed by the caller after use.
+ * 
+ * @param msg Message from frontend, needs to be null-terminted
+ * @param local_infile Output to caller of the filename of the local input file (query file)
+ * @param local_outfile Output to caller of the filename of the local output file
+ * @param cmd Output to caller of the raw blast command to be executed
+ * @return 0 if success, -1 if error
  */
 int parse_msg(const char *msg, char **local_infile, char **local_outfile, char **cmd)
 {
@@ -321,7 +409,18 @@ int parse_msg(const char *msg, char **local_infile, char **local_outfile, char *
 }
 
 /*
- * e.g. blastn -db '/db/est_human /db/vector' -query '12345.fa' -evalue 1e-5
+ * Parse the filename of the input/query file from the blast command.
+ * Assume the filename is barebone or in single quotes, and not double quotes
+ * and is either separate from "-query" by a '=' or ' '
+ * e.g.
+ * blast command:
+ * "blastn -db '/db/est_human /db/vector' -query '/var/www/12345.fa' -evalue 1e-5"
+ * filename of query file:
+ * "/var/www/12345.fa"
+ * 
+ * @param cmd Blast command
+ * @param len Output to caller of the length of the filename
+ * @return A pointer that points to the 1st charater the filename starts(without single quotes)
  */
 char *parse_infile_from_cmd(const char *cmd, int *len)
 {
@@ -356,11 +455,23 @@ char *parse_infile_from_cmd(const char *cmd, int *len)
 
 
 /*
+ * Augument the blast command
+ * Swap/Replace the path (possibly absolute path) of query file inside the blast
+ * command with a relative path, since wq does not allow absolute path for remote.
+ * Add the output filename to at the end of the command.
  * e.g.
  * from:
  * blastn -db '/db/est_human /db/vector' -query '/var/www/12345.fa' -evalue 1e-5
  * to:
  * blastn -db '/db/est_human /db/vector' -query '12345.fa' -evalue 1e-5 > blast-wq-XXXX.out
+ * 
+ * Note: since the augumented cmd string might be longer than previous, reallocation
+ * could occur, hence reqiure char**, and the address of the pointer might change
+ * 
+ * @param cmd Input/Output from/to caller, blast command
+ * @param local_infile Local filename of the query file (possibly absolute)
+ * @param remote_outfile Remote filename of the query file, relative path
+ * @return 0 if success, -1 if error
  */
 int augument_cmd(char **cmd, char *local_infile, char *remote_outfile)
 {
@@ -389,7 +500,16 @@ int augument_cmd(char **cmd, char *local_infile, char *remote_outfile)
     return 0;
 }
 
-
+/*
+ * Create a WorkQueue task and submit to the wq queue for later dispatch.
+ * Remote path of query/Input file and output file are generated using basename() function.
+ * 
+ * @param q A pointer to WorkQueue instance already created
+ * @param cmd_str Augumented blast command
+ * @param local_infile local filename of the query file
+ * @param local_outfile local filename of the output file
+ * @return 0 if success, -1 if error
+ */
 int create_task(struct work_queue *q, char *cmd_str, char *local_infile, char *local_outfile)
 {
     struct work_queue_task *t;
@@ -409,6 +529,13 @@ int create_task(struct work_queue *q, char *cmd_str, char *local_infile, char *l
     return 0;
 }
 
+/*
+ * Wait for any result returned from WorkQueue worker, and sends task to worker.
+ * currently no retry after failure.
+ * 
+ * @param q A pointer to WorkQueue instance already created
+ * @return 0 if success, -1 if error
+ */
 int wait_result(struct work_queue *q)
 {
     // Check if result of any task returns, and send task to workers
@@ -429,6 +556,11 @@ int wait_result(struct work_queue *q)
     return 0;
 }
 
+/*
+ * Signal handler, so that the program can exit gracefully after clean up.
+ * 
+ * @param sig Type of signal received, this value is ignored, since this only handles SIGINT
+ */
 void sigint_handler(int sig)
 {
     fprintf(stdout, "SIGINT, clean up\n");
