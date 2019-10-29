@@ -19,6 +19,7 @@
 
 #define WQAPP_BACKEND_SOCKET_PATH "/var/www/sequenceserver/backend.server"
 
+char *password_file = NULL;
 char *socket_path = NULL;
 char *backend_ip = NULL;
 int backend_port = -1;
@@ -41,31 +42,39 @@ int main(int argc, char *argv[])
     int port = WORK_QUEUE_DEFAULT_PORT;
     int rc = 0;
 
-    // Unix, default path
-    if(argc == 1)
+    switch(argc)
     {
-        socket_path = WQAPP_BACKEND_SOCKET_PATH;
-    }
-    // Unix
-    else if(argc == 2)
-    {
-        socket_path = argv[1];
-    }
-    // TCP
-    else if(argc == 3)
-    {
-        backend_ip = argv[1];
-        backend_port = atoi(argv[2]);
-    }
-    else
-    {
-        fprintf(stdout, "Usage:\n");
-        fprintf(stdout, "listen on unix socket, %s\n", WQAPP_BACKEND_SOCKET_PATH);
-        fprintf(stdout, "\t./blast_workqueue-backend\n");
-        fprintf(stdout, "listen on unix socket\n");
-        fprintf(stdout, "\t./blast_workqueue-backend <unix-sock-path>\n");
-        fprintf(stdout, "listen on tcp socket\n");
-        fprintf(stdout, "\t./blast_workqueue-backend <ip> <port>\n");
+        // Unix, default path, no password
+        case 1:
+            password_file = NULL;
+            socket_path = WQAPP_BACKEND_SOCKET_PATH;
+            break;
+        // Unix, default path, password file
+        case 2:
+            password_file = argv[1];
+            socket_path = WQAPP_BACKEND_SOCKET_PATH;
+            break;
+        // Unix
+        case 3:
+            password_file = argv[1];
+            socket_path = argv[2];
+            break;
+        // TCP
+        case 4:
+            password_file = argv[1];
+            backend_ip = argv[2];
+            backend_port = atoi(argv[3]);
+            break;
+        default:
+            fprintf(stdout, "Usage:\n");
+            fprintf(stdout, "listen on unix socket, %s, no password\n", WQAPP_BACKEND_SOCKET_PATH);
+            fprintf(stdout, "\t./blast_workqueue-backend\n");
+            fprintf(stdout, "listen on unix socket, %s\n", WQAPP_BACKEND_SOCKET_PATH);
+            fprintf(stdout, "\t./blast_workqueue-backend <pwd-file>\n");
+            fprintf(stdout, "listen on unix socket\n");
+            fprintf(stdout, "\t./blast_workqueue-backend <pwd-file> <unix-sock-path>\n");
+            fprintf(stdout, "listen on tcp socket\n");
+            fprintf(stdout, "\t./blast_workqueue-backend <pwd-file> <ip> <port>\n");
         return 2;
     }
 
@@ -84,6 +93,17 @@ int main(int argc, char *argv[])
     }
     fprintf(stdout, "WorkQueue listening on port %d...\n", work_queue_port(q));
 
+    // Specify password file if given
+    if(password_file != NULL)
+    {
+        rc = work_queue_specify_password_file(q, password_file);
+        if(!rc)
+        {
+            fprintf(stderr, "Cannot open the given password file, errno: %s\n", strerror(errno));
+            return -1;
+        }
+        fprintf(stdout, "Password file used...\n");
+    }
 
     // Main Loop
     rc = start_recv_jobs(q);
