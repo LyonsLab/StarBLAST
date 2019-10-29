@@ -43,3 +43,7 @@ Commuication is done via socket, (support both unix socket and tcp socket).
 
 Use Unix socket by default, with a path of ```"/var/www/sequenceserver/backend.server"```
 
+## Current Limitation/Caveat
+* The input cmd from frontend to backend and the output from backend to frontend are both as a file in /tmp, only the filename is send via socket, there is no clean up done by the frontend, so user or system need to clean up /tmp regularly. Plan to having the output send to frontend via socket.
+
+* Currently there is no sanitizing done by this program, so any valid blast option will be passed as is to work_queue_worker for execution. If sanitization is required for your system, plz do so before calling the frontend.
