@@ -437,10 +437,13 @@ char *parse_infile_from_cmd(const char *cmd, int *len)
     if((ptr[6] == ' ' || ptr[6] == '=') && ptr[7] != '\0')
         start = ptr + 7;
     else
-        return NULL;        
+        return NULL;
     char *end = strchr(start + 1, ' ');
     if(end == NULL)
+    {
         *len = strlen(cmd) - (start - cmd);
+        end = start + *len;
+    }
     else
         *len = end - start;
 
