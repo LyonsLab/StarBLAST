@@ -39,6 +39,7 @@ int handle_incoming_data(uint32_t events, int fd, struct work_queue *q);
 int handle_msg(char *msg, struct work_queue *q, int conn_fd);
 int parse_msg(const char *msg, char **local_infile, char **local_outfile, char **cmd);
 char *parse_infile_from_cmd(const char *cmd, int *len);
+int is_directory(const char *path);
 int augument_cmd(char **cmd, char *local_infile, char *remote_outfile);
 int create_task(struct work_queue *q, char *cmd_str, char *local_infile, char *local_outfile, int conn_fd);
 int wait_result(struct work_queue *q);
@@ -272,12 +273,19 @@ int handle_incoming_data(uint32_t events, int fd, struct work_queue *q)
 
     if(msg != NULL)
     {
-        if(total_bytes > 0)
-            handle_msg(msg, q, fd);
+        if(total_bytes > 0 && handle_msg(msg, q, fd) < 0)
+        {
+            // Close Connection
+            close(fd);
+        }
         free(msg);
     }
-    // Close Connection
-    //close(fd);
+    else
+    {
+        // Close Connection
+        close(fd);
+    }
+    
 
     return 0;
 }
@@ -309,11 +317,22 @@ int handle_msg(char *msg, struct work_queue *q, int conn_fd)
     rc = parse_msg(msg, &local_infile, &local_outfile, &cmd);
     if(rc < 0)
     {
+        fprintf(stderr, "Unable to parse msg\n");
+        return -1;
+    }
+    // Check if the infile is a directory
+    if(is_directory(local_infile))
+    {
+        fprintf(stderr, "Query file path is a directory\n");
+        free(local_infile);
+        free(local_outfile);
+        free(cmd);
         return -1;
     }
     rc = augument_cmd(&cmd, local_infile, basename(local_outfile));
     if(rc < 0)
     {
+        fprintf(stderr, "Fail to augment command\n");
         free(local_infile);
         free(local_outfile);
         free(cmd);
@@ -457,6 +476,19 @@ char *parse_infile_from_cmd(const char *cmd, int *len)
     return start;
 }
 
+/*
+ *
+ * @param path Path to be checked
+ * @return 1 if is dir, does exist, and has permission, 0 if not
+ */
+int is_directory(const char *path)
+{
+    struct stat path_stat;
+    if (stat(path, &path_stat) == 0 && S_ISDIR(path_stat.st_mode))
+        return 1;
+    else
+        return 0;
+}
 
 /*
  * Augument the blast command
