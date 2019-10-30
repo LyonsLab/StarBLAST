@@ -36,11 +36,11 @@ int start_recv_jobs(struct work_queue *q);
 int handle_network_activity(int epfd, int listen_sock, struct work_queue *q);
 int handle_new_conn(uint32_t events, int listen_sock, int epfd);
 int handle_incoming_data(uint32_t events, int fd, struct work_queue *q);
-int handle_msg(char *msg, struct work_queue *q);
+int handle_msg(char *msg, struct work_queue *q, int conn_fd);
 int parse_msg(const char *msg, char **local_infile, char **local_outfile, char **cmd);
 char *parse_infile_from_cmd(const char *cmd, int *len);
 int augument_cmd(char **cmd, char *local_infile, char *remote_outfile);
-int create_task(struct work_queue *q, char *cmd_str, char *local_infile, char *local_outfile);
+int create_task(struct work_queue *q, char *cmd_str, char *local_infile, char *local_outfile, int conn_fd);
 int wait_result(struct work_queue *q);
 void sigint_handler(int sig);
 
@@ -273,11 +273,11 @@ int handle_incoming_data(uint32_t events, int fd, struct work_queue *q)
     if(msg != NULL)
     {
         if(total_bytes > 0)
-            handle_msg(msg, q);
+            handle_msg(msg, q, fd);
         free(msg);
     }
     // Close Connection
-    close(fd);
+    //close(fd);
 
     return 0;
 }
@@ -292,11 +292,12 @@ int handle_incoming_data(uint32_t events, int fd, struct work_queue *q)
  * Afterwards, create the task and submit it.
  * Note: this function is responsible for free local_outfile, local_infile, cmd
  * 
- * @msg Message from frontend, needs to be null-terminated
- * @q A pointer to WorkQueue instance already created
+ * @param msg Message from frontend, needs to be null-terminated
+ * @param q A pointer to WorkQueue instance already created
+ * @param connfd FD of the connection to frontend
  * @return Return 0 if successful, return -1 if error
  */
-int handle_msg(char *msg, struct work_queue *q)
+int handle_msg(char *msg, struct work_queue *q, int conn_fd)
 {
     int rc = 0;
 
@@ -322,7 +323,7 @@ int handle_msg(char *msg, struct work_queue *q)
     fprintf(stdout, "creating task\n");
 
     // Create and submit task
-    rc = create_task(q, cmd, local_infile, local_outfile);
+    rc = create_task(q, cmd, local_infile, local_outfile, conn_fd);
 
     free(local_infile);
     free(local_outfile);
@@ -508,15 +509,21 @@ int augument_cmd(char **cmd, char *local_infile, char *remote_outfile)
  * @param cmd_str Augumented blast command
  * @param local_infile local filename of the query file
  * @param local_outfile local filename of the output file
+ * @param conn_fd FD for the connection to frontend
  * @return 0 if success, -1 if error
  */
-int create_task(struct work_queue *q, char *cmd_str, char *local_infile, char *local_outfile)
+int create_task(struct work_queue *q, char *cmd_str, char *local_infile, char *local_outfile, int conn_fd)
 {
     struct work_queue_task *t;
 
     // Create task off the cmd
     t = work_queue_task_create(cmd_str);
     if(t == NULL) return -1;
+
+    // Use the conn_fd as tag
+    char tag[15];
+    sprintf(tag, "%d", conn_fd);
+    work_queue_task_specify_tag(t, tag);
 
     // Specify input & output files
     work_queue_task_specify_file(t, local_infile, basename(local_infile), WORK_QUEUE_INPUT, WORK_QUEUE_NOCACHE);
@@ -545,6 +552,11 @@ int wait_result(struct work_queue *q)
     if(t)
     {
         printf("task (id# %d) complete: %s (return code %d)\n", t->taskid, t->command_line, t->return_status);
+
+        // Obtain the FD of the connection from tag
+        int conn_fd = atoi(t->tag);
+        close(conn_fd);
+
         if(t->return_status != 0)
         {
             // The task failed. Error handling (e.g., resubmit with new parameters) here. 

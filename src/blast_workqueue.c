@@ -161,7 +161,18 @@ int main(int argc, char *argv[])
     }
 
     // Wait until the result come back
-    while(access(local_outfile, R_OK) != 0) sleep(1);
+    char buffer[10];
+    while(access(local_outfile, R_OK) != 0)
+    {
+        // test read on socket to make sure the connection is good
+        int byte_read = read(sock_fd, buffer, 10);
+        // -1 if error, 0 if conn closed on server
+        if(byte_read <= 0)
+            break;
+        sleep(1);
+    }
+    
+
 
     // Print the output file to stdout, in order to mimc the behavior of
     // blast invocation by SeqServer
