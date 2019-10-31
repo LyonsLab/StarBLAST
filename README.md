@@ -12,7 +12,7 @@ https://github.com/wurmlab/sequenceserver/tree/2.0.0.beta3
 Use WorkQueue as execution backend instead of local execution.
 https://github.com/zhxu73/blast-workqueue
 
-Support job caching with redis-server (currently separately on app-cache branch)
+Support job caching with redis-server
 
 ## Deploy with Passenger + Nginx
 [doc](https://github.com/zhxu73/sequenceserver-scale/blob/master/doc/deploy_nginx_passenger.md)
