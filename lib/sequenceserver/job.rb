@@ -8,6 +8,8 @@ require 'securerandom'
 require 'sequenceserver/pool'
 require 'sequenceserver/api_errors'
 
+require 'sequenceserver/cache'
+
 module SequenceServer
   # Abstract job super class.
   #
@@ -25,7 +27,12 @@ module SequenceServer
       # Creates and queues a job. Returns created job object.
       def create(params)
         job = BLAST::Job.new(params) # TODO: Dynamic dispatch.
-        pool.queue { job.run }
+
+        # Execute the job only when cache miss
+        if ! job.cache_hit
+          cache.insert(job)
+          pool.queue { job.run }
+        end
         job
       end
 
@@ -45,6 +52,11 @@ module SequenceServer
       def all
         Dir["#{DOTDIR}/**/job.yaml"]
           .map { |f| fetch File.basename File.dirname f }
+      end
+
+      # Cache
+      def cache
+        @cache ||= Cache.new()
       end
 
       private
