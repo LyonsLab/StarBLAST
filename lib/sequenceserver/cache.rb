@@ -20,7 +20,7 @@ module SequenceServer
     def initialize(port = 6379)
       return unless Cache.enabled?
 
-      return if @redis.nil?
+      return unless @redis.nil?
 
       begin
         @redis = Redis.new(:port => port, :timeout => 1)
