@@ -20,10 +20,10 @@ module SequenceServer
         else
           validate params
 
-          @id = Job.cache.exist?(cache_key params)
+          @id = SequenceServer::Job.cache.exist?(cache_key params)
           if @id != nil
             @cache_hit = true
-            puts "===== Hit ====="
+            logger.debug("Cache Hit")
             return
           end
           super do
@@ -77,6 +77,9 @@ module SequenceServer
       def raise!
         # Return true exit status is 0 and stdout is not empty.
         return true if exitstatus.zero? && !File.zero?(stdout)
+
+        # Remove entry in cache when non-zero exit status
+        Job.cache.remove(self)
 
         # Handle error. See [1].
         case exitstatus
