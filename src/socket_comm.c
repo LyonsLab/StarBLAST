@@ -79,6 +79,7 @@ int listening_unix_socket_init(const char *pathname)
     
     // Config path
     serv_addr.sun_family = AF_UNIX;
+    // strncpy not needed b/c of previous check
     strcpy(serv_addr.sun_path, pathname);
     int len = sizeof(serv_addr);
     

@@ -161,7 +161,8 @@ char *blast_cmd_from_cmd_arg(char *cmd_arg)
     // Allocate
     blast_cmd = calloc(strlen(cmd_arg) + strlen(remote_outfile) + 10, sizeof(char));
 
-    strcpy(blast_cmd, cmd_arg);
+    // We know sizeof(blast_cmd) > strlen(cmd_arg)
+    strncpy(blast_cmd, cmd_arg, strlen(cmd_arg));
     sprintf(blast_cmd + strlen(blast_cmd), " > %s", remote_outfile);
 
     return blast_cmd;

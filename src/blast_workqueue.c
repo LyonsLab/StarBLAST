@@ -226,6 +226,7 @@ int connect_to_backend(const char *serv_ip_addr, int port)
     return clnt_sock;
 }
 
+
 int connect_to_backen_unix(const char *path)
 {
     int clnt_sock, rc;
@@ -240,7 +241,8 @@ int connect_to_backen_unix(const char *path)
     }
 
     serv_addr.sun_family = AF_UNIX;
-    strcpy(serv_addr.sun_path, path);
+    // sockaddr_un.sun_path has a max char length of 108
+    strncpy(serv_addr.sun_path, path, 108);
     socklen_t serv_addr_size = sizeof(serv_addr);
     rc = connect(clnt_sock, (struct sockaddr *) &serv_addr, serv_addr_size);
     if (rc < 0)
