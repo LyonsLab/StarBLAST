@@ -179,7 +179,7 @@ int main(int argc, char *argv[])
     rc = print_file(local_outfile);
     if(rc < 0)
     {
-        fprintf(stderr, "Unable to read output file\n");
+        fprintf(stderr, "Unable to read output file, or empty\n");
         exit(-1);
     }
 
@@ -267,9 +267,15 @@ int print_file(const char *filename)
     FILE *file = fopen(filename, "r");
     if (file)
     {
+        int count = 0;
         while ((c = getc(file)) != EOF)
+        {
+            count++;
             fprintf(stdout, "%c", c);
+        }
         fclose(file);
+        if(count == 0)
+            return -1;
         return 0;
     }
 
