@@ -13,6 +13,9 @@ install:
 
 script:
   - make -C src/
+  - make install -C src/
   - make clean -C src/
   - make test -C src/
   - ./src/test
+  - cd test
+  - bash test.sh
