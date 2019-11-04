@@ -17,5 +17,7 @@ script:
   - make clean -C src/
   - make test -C src/
   - ./src/test
+  - test $? == 0 || exit 1
   - cd test
   - bash test.sh
+  - test $? == 0 || exit 1
