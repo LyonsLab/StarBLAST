@@ -23,25 +23,25 @@ echo "backend pid: $backend_pid"
 
 echo "=================="
 
-sleep 0.5
+sleep 1
 
 
 echo "----- case 01 -----"
-blast_workqueue "blastn -db '$HOME/db/DO_NOT_EXIST' -query 's1.fa' -evalue 1e-5"
+blast_workqueue "blastn -db '$(pwd)/db/DO_NOT_EXIST' -query 's1.fa' -evalue 1e-5"
 rc=$?
 echo "exit status:" $rc
 test $rc == 255 || quit_err
 echo "-------------------"
 
 echo "----- case 02 -----"
-blast_workqueue "blastn -db '$HOME/db/DO_NOT_EXIST1' -query '$HOME/DO_NOT_EXIST/s1.fa' -evalue 1e-5"
+blast_workqueue "blastn -db '$(pwd)/db/DO_NOT_EXIST1' -query 'DO_NOT_EXIST/s1.fa' -evalue 1e-5"
 rc=$?
 echo "exit status:" $rc
 test $rc == 255 || quit_err
 echo "-------------------"
 
 echo "----- case 03 -----"
-blast_workqueue "blastn -db '$HOME/db/DO_NOT_EXIST1' -query '$HOME/DO_NOT_EXIST' -evalue 1e-5"
+blast_workqueue "blastn -db '$(pwd)/db/DO_NOT_EXIST1' -query 'DO_NOT_EXIST' -evalue 1e-5"
 rc=$?
 echo "exit status:" $rc
 test $rc == 255 || quit_err

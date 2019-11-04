@@ -11,26 +11,26 @@ function quit_err {
 echo "=================="
 echo "TEST SUITE-1"
 echo "=================="
-work_queue_worker localhost 9123 1> worker.log 2> worker.err &
+work_queue_worker localhost 9123 1> worker.log &
 worker_pid=$!
 echo "worker pid: $worker_pid"
-blast_workqueue-backend 1> backend.log 2> backend.err &
+blast_workqueue-backend 1> backend.log &
 backend_pid=$!
 echo "backend pid: $backend_pid"
 
-sleep 0.5
+sleep 1
 echo "=================="
 
 
 echo "----- case 01 -----"
-timeout 5 blast_workqueue "blastn -db '$HOME/db/vector' -query 's1.fa' -evalue 1e-5 -num_threads 2" 1> frontend.log 2> frontend.err
+blast_workqueue "blastn -db '$(pwd)/db/vector' -query 's1.fa' -evalue 1e-5 -num_threads 2" 1> frontend.log
 rc=$?
 echo "exit status:" $rc
 test $rc == 0 || quit_err
 echo "-------------------"
 
 echo "----- case 02 -----"
-timeout 5 blast_workqueue "blastn -db '$HOME/db/vector' -query 's1.fa'" 1> frontend.log 2> frontend.err
+blast_workqueue "blastn -db '$(pwd)/db/vector' -query 's1.fa'" 1> frontend.log
 rc=$?
 echo "exit status:" $rc
 test $rc == 0 || quit_err
