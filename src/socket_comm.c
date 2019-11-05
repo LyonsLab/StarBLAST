@@ -251,107 +251,124 @@ int set_fd_nonblock(int fd)
 #ifdef UNIT_TEST
 #include "CuTest.h"
 
+char socket_path[100] = "test.sock";
+int sock_helper_start(int *serv, int *clnt);
+int sock_helper_end(int serv, int clnt);
+
 /*
- * Read from pipe
+ * Read from socket
  */
 void test1_read_from_sock(CuTest *tc)
 {
-    int pipefd[2];
-    CuAssertTrue(tc, pipe(pipefd) != -1);
-    char *msg = "TEST 123";
-    write(pipefd[1], msg, strlen(msg)+1);
+    int serv_sock;
+    int conn_sock;
+    int rc = sock_helper_start(&serv_sock, &conn_sock);
+    CuAssertTrue(tc, rc == 0);
+    char msg[] = "TEST 123";
+    rc = send(serv_sock, msg, strlen(msg)+1, 0);
+    CuAssertTrue(tc, rc == (int)strlen(msg)+1);
 
     int total_byte = -123;
-    char *result = read_from_sock(pipefd[0], &total_byte);
+    char *result = read_from_sock(conn_sock, &total_byte);
 
     CuAssertPtrNotNull(tc, result);
     CuAssertStrEquals(tc, result, msg);
     CuAssertIntEquals(tc, strlen(msg)+1, total_byte);
 
-    close(pipefd[0]);
-    close(pipefd[1]);
     free(result);
+    sock_helper_end(serv_sock, conn_sock);
 }
 
 /*
- * Read from pipe
+ * Read from socket
  */
 void test2_read_from_sock(CuTest *tc)
 {
-    int pipefd[2];
-    CuAssertTrue(tc, pipe(pipefd) != -1);
+    int serv_sock;
+    int conn_sock;
+    int rc = sock_helper_start(&serv_sock, &conn_sock);
+    CuAssertTrue(tc, rc == 0);
     char *msg = "TEST 123";
-    write(pipefd[1], msg, strlen(msg)+1);
+    rc = send(serv_sock, msg, strlen(msg)+1, 0);
+    CuAssertTrue(tc, rc == (int)strlen(msg)+1);
 
-    char *result = read_from_sock(pipefd[0], NULL);
+    char *result = read_from_sock(conn_sock, NULL);
 
     CuAssertPtrNotNull(tc, result);
     CuAssertStrEquals(tc, result, msg);
 
-    close(pipefd[0]);
-    close(pipefd[1]);
     free(result);
+    sock_helper_end(serv_sock, conn_sock);
 }
 
 /*
- * Read from pipe, long msg
+ * Read from socket, long msg
  */
 void test3_read_from_sock(CuTest *tc)
 {
-    int pipefd[2];
-    CuAssertTrue(tc, pipe(pipefd) != -1);
+    int serv_sock;
+    int conn_sock;
+    int rc = sock_helper_start(&serv_sock, &conn_sock);
+    CuAssertTrue(tc, rc == 0);
+
     const size_t msg_len = 2200;
     char *msg = calloc(msg_len + 1, sizeof(char));
     for(size_t i = 0; i < msg_len; i++)
         msg[i] = 'a' + i % 10;
     msg[msg_len] = '\0';
-    write(pipefd[1], msg, strlen(msg)+1);
+    rc = send(serv_sock, msg, strlen(msg)+1, 0);
+    CuAssertTrue(tc, rc == (int)strlen(msg)+1);
 
-    char *result = read_from_sock(pipefd[0], NULL);
+    char *result = read_from_sock(conn_sock, NULL);
 
     CuAssertPtrNotNull(tc, result);
     CuAssertStrEquals(tc, result, msg);
 
-    close(pipefd[0]);
-    close(pipefd[1]);
     free(result);
     free(msg);
+    sock_helper_end(serv_sock, conn_sock);
+
 }
 
 /*
- * Read from write end of pipe
+ * Read from closed sock
  */
 void test4_read_from_sock(CuTest *tc)
 {
-    int pipefd[2];
-    CuAssertTrue(tc, pipe(pipefd) != -1);
+    int serv_sock;
+    int conn_sock;
+    int rc = sock_helper_start(&serv_sock, &conn_sock);
+    CuAssertTrue(tc, rc == 0);
 
-    char *result = read_from_sock(pipefd[1], NULL);
+    close(conn_sock);
+
+    char *result = read_from_sock(conn_sock, NULL);
 
     CuAssertPtrEquals(tc, result, NULL);
 
-    close(pipefd[0]);
-    close(pipefd[1]);
+    sock_helper_end(serv_sock, conn_sock);
 }
 
 /*
- * Read from empty pipe, NONBLOCK
+ * Read from empty sock, NONBLOCK
  */
 void test5_read_from_sock(CuTest *tc)
 {
-    int pipefd[2];
-    CuAssertTrue(tc, pipe(pipefd) != -1);
+    int serv_sock;
+    int conn_sock;
+    int rc = sock_helper_start(&serv_sock, &conn_sock);
+    CuAssertTrue(tc, rc == 0);
 
-    int flags = fcntl(pipefd[0], F_GETFL, 0);
+    int flags = fcntl(conn_sock, F_GETFL, 0);
     CuAssertTrue(tc, flags != -1);
-    CuAssertTrue(tc, fcntl(pipefd[0], F_SETFL, flags | O_NONBLOCK) != -1);
+    CuAssertTrue(tc, fcntl(conn_sock, F_SETFL, flags | O_NONBLOCK) != -1);
 
-    char *result = read_from_sock(pipefd[0], NULL);
+    char *result = read_from_sock(conn_sock, NULL);
 
     CuAssertPtrEquals(tc, result, NULL);
 
-    close(pipefd[0]);
-    close(pipefd[1]);
+    sock_helper_end(serv_sock, conn_sock);
+
 }
 
 CuSuite* socket_comm_suite()
@@ -363,6 +380,45 @@ CuSuite* socket_comm_suite()
     SUITE_ADD_TEST(suite, test4_read_from_sock);
 
     return suite;
+}
+
+int sock_helper_start(int *serv, int *clnt)
+{
+    int rc;
+    struct sockaddr_un serv_addr;
+    socklen_t serv_addr_size = sizeof(serv_addr);
+
+    serv_addr.sun_family = AF_UNIX;
+    strcpy(serv_addr.sun_path, socket_path);
+
+    unlink(socket_path);
+    int listen_sock = socket(AF_UNIX, SOCK_STREAM, 0);
+    if(listen_sock < 0) fprintf(stderr, "Cannot setup unix socket for this test\n");
+    rc = bind(listen_sock, (struct sockaddr *) &serv_addr, serv_addr_size);
+    if(rc < 0) fprintf(stderr, "Cannot setup unix socket for this test\n");
+    rc = listen(listen_sock, 20);
+    if(rc < 0) fprintf(stderr, "Cannot setup unix socket for this test\n");
+
+    int clnt_sock = socket(AF_UNIX, SOCK_STREAM, 0);
+    if(clnt_sock < 0) fprintf(stderr, "Cannot setup unix socket for this test\n");
+    rc = connect(clnt_sock, (struct sockaddr *) &serv_addr, serv_addr_size);
+    if(rc < 0) fprintf(stderr, "Cannot setup unix socket for this test\n");
+
+    struct sockaddr_in clnt_addr;
+    int conn_sock = accept(listen_sock, (struct sockaddr*)&clnt_addr, &serv_addr_size);
+
+    *serv = conn_sock;
+    *clnt = clnt_sock;
+
+    return 0;
+}
+
+int sock_helper_end(int serv, int clnt)
+{
+    close(serv);
+    close(clnt);
+    unlink(socket_path);
+    return 0;
 }
 
 #endif

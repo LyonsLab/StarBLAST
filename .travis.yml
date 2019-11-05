@@ -7,12 +7,19 @@ before_install:
   - sudo apt-get update -qq
 
 install: 
+  - sudo apt-get install ncbi-blast+
   - wget http://ccl.cse.nd.edu/software/files/cctools-7.0.19-x86_64-centos7.tar.gz
   - tar -xvf cctools-7.0.19-x86_64-centos7.tar.gz
   - mv cctools-7.0.19-x86_64-centos7 ~/cctools
+  - export PATH=$PATH:~/cctools/bin
+  - sudo mkdir -p /var/www/sequenceserver
+  - sudo chown -R $USER /var/www/sequenceserver
 
 script:
   - make -C src/
+  - sudo make install -C src/
   - make clean -C src/
   - make test -C src/
   - ./src/test
+  - cd test
+  - bash test.sh

@@ -18,8 +18,8 @@ release: blast_workqueue blast_workqueue-backend
 
 .PHONY: install
 install: blast_workqueue blast_workqueue-backend
-	mv blast_workqueue /usr/bin/
-	mv blast_workqueue-backend /usr/bin/
+	cp blast_workqueue /usr/bin/
+	cp blast_workqueue-backend /usr/bin/
 
 .PHONY: simple
 simple: blast_workqueue-simple
