@@ -3,8 +3,8 @@ CC=gcc
 CFLAGS=-g -std=c11 -Wall -Werror
 #CCTOOLS_INCLUDE=/usr/include/cctools-7.0.18/cctools/
 #CCTOOLS_LIB=/usr/lib/cctools-7.0.18/
-CCTOOLS_INCLUDE=/opt/cctools-7.0.19-x86_64-centos7/include/cctools
-CCTOOLS_LIB=/opt/cctools-7.0.19-x86_64-centos7/lib
+CCTOOLS_INCLUDE=$(HOME)/cctools/include/cctools
+CCTOOLS_LIB=$(HOME)/cctools/lib
 LIB=-lwork_queue -ldttools -lm -lz
 
 CUTEST_INCLUDE=../cutest-1.5
