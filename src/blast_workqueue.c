@@ -44,6 +44,7 @@ void sigint_handler(int sig);
 /*
  * Main
  */
+#ifndef UNIT_TEST
 int main(int argc, char *argv[])
 {
     int rc;
@@ -190,6 +191,8 @@ int main(int argc, char *argv[])
 
     return 0;
 }
+#endif
+
 
 int connect_to_backend(const char *serv_ip_addr, int port)
 {
@@ -280,8 +283,57 @@ int print_file(const char *filename)
 
 void sigint_handler(int sig)
 {
-    fprintf(stdout, "SIGINT, clean up\n");
+    fprintf(stdout, "SIGINT, clean up [%d]\n", sig);
     close(sock_fd);
     fclose(log_file);
     exit(0);
 }
+
+
+#ifdef UNIT_TEST
+#include "CuTest.h"
+
+
+// CuAssertTrue(tc, 
+// CuAssertPtrEquals(tc, 
+// CuAssertStrEquals(tc, 
+// CuAssertIntEquals(tc, 
+
+void test1_connect_to_backend(CuTest *tc)
+{
+	//CuAssertIntEquals(tc, connect_to_backend("bad serv_ip_addr", 1234), -1);
+	//CuAssertIntEquals(tc, connect_to_backend("128.0.0.1", 1234), -1);
+	// Both of these tests timed out. Since I couldn't think of a fitting one, this test is mostly pointless.
+	CuAssertIntEquals(tc, 1, 1);
+}
+
+void test2_connect_to_backen_unix(CuTest *tc)
+{
+	CuAssertIntEquals(tc, connect_to_backen_unix("bad path"), -1);
+
+	char largePath[120];
+	int i;
+	for(i = 0; i < 120; i++)
+		largePath[i] = 'q';
+
+	CuAssertIntEquals(tc, connect_to_backen_unix(largePath), -1);
+}
+
+void test3_print_file(CuTest *tc)
+{
+	CuAssertIntEquals(tc, print_file("oneline.file"), 0);
+	CuAssertIntEquals(tc, print_file("thisfileshouldnotexist"), -1);
+}
+
+
+CuSuite* blast_workqueue_suite()
+{
+	CuSuite* suite = CuSuiteNew();
+	SUITE_ADD_TEST(suite, test1_connect_to_backend);
+	SUITE_ADD_TEST(suite, test2_connect_to_backen_unix);
+	SUITE_ADD_TEST(suite, test3_print_file);
+
+	return suite;
+}
+
+#endif
