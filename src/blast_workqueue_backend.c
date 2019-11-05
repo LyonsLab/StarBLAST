@@ -404,8 +404,8 @@ int parse_msg(const char *msg, char **local_infile, char **local_outfile, char *
             free(buffer);
             return -1;
         }
-        *cmd = calloc(strlen(buffer) + 10, sizeof(char));
-        strncpy(*cmd, buffer, 1024);
+        *cmd = calloc(byte_read + 10, sizeof(char));
+        strncpy(*cmd, buffer, byte_read);
 
         // Read out filename of input file
         int infilename_len = 0;
