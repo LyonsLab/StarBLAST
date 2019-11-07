@@ -63,7 +63,9 @@ module SequenceServer
 
       # Thread pool used for running BLAST searches.
       def pool
-        @pool ||= Pool.new(SequenceServer.config[:num_processes])
+        num_processes = 1
+        num_processes = SequenceServer.config[:num_processes] if SequenceServer.config[:num_processes]
+        @pool ||= Pool.new(num_processes)
       end
     end
 
