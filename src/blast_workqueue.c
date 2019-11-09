@@ -183,6 +183,9 @@ int main(int argc, char *argv[])
         fprintf(stderr, "Unable to read output file, or empty\n");
         exit(-1);
     }
+    // Remove the temp file
+    unlink(local_outfile);
+    unlink(cmd_file);
 
     fprintf(log_file, "tasks complete!\n");
 
