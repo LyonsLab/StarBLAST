@@ -45,6 +45,16 @@ module SequenceServer
       jobid
     end
 
+    def set_not_exist(key, value)
+      return nil if @redis.nil?
+
+      begin
+        return @redis.setnx(key, value)
+      rescue Redis::BaseError => e
+        SequenceServer::logger.debug(e.message)
+      end
+    end
+
     # Insert the job into cache
     def insert(job)
       return if @redis.nil?
@@ -56,6 +66,22 @@ module SequenceServer
         # Expire 10 min sooner than job file, at least 1 minute
         expire_time = [JobRemover::DEFAULT_JOB_LIFETIME * 60 - 600, 60].max
         @redis.set(job.cache_key, job.id, :ex => expire_time)
+      rescue StandardError => e
+        SequenceServer::logger.debug(e.message)
+      end
+    end
+
+    # Insert the job into cache
+    def insert(key, value)
+      return if @redis.nil?
+
+      # redis has a max length of 512MB
+      return if key.length >= 536870912
+
+      begin
+        # Expire 10 min sooner than job file, at least 1 minute
+        expire_time = [JobRemover::DEFAULT_JOB_LIFETIME * 60 - 600, 60].max
+        @redis.set(key, value, :ex => expire_time)
       rescue StandardError => e
         SequenceServer::logger.debug(e.message)
       end

@@ -20,19 +20,33 @@ module SequenceServer
         else
           validate params
 
-          @id = SequenceServer::Job.cache.exist?(cache_key params)
-          if @id != nil
+          # use setnx() to insert a placeholder into cache, this is to
+          # eliminate race condition between processes.
+          # think of it as a lock, only 1 process gets to obtain it
+          set_success = SequenceServer::Job.cache.set_not_exist(cache_key(params), "placeholder")
+          puts set_success
+          # if fail to set, means cache hit or other process just obtain it
+          if ! set_success
+            # retrive jobid, wait until it is ready (not placeholder)
+            @id = SequenceServer::Job.cache.exist?(cache_key params)
+            while ! @id || @id == "placeholder"
+              @id = SequenceServer::Job.cache.exist?(cache_key params)
+              puts @id if @id
+              sleep 0.01
+            end
             @cache_hit = true
             logger.debug("Cache Hit")
             return
           end
           super do
+            # if reached here, means current process inserted the placeholder
+            SequenceServer::Job.cache.insert(cache_key(params), @id)
+
             @method    = params[:method]
             @qfile     = store('query.fa', params[:sequence])
             @databases = Database[params[:databases]]
             @options   = params[:advanced].to_s.strip + defaults
             @advanced_params = parse_advanced params[:advanced]
-            @sequence = params[:sequence]
           end
         end
       end

@@ -30,7 +30,7 @@ module SequenceServer
 
         # Execute the job only when cache miss
         if ! job.cache_hit
-          cache.insert(job)
+          #cache.insert(job)
           pool.queue { job.run }
         end
         job
