@@ -87,6 +87,9 @@ module SequenceServer
         @job_remover = JobRemover.new(@config[:job_lifetime])
       end
 
+      # Init cache upon startup
+      SequenceServer::Job.cache
+
       # 'self' is the most meaningful object that can be returned by this
       # method.
       self
