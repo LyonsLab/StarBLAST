@@ -33,9 +33,10 @@ A password file can be used to authenticate between work_queue_worker and the ba
 Usage:
 ```bash
 ./blast_workqueue-backend
-./blast_workqueue-backend <pwd-file>
-./blast_workqueue-backend <pwd-file> <unix-sock-path>
-./blast_workqueue-backend <pwd-file> <ip> <port>
+./blast_workqueue-backend --password <pwd-file>
+./blast_workqueue-backend --unix-sock <unix-sock-path>
+./blast_workqueue-backend --ip <ip-to-listen-on> --port <port>
+./blast_workqueue-backend --help
 ```
 
 ## Communication between Frontend and Backend
