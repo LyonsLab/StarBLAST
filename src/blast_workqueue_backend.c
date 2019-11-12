@@ -27,11 +27,13 @@
 
 #define WQAPP_BACKEND_SOCKET_PATH "/var/www/sequenceserver/backend.server"
 
+char *project_name = NULL;
 char *password_file = NULL;
 char *socket_path = NULL;
 char *backend_ip = NULL;
 int backend_port = -1;
 
+int parse_cmd_arg(int argc, char *argv[]);
 int start_recv_jobs(struct work_queue *q);
 int handle_network_activity(int epfd, int listen_sock, struct work_queue *q);
 int handle_new_conn(uint32_t events, int listen_sock, int epfd);
@@ -54,40 +56,36 @@ int main(int argc, char *argv[])
     int port = WORK_QUEUE_DEFAULT_PORT;
     int rc = 0;
 
-    switch(argc)
+    rc = parse_cmd_arg(argc, argv);
+    if(rc != 0)
     {
-        // Unix, default path, no password
-        case 1:
-            password_file = NULL;
-            socket_path = WQAPP_BACKEND_SOCKET_PATH;
-            break;
-        // Unix, default path, password file
-        case 2:
-            password_file = argv[1];
-            socket_path = WQAPP_BACKEND_SOCKET_PATH;
-            break;
-        // Unix
-        case 3:
-            password_file = argv[1];
-            socket_path = argv[2];
-            break;
-        // TCP
-        case 4:
-            password_file = argv[1];
-            backend_ip = argv[2];
-            backend_port = atoi(argv[3]);
-            break;
-        default:
-            fprintf(stdout, "Usage:\n");
-            fprintf(stdout, "listen on unix socket, %s, no password\n", WQAPP_BACKEND_SOCKET_PATH);
-            fprintf(stdout, "\t./blast_workqueue-backend\n");
-            fprintf(stdout, "listen on unix socket, %s\n", WQAPP_BACKEND_SOCKET_PATH);
-            fprintf(stdout, "\t./blast_workqueue-backend <pwd-file>\n");
-            fprintf(stdout, "listen on unix socket\n");
-            fprintf(stdout, "\t./blast_workqueue-backend <pwd-file> <unix-sock-path>\n");
-            fprintf(stdout, "listen on tcp socket\n");
-            fprintf(stdout, "\t./blast_workqueue-backend <pwd-file> <ip> <port>\n");
-        return 2;
+        switch(rc)
+        {
+            case -1:
+                fprintf(stdout, "CMD ARG ERROR, need to give value when specify option\n");
+                break;
+            case -2:
+                fprintf(stdout, "CMD ARG ERROR, unix socket and tcp socket are mutal exclusive, use only one.\n\n");
+                break;
+            case -3:
+                fprintf(stdout, "CMD ARG ERROR, missing port or ip when using TCP socket.\n\n");
+                break;
+            case -4:
+                fprintf(stdout, "CMD ARG ERROR, invalid port number\n\n");
+                break;
+        }
+        fprintf(stdout, "Usage:\n");
+        fprintf(stdout, "listen on unix socket, %s, no password\n", WQAPP_BACKEND_SOCKET_PATH);
+        fprintf(stdout, "\t./blast_workqueue-backend\n");
+        fprintf(stdout, "listen on unix socket\n");
+        fprintf(stdout, "\t./blast_workqueue-backend --unix-sock <unix-sock-path>\n");
+        fprintf(stdout, "listen on tcp socket\n");
+        fprintf(stdout, "\t./blast_workqueue-backend --ip <ip> --port <port>\n");
+        fprintf(stdout, "\n\n");
+        fprintf(stdout, "Other Options:\n");
+        fprintf(stdout, "\t--password <pwd-filename>\n");
+        fprintf(stdout, "\t--project <project-name>\n");
+        exit(1);
     }
 
     if(signal(SIGINT, sigint_handler) == SIG_ERR)
@@ -117,6 +115,12 @@ int main(int argc, char *argv[])
         fprintf(stdout, "Password file used...\n");
     }
 
+    // Using project name, which means use catalog server
+    if(project_name != NULL)
+    {
+        work_queue_specify_name(q, project_name);
+    }
+
     // Main Loop
     rc = start_recv_jobs(q);
     if(rc < 0)  // when encounter fatal error, exit
@@ -126,6 +130,81 @@ int main(int argc, char *argv[])
     }
 
     return rc;
+}
+
+/*
+ * Parse command line argument
+ * 
+ * @param argc
+ * @param argv
+ * @return 0 if success
+ * @return 1 if --help
+ * @return -1 if option has no value
+ * @return -2 if use unix & tcp sock together
+ * @return -3 if missing port or ip when using tcp
+ * @return -4 if invalid port
+ */
+int parse_cmd_arg(int argc, char *argv[])
+{
+    if(argc == 1)
+    {
+        socket_path = WQAPP_BACKEND_SOCKET_PATH;
+        return 0;
+    }
+
+    for(int i = 1; i < argc; i++)
+    {
+        if(strcmp(argv[i], "--password") == 0)
+        {
+            if(i >= argc-1) return -1;
+            password_file = argv[i+1];
+            i++;
+        }
+        else if(strcmp(argv[i], "--unix-sock") == 0)
+        {
+            if(i >= argc-1) return -1;
+            if(backend_ip != NULL) return -2;
+            socket_path = argv[i+1];
+            i++;
+        }
+        else if(strcmp(argv[i], "--ip") == 0)
+        {
+            if(i >= argc-1) return -1;
+            if(socket_path != NULL) return -2;
+            backend_ip = argv[i+1];
+            i++;
+        }
+        else if(strcmp(argv[i], "--port") == 0)
+        {
+            if(i >= argc-1) return -1;
+            if(socket_path != NULL) return -2;
+            backend_port = atoi(argv[i+1]);
+            // Invalid port
+            if(backend_port == 0) return -4;
+            i++;
+        }
+        else if(strcmp(argv[i], "--project") == 0)
+        {
+            if(i >= argc-1) return -1;
+            project_name = argv[i+1];
+            i++;
+        }
+        else if(strcmp(argv[i], "--help") == 0)
+        {
+            return 1;
+        }
+    }
+    // Default value for unix socket path
+    if(socket_path == NULL && backend_ip == NULL && backend_port == -1)
+    {
+        socket_path = WQAPP_BACKEND_SOCKET_PATH;
+    }
+    // Missing port or missing ip when using TCP
+    if((backend_ip != NULL && backend_port == -1) || (backend_ip == NULL && backend_port != -1))
+    {
+        return -3;
+    }
+    return 0;
 }
 
 /*
