@@ -6,11 +6,11 @@
 
 FROM ubuntu AS build
 
-ENV IRODS_USER anonymous \
-    SEQSERVER_USER seqserver \
-    SEQSERVER_GROUP seqserver_group \
+ENV IRODS_USER=anonymous \
+    SEQSERVER_USER=seqserver \
+    SEQSERVER_GROUP=seqserver_group \
     # Path
-    SEQSERVER_BASE_PATH /var/www/sequenceserver \
+    SEQSERVER_BASE_PATH=/var/www/sequenceserver \
     SEQSERVER_APP_PATH=/var/www/sequenceserver/app \
     SEQSERVER_JOB_PATH=/var/www/sequenceserver/.sequenceserver \
     SEQSERVER_CONFIG_FILE=/var/www/sequenceserver/.sequenceserver.conf \
@@ -43,7 +43,7 @@ RUN git clone https://github.com/zhxu73/sequenceserver-scale.git \
     && cd /root \
     && git clone https://github.com/JLHonors/ACIC2019-Midterm.git \
     # Install BLAST
-    && curl ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/ncbi-blast-2.9.0+-x64-linux.tar.gz -O \
+    && wget ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/ncbi-blast-2.9.0+-x64-linux.tar.gz \
     && tar -xvf ncbi-blast-2.9.0+-x64-linux.tar.gz \
     # Install cctools (WorkQueue)
     && wget http://ccl.cse.nd.edu/software/files/cctools-7.0.21-source.tar.gz \
@@ -69,7 +69,7 @@ RUN mkdir -p to_final_image/bin \
     && cp ACIC2019-Midterm/deploy/sync_blast_db.sh to_final_image/ \
     && echo "{ \"irods_zone_name\": \"iplant\", \"irods_host\": \"data.cyverse.org\", \"irods_port\": 1247, \"irods_user_name\": \"$IRODS_USER\" }" > to_final_image/irods_environment.json
 
-ADD docker_entry.sh $SEQSERVER_APP_PATH/docker_entry.sh
+ADD docker_entry.sh sequenceserver-scale/
 
 
 #######################################################
@@ -83,8 +83,9 @@ LABEL Description="Scalable intuitive local web frontend for the BLAST bioinform
 LABEL Version="0.1"
 
 # Argument
-ENV WORKQUEUE_PASSWORD=VERY_STRONG_PASSWORD \
-    IRODS_SYNC_PATH=/iplant/home/anonymous \
+ENV PROJECT_NAME= \
+    WORKQUEUE_PASSWORD=VERY_STRONG_PASSWORD \
+    IRODS_SYNC_PATH=/iplant/home/shared/iplantcollaborative/example_data/GEA_Blast_dbs \
     BLAST_NUM_THREADS=4 \
     # Username
     IRODS_USER=anonymous \
@@ -116,7 +117,6 @@ RUN apt-get -qq -y update \
     && apt-get -qq -y update \
     && apt-get -qq -y install irods-icommands
 
-VOLUME ["/var/www/sequenceserver/db"]
 EXPOSE 3000 9123
 
 # Create User and Group
@@ -128,6 +128,7 @@ COPY --from=build /root/to_final_image from_build_image
 
 RUN cp from_build_image/bin/* /usr/bin \
     && cp from_build_image/.sequenceserver.conf $SEQSERVER_CONFIG_FILE \
+    && mkdir -p ${SEQSERVER_DB_PATH} \
     && echo ${IRODS_SYNC_PATH} > $SEQSERVER_SYNC_PATH_FILE \
     && cp from_build_image/sync_blast_db.sh $SEQSERVER_BASE_PATH/ \
     && mkdir -p /home/$SEQSERVER_USER/.irods \

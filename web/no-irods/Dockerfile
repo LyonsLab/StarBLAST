@@ -6,10 +6,10 @@
 
 FROM ubuntu AS build
 
-ENV SEQSERVER_USER seqserver \
-    SEQSERVER_GROUP seqserver_group \
+ENV SEQSERVER_USER=seqserver \
+    SEQSERVER_GROUP=seqserver_group \
     # Path
-    SEQSERVER_BASE_PATH /var/www/sequenceserver \
+    SEQSERVER_BASE_PATH=/var/www/sequenceserver \
     SEQSERVER_APP_PATH=/var/www/sequenceserver/app \
     SEQSERVER_JOB_PATH=/var/www/sequenceserver/.sequenceserver \
     SEQSERVER_CONFIG_FILE=/var/www/sequenceserver/.sequenceserver.conf \
@@ -64,7 +64,7 @@ RUN mkdir -p to_final_image/bin \
     && cp /usr/bin/blast_workqueue-backend to_final_image/bin/ \
     && cp ACIC2019-Midterm/deploy/.sequenceserver.conf to_final_image/
 
-ADD docker_entry.sh $SEQSERVER_APP_PATH/docker_entry.sh
+ADD docker_entry.sh sequenceserver-scale/
 
 
 #######################################################
@@ -78,11 +78,10 @@ LABEL Description="Scalable intuitive local web frontend for the BLAST bioinform
 LABEL Version="0.1"
 
 # Argument
-ENV WORKQUEUE_PASSWORD=VERY_STRONG_PASSWORD \
-    IRODS_SYNC_PATH=/iplant/home/anonymous \
+ENV PROJECT_NAME= \
+    WORKQUEUE_PASSWORD=VERY_STRONG_PASSWORD \
     BLAST_NUM_THREADS=4 \
     # Username
-    IRODS_USER=anonymous \
     SEQSERVER_USER=seqserver \
     SEQSERVER_GROUP=seqserver_group \
     # Path
@@ -90,8 +89,7 @@ ENV WORKQUEUE_PASSWORD=VERY_STRONG_PASSWORD \
     SEQSERVER_APP_PATH=/var/www/sequenceserver/app \
     SEQSERVER_JOB_PATH=/var/www/sequenceserver/.sequenceserver \
     SEQSERVER_CONFIG_FILE=/var/www/sequenceserver/.sequenceserver.conf \
-    SEQSERVER_DB_PATH=/var/www/sequenceserver/db \
-    SEQSERVER_SYNC_PATH_FILE=/var/www/sequenceserver/irods_sync_path.txt
+    SEQSERVER_DB_PATH=/var/www/sequenceserver/db
 
 # Update and Upgrade
 RUN apt-get -qq -y update \

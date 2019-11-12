@@ -6,11 +6,11 @@
 
 FROM ubuntu AS build
 
-ENV IRODS_USER anonymous \
-    SEQSERVER_USER seqserver \
-    SEQSERVER_GROUP seqserver_group \
+ENV IRODS_USER=anonymous \
+    SEQSERVER_USER=seqserver \
+    SEQSERVER_GROUP=seqserver_group \
     # Path
-    SEQSERVER_BASE_PATH /var/www/sequenceserver \
+    SEQSERVER_BASE_PATH=/var/www/sequenceserver \
     SEQSERVER_DB_PATH=/var/www/sequenceserver/db \
     SEQSERVER_SYNC_PATH_FILE=/var/www/sequenceserver/irods_sync_path.txt
 
@@ -51,9 +51,12 @@ LABEL Description="Scalable intuitive local web frontend for the BLAST bioinform
 LABEL Version="0.1"
 
 # Argument
-ENV WORKQUEUE_PASSWORD=VERY_STRONG_PASSWORD \
-    IRODS_SYNC_PATH=/iplant/home/anonymous \
+ENV PROJECT_NAME= \
+    WORKQUEUE_PASSWORD=VERY_STRONG_PASSWORD \
+    IRODS_SYNC_PATH=/iplant/home/shared/iplantcollaborative/example_data/GEA_Blast_dbs \
     MASTER_IP=127.0.0.1 \
+    BLAST_NUM_THREADS=4 \
+    NUM_WORKER=1 \
     # Username
     IRODS_USER=anonymous \
     SEQSERVER_USER=seqserver \
@@ -63,7 +66,6 @@ ENV WORKQUEUE_PASSWORD=VERY_STRONG_PASSWORD \
     SEQSERVER_DB_PATH=/var/www/sequenceserver/db \
     SEQSERVER_SYNC_PATH_FILE=/var/www/sequenceserver/irods_sync_path.txt
 
-VOLUME ["/var/www/sequenceserver/db"]
 EXPOSE 9123
 
 WORKDIR /root
@@ -82,6 +84,7 @@ RUN apt-get -qq -y update \
     && cd /root \
     # Copy files
     && cp from_build_image/bin/* /usr/bin \
+    && mkdir -p $SEQSERVER_DB_PATH \
     && echo ${IRODS_SYNC_PATH} > $SEQSERVER_SYNC_PATH_FILE \
     && cp from_build_image/sync_blast_db.sh $SEQSERVER_BASE_PATH/ \
     && mkdir -p /home/$SEQSERVER_USER/.irods \
@@ -92,7 +95,7 @@ RUN apt-get -qq -y update \
 ADD docker_entry.sh ${SEQSERVER_BASE_PATH}/docker_entry.sh
 RUN chown -R ${SEQSERVER_USER}:${SEQSERVER_GROUP} ${SEQSERVER_BASE_PATH}
 
-#USER ${SEQSERVER_USER}
+USER ${SEQSERVER_USER}
 WORKDIR ${SEQSERVER_BASE_PATH}
 ENTRYPOINT ["/bin/bash", "docker_entry.sh"]
 

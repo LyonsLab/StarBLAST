@@ -6,13 +6,11 @@
 
 FROM ubuntu AS build
 
-ENV IRODS_USER anonymous \
-    SEQSERVER_USER seqserver \
-    SEQSERVER_GROUP seqserver_group \
+ENV SEQSERVER_USER=seqserver \
+    SEQSERVER_GROUP=seqserver_group \
     # Path
-    SEQSERVER_BASE_PATH /var/www/sequenceserver \
-    SEQSERVER_DB_PATH=/var/www/sequenceserver/db \
-    SEQSERVER_SYNC_PATH_FILE=/var/www/sequenceserver/irods_sync_path.txt
+    SEQSERVER_BASE_PATH=/var/www/sequenceserver \
+    SEQSERVER_DB_PATH=/var/www/sequenceserver/db
 
 
 # Update and Upgrade
@@ -36,8 +34,7 @@ RUN wget http://ccl.cse.nd.edu/software/files/cctools-7.0.21-source.tar.gz \
 RUN mkdir -p to_final_image/bin \
     && cp ncbi-blast-2.9.0+/bin/* to_final_image/bin/ \
     && cp cctools/bin/* to_final_image/bin/ \
-    && cp ACIC2019-Midterm/deploy/sync_blast_db.sh to_final_image/ \
-    && echo "{ \"irods_zone_name\": \"iplant\", \"irods_host\": \"data.cyverse.org\", \"irods_port\": 1247, \"irods_user_name\": \"$IRODS_USER\" }" > to_final_image/irods_environment.json
+    && cp ACIC2019-Midterm/deploy/sync_blast_db.sh to_final_image/
 
 
 #######################################################
@@ -51,8 +48,11 @@ LABEL Description="Scalable intuitive local web frontend for the BLAST bioinform
 LABEL Version="0.1"
 
 # Argument
-ENV WORKQUEUE_PASSWORD= \
+ENV PROJECT_NAME= \
+    WORKQUEUE_PASSWORD= \
     MASTER_IP=127.0.0.1 \
+    BLAST_NUM_THREADS=4 \
+    NUM_WORKER=1 \
     # Username
     SEQSERVER_USER=seqserver \
     SEQSERVER_GROUP=seqserver_group \
