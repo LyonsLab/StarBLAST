@@ -41,7 +41,7 @@ RUN git clone https://github.com/zhxu73/sequenceserver-scale.git \
     && cd /root \
     && git clone https://github.com/JLHonors/ACIC2019-Midterm.git \
     # Install BLAST
-    && curl ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/ncbi-blast-2.9.0+-x64-linux.tar.gz -O \
+    && wget https://github.com/zhxu73/sequenceserver-scale-docker/releases/download/ncbi-blast-2.9.0%2B/ncbi-blast-2.9.0+-x64-linux.tar.gz \
     && tar -xvf ncbi-blast-2.9.0+-x64-linux.tar.gz \
     # Install cctools (WorkQueue)
     && wget http://ccl.cse.nd.edu/software/files/cctools-7.0.21-source.tar.gz \
