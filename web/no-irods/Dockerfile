@@ -61,10 +61,12 @@ RUN mkdir -p to_final_image/bin \
     && cp ncbi-blast-2.9.0+/bin/* to_final_image/bin/ \
     && cp cctools/bin/* to_final_image/bin/ \
     && cp /usr/bin/blast_workqueue to_final_image/bin/ \
-    && cp /usr/bin/blast_workqueue-backend to_final_image/bin/ \
-    && cp ACIC2019-Midterm/deploy/.sequenceserver.conf to_final_image/
+    && cp /usr/bin/blast_workqueue-backend to_final_image/bin/
 
+# Docker entry file
 ADD docker_entry.sh sequenceserver-scale/
+# Add config file
+ADD .sequenceserver.conf to_final_image/
 
 
 #######################################################

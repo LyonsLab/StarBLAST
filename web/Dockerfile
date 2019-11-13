@@ -39,9 +39,6 @@ RUN git clone https://github.com/zhxu73/sequenceserver-scale.git \
     && cd sequenceserver-scale \
     # Install the dependencies of SequenceServer
     && bundle install --path vendor/bundle --without development test \
-    # Download config file
-    && cd /root \
-    && git clone https://github.com/JLHonors/ACIC2019-Midterm.git \
     # Install BLAST
     && wget ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/ncbi-blast-2.9.0+-x64-linux.tar.gz \
     && tar -xvf ncbi-blast-2.9.0+-x64-linux.tar.gz \
@@ -64,12 +61,12 @@ RUN mkdir -p to_final_image/bin \
     && cp cctools/bin/* to_final_image/bin/ \
     && cp /usr/bin/blast_workqueue to_final_image/bin/ \
     && cp /usr/bin/blast_workqueue-backend to_final_image/bin/ \
-    && cp ACIC2019-Midterm/deploy/.sequenceserver.conf to_final_image/ \
-    && cp ACIC2019-Midterm/deploy/nginx_seqserver.conf to_final_image/ \
-    && cp ACIC2019-Midterm/deploy/sync_blast_db.sh to_final_image/ \
     && echo "{ \"irods_zone_name\": \"iplant\", \"irods_host\": \"data.cyverse.org\", \"irods_port\": 1247, \"irods_user_name\": \"$IRODS_USER\" }" > to_final_image/irods_environment.json
 
+# Docker entry file
 ADD docker_entry.sh sequenceserver-scale/
+# Add config file
+ADD .sequenceserver.conf to_final_image/
 
 
 #######################################################

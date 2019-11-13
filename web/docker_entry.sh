@@ -2,7 +2,7 @@
 
 # irsync the database 
 iinit
-irsync -rK i:$IRODS_SYNC_PATH $SEQSERVER_DB_PATH
+irsync -rKv i:$IRODS_SYNC_PATH $SEQSERVER_DB_PATH
 
 # redis for cache
 redis-server &
