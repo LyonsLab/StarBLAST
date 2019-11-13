@@ -40,6 +40,7 @@ RUN git clone https://github.com/zhxu73/sequenceserver-scale.git \
     # Install the dependencies of SequenceServer
     && bundle install --path vendor/bundle --without development test \
     # Install BLAST
+    && cd /root \
     && wget https://github.com/zhxu73/sequenceserver-scale-docker/releases/download/ncbi-blast-2.9.0%2B/ncbi-blast-2.9.0+-x64-linux.tar.gz \
     && tar -xvf ncbi-blast-2.9.0+-x64-linux.tar.gz \
     # Install cctools (WorkQueue)
@@ -128,7 +129,6 @@ RUN cp from_build_image/bin/* /usr/bin \
     && mkdir -p ${SEQSERVER_DB_PATH} \
     && mkdir -p ${SEQSERVER_JOB_PATH} \
     && echo ${IRODS_SYNC_PATH} > $SEQSERVER_SYNC_PATH_FILE \
-    && cp from_build_image/sync_blast_db.sh $SEQSERVER_BASE_PATH/ \
     && mkdir -p /home/$SEQSERVER_USER/.irods \
     && cp from_build_image/irods_environment.json /home/$SEQSERVER_USER/.irods/irods_environment.json \
     && echo ${WORKQUEUE_PASSWORD} > $SEQSERVER_BASE_PATH/wq_password.txt \

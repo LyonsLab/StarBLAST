@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# Overwrite the DB path for sequenceserver by append
+if [ $SEQSERVER_DB_PATH != "/var/www/sequenceserver/db" ]; then
+    echo ":database_dir: \"$SEQSERVER_DB_PATH\"" >> ../.sequenceserver.conf
+fi
+
 # redis for cache
 redis-server &
 echo $! > $SEQSERVER_BASE_PATH/redis.pid

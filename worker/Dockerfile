@@ -91,7 +91,7 @@ RUN apt-get -qq -y update \
     && cp from_build_image/irods_environment.json /home/$SEQSERVER_USER/.irods/irods_environment.json \
     && echo ${WORKQUEUE_PASSWORD} > $SEQSERVER_BASE_PATH/wq_password.txt \
     && cd ${SEQSERVER_APP_PATH} \
-    && chown -R ${SEQSERVER_USER}:${SEQSERVER_GROUP} ${SEQSERVER_BASE_PATH}
+    && chown -R ${SEQSERVER_USER}:${SEQSERVER_GROUP} ${SEQSERVER_BASE_PATH} \
     # Allow folder creation in /home
     && chown :${SEQSERVER_GROUP} /home \
     && chmod g+rwx /home

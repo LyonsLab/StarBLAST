@@ -4,7 +4,9 @@
 mkdir -p $SEQSERVER_DB_PATH
 
 # Overwrite the DB path for sequenceserver by append
-echo ":database_dir: \"/var/www/sequenceserver/db\"" >> ../.sequenceserver.conf
+if [ $SEQSERVER_DB_PATH != "/var/www/sequenceserver/db" ]; then
+    echo ":database_dir: \"$SEQSERVER_DB_PATH\"" >> ../.sequenceserver.conf
+fi
 
 # irsync the database 
 iinit

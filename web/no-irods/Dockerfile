@@ -37,10 +37,8 @@ RUN git clone https://github.com/zhxu73/sequenceserver-scale.git \
     && cd sequenceserver-scale \
     # Install the dependencies of SequenceServer
     && bundle install --path vendor/bundle --without development test \
-    # Download config file
-    && cd /root \
-    && git clone https://github.com/JLHonors/ACIC2019-Midterm.git \
     # Install BLAST
+    && cd /root \
     && wget https://github.com/zhxu73/sequenceserver-scale-docker/releases/download/ncbi-blast-2.9.0%2B/ncbi-blast-2.9.0+-x64-linux.tar.gz \
     && tar -xvf ncbi-blast-2.9.0+-x64-linux.tar.gz \
     # Install cctools (WorkQueue)
