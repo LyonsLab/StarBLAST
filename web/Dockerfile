@@ -129,6 +129,7 @@ COPY --from=build /root/to_final_image from_build_image
 RUN cp from_build_image/bin/* /usr/bin \
     && cp from_build_image/.sequenceserver.conf $SEQSERVER_CONFIG_FILE \
     && mkdir -p ${SEQSERVER_DB_PATH} \
+    && mkdir -p ${SEQSERVER_JOB_PATH} \
     && echo ${IRODS_SYNC_PATH} > $SEQSERVER_SYNC_PATH_FILE \
     && cp from_build_image/sync_blast_db.sh $SEQSERVER_BASE_PATH/ \
     && mkdir -p /home/$SEQSERVER_USER/.irods \

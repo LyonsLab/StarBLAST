@@ -115,6 +115,7 @@ COPY --from=build /root/sequenceserver-scale ${SEQSERVER_APP_PATH}
 COPY --from=build /root/to_final_image from_build_image
 
 RUN cp from_build_image/bin/* /usr/bin \
+    && mkdir -p ${SEQSERVER_JOB_PATH} \
     && cp from_build_image/.sequenceserver.conf $SEQSERVER_CONFIG_FILE \
     && echo ${WORKQUEUE_PASSWORD} > $SEQSERVER_BASE_PATH/wq_password.txt \
     && chown -R ${SEQSERVER_USER}:${SEQSERVER_GROUP} ${SEQSERVER_BASE_PATH}
