@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Create db path
+mkdir -p $SEQSERVER_DB_PATH
+
+# Overwrite the DB path for sequenceserver by append
+echo ":database_dir: \"/var/www/sequenceserver/db\"" >> ../.sequenceserver.conf
+
 # irsync the database 
 iinit
 irsync -rKv i:$IRODS_SYNC_PATH $SEQSERVER_DB_PATH

@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Create db path
+mkdir -p $SEQSERVER_DB_PATH
+
 # irsync the database 
 iinit
 irsync -rKv i:$IRODS_SYNC_PATH $SEQSERVER_DB_PATH

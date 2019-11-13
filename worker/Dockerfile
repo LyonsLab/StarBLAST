@@ -92,6 +92,10 @@ RUN apt-get -qq -y update \
     && echo ${WORKQUEUE_PASSWORD} > $SEQSERVER_BASE_PATH/wq_password.txt \
     && cd ${SEQSERVER_APP_PATH} \
     && chown -R ${SEQSERVER_USER}:${SEQSERVER_GROUP} ${SEQSERVER_BASE_PATH}
+    # Allow folder creation in /home
+    && chown :${SEQSERVER_GROUP} /home \
+    && chmod g+rwx /home
+
 ADD docker_entry.sh ${SEQSERVER_BASE_PATH}/docker_entry.sh
 RUN chown -R ${SEQSERVER_USER}:${SEQSERVER_GROUP} ${SEQSERVER_BASE_PATH}
 
