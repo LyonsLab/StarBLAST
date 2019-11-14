@@ -78,7 +78,7 @@ RUN apt-get -qq -y update \
 ADD docker_entry.sh ${SEQSERVER_BASE_PATH}/docker_entry.sh
 RUN chown -R ${SEQSERVER_USER}:${SEQSERVER_GROUP} ${SEQSERVER_BASE_PATH}
 
-#USER ${SEQSERVER_USER}
+USER ${SEQSERVER_USER}
 WORKDIR ${SEQSERVER_BASE_PATH}
 ENTRYPOINT ["/bin/bash", "docker_entry.sh"]
 
