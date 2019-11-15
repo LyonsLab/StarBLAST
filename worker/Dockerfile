@@ -74,7 +74,7 @@ COPY --from=build /root/to_final_image from_build_image
 # Update and Upgrade
 RUN apt-get -qq -y update \
     && apt-get -qq -y install gnupg wget \
-    # Install iRODs
+    # Install iRODS
     && wget -qO - https://packages.irods.org/irods-signing-key.asc | apt-key add - \
     && echo "deb [arch=amd64] https://packages.irods.org/apt/ xenial main" | tee /etc/apt/sources.list.d/renci-irods.list \
     && apt-get -qq -y update \

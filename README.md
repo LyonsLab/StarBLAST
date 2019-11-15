@@ -34,14 +34,14 @@ https://hub.docker.com/repository/docker/zhxu73/sequenceserver-scale
 
 * `IRODS_SYNC_PATH`
 
-    iRODs (tag latest) container only
+    iRODS (tag latest) container only
 
-    The iRODs path to download the database from.
+    The iRODS path to download the database from.
 
     Default to `/iplant/home/shared/iplantcollaborative/example_data/GEA_Blast_dbs`
 
 ### Example Usage:
-With iRODs
+With iRODS
 ```
 docker run --rm -ti -p 80:3000 -p 9123:9123 -e PROJECT_NAME=starBLAST -e WORKQUEUE_PASSWORD= -e BLAST_NUM_THREADS=4 zhxu73/sequenceserver-scale
 ```
@@ -49,7 +49,7 @@ docker run --rm -ti -p 80:3000 -p 9123:9123 -e PROJECT_NAME=starBLAST -e WORKQUE
 docker run --rm -ti -p 80:3000 -p 9123:9123 -e PROJECT_NAME=starBLAST -e WORKQUEUE_PASSWORD= -e BLAST_NUM_THREADS=4 -e SEQSERVER_DB_PATH=/home/zhxu73/db zhxu73/sequenceserver-scale
 ```
 
-Without iRODs
+Without iRODS
 ```
 docker run --rm -ti -p 80:3000 -p 9123:9123 -e PROJECT_NAME=starBLAST -e WORKQUEUE_PASSWORD= -e BLAST_NUM_THREADS=4 -v /local_db_path:/var/www/sequenceserver/db zhxu73/sequenceserver-scale:no-irods
 ```
@@ -93,7 +93,7 @@ https://hub.docker.com/repository/docker/zhxu73/sequenceserver-scale-worker
 
 * `SEQSERVER_DB_PATH`
 
-    iRODs (tag latest) container only
+    iRODS (tag latest) container only
 
     Path of database inside the container, should be consistent between master and worker
 
@@ -101,14 +101,14 @@ https://hub.docker.com/repository/docker/zhxu73/sequenceserver-scale-worker
 
 * `IRODS_SYNC_PATH`
 
-    iRODs (tag latest) container only
+    iRODS (tag latest) container only
 
-    The iRODs path to download the database from.
+    The iRODS path to download the database from.
 
     Default to `/iplant/home/shared/iplantcollaborative/example_data/GEA_Blast_dbs`
 
 ### Example Usage:
-With iRODs
+With iRODS
 ```
 docker run --rm -ti --net=host -e PROJECT_NAME=starBLAST -e WORKQUEUE_PASSWORD= -e BLAST_NUM_THREADS=4 -e NUM_WORKER=2 zhxu73/sequenceserver-scale-worker
 ```
@@ -116,7 +116,7 @@ docker run --rm -ti --net=host -e PROJECT_NAME=starBLAST -e WORKQUEUE_PASSWORD= 
 docker run --rm -ti --net=host -e PROJECT_NAME=starBLAST -e WORKQUEUE_PASSWORD= -e BLAST_NUM_THREADS=4 -e NUM_WORKER=2 -e SEQSERVER_DB_PATH=/home/zhxu73/db zhxu73/sequenceserver-scale-worker
 ```
 
-Without iRODs
+Without iRODS
 ```
 docker run --rm -ti --net=host -e PROJECT_NAME=starBLAST -e WORKQUEUE_PASSWORD= -e BLAST_NUM_THREADS=4 -e NUM_WORKER=2 -v /local_db_path:/var/www/sequenceserver/db zhxu73/sequenceserver-scale-worker:no-irods
 ```

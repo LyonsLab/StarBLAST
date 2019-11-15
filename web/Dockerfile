@@ -109,7 +109,7 @@ RUN apt-get -qq -y update \
     # Install Passenger+Nginx and others
     && apt-get -qq -y install passenger ruby ruby-dev zlib1g-dev redis-server wget git \
     && gem install bundler \
-    # Install iRODs
+    # Install iRODS
     && wget -qO - https://packages.irods.org/irods-signing-key.asc | apt-key add - \
     && echo "deb [arch=amd64] https://packages.irods.org/apt/ xenial main" | tee /etc/apt/sources.list.d/renci-irods.list \
     && apt-get -qq -y update \
