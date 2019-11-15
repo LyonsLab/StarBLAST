@@ -1,11 +1,64 @@
 # sequenceserver-scale-docker
 docker container for (sequenceserver-scale)[https://github.com/zhxu73/sequenceserver-scale]
 
+This repo include 4 docker containers:
+
+| -        | Web/Master                           | Worker                                        |
+| -------- |:------------------------------------:| :--------------------------------------------:|
+| iRODS    | zhxu73/sequenceserver-scale:latest   | zhxu73/sequenceserver-scale-worker:latest     |
+| No iRODS | zhxu73/sequenceserver-scale:no-irods | zhxu73/sequenceserver-scale-worker:no-irods   |
+
+There are 2 ways to make the database available to sequenceserver:
+one is with iRODS
+`-e IRODS_SYNC_PATH=/iplant/home/shared/iplantcollaborative/example_data/GEA_Blast_dbs`
+the other is by bind mount local directory.
+
+They can be used interchangably, as even with non-docker (native) deployment, as long as the database path inside docker are the same, and BLAST binary installed in `$PATH`:
+
+e.g. Use iRODS master docker with a No-iRODS worker
+<details>
+  <summary>Expand</summary>
+
+- Master
+```bash
+docker run --rm -ti -p 80:3000 -p 9123:9123 -e PROJECT_NAME=starBLAST -e WORKQUEUE_PASSWORD= -e BLAST_NUM_THREADS=4 -e SEQSERVER_DB_PATH=/home/zhxu73/db zhxu73/sequenceserver-scale
+```
+
+- Worker
+```bash
+docker run --rm -ti -p 80:3000 -p 9123:9123 -e PROJECT_NAME=starBLAST -e WORKQUEUE_PASSWORD= -e BLAST_NUM_THREADS=4 -e SEQSERVER_DB_PATH=/home/zhxu73/db -v $HOME/blastdb:/home/zhxu73/db zhxu73/sequenceserver-scale:no-irods
+```
+
+</details>
+
+e.g. Use iRODS master docker with native work_queue_factory
+<details>
+  <summary>Expand</summary>
+
+- Master
+```bash
+docker run --rm -ti -p 80:3000 -p 9123:9123 -e PROJECT_NAME=starBLAST -e WORKQUEUE_PASSWORD= -e BLAST_NUM_THREADS=4 -e SEQSERVER_DB_PATH=/home/zhxu73/db zhxu73/sequenceserver-scale
+```
+
+- Worker
+
+```bash
+iinit
+mkdir -p /home/zhxu73/db
+irsync -rKv i:/iplant/home/shared/iplantcollaborative/example_data/GEA_Blast_dbs /home/zhxu73/db
+work_queue_factory -T local -M starBLAST -w 1 --cores=4
+```
+
+</details>
+
+
 ## Web/Master docker image
 https://hub.docker.com/repository/docker/zhxu73/sequenceserver-scale
 
 ### Available Environment Variable:
-
+<details>
+  <summary>Expand</summary>
+    
 * `PROJECT_NAME`
 
     This option utilize the catalog server
@@ -40,6 +93,8 @@ https://hub.docker.com/repository/docker/zhxu73/sequenceserver-scale
 
     Default to `/iplant/home/shared/iplantcollaborative/example_data/GEA_Blast_dbs`
 
+</details>
+
 ### Example Usage:
 With iRODS
 ```
@@ -62,6 +117,8 @@ https://hub.docker.com/repository/docker/zhxu73/sequenceserver-scale-worker
 
 
 ### Available Environment Variable:
+<details>
+  <summary>Expand</summary>
 
 * `PROJECT_NAME`
 
@@ -106,6 +163,8 @@ https://hub.docker.com/repository/docker/zhxu73/sequenceserver-scale-worker
     The iRODS path to download the database from.
 
     Default to `/iplant/home/shared/iplantcollaborative/example_data/GEA_Blast_dbs`
+
+</details>
 
 ### Example Usage:
 With iRODS
