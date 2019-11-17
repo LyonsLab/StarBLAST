@@ -1,0 +1,20 @@
+[Unit]
+Description=starBLAST worker docker
+After=docker.service
+Requires=docker.service
+StartLimitIntervalSec=0
+
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+EnvironmentFile=/etc/starBLAST-environment
+Type=simple
+Restart=always
+RestartSec=1
+User=root
+ExecStartPre=-/usr/bin/docker kill zhxu73/sequenceserver-scale-worker:no-irods
+ExecStartPre=/usr/bin/docker pull zhxu73/sequenceserver-scale-worker:no-irods
+ExecStart=/usr/bin/docker run --rm --name sequenceserver-scale-worker --net=host -e PROJECT_NAME=${PROJECT_NAME} -e WORKQUEUE_PASSWORD=${WORKQUEUE_PASSWORD} -e BLAST_NUM_THREADS=${CPU_PER_WORKER} -e NUM_WORKER=${NUM_WORKER} -v /scratch:/var/www/sequenceserver/db zhxu73/sequenceserver-scale-worker:no-irods
+ExecStop=/usr/bin/docker stop zhxu73/sequenceserver-scale-worker:no-irods
+
