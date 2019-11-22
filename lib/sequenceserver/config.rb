@@ -106,7 +106,8 @@ module SequenceServer
           tblastx: ['-evalue 1e-5'],
           tblastn: ['-evalue 1e-5']
         },
-        num_threads: 1
+        num_threads: 1,
+        cache: "enable"
       }
     end
   end
