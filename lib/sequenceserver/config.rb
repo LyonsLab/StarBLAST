@@ -107,7 +107,8 @@ module SequenceServer
           tblastn: ['-evalue 1e-5']
         },
         num_threads: 1,
-        cache: "enable"
+        cache: "enable",
+        timeout: 1200
       }
     end
   end

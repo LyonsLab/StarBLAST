@@ -82,7 +82,8 @@ module SequenceServer
       # Returns the command that will be executed. Job super class takes care
       # of actual execution.
       def command
-        @command ||= "blast_workqueue \"timeout 600s #{method} -db '#{databases.map(&:name).join(' ')}'" \
+        fail "timeout is set to less than 1 sec in config file" if config[:timeout].to_i < 1
+        @command ||= "blast_workqueue \"timeout #{config[:timeout]}s #{method} -db '#{databases.map(&:name).join(' ')}'" \
                      " -query '#{qfile}' #{options}\""
       end
 
