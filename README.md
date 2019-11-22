@@ -14,8 +14,12 @@ https://github.com/zhxu73/blast-workqueue
 
 Support job caching with redis-server
 
+## Docker container
+[https://github.com/zhxu73/sequenceserver-scale-docker](https://github.com/zhxu73/sequenceserver-scale-docker)
+
 ## Deploy with Passenger + Nginx
 [doc](https://github.com/zhxu73/sequenceserver-scale/blob/master/doc/deploy_nginx_passenger.md)
+
 ## Deploy with Passenger standalone
 [doc](https://github.com/zhxu73/sequenceserver-scale/blob/master/doc/deploy_passenger.md)
 
