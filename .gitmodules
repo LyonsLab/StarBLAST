@@ -1,0 +1,4 @@
+[submodule "sequenceserver-scale-docker"]
+	path = sequenceserver-scale-docker
+	url = https://github.com/zhxu73/sequenceserver-scale-docker.git
+	branch = master
