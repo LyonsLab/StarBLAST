@@ -1,4 +1,4 @@
-#Contributors and Maintainers
+# Contributors and Maintainers
 
 ## CyVerse Maintainer: 
 
@@ -10,7 +10,23 @@
 
 |Name|Contact Info|Institution|Notes|
 |----|------------|-----------|-----|
-|Upendra K. Devisetty|upendrakumar.devisetty@googlemail.com|CyVerse||
-|Sateesh Peri|sateeshp@email.arizona.edu|University of Arizona||
+|Name|@email.arizona.edu|University of Arizona||
+|||||
+|||||
+|||||
+|||||
+|||||
+|||||
+|||||
+|||||
+|||||
+|||||
+|||||
+|||||
+|||||
+|||||
+|||||
+|||||
+|||||
 |||||
 
