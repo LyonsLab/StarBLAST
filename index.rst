@@ -107,7 +107,7 @@ To set up a custom database on the VICE platform, see the appendix section.
 ----
 
 starBlast-Dockers on Atmosphere Cloud
-------------------------------------
+-------------------------------------
 
 To deploy starBlast setup on CyVerse Atmosphere cloud, you will need access to `Atmosphere <https://atmo.cyverse.org/application/images>`_. Request access to Atmosphere from your `CyVerse user account <https://user.cyverse.org>`_.
 
@@ -115,53 +115,44 @@ You will need to launch a Master instance that will host sequenceServer and one 
 
 Both the Master and Worker Virtual Machine instances use Docker containers to run sequenceServer and connect Workers. 
 
+1. Accessing scripts
 
+- Access the "sequenceserver-scale-docker @ cd4eeb5" inside this github
 
-   
+- Access the “deploy” folder
 
+- The two scripts (atmo_deploy_master.sh and atmo_deploy_worker.sh) are required in order to make the Master and Worker virtual machines
 
+2. Setting up the machine 
+  
+- In `Atmosphere <https://atmo.cyverse.org/application/images>`_ select “Launch New Instance”
 
+|Tut_1|_
+  
+- Search for “Docker” and select the “Docker” image here highlighted (or go `here <https://atmo.cyverse.org/application/images/1759>`_); click “Launch”
 
+|Tut_2|_
+|Tut_3|_ 
 
+- In the pop up menu you can personalize your image (e.g. Instance Size); select “Advanced Options”
 
+|Tut_4|_
 
+-  Select “Create a New Script” 
 
+|Tut_5|_
 
+-  Choose a title for your script; Select “Raw Text” and copy and paste the text from either the Master (if creating the Master virtual machine) or Worker (if creating the Worker virtual machine) scripts that were shown earlier. Select “Save and Add Script”.
 
+**Note: this step is required to be done *once* for both the Master and Worker virtual machines**
+ 
+|Tut_6|_
 
+-  Select “Continue to Launch”
 
+|Tut_7|_
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Atmosphere will take around 5-10 minutes to set up and activate your personalized virtual machines
 
 Start Blasting
 ~~~~~~~~~~~~~~
@@ -177,14 +168,7 @@ Now, anyone can open a web-browser and go to <MASTER_VM_IP_ADDRESS> to access se
 starBlast-HPC Setup
 -------------------
 
-
-
-
-
-
-
-
-
+The starBlast-HPC Setup  was conceived for groups that wish a larger quantity of power.  
 
 Setting Up the Worker HPC
 ~~~~~~~~~~~~~~~~~~~~~~~~
