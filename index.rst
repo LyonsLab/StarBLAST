@@ -354,32 +354,32 @@ Read more here at `ncbi docker wiki <https://github.com/ncbi/docker/wiki/Getting
 .. _Home_Icon: http://learning.cyverse.org/
 .. |discovery_enviornment| raw:: html
 .. |Tut_1| image:: ./img/Tut_06.PNG
-    :width: 16
-    :height: 9
+    :width: 50
+    :height: 25
 .. _Tut_1: http://learning.cyverse.org/
 .. |Tut_2| image:: ./img/Tut_07.PNG
-    :width: 16
-    :height: 9
+    :width: 50
+    :height: 25
 .. _Tut_2: http://learning.cyverse.org/
 .. |Tut_3| image:: ./img/Tut_08.PNG
-    :width: 16
-    :height: 9
+    :width: 50
+    :height: 25
 .. _Tut_3: http://learning.cyverse.org/
 .. |Tut_4| image:: ./img/Tut_09.PNG
-    :width: 16
-    :height: 9
+    :width: 50
+    :height: 25
 .. _Tut_4: http://learning.cyverse.org/
 .. |Tut_5| image:: ./img/Tut_10.PNG
-    :width: 16
-    :height: 9
+    :width: 50
+    :height: 25
 .. _Tut_5: http://learning.cyverse.org/
 .. |Tut_6| image:: ./img/Tut_11.PNG
-    :width: 16
-    :height: 9
+    :width: 50
+    :height: 25
 .. _Tut_6: http://learning.cyverse.org/
 .. |Tut_7| image:: ./img/Tut_12.PNG
-    :width: 16
-    :height: 9
+    :width: 50
+    :height: 25
 .. _Tut_7: http://learning.cyverse.org/
     <a href="https://de.cyverse.org/de/" target="_blank">Discovery Environment</a>
     
