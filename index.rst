@@ -115,13 +115,6 @@ You will need to launch a Master instance that will host sequenceServer and one 
 
 Both the Master and Worker Virtual Machine instances use Docker containers to run sequenceServer and connect Workers. 
 
-Launching Master & Worker Instances
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-1. Go to https://atmo.cyverse.org and log in with your Cyverse Username and Password
-2. Launch a Master (medium1) instance which will broadcast as a Master using `this <https://atmo.cyverse.org/application/images/1759>`_ image with docker preinstalled.
-3. Launch a Worker (XLarge1) instance which will connect to the Master using `this <https://atmo.cyverse.org/application/images/1759>`_ image with docker preinstalled.
-4. When the instances are ready showing Active (with a green dot), login to your Master and Worker instances using ssh <CYVERSE_USERNAME>@<MASTER_VM_IP_ADDRESS> and enter your cyverse password.
-
 
 
    
