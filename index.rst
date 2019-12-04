@@ -110,34 +110,46 @@ Both the Master and Worker Virtual Machine instances use Docker containers to ru
 
 Launching Master & Worker Instances
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-1. Go to https://atmo.cyverse.org and log in with your Cyverse Username and Password
-2. Launch a Master (medium1) instance which will broadcast as a Master using `this <https://atmo.cyverse.org/application/images/1759>`_ image with docker preinstalled.
-3. Launch a Worker (XLarge1) instance which will connect to the Master using `this <https://atmo.cyverse.org/application/images/1759>`_ image with docker preinstalled.
-4. When the instances are ready showing Active (with a green dot), login to your Master and Worker instances using ssh <CYVERSE_USERNAME>@<MASTER_VM_IP_ADDRESS> and enter your cyverse password.
 
+1. Accessing scripts
 
-Setting Up Master Docker
-~~~~~~~~~~~~~~~~~~~~~~~~
+- Access the "sequenceserver-scale-docker @ cd4eeb5" inside this github
 
-Copy and pase the following code in the Master instance to launch sequenceServer with two databases (Human_GRCh38_p12 & Mouse_GRCm38_p4) ready to distribute BLAST queries to workers
+- Access the “deploy” folder
 
-.. code:: 
+- The two scripts (atmo_deploy_master.sh and atmo_deploy_worker.sh) are required in order to make the Master and Worker virtual machines
 
-   docker run -ti -p 80:3000 -p 9123:9123 -e PROJECT_NAME=starBlast -e WORKQUEUE_PASSWORD= -e BLAST_NUM_THREADS=4 zhxu73/sequenceserver-scale
-   
-.. note::
-	
-   It might take 2-5min to download the databases from CyVerse data store	
-   
-Setting Up Worker Docker
-~~~~~~~~~~~~~~~~~~~~~~~~
+2. Setting up the machine 
+  
+- In `Atmosphere <https://atmo.cyverse.org/application/images>`_ select “Launch New Instance”
 
-Copy and paste the following code into your Worker instance to connect the Worker docker to the Master docker. The Worker knows where to find the master by the environmental variable PROJECT_NAME set as above. 
+|Tut_1|_
+  
+- Search for “Docker” and select the “Docker” image here highlighted (or go `here <https://atmo.cyverse.org/application/images/1759>`_); click “Launch”
 
-.. code:: 
+|Tut_2|_
+|Tut_3|_ 
 
-   docker run -ti --net=host -e PROJECT_NAME=starBlast -e WORKQUEUE_PASSWORD= -e BLAST_NUM_THREADS=4 -e NUM_WORKER=2 zhxu73/sequenceserver-scale-worker
-   
+- In the pop up menu you can personalize your image (e.g. Instance Size); select “Advanced Options”
+
+|Tut_4|_
+
+-  Select “Create a New Script” 
+
+|Tut_5|_
+
+-  Choose a title for your script; Select “Raw Text” and copy and paste the text from either the Master (if creating the Master virtual machine) or Worker (if creating the Worker virtual machine) scripts that were shown earlier. Select “Save and Add Script”.
+
+**Note: this step is required to be done *once* for both the Master and Worker virtual machines**
+ 
+|Tut_6|_
+
+-  Select “Continue to Launch”
+
+|Tut_7|_
+
+Atmosphere will take around 5-10 minutes to set up and activate your personalized virtual machines
+  
 Start Blasting
 ~~~~~~~~~~~~~~
 
@@ -152,7 +164,7 @@ Now, anyone can open a web-browser and go to <MASTER_VM_IP_ADDRESS> to access se
 starBlast-HPC Setup
 -------------------
 
-The starBlast-HPC Setup  was conceived for groups that wish a larger quantity of power.  
+The starBlast-HPC Setup  was conceived for groups that wish a larger quantity of power.  	
 
 In order to achieve a successful setup of the starBlast HPC system, a small amount of command line knowledge is required.
 
@@ -341,5 +353,32 @@ Read more here at `ncbi docker wiki <https://github.com/ncbi/docker/wiki/Getting
     :height: 25
 .. _Home_Icon: http://learning.cyverse.org/
 .. |discovery_enviornment| raw:: html
-
+.. |Tut_1| image:: ./img/Tut_06.PNG
+    :width: 16
+    :height: 9
+.. _Tut_1: http://learning.cyverse.org/
+.. |Tut_2| image:: ./img/Tut_07.PNG
+    :width: 16
+    :height: 9
+.. _Tut_2: http://learning.cyverse.org/
+.. |Tut_3| image:: ./img/Tut_08.PNG
+    :width: 16
+    :height: 9
+.. _Tut_3: http://learning.cyverse.org/
+.. |Tut_4| image:: ./img/Tut_09.PNG
+    :width: 16
+    :height: 9
+.. _Tut_4: http://learning.cyverse.org/
+.. |Tut_5| image:: ./img/Tut_10.PNG
+    :width: 16
+    :height: 9
+.. _Tut_5: http://learning.cyverse.org/
+.. |Tut_6| image:: ./img/Tut_11.PNG
+    :width: 16
+    :height: 9
+.. _Tut_6: http://learning.cyverse.org/
+.. |Tut_7| image:: ./img/Tut_12.PNG
+    :width: 16
+    :height: 9
+.. _Tut_7: http://learning.cyverse.org/
     <a href="https://de.cyverse.org/de/" target="_blank">Discovery Environment</a>
