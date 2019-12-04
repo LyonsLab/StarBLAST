@@ -118,6 +118,51 @@ Both the Master and Worker Virtual Machine instances use Docker containers to ru
 
 
    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Start Blasting
 ~~~~~~~~~~~~~~
 
@@ -131,6 +176,14 @@ Now, anyone can open a web-browser and go to <MASTER_VM_IP_ADDRESS> to access se
 
 starBlast-HPC Setup
 -------------------
+
+
+
+
+
+
+
+
 
 
 Setting Up the Worker HPC
