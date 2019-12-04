@@ -115,6 +115,50 @@ You will need to launch a Master instance that will host sequenceServer and one 
 
 Both the Master and Worker Virtual Machine instances use Docker containers to run sequenceServer and connect Workers. 
 
+
+Launching Master & Worker Instances
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. Accessing scripts
+
+- Access the "sequenceserver-scale-docker @ cd4eeb5" inside this github
+
+- Access the “deploy” folder
+
+- The two scripts (atmo_deploy_master.sh and atmo_deploy_worker.sh) are required in order to make the Master and Worker virtual machines
+
+2. Setting up the machine 
+  
+- In `Atmosphere <https://atmo.cyverse.org/application/images>`_ select “Launch New Instance”
+
+|Tut_1|_
+  
+- Search for “Docker” and select the “Docker” image here highlighted (or go `here <https://atmo.cyverse.org/application/images/1759>`_); click “Launch”
+
+|Tut_2|_
+|Tut_3|_ 
+
+- In the pop up menu you can personalize your image (e.g. Instance Size); select “Advanced Options”
+
+|Tut_4|_
+
+-  Select “Create a New Script” 
+
+|Tut_5|_
+
+-  Choose a title for your script; Select “Raw Text” and copy and paste the text from either the Master (if creating the Master virtual machine) or Worker (if creating the Worker virtual machine) scripts that were shown earlier. Select “Save and Add Script”.
+
+**Note: this step is required to be done *once* for both the Master and Worker virtual machines**
+ 
+|Tut_6|_
+
+-  Select “Continue to Launch”
+
+|Tut_7|_
+
+Atmosphere will take around 5-10 minutes to set up and activate your personalized virtual machines
+  
+=======
 1. Accessing scripts
 
 - Access the "sequenceserver-scale-docker @ cd4eeb5" inside this github
@@ -154,6 +198,7 @@ Both the Master and Worker Virtual Machine instances use Docker containers to ru
 
 Atmosphere will take around 5-10 minutes to set up and activate your personalized virtual machines
 
+
 Start Blasting
 ~~~~~~~~~~~~~~
 
@@ -168,7 +213,7 @@ Now, anyone can open a web-browser and go to <MASTER_VM_IP_ADDRESS> to access se
 starBlast-HPC Setup
 -------------------
 
-The starBlast-HPC Setup  was conceived for groups that wish a larger quantity of power.  
+The starBlast-HPC Setup  was conceived for groups that wish a larger quantity of power.  	
 
 Setting Up the Worker HPC
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -361,5 +406,32 @@ Read more here at `ncbi docker wiki <https://github.com/ncbi/docker/wiki/Getting
     :height: 25
 .. _Home_Icon: http://learning.cyverse.org/
 .. |discovery_enviornment| raw:: html
-
+.. |Tut_1| image:: ./img/Tut_06.PNG
+    :width: 16
+    :height: 9
+.. _Tut_1: http://learning.cyverse.org/
+.. |Tut_2| image:: ./img/Tut_07.PNG
+    :width: 16
+    :height: 9
+.. _Tut_2: http://learning.cyverse.org/
+.. |Tut_3| image:: ./img/Tut_08.PNG
+    :width: 16
+    :height: 9
+.. _Tut_3: http://learning.cyverse.org/
+.. |Tut_4| image:: ./img/Tut_09.PNG
+    :width: 16
+    :height: 9
+.. _Tut_4: http://learning.cyverse.org/
+.. |Tut_5| image:: ./img/Tut_10.PNG
+    :width: 16
+    :height: 9
+.. _Tut_5: http://learning.cyverse.org/
+.. |Tut_6| image:: ./img/Tut_11.PNG
+    :width: 16
+    :height: 9
+.. _Tut_6: http://learning.cyverse.org/
+.. |Tut_7| image:: ./img/Tut_12.PNG
+    :width: 16
+    :height: 9
+.. _Tut_7: http://learning.cyverse.org/
     <a href="https://de.cyverse.org/de/" target="_blank">Discovery Environment</a>
