@@ -139,12 +139,6 @@ Now, anyone can open a web-browser and go to <MASTER_VM_IP_ADDRESS> to access se
 starBlast-HPC Setup
 -------------------
 
-The starBlast-HPC Setup is recommended for scaling to a classroom with hundreds of students, in which worker_factories will be connected by a High Performance Computer.  
-
-.. note::
-   In order to achieve a successful setup of the starBlast HPC system, a small amount of command line knowledge is required.
-
-Similar to the starBlast-Dockers on Atmosphere Cloud,  the starBlast HPC system has a Master-Worker set-up: a dockerized atmosphere VM machine acts as the Master, and the HPC acts as the Worker. It is suggested that the Worker is set up well ahead of time.
 
 Setting Up the Worker HPC
 ~~~~~~~~~~~~~~~~~~~~~~~~
