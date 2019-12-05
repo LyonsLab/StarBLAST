@@ -111,7 +111,7 @@ Both the Master and Worker Virtual Machine instances use Docker containers to ru
 Launching Master & Worker Instances
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. Accessing scripts
+1. Accessing the deployment scripts
 
 - Access the "sequenceserver-scale-docker @ cd4eeb5" inside this github
 
@@ -119,15 +119,16 @@ Launching Master & Worker Instances
 
 - The two scripts (atmo_deploy_master.sh and atmo_deploy_worker.sh) are required in order to make the Master and Worker virtual machines
 
-2. Setting up the machine 
+2. Setting up instances
   
 - In `Atmosphere <https://atmo.cyverse.org/application/images>`_ select “Launch New Instance”
 
 |Tut_1|_
   
-- Search for “Docker” and select the “Docker” image here highlighted (or go `here <https://atmo.cyverse.org/application/images/1759>`_); click “Launch”
+- Search for “Docker” and select the “Docker” image here highlighted (or click `here <https://atmo.cyverse.org/application/images/1759>`_); click “Launch”
 
 |Tut_2|_
+
 |Tut_3|_ 
 
 - In the pop up menu you can personalize your image (e.g. Instance Size); select “Advanced Options”
@@ -148,7 +149,7 @@ Launching Master & Worker Instances
 
 |Tut_7|_
 
-Atmosphere will take around 5-10 minutes to set up and activate your personalized virtual machines
+Atmosphere will take around 5-10 minutes to set up and activate your personalized virtual machines and the wait-time will increase with the size of the blast database.
   
 Start Blasting
 ~~~~~~~~~~~~~~
@@ -354,32 +355,32 @@ Read more here at `ncbi docker wiki <https://github.com/ncbi/docker/wiki/Getting
 .. _Home_Icon: http://learning.cyverse.org/
 .. |discovery_enviornment| raw:: html
 .. |Tut_1| image:: ./img/Tut_06.PNG
-    :width: 300
-    :height: 200
+    :width: 450
+    :height: 250
 .. _Tut_1: http://learning.cyverse.org/
 .. |Tut_2| image:: ./img/Tut_07.PNG
-    :width: 300
-    :height: 200
+    :width: 450
+    :height: 250
 .. _Tut_2: http://learning.cyverse.org/
 .. |Tut_3| image:: ./img/Tut_08.PNG
-    :width: 300
-    :height: 200
+    :width: 450
+    :height: 250
 .. _Tut_3: http://learning.cyverse.org/
 .. |Tut_4| image:: ./img/Tut_09.PNG
-    :width: 300
-    :height: 200
+    :width: 450
+    :height: 250
 .. _Tut_4: http://learning.cyverse.org/
 .. |Tut_5| image:: ./img/Tut_10.PNG
-    :width: 300
-    :height: 200
+    :width: 450
+    :height: 250
 .. _Tut_5: http://learning.cyverse.org/
 .. |Tut_6| image:: ./img/Tut_11.PNG
-    :width: 300
-    :height: 200
+    :width: 450
+    :height: 250
 .. _Tut_6: http://learning.cyverse.org/
 .. |Tut_7| image:: ./img/Tut_12.PNG
-    :width: 300
-    :height: 200
+    :width: 450
+    :height: 250
 .. _Tut_7: http://learning.cyverse.org/
     <a href="https://de.cyverse.org/de/" target="_blank">Discovery Environment</a>
     
