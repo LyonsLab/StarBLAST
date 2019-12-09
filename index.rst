@@ -11,7 +11,13 @@ StarBLAST
 What is StarBLAST?
 ------------------
 
+Students at the University of Arizona have created a scalable extension of the open source Sequenceserver BLAST, with the goal of making BLAST more accessible to educators and researchers who want to run classroom-scale searches concurrently. Read on to learn more about how we did it.
+
 |starblast_logo|_
+
+In 2015 a modern frontend implementation of BLAST, Sequenceserver, was developed by the Wurmlab at Queen Mary University of London (Priyam et al., 2015). Sequenceserver provides various advantages over the NCBI BLAST implementation, such as an improved GUI to visualize BLAST results, the use of custom databases, and the ability to download results in various formats for further analysis. Sequenceserver enables research teams to create computational environments with their own resources and easily share their results. Despite being a state-of-the-art BLAST service, the current Sequenceserver implementation is not easily scalable, especially for classes without IT support or classes with hundreds of students.
+
+StarBLAST extends Sequenceserver’s BLAST implementation with the Work Queue job management system to distribute work amongst multiple machines. By providing distributed and scalable BLAST capabilities, StarBLAST enables researchers and instructors to run many BLAST jobs simultaneously using large computational resources.
 
 StarBLAST is distributed scaling of BLAST using `sequence-server <http://sequenceserver.com/>`_ and `cctools <http://ccl.cse.nd.edu/>`_.
 
