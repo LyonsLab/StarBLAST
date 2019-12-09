@@ -109,28 +109,32 @@ Quick Launch
 ----
 
 StarBLAST-Dockers on Atmosphere Cloud
-------------------------------------
+-------------------------------------
 
 To deploy StarBLAST setup on CyVerse Atmosphere cloud, you will need access to `Atmosphere <https://atmo.cyverse.org/application/images>`_. Request access to Atmosphere from your `CyVerse user account <https://user.cyverse.org>`_.
 
-You will need to launch a Master instance that will host sequenceServer and one or more Worker instances as needed to distribute the blast jobs. 
+You will need to launch a Master instance that will host sequenceServer front-end and one or more Worker instances as needed to distribute the blast jobs. 
 
 Both the Master and Worker Virtual Machine instances use Docker containers to run sequenceServer and connect Workers. 
 
 Launching Master & Worker Instances
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. Accessing the deployment scripts
+1. Login to `Atmosphere <https://atmo.cyverse.org/application/images>`_ where we will be setting up Master and Worker instances that are to be launched using the following respective deployment scripts. These deployment scripts (Master & Worker) are designed to:
++ download specified blast databases
++ Master script to launch sequenceServer front-end that can be accessed using the IP ADDRESS of the instance. 
++ Worker script to connect factory of workers to the Master
 
-- Access the "sequenceserver-scale-docker @ cd4eeb5" inside this github
+2. The deployment scripts for a Master instance (atmo_deploy_master.sh) can be found `here <https://raw.githubusercontent.com/zhxu73/sequenceserver-scale-docker/cd4eeb52d1dcdbcd2b0c983bc34893212db0428c/deploy/atmo_deploy_master.sh>`_. 
 
-- Access the “deploy” folder
+3. The deployment scripts for a Worker instance (atmo_deploy_worker.sh) can be found `here <https://raw.githubusercontent.com/zhxu73/sequenceserver-scale-docker/cd4eeb52d1dcdbcd2b0c983bc34893212db0428c/deploy/atmo_deploy_worker.sh>`_.
 
-- The two scripts (atmo_deploy_master.sh and atmo_deploy_worker.sh) are required in order to make the Master and Worker virtual machines
+.. note::
+   Users can specify the blast databases to be downloaded in the deployment scripts 
 
-2. Setting up instances
+4. Launching Master instance with deployment script
   
-- In `Atmosphere <https://atmo.cyverse.org/application/images>`_ select “Launch New Instance”
+- From `Atmosphere <https://atmo.cyverse.org/application/images>`_ dashboard, select “Launch New Instance”
 
 |Tut_1|_
   
@@ -140,7 +144,7 @@ Launching Master & Worker Instances
 
 |Tut_3|_ 
 
-- In the pop up menu you can personalize your image (e.g. Instance Size); select “Advanced Options”
+- In the pop up menu you can customize your image (e.g. Instance Size. recommend a minimum of medium m1 instance for Master); select “Advanced Options”
 
 |Tut_4|_
 
@@ -158,7 +162,7 @@ Launching Master & Worker Instances
 
 |Tut_7|_
 
-Atmosphere will take around 5-10 minutes to set up and activate your personalized virtual machines and the wait-time will increase with the size of the blast database.
+Atmosphere will take around 5-10 minutes to set up and activate your customized virtual machines and the wait-time will increase with the size of the blast database.
   
 Start Blasting
 ~~~~~~~~~~~~~~
@@ -174,11 +178,11 @@ Now, anyone can open a web-browser and go to <MASTER_VM_IP_ADDRESS> to access se
 StarBLAST-HPC Setup
 -------------------
 
-The StarBLAST-HPC Setup  was conceived for groups that wish a larger quantity of power.  	
+The StarBLAST-HPC Setup is ideal for distributing BLAST searches across multiple nodes on a High-Performance Computer.
 
 In order to achieve a successful setup of the StarBLAST HPC system, a small amount of command line knowledge is required.
 
-Similar to the StarBLAST-Atmosphere Cloud,  the StarBLAST HPC system has a Master-Worker set up: a dockerized atmosphere VM machine acts as the Master, and the HPC acts as the Worker. It is suggested that the Worker is set up well ahead of time.
+Similar to the StarBLAST-Dockers on Atmosphere cloud, the StarBLAST-HPC system also has a Master-Worker set-up: a dockerized atmosphere VM machine acts as the Master, and the HPC acts as the Worker. It is suggested that the Worker is set up well ahead of time.
 
 Setting Up the Worker HPC
 ~~~~~~~~~~~~~~~~~~~~~~~~
