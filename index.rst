@@ -44,7 +44,7 @@ SequenceServer is an intuitive local web frontend for the BLAST bioinformatics t
 What is Work_Queue?
 -------------------
 
-The Cooperating Computing Tools (CCTools) help you to design and deploy scalable applications that run on hundreds or thousands of machines at once. Work Queue in cctools is a framework for building large master-worker applications that span thousands of machines drawn from clusters, clouds, and grids. 
+The Cooperating Computing Tools (`CCTools <http://ccl.cse.nd.edu/>`_) help you to design and deploy scalable applications that run on hundreds or thousands of machines at once. `Work Queue <https://cctools.readthedocs.io/en/latest/work_queue/>`_ in cctools is a framework for building large master-worker applications that span thousands of machines drawn from clusters, clouds, and grids. See `documentation here <https://cctools.readthedocs.io/en/latest/>`_ 
 
 
 Platform(s)
@@ -121,9 +121,9 @@ Launching Master & Worker Instances
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. Login to `Atmosphere <https://atmo.cyverse.org/application/images>`_ where we will be setting up Master and Worker instances that are to be launched using the following respective deployment scripts. These deployment scripts (Master & Worker) are designed to:
-+ download specified blast databases
-+ Master script to launch sequenceServer front-end that can be accessed using the IP ADDRESS of the instance. 
-+ Worker script to connect factory of workers to the Master
+	+ download specified blast databases
+	+ Master script to launch sequenceServer front-end that can be accessed using the IP ADDRESS of the instance. 
+	+ Worker script to connect factory of workers to the Master
 
 2. The deployment scripts for a Master instance (atmo_deploy_master.sh) can be found `here <https://raw.githubusercontent.com/zhxu73/sequenceserver-scale-docker/cd4eeb52d1dcdbcd2b0c983bc34893212db0428c/deploy/atmo_deploy_master.sh>`_. 
 
@@ -152,9 +152,10 @@ Launching Master & Worker Instances
 
 |Tut_5|_
 
--  Choose a title for your script; Select “Raw Text” and copy and paste the text from either the Master (if creating the Master virtual machine) or Worker (if creating the Worker virtual machine) scripts that were shown earlier. Select “Save and Add Script”.
+-  Choose a title for your script; Select “Raw Text” and copy and paste text from either the Master (if creating the Master virtual machine) or Worker (if creating the Worker virtual machine) deployment scripts linked above. Select “Save and Add Script”.
 
-**Note: this step is required to be done *once* for both the Master and Worker virtual machines**
+.. note::
+   This step is required to be done **once** for both the Master and Worker virtual machines. The deployment scripts are stored in user's advanced settings and will be available readily for future use.
  
 |Tut_6|_
 
@@ -162,7 +163,11 @@ Launching Master & Worker Instances
 
 |Tut_7|_
 
-Atmosphere will take around 5-10 minutes to set up and activate your customized virtual machines and the wait-time will increase with the size of the blast database.
+5. Launching Worker instance(s) with deployment script.
+
+
+.. note::
+   Atmosphere will take around 5-10 minutes to set up and activate your customized virtual machines and the wait-time will increase with the size of the blast database.
   
 Start Blasting
 ~~~~~~~~~~~~~~
@@ -283,8 +288,8 @@ Start BLASTING! Enter the <MASTER_VM_IP_ADDRESS> in your browser using the actua
    
 ----
 
-Appendix A
-----------
+Appendix
+--------
 
 StarBLAST-VICE Using Custom Databases
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -304,7 +309,6 @@ Set the PATH to custom databases on CyVerse Data Store by using the custom IRODS
 .. code:: 
    
    -e IRODS_SYNC_PATH=/PATH/TO/Databases
-
 
 
 StarBLAST-Docker on any Cloud Using Custom Databases
@@ -336,15 +340,15 @@ Worker Docker
 
 
 Making Custom Databases using ncbi_blast_docker
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Read more here at `ncbi docker wiki <https://github.com/ncbi/docker/wiki/Getting-BLAST-databases>`_
+	+ Read more here at `ncbi docker wiki <https://github.com/ncbi/docker/wiki/Getting-BLAST-databases>`_
 
 ----
 
 **Fix or improve this documentation**
 
-- On Github: `Repo link <https://github.com/sateeshperi/StarBLAST/>`_
+- On Github: `Repo link <https://github.com/uacic/StarBlast>`_
 - Send feedback: `Tutorials@CyVerse.org <Tutorials@CyVerse.org>`_
 
 ----
@@ -374,32 +378,32 @@ Read more here at `ncbi docker wiki <https://github.com/ncbi/docker/wiki/Getting
 .. _starblast_logo: http://learning.cyverse.org/    
 .. |discovery_enviornment| raw:: html
 .. |Tut_1| image:: ./img/Tut_06.PNG
-    :width: 450
-    :height: 250
+    :width: 650
+    :height: 450
 .. _Tut_1: http://learning.cyverse.org/
 .. |Tut_2| image:: ./img/Tut_07.PNG
-    :width: 450
-    :height: 250
+    :width: 650
+    :height: 450
 .. _Tut_2: http://learning.cyverse.org/
 .. |Tut_3| image:: ./img/Tut_08.PNG
-    :width: 450
-    :height: 250
+    :width: 650
+    :height: 450
 .. _Tut_3: http://learning.cyverse.org/
 .. |Tut_4| image:: ./img/Tut_09.PNG
-    :width: 450
-    :height: 250
+    :width: 650
+    :height: 450
 .. _Tut_4: http://learning.cyverse.org/
 .. |Tut_5| image:: ./img/Tut_10.PNG
-    :width: 450
-    :height: 250
+    :width: 650
+    :height: 450
 .. _Tut_5: http://learning.cyverse.org/
 .. |Tut_6| image:: ./img/Tut_11.PNG
-    :width: 450
-    :height: 250
+    :width: 650
+    :height: 450
 .. _Tut_6: http://learning.cyverse.org/
 .. |Tut_7| image:: ./img/Tut_12.PNG
-    :width: 450
-    :height: 250
+    :width: 650
+    :height: 450
 .. _Tut_7: http://learning.cyverse.org/
     <a href="https://de.cyverse.org/de/" target="_blank">Discovery Environment</a>
     
