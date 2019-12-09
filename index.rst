@@ -334,7 +334,7 @@ Worker Docker
    
    `XSEDE Jetstream <https://use.jetstream-cloud.org/application/images>`_
    
-   `Digital Ocean Cloud <https://www.digitalocean.com/>`_. See more documentation `here <https://github.com/sateeshperi/StarBLAST/blob/master/DO.rst>`_.
+   `Digital Ocean Cloud <https://www.digitalocean.com/>`_. See more documentation `here <DO.rst>`_.
    
    `Google Cloud Platform <https://cloud.google.com/>`_
 
