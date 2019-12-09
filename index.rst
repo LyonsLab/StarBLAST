@@ -6,6 +6,8 @@
 starBlast
 =========
 
+Students at the University of Arizona have created a scalable extension of the open source Sequenceserver BLAST, with the goal of making BLAST more accessible to educators and researchers who want to run classroom-scale searches concurrently. Read on to learn more about how we did it. 
+
 .. contents::
 
 What is starBlast?
