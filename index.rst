@@ -11,9 +11,10 @@ StarBLAST
 What is StarBLAST?
 ------------------
 
+|starblast_logo|_
+
 StarBLAST is distributed scaling of BLAST using `sequence-server <http://sequenceserver.com/>`_ and `cctools <http://ccl.cse.nd.edu/>`_.
 
-|starblast_logo|_
 
 .. note::
    
