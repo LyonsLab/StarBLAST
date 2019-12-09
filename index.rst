@@ -3,37 +3,39 @@
 |Home_Icon|_
 `Learning Center Home <http://learning.cyverse.org/>`_
 
-starBlast
+StarBLAST
 =========
 
 Students at the University of Arizona have created a scalable extension of the open source Sequenceserver BLAST, with the goal of making BLAST more accessible to educators and researchers who want to run classroom-scale searches concurrently. Read on to learn more about how we did it. 
 
 .. contents::
 
-What is starBlast?
+What is StarBLAST?
 ------------------
 
-starBlast is a distributed scaling of BLAST using sequence-server and cctools.
+In 2015 a modern frontend implementation of BLAST, Sequenceserver, was developed by the Wurmlab at Queen Mary University of London (Priyam et al., 2015). Sequenceserver provides various advantages over the NCBI BLAST implementation, such as an improved GUI to visualize BLAST results, the use of custom databases, and the ability to download results in various formats for further analysis. Sequenceserver enables research teams to create computational environments with their own resources and easily share their results. Despite being a state-of-the-art BLAST service, the current Sequenceserver implementation is not easily scalable, especially for classes without IT support or classes with hundreds of students.
+
+StarBLAST extends Sequenceserver’s BLAST implementation with the Work Queue job management system to distribute work amongst multiple machines. By providing distributed and scalable BLAST capabilities, StarBLAST enables researchers and instructors to run many BLAST jobs simultaneously using large computational resources. 
 
 .. note::
    
-   starBlast is a project undertaken by under-graduate and graduate students taking the "Applied Concepts in Cyberinfrastructure" course, 2019 at University of Arizona taught by Dr. Nirav Merchant and Dr. Eric Lyons.
+   StarBLAST is a project undertaken by under-graduate and graduate students taking the "Applied Concepts in Cyberinfrastructure" course, 2019 at University of Arizona taught by Dr. Nirav Merchant and Dr. Eric Lyons.
 
-starBlast-VICE
+StarBLAST-VICE
 ~~~~~~~~~~~~~~
 
-starBlast-VICE is a Visual and Interactive Computing Environment in CyVerse’s Discovery Environment (DE) for running interactive apps such as sequence-server. 
+StarBLAST-VICE is a Visual and Interactive Computing Environment in CyVerse’s Discovery Environment (DE) for running interactive apps such as sequence-server. 
 
 
-starBlast-Dockers
+StarBLAST-Dockers
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-starBlast-Docker containers can be deployed on any cloud such as Atmosphere for distributed scaling of BLAST searches.
+StarBLAST-Docker containers can be deployed on any cloud such as Atmosphere for distributed scaling of BLAST searches.
 
-starBlast-HPC
+StarBLAST-HPC
 ~~~~~~~~~~~~~
 
-starBlast-HPC is a solution to distribute large number of queries on a High Performance Computer.
+StarBLAST-HPC is a solution to distribute large number of queries on a High Performance Computer.
 
 
 What is sequenceServer?
@@ -61,19 +63,19 @@ Platform(s)
       - Link
       - Platform Documentation
       - Learning Center Docs
-    * - starBlast VICE
+    * - StarBLAST VICE
       - Discovery Environment
       - 5-25 Students
       - `Discovery Environment <https://de.cyverse.org/de/>`_
       - `DE Manual <https://wiki.cyverse.org/wiki/display/DEmanual/Table+of+Contents>`_
       - `Guide <https://learning.cyverse.org/projects/discovery-environment-guide/en/latest/>`__
-    * - starBlast Atmosphere
+    * - StarBLAST Atmosphere
       - Atmosphere Cloud / Docker
       - 25-50 Students
       - `Atmosphere <https://atmo.cyverse.org/de/>`_
       - `Atmosphere Manual <https://wiki.cyverse.org/wiki/display/DEmanual/Table+of+Contents>`_
       - `Guide <>`__
-    * - starBlast HPC
+    * - StarBLAST HPC
       - HPC & Atmosphere Cloud
       - 50+ Students
       - `cctools <https://atmo.cyverse.org/de/>`_
@@ -82,7 +84,7 @@ Platform(s)
 
 ----
 
-starBlast-VICE Setup
+StarBLAST-VICE Setup
 --------------------
 
 .. note::
@@ -101,10 +103,10 @@ To set up a custom database on the VICE platform, see the appendix section.
 
 ----
 
-starBlast-Docker on Atmosphere Cloud
+StarBLAST-Docker on Atmosphere Cloud
 ------------------------------------
 
-To deploy starBlast setup on CyVerse Atmosphere cloud, you will need access to `Atmosphere <https://atmo.cyverse.org/application/images>`_. Request access to Atmosphere from your `CyVerse user account <https://user.cyverse.org>`_.
+To deploy StarBLAST setup on CyVerse Atmosphere cloud, you will need access to `Atmosphere <https://atmo.cyverse.org/application/images>`_. Request access to Atmosphere from your `CyVerse user account <https://user.cyverse.org>`_.
 
 You will need to launch a Master instance that will host sequenceServer and one or more Worker instances as needed to distribute the blast jobs. 
 
@@ -164,14 +166,14 @@ Now, anyone can open a web-browser and go to <MASTER_VM_IP_ADDRESS> to access se
 
 ----
 
-starBlast-HPC Setup
+StarBLAST-HPC Setup
 -------------------
 
-The starBlast-HPC Setup  was conceived for groups that wish a larger quantity of power.  	
+The StarBLAST-HPC Setup  was conceived for groups that wish a larger quantity of power.  	
 
 In order to achieve a successful setup of the starBlast HPC system, a small amount of command line knowledge is required.
 
-Similar to the starBlast-Atmosphere Cloud,  the starBlast HPC system has a Master-Worker set up: a dockerized atmosphere VM machine acts as the Master, and the HPC acts as the Worker. It is suggested that the Worker is set up well ahead of time.
+Similar to the StarBLAST-Atmosphere Cloud,  the starBlast HPC system has a Master-Worker set up: a dockerized atmosphere VM machine acts as the Master, and the HPC acts as the Worker. It is suggested that the Worker is set up well ahead of time.
 
 Setting Up the Worker HPC
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -289,15 +291,15 @@ Set the PATH to custom databases on CyVerse Data Store by using the custom IRODS
    
    -e IRODS_SYNC_PATH=/PATH/TO/Databases
 
-starBlast-VICE Using Custom Databases
+StarBLAST-VICE Using Custom Databases
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 See documentation and a demo tutorial on launching the sequenceserver VICE app with custom databases `here <https://cyverse-sequenceserver.readthedocs-hosted.com/en/latest/>`_.
 
-starBlast-Docker on any Cloud Using Custom Databases
+StarBLAST-Docker on any Cloud Using Custom Databases
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-starBlast (no-irods) docker containers can be run on any cloud platform/s you have access to by supplying the local path to blast databases as follows:
+StarBLAST (no-irods) docker containers can be run on any cloud platform/s you have access to by supplying the local path to blast databases as follows:
 
 Master/Web Docker
 
