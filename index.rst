@@ -6,7 +6,7 @@
 StarBLAST
 =========
 
-Students at the University of Arizona have created a scalable extension of the open source Sequenceserver BLAST, with the goal of making BLAST more accessible to educators and researchers who want to run classroom-scale searches concurrently. StarBLAST is distributed scaling of BLAST using `sequence-server <http://sequenceserver.com/>`_ and `cctools <http://ccl.cse.nd.edu/>`_. Read on to learn more about how we did it.
+Students at the University of Arizona have created a scalable extension of the open source Sequenceserver BLAST, with the goal of making BLAST more accessible to educators and researchers who want to run classroom-scale searches concurrently. StarBLAST is distributed scaling of BLAST using `sequence-server <http://sequenceserver.com/>`_ and `cctools <http://ccl.cse.nd.edu/>`_. 
 
 .. contents::
 
@@ -15,7 +15,7 @@ What is StarBLAST?
 
 |starblast_logo|_
 
-In 2015 a modern frontend implementation of BLAST, Sequenceserver, was developed by the Wurmlab at Queen Mary University of London (Priyam et al., 2015). Sequenceserver provides various advantages over the NCBI BLAST implementation, such as an improved GUI to visualize BLAST results, the use of custom databases, and the ability to download results in various formats for further analysis. Sequenceserver enables research teams to create computational environments with their own resources and easily share their results. Despite being a state-of-the-art BLAST service, the current Sequenceserver implementation is not easily scalable, especially for classes without IT support or classes with hundreds of students.
+In 2015 a modern front-end implementation of BLAST, Sequenceserver, was developed by the Wurmlab at Queen Mary University of London (Priyam et al., 2015). Sequenceserver provides various advantages over the NCBI BLAST implementation, such as an improved GUI to visualize BLAST results, the use of custom databases, and the ability to download results in various formats for further analysis. Sequenceserver enables research teams to create computational environments with their own resources and easily share their results. Despite being a state-of-the-art BLAST service, the current Sequenceserver implementation is not easily scalable, especially for classes without IT support or classes with hundreds of students.
 
 StarBLAST extends Sequenceserver’s BLAST implementation with the Work Queue job management system to distribute work amongst multiple machines. By providing distributed and scalable BLAST capabilities, StarBLAST enables researchers and instructors to run many BLAST jobs simultaneously using large computational resources.
 
@@ -24,10 +24,10 @@ StarBLAST extends Sequenceserver’s BLAST implementation with the Work Queue jo
    
    StarBLAST is a project undertaken by under-graduate and graduate students taking the "Applied Concepts in Cyberinfrastructure" course, 2019 at University of Arizona taught by Dr. Nirav Merchant and Dr. Eric Lyons.
 
-StarBLAST-VICE
-~~~~~~~~~~~~~~
+Sequenceserver-VICE
+~~~~~~~~~~~~~~~~~~~
 
-StarBLAST-VICE is a Visual and Interactive Computing Environment in CyVerse’s Discovery Environment (DE) for running interactive apps such as sequence-server. 
+Sequenceserver-VICE is a Visual and Interactive Computing Environment in CyVerse’s Discovery Environment (DE) for running interactive apps such as Sequenceserver. 
 
 
 StarBLAST-Dockers
@@ -41,10 +41,10 @@ StarBLAST-HPC
 StarBLAST-HPC is a solution to distribute large number of queries on a High Performance Computer.
 
 
-What is SequenceServer?
+What is Sequenceserver?
 -----------------------
 
-SequenceServer is an intuitive local web frontend for the BLAST bioinformatics tool that lets you rapidly set up a BLAST+ server for individual use or for sharing datasets with your colleagues and your community. Read about SequenceServer's user-centric design and sustainable software development philosophy `here <https://doi.org/10.1093/molbev/msz185>`_.
+Sequenceserver is an intuitive local web frontend for the BLAST bioinformatics tool that lets you rapidly set up a BLAST+ server for individual use or for sharing datasets with your colleagues and your community. Read about Sequenceserver's user-centric design and sustainable software development philosophy `here <https://doi.org/10.1093/molbev/msz185>`_.
 
 What is Work_Queue?
 -------------------
@@ -87,10 +87,10 @@ Platform(s)
 
 ----
 
-StarBLAST-VICE Setup
+Sequenceserver-VICE Setup
 --------------------
 
-StarBLAST-VICE is a Visual and Interactive Computing Environment app in CyVerse’s Discovery Environment (DE) for running interactive apps such as SequenceServer. 
+Sequenceserver-VICE is a Visual and Interactive Computing Environment app in CyVerse’s Discovery Environment (DE) for running interactive apps such as SequenceServer. 
 
 .. note::
 
@@ -296,10 +296,10 @@ Start BLASTING! Enter the <MASTER_VM_IP_ADDRESS> in your browser using the actua
 Appendix
 --------
 
-StarBLAST-VICE Using Custom Databases
+Sequenceserver-VICE Using Custom Databases
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-See documentation and a demo tutorial on launching the sequenceserver VICE app with custom databases `here <https://cyverse-sequenceserver.readthedocs-hosted.com/en/latest/>`_.
+See documentation and a demo tutorial on launching the Sequenceserver VICE app with custom databases `here <https://cyverse-sequenceserver.readthedocs-hosted.com/en/latest/>`_.
 
 StarBLAST concept map
 ~~~~~~~~~~~~~~~~~~~~~
