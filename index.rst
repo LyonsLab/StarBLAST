@@ -1,28 +1,21 @@
-|CyVerse logo|_
-
-|Home_Icon|_
-`Learning Center Home <http://learning.cyverse.org/>`_
+|starblast_logo|_
 
 StarBLAST
 =========
 
-Students at the University of Arizona have created a scalable extension of the open source Sequenceserver BLAST, with the goal of making BLAST more accessible to educators and researchers who want to run classroom-scale searches concurrently. StarBLAST is distributed scaling of BLAST using `sequence-server <http://sequenceserver.com/>`_ and `cctools <http://ccl.cse.nd.edu/>`_. 
+StarBLAST is a project undertaken by under-graduate and graduate students taking the "Applied Concepts in Cyberinfrastructure" course, 2019 at University of Arizona taught by Dr. Nirav Merchant and Dr. Eric Lyons. Students at the University of Arizona have created a 
 
 .. contents::
 
 What is StarBLAST?
 ------------------
 
-|starblast_logo|_
+StarBlast is a scalable extension of the open source Sequenceserver BLAST, with the goal of making BLAST more accessible to educators and researchers who want to run classroom-scale searches concurrently. StarBLAST is distributed scaling of BLAST using `sequence-server <http://sequenceserver.com/>`_ and `cctools <http://ccl.cse.nd.edu/>`_. 
 
 In 2015 a modern front-end implementation of BLAST, Sequenceserver, was developed by the Wurmlab at Queen Mary University of London (Priyam et al., 2015). Sequenceserver provides various advantages over the NCBI BLAST implementation, such as an improved GUI to visualize BLAST results, the use of custom databases, and the ability to download results in various formats for further analysis. Sequenceserver enables research teams to create computational environments with their own resources and easily share their results. Despite being a state-of-the-art BLAST service, the current Sequenceserver implementation is not easily scalable, especially for classes without IT support or classes with hundreds of students.
 
 StarBLAST extends Sequenceserver’s BLAST implementation with the Work Queue job management system to distribute work amongst multiple machines. By providing distributed and scalable BLAST capabilities, StarBLAST enables researchers and instructors to run many BLAST jobs simultaneously using large computational resources.
 
-
-.. note::
-   
-   StarBLAST is a project undertaken by under-graduate and graduate students taking the "Applied Concepts in Cyberinfrastructure" course, 2019 at University of Arizona taught by Dr. Nirav Merchant and Dr. Eric Lyons.
 
 Sequenceserver-VICE
 ~~~~~~~~~~~~~~~~~~~
@@ -31,7 +24,7 @@ Sequenceserver-VICE is a Visual and Interactive Computing Environment in CyVerse
 
 
 StarBLAST-Dockers
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~
 
 StarBLAST-Docker containers can be deployed on any cloud such as Atmosphere for distributed scaling of BLAST searches.
 
@@ -77,7 +70,7 @@ Platform(s)
       - 25-50 Students
       - `Atmosphere <https://atmo.cyverse.org/de/>`_
       - `Atmosphere Manual <https://wiki.cyverse.org/wiki/display/DEmanual/Table+of+Contents>`_
-      - `Guide <>`__
+      - `Guide <https://learning.cyverse.org/projects/atmosphere-guide/en/latest/>`__
     * - StarBLAST-HPC
       - HPC & Atmosphere Cloud
       - 50+ Students
@@ -88,7 +81,7 @@ Platform(s)
 ----
 
 Sequenceserver-VICE Setup
---------------------
+-------------------------
 
 Sequenceserver-VICE is a Visual and Interactive Computing Environment app in CyVerse’s Discovery Environment (DE) for running interactive apps such as SequenceServer. 
 
@@ -117,6 +110,9 @@ StarBLAST-Dockers on Atmosphere Cloud
 -------------------------------------
 
 To deploy StarBLAST setup on CyVerse Atmosphere cloud, you will need access to `Atmosphere <https://atmo.cyverse.org/application/images>`_. Request access to Atmosphere from your `CyVerse user account <https://user.cyverse.org>`_.
+
+.. note::
+   The StarBlast implementation consists of one Master instance that will serve as the front-end for all users and one or more Worker instances that connect to the master and execute the BLAST jobs.
 
 You will need to launch a Master instance that will host sequenceServer front-end and one or more Worker instances as needed to distribute the blast jobs. 
 
@@ -168,7 +164,7 @@ Launching Master & Worker Instances
 
 |Tut_7|_
 
-5. Launching Worker instance(s) with deployment script.
+5. Launch one ore more Worker instance(s) with a deployment script (atmo_deploy_worker.sh) as per the steps above.
 
 
 .. note::
@@ -297,7 +293,7 @@ Appendix
 --------
 
 Sequenceserver-VICE Using Custom Databases
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 See documentation and a demo tutorial on launching the Sequenceserver VICE app with custom databases `here <https://cyverse-sequenceserver.readthedocs-hosted.com/en/latest/>`_.
 
@@ -351,6 +347,15 @@ Making Custom Databases using ncbi_blast_docker
 
 ----
 
+Acknowledgements
+~~~~~~~~~~~~~~~~
+
+
+
+
+
+----
+
 **Fix or improve this documentation**
 
 - On Github: `Repo link <https://github.com/uacic/StarBlast>`_
@@ -378,9 +383,9 @@ Making Custom Databases using ncbi_blast_docker
     :height: 25
 .. _Home_Icon: http://learning.cyverse.org/
 .. |starblast_logo| image:: ./img/starblast_logo.png
-    :width: 25
-    :height: 25
-.. _starblast_logo: http://learning.cyverse.org/    
+    :width: 500
+    :height: 100
+.. _starblast_logo:   
 .. |discovery_enviornment| raw:: html
 .. |Tut_1| image:: ./img/Tut_06.PNG
     :width: 650
