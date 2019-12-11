@@ -17,19 +17,19 @@ In 2015 a modern front-end implementation of BLAST, Sequenceserver, was develope
 StarBLAST extends Sequenceserver’s BLAST implementation with the `Work Queue <https://cctools.readthedocs.io/en/latest/work_queue/>`_ job management system and `VICE <https://learning.cyverse.org/projects/vice/en/latest/getting_started/about.html/>`_ to distribute work amongst multiple machines. By providing distributed and scalable BLAST capabilities, StarBLAST enables researchers and instructors to run many BLAST jobs simultaneously using large computational resources. StarBLAST consists of three distinct BLAST implementations that users can select based on their technical expertise, the number of users who want to submit concurrent jobs, and external computational resource availability.
 
 
-Sequenceserver-VICE: the primer solution to BLAST limitations
+1. Sequenceserver-VICE: the primer solution to BLAST limitations
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Sequenceserver-VICE is a Visual and Interactive Computing Environment in CyVerse’s Discovery Environment (DE) for running interactive apps such as Sequenceserver. 
 
 
-StarBLAST-Dockers: A secondary, intermediate solution
+2. StarBLAST-Dockers: A secondary, intermediate solution
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 StarBLAST-Docker containers can be deployed on any cloud such as Atmosphere for distributed scaling of BLAST searches.
 
 
-StarBLAST-HPC: A robust, tertiary solution
+3. StarBLAST-HPC: A robust, tertiary solution
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 StarBLAST-HPC is a solution to distribute large number of queries on a High Performance Computer.
