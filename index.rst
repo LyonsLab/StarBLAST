@@ -350,9 +350,7 @@ Making Custom Databases using ncbi_blast_docker
 Acknowledgements
 ~~~~~~~~~~~~~~~~
 
-
-
-
+Priyam A, Woodcroft BJ, Rai V, Munagala A, Moghul I, Ter F, Gibbins MA, Moon H, Leonard G, Rumpf W & Wurm Y. 2015. Sequenceserver: a modern graphical user interface for custom BLAST databases. biorxiv doi: 10.1101/033142.
 
 ----
 
