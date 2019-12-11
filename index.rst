@@ -3,14 +3,14 @@
 StarBLAST
 =========
 
-StarBLAST is a project undertaken by under-graduate and graduate students taking the "Applied Concepts in Cyberinfrastructure" course, 2019 at University of Arizona taught by Dr. Nirav Merchant and Dr. Eric Lyons. Students at the University of Arizona have created a 
+StarBLAST is a project undertaken by under-graduate and graduate students taking the "Applied Concepts in Cyberinfrastructure" course, 2019 at University of Arizona taught by Dr. Nirav Merchant and Dr. Eric Lyons. Students at the University of Arizona have created a scalable and open source Sequenceserver BLAST Implementation. Read on to learn more about StarBLAST.
 
 .. contents::
 
 What is StarBLAST?
 ------------------
 
-StarBlast is a scalable extension of the open source Sequenceserver BLAST, with the goal of making BLAST more accessible to educators and researchers who want to run classroom-scale searches concurrently. StarBLAST is distributed scaling of BLAST using `Sequenceserver <http://sequenceserver.com/>`_, `cctools <http://ccl.cse.nd.edu/>`_ and `CyVerse's Visual Interactive Computing Enviornment (VICE) <https://learning.cyverse.org/projects/vice/en/latest/getting_started/about.html/>`_. 
+StarBlast is a scalable extension of the open source Sequenceserver BLAST, with the goal of making BLAST more accessible to educators and researchers who want to run classroom-scale searches concurrently. StarBLAST is distributed scaling of `Sequenceserver <http://sequenceserver.com/>`_ BLAST using `cctools <http://ccl.cse.nd.edu/>`_ and `CyVerse's Visual Interactive Computing Enviornment (VICE) <https://learning.cyverse.org/projects/vice/en/latest/getting_started/about.html/>`_. 
 
 In 2015 a modern front-end implementation of BLAST, Sequenceserver, was developed by the Wurmlab at Queen Mary University of London (Priyam et al., 2015). Sequenceserver provides various advantages over the NCBI BLAST implementation, such as an improved GUI to visualize BLAST results, the use of custom databases, and the ability to download results in various formats for further analysis. Read about Sequenceserver's user-centric design and sustainable software development philosophy `here <https://doi.org/10.1093/molbev/msz185>`_. Despite being a state-of-the-art BLAST service, the current Sequenceserver implementation is not easily scalable, especially for classes without IT support or classes with hundreds of students.
 
@@ -20,20 +20,23 @@ StarBLAST extends Sequenceserver’s BLAST implementation with the `Work Queue <
 1. Sequenceserver-VICE: the primer solution to BLAST limitations
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Sequenceserver-VICE is a Visual and Interactive Computing Environment in CyVerse’s Discovery Environment (DE) for running interactive apps such as Sequenceserver. 
+StarBLAST-VICE leverages the University of Arizona’s CyVerse computational infrastructure resources; specifically, the VICE (Visual Interactive and Computing Environment) component of CyVerse’s data science workbench “Discovery Environment (DE)”. VICE allows users to launch web-based applications from the DE and perform exploratory analysis.
 
+StarBLAST-VICE is an entry-level solution that does not need any set-up by instructors and comes with several perks like access to free CyVerse computational resources, ability to share your analysis and create custom BLAST databases. Each student needs to create an account on CyVerse DE to be able to independently launch their own BLAST analysis. This solution is ideal for smaller classrooms with approximately 5–25 students and does not require any command-line expertise for instructors.
 
 2. StarBLAST-Dockers: A secondary, intermediate solution
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-StarBLAST-Docker containers can be deployed on any cloud such as Atmosphere for distributed scaling of BLAST searches.
+StarBlast-Docker makes use of Cyverse Atmosphere or other cloud computing resources such as XSEDE Jetstream, Digital Ocean Cloud, or the Google Cloud Platform. StarBlast-Docker makes use of the Work Queue job management system to create separate “Master” and “Worker” cloud images.
 
+Although this solution requires a bit more setup time than the “VICE” solution, as well as some familiarity with the UNIX command line, it can accommodate larger classrooms of approximately 25 to 50 students.
 
 3. StarBLAST-HPC: A robust, tertiary solution
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-StarBLAST-HPC is a solution to distribute large number of queries on a High Performance Computer.
+Like the intermediate solution, the heaviest StarBLAST-HPC solution makes use of a “Master-Worker” set up in which a dockerized cloud environment virtual machine image serves as the “Master” computer. In contrast to the Docker on a cloud solution, the “Worker” computers are sourced from High-Performance Computer (HPC) systems.
 
+This solution allows a great deal of scalability, enabling classrooms of 50 or more students to run concurrent jobs.
 
 Platform(s)
 -----------
@@ -96,8 +99,8 @@ Quick Launch
 
 ----
 
-StarBLAST-Dockers on Atmosphere Cloud
--------------------------------------
+StarBLAST-Dockers Setup on Atmosphere Cloud 
+--------------------------------------------
 
 To deploy StarBLAST setup on CyVerse Atmosphere cloud, you will need access to `Atmosphere <https://atmo.cyverse.org/application/images>`_. Request access to Atmosphere from your `CyVerse user account <https://user.cyverse.org>`_.
 
