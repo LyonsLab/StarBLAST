@@ -3,21 +3,21 @@
 StarBLAST
 =========
 
-StarBLAST is a project undertaken by under-graduate and graduate students taking the "Applied Concepts in Cyberinfrastructure" course, 2019 at the University of Arizona taught by Dr. Nirav Merchant and Dr. Eric Lyons. StarBLAST is a scalable and open source implementation of Sequenceserver BLAST. Read on to learn more about StarBLAST.
+StarBLAST is a project undertaken by under-graduate and graduate students taking the "Applied Concepts in Cyberinfrastructure" course, 2019 at the University of Arizona taught by Dr. Nirav Merchant and Dr. Eric Lyons. StarBLAST is a scalable and open source implementation of SequenceServer BLAST. Read on to learn more about StarBLAST.
 
 .. contents::
 
 What is StarBLAST?
 ------------------
 
-StarBlast is a scalable extension of the open source `Sequenceserver <http://sequenceserver.com/>`_ BLAST, with the goal of making BLAST more accessible to educators and researchers who want to run classroom-scale searches concurrently. StarBLAST is distributed scaling of Sequenceserver BLAST using `cctools <http://ccl.cse.nd.edu/>`_ and CyVerse's Visual Interactive Computing Environment (`VICE <https://learning.cyverse.org/projects/vice/en/latest/getting_started/about.html/>`_). 
+StarBlast is a scalable extension of the open source `SequenceServer <http://sequenceserver.com/>`_ BLAST, with the goal of making BLAST more accessible to educators and researchers who want to run classroom-scale searches concurrently. StarBLAST is distributed scaling of SequenceServer BLAST using `cctools <http://ccl.cse.nd.edu/>`_ and CyVerse's Visual Interactive Computing Environment (`VICE <https://learning.cyverse.org/projects/vice/en/latest/getting_started/about.html/>`_). 
 
-In 2015 a modern front-end implementation of BLAST, Sequenceserver, was developed by the Wurmlab at Queen Mary University of London (Priyam et al., 2015). Sequenceserver provides various advantages over the NCBI BLAST implementation, such as an improved GUI to visualize BLAST results, the use of custom databases, and the ability to download results in various formats for further analysis. Read about Sequenceserver's user-centric design and sustainable software development philosophy `here <https://doi.org/10.1093/molbev/msz185>`_. Despite being a state-of-the-art BLAST service, the current Sequenceserver implementation is not easily scalable, especially for classes without IT support or classes with hundreds of students.
+In 2015 a modern front-end implementation of BLAST, SequenceServer, was developed by the Wurmlab at Queen Mary University of London (Priyam et al., 2015). SequenceServer provides various advantages over the NCBI BLAST implementation, such as an improved GUI to visualize BLAST results, the use of custom databases, and the ability to download results in various formats for further analysis. Read about SequenceServer's user-centric design and sustainable software development philosophy `here <https://doi.org/10.1093/molbev/msz185>`_. Despite being a state-of-the-art BLAST service, the current SequenceServer implementation is not easily scalable, especially for classes without IT support or classes with hundreds of students.
 
-StarBLAST extends Sequenceserver’s BLAST implementation with the `Work Queue <https://cctools.readthedocs.io/en/latest/work_queue/>`_ job management system and `VICE <https://learning.cyverse.org/projects/vice/en/latest/getting_started/about.html/>`_ to distribute work amongst multiple machines. By providing distributed and scalable BLAST capabilities, StarBLAST enables researchers and instructors to run many BLAST jobs simultaneously using large computational resources. StarBLAST consists of three distinct BLAST implementations that users can select based on their technical expertise, the number of users who want to submit concurrent jobs, and external computational resource availability.
+StarBLAST extends SequenceServer’s BLAST implementation with the `Work Queue <https://cctools.readthedocs.io/en/latest/work_queue/>`_ job management system and `VICE <https://learning.cyverse.org/projects/vice/en/latest/getting_started/about.html/>`_ to distribute work amongst multiple machines. By providing distributed and scalable BLAST capabilities, StarBLAST enables researchers and instructors to run many BLAST jobs simultaneously using large computational resources. StarBLAST consists of three distinct BLAST implementations that users can select based on their technical expertise, the number of users who want to submit concurrent jobs, and external computational resource availability.
 
 
-1. Sequenceserver-VICE: the primer solution to BLAST limitations
+1. StarBLAST-VICE: the primer solution to BLAST limitations
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 StarBLAST-VICE leverages the University of Arizona’s CyVerse computational infrastructure resources; specifically, the VICE (Visual Interactive and Computing Environment) component of CyVerse’s data science workbench “Discovery Environment (DE)”. VICE allows users to launch web-based applications from the DE and perform exploratory analysis.
@@ -73,10 +73,10 @@ Platform(s)
 
 ----
 
-Sequenceserver-VICE Setup
--------------------------
+StarBLAST-VICE Setup
+--------------------
 
-Sequenceserver-VICE is a Visual and Interactive Computing Environment app in CyVerse’s Discovery Environment (DE) for running interactive apps such as SequenceServer. 
+StarBLAST-VICE is a Visual and Interactive Computing Environment app in CyVerse’s Discovery Environment (DE) for running interactive apps such as SequenceServer. 
 
 .. note::
 
@@ -285,10 +285,10 @@ Start BLASTING! Enter the <MASTER_VM_IP_ADDRESS> in your browser using the actua
 Appendix
 --------
 
-Sequenceserver-VICE Using Custom Databases
+SequenceServer-VICE Using Custom Databases
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-See documentation and a demo tutorial on launching the Sequenceserver VICE app with custom databases `here <https://cyverse-sequenceserver.readthedocs-hosted.com/en/latest/>`_.
+See documentation and a demo tutorial on launching the SequenceServer VICE app with custom databases `here <https://cyverse-sequenceserver.readthedocs-hosted.com/en/latest/>`_.
 
 StarBLAST concept map
 ~~~~~~~~~~~~~~~~~~~~~
@@ -343,7 +343,7 @@ Making Custom Databases using ncbi_blast_docker
 Acknowledgements
 ~~~~~~~~~~~~~~~~
 
-Priyam A, Woodcroft BJ, Rai V, Munagala A, Moghul I, Ter F, Gibbins MA, Moon H, Leonard G, Rumpf W & Wurm Y. 2015. Sequenceserver: a modern graphical user interface for custom BLAST databases. biorxiv doi: 10.1101/033142.
++ Priyam A, Woodcroft BJ, Rai V, Munagala A, Moghul I, Ter F, Gibbins MA, Moon H, Leonard G, Rumpf W & Wurm Y. 2015. SequenceServer: a modern graphical user interface for custom BLAST databases. biorxiv doi: 10.1101/033142.
 
 ----
 
@@ -361,7 +361,7 @@ Priyam A, Woodcroft BJ, Rai V, Munagala A, Moghul I, Ter F, Gibbins MA, Moon H, 
 .. |concept_map| image:: ./img/concept_map.png
     :width: 500
     :height: 500
-.. _concept_map: http://learning.cyverse.org/
+.. _concept_map: 
 
 .. |CyVerse logo| image:: ./img/cyverse_rgb.png
     :width: 500
@@ -379,30 +379,30 @@ Priyam A, Woodcroft BJ, Rai V, Munagala A, Moghul I, Ter F, Gibbins MA, Moon H, 
 .. |Tut_1| image:: ./img/Tut_06.PNG
     :width: 650
     :height: 450
-.. _Tut_1: http://learning.cyverse.org/
+.. _Tut_1: 
 .. |Tut_2| image:: ./img/Tut_07.PNG
     :width: 650
     :height: 450
-.. _Tut_2: http://learning.cyverse.org/
+.. _Tut_2: 
 .. |Tut_3| image:: ./img/Tut_08.PNG
     :width: 650
     :height: 450
-.. _Tut_3: http://learning.cyverse.org/
+.. _Tut_3: 
 .. |Tut_4| image:: ./img/Tut_09.PNG
     :width: 650
     :height: 450
-.. _Tut_4: http://learning.cyverse.org/
+.. _Tut_4: 
 .. |Tut_5| image:: ./img/Tut_10.PNG
     :width: 650
     :height: 450
-.. _Tut_5: http://learning.cyverse.org/
+.. _Tut_5: 
 .. |Tut_6| image:: ./img/Tut_11.PNG
     :width: 650
     :height: 450
-.. _Tut_6: http://learning.cyverse.org/
+.. _Tut_6: 
 .. |Tut_7| image:: ./img/Tut_12.PNG
     :width: 650
     :height: 450
-.. _Tut_7: http://learning.cyverse.org/
+.. _Tut_7: 
     <a href="https://de.cyverse.org/de/" target="_blank">Discovery Environment</a>
     
