@@ -359,12 +359,10 @@ Acknowledgements
 **Fix or improve this documentation**
 
 - On Github: `Repo link <https://github.com/uacic/StarBlast>`_
-- Send feedback: `Tutorials@CyVerse.org <Tutorials@CyVerse.org>`_
+- Send feedback: `Maintainer@StarBLAST <sateeshp@email.arizona.edu>`_
 
 ----
 
-|Home_Icon|_
-`Learning Center Home`_
 
 .. |sequenceServer| image:: https://de.cyverse.org/Powered-By-CyVerse-blue.svg
 .. _sequenceServer: https://de.cyverse.org/de/?type=quick-launch&quick-launch-id=0ade6455-4876-49cc-9b37-a29129d9558a&app-id=ab404686-ff20-11e9-a09c-008cfa5ae621
