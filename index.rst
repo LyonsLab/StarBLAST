@@ -87,7 +87,7 @@ Quick Launch
 
 1. Click on the following button to quick-launch SequenceServer in CyVerse Discovery Environment with two blast databases (Human_GRCh38_p12 & Mouse_GRCm38_p4).
 
-	|sequenceServer|_
+	|seqserver_QL|_
 	
 2. Click [Launch Analysis]
 3. Check the notifications Bell Icon for a link to access your SequenceServer instance.
@@ -354,9 +354,8 @@ Acknowledgements
 
 ----
 
-
-.. |sequenceServer| image:: https://de.cyverse.org/Powered-By-CyVerse-blue.svg
-.. _sequenceServer: https://de.cyverse.org/de/?type=quick-launch&quick-launch-id=0ade6455-4876-49cc-9b37-a29129d9558a&app-id=ab404686-ff20-11e9-a09c-008cfa5ae621
+.. |seqserver_QL| image:: https://de.cyverse.org/Powered-By-CyVerse-blue.svg
+.. _seqserver_QL: https://de.cyverse.org/de/?type=quick-launch&quick-launch-id=0ade6455-4876-49cc-9b37-a29129d9558a&app-id=ab404686-ff20-11e9-a09c-008cfa5ae621
 
 .. |concept_map| image:: ./img/concept_map.png
     :width: 500
