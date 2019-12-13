@@ -370,7 +370,7 @@ Acknowledgements
     :width: 25
     :height: 25
 .. _Home_Icon: http://learning.cyverse.org/
-.. |starblast_logo| image:: ./img/starblast_logo.png
+.. |starblast_logo| image:: ./img/starblast.png
     :width: 500
     :height: 100
 .. _starblast_logo:   
