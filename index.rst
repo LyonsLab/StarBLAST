@@ -12,7 +12,7 @@ What is StarBLAST?
 
 StarBlast is a scalable extension of the open source `SequenceServer <http://sequenceserver.com/>`_ BLAST, with the goal of making BLAST more accessible to educators and researchers who want to run classroom-scale searches concurrently. StarBLAST is distributed scaling of SequenceServer BLAST using `cctools <http://ccl.cse.nd.edu/>`_ and CyVerse's Visual Interactive Computing Environment (`VICE <https://learning.cyverse.org/projects/vice/en/latest/getting_started/about.html/>`_). 
 
-In 2015 a modern front-end implementation of BLAST, SequenceServer, was developed by the Wurmlab at Queen Mary University of London (Priyam et al., 2015). SequenceServer provides various advantages over the NCBI BLAST implementation, such as an improved GUI to visualize BLAST results, the use of custom databases, and the ability to download results in various formats for further analysis. Read about SequenceServer's user-centric design and sustainable software development philosophy `here <https://doi.org/10.1093/molbev/msz185>`_. Despite being a state-of-the-art BLAST service, the current SequenceServer implementation is not easily scalable, especially for classes without IT support or classes with hundreds of students.
+In 2015 a modern front-end implementation of BLAST, SequenceServer, was developed by the Wurmlab at Queen Mary University of London (Priyam et al., 2019). SequenceServer provides various advantages over the NCBI BLAST implementation, such as an improved GUI to visualize BLAST results, the use of custom databases, and the ability to download results in various formats for further analysis. Read about SequenceServer's user-centric design and sustainable software development philosophy `here <https://doi.org/10.1093/molbev/msz185>`_. Despite being a state-of-the-art BLAST service, the current SequenceServer implementation is not easily scalable, especially for classes without IT support or classes with hundreds of students.
 
 StarBLAST extends SequenceServer’s BLAST implementation with the `Work Queue <https://cctools.readthedocs.io/en/latest/work_queue/>`_ job management system and `VICE <https://learning.cyverse.org/projects/vice/en/latest/getting_started/about.html/>`_ to distribute work amongst multiple machines. By providing distributed and scalable BLAST capabilities, StarBLAST enables researchers and instructors to run many BLAST jobs simultaneously using large computational resources. StarBLAST consists of three distinct BLAST implementations that users can select based on their technical expertise, the number of users who want to submit concurrent jobs, and external computational resource availability.
 
@@ -87,7 +87,7 @@ Quick Launch
 
 1. Click on the following button to quick-launch SequenceServer in CyVerse Discovery Environment with two blast databases (Human_GRCh38_p12 & Mouse_GRCm38_p4).
 
-	|sequenceServer|_
+	|seqserver_QL|_
 	
 2. Click [Launch Analysis]
 3. Check the notifications Bell Icon for a link to access your SequenceServer instance.
@@ -343,7 +343,7 @@ Making Custom Databases using ncbi_blast_docker
 Acknowledgements
 ~~~~~~~~~~~~~~~~
 
-+ Priyam A, Woodcroft BJ, Rai V, Munagala A, Moghul I, Ter F, Gibbins MA, Moon H, Leonard G, Rumpf W & Wurm Y. 2015. SequenceServer: a modern graphical user interface for custom BLAST databases. biorxiv doi: 10.1101/033142.
++ Anurag Priyam, Ben J Woodcroft, Vivek Rai, Ismail Moghul, Alekhya Munagala, Filip Ter, Hiten Chowdhary, Iwo Pieniak, Lawrence J Maynard, Mark Anthony Gibbins, HongKee Moon, Austin Davis-Richardson, Mahmut Uludag, Nathan S Watson-Haigh, Richard Challis, Hiroyuki Nakamura, Emeline Favreau, Esteban A Gómez, Tomás Pluskal, Guy Leonard, Wolfgang Rumpf, Yannick Wurm, Sequenceserver: A Modern Graphical User Interface for Custom BLAST Databases, Molecular Biology and Evolution, Volume 36, Issue 12, December 2019, Pages 2922–2924, https://doi.org/10.1093/molbev/msz185.
 
 ----
 
@@ -354,9 +354,8 @@ Acknowledgements
 
 ----
 
-
-.. |sequenceServer| image:: https://de.cyverse.org/Powered-By-CyVerse-blue.svg
-.. _sequenceServer: https://de.cyverse.org/de/?type=quick-launch&quick-launch-id=0ade6455-4876-49cc-9b37-a29129d9558a&app-id=ab404686-ff20-11e9-a09c-008cfa5ae621
+.. |seqserver_QL| image:: https://de.cyverse.org/Powered-By-CyVerse-blue.svg
+.. _seqserver_QL: https://de.cyverse.org/de/?type=quick-launch&quick-launch-id=0ade6455-4876-49cc-9b37-a29129d9558a&app-id=ab404686-ff20-11e9-a09c-008cfa5ae621
 
 .. |concept_map| image:: ./img/concept_map.png
     :width: 500
@@ -371,7 +370,7 @@ Acknowledgements
     :width: 25
     :height: 25
 .. _Home_Icon: http://learning.cyverse.org/
-.. |starblast_logo| image:: ./img/starblast_logo.png
+.. |starblast_logo| image:: ./img/starblast.jpeg
     :width: 500
     :height: 100
 .. _starblast_logo:   
