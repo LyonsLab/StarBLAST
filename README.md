@@ -2,7 +2,7 @@
 
 StarBLAST is a project undertaken by under-graduate and graduate students taking the "Applied Concepts in Cyberinfrastructure" course, 2019 at the University of Arizona taught by Dr. Nirav Merchant and Dr. Eric Lyons. StarBLAST is a scalable and open source implementation of SequenceServer BLAST.
 
-## Read more about StarBLAST here:
+### Read more about StarBLAST here:
 
 StarBLAST documentation- https://starblast.readthedocs.io/en/latest/StarBLAST 
 
