@@ -4,7 +4,7 @@ StarBLAST is a project undertaken by under-graduate and graduate students taking
 
 ### Read more about StarBLAST here:
 
-StarBLAST documentation- https://starblast.readthedocs.io/en/latest/StarBLAST 
+StarBLAST documentation- https://starblast.readthedocs.io/en/latest/
 
 StarBLAST presentation- [final project presentation](https://docs.google.com/presentation/d/1-cOdgooy4-4HXQa1AilzhkWBcj5J1cTag8o69IYyH2M/edit#slide=id.g7443e88c5c_0_5)
 
