@@ -380,49 +380,38 @@ Acknowledgements
 
 .. |concept_map| image:: ./img/concept_map.png
     :width: 500
-    :height: 500
 .. _concept_map: 
 
 .. |CyVerse logo| image:: ./img/cyverse_rgb.png
     :width: 500
-    :height: 100
 .. _CyVerse logo: http://learning.cyverse.org/
 .. |Home_Icon| image:: ./img/homeicon.png
     :width: 25
-    :height: 25
 .. _Home_Icon: http://learning.cyverse.org/
 .. |starblast_logo| image:: ./img/starblast.jpeg
     :width: 500
-    :height: 100
 .. _starblast_logo:   
 .. |discovery_enviornment| raw:: html
 .. |Tut_1| image:: ./img/Tut_06.PNG
-    :width: 650
-    :height: 450
+    :width: 500
 .. _Tut_1: https://raw.githubusercontent.com/uacic/StarBlast/master/img/Tut_06.PNG
 .. |Tut_2| image:: ./img/Tut_07.PNG
-    :width: 650
-    :height: 450
+    :width: 500
 .. _Tut_2: https://raw.githubusercontent.com/uacic/StarBlast/master/img/Tut_07.PNG
 .. |Tut_3| image:: ./img/Tut_08.PNG
-    :width: 650
-    :height: 450
+    :width: 500
 .. _Tut_3: https://raw.githubusercontent.com/uacic/StarBlast/master/img/Tut_08.PNG
 .. |Tut_4| image:: ./img/Tut_09.PNG
-    :width: 650
-    :height: 450
+    :width: 500
 .. _Tut_4: https://raw.githubusercontent.com/uacic/StarBlast/master/img/Tut_09.PNG
 .. |Tut_5| image:: ./img/Tut_10.PNG
-    :width: 650
-    :height: 450
+    :width: 500
 .. _Tut_5: https://raw.githubusercontent.com/uacic/StarBlast/master/img/Tut_10.PNG
 .. |Tut_6| image:: ./img/Tut_11.PNG
-    :width: 650
-    :height: 450
+    :width: 500
 .. _Tut_6: https://raw.githubusercontent.com/uacic/StarBlast/master/img/Tut_11.PNG
 .. |Tut_7| image:: ./img/Tut_12.PNG
-    :width: 650
-    :height: 450
+    :width: 500
 .. _Tut_7: https://raw.githubusercontent.com/uacic/StarBlast/master/img/Tut_12.PNG
     <a href="https://de.cyverse.org/de/" target="_blank">Discovery Environment</a>
     
