@@ -146,7 +146,7 @@ Launching Master & Worker Instances
 
 |Tut_5|_
 
--  Choose a title for your script; Select “Raw Text” and copy and paste text from either the Master (if creating the Master virtual machine) or Worker (if creating the Worker virtual machine) deployment scripts linked above. Select “Save and Add Script”.
+-  Title the script according to Master or Worker; Select “Raw Text” and copy and paste text from either the Master (if creating the Master virtual machine) or Worker (if creating the Worker virtual machine) deployment scripts linked above. Select “Save and Add Script”.
 
 .. note::
    This step is required to be done **once** for both the Master and Worker virtual machines. The deployment scripts are stored in user's advanced settings and will be available readily for future use.
@@ -157,8 +157,7 @@ Launching Master & Worker Instances
 
 |Tut_7|_
 
-5. Launch one ore more Worker instance(s) with a deployment script (atmo_deploy_worker.sh) as per the steps above.
-
+5. Launch one ore more Worker instance(s) with a deployment script (atmo_deploy_worker.sh) as per the steps above. Strongly recommended to use Large images.
 
 .. note::
    Atmosphere will take around 5-10 minutes to set up and activate your customized virtual machines and the wait-time will increase with the size of the blast database.
@@ -179,9 +178,9 @@ StarBLAST-HPC Setup
 
 The StarBLAST-HPC Setup is ideal for distributing BLAST searches across multiple nodes on a High-Performance Computer.
 
-In order to achieve a successful setup of the StarBLAST HPC system, a small amount of command line knowledge is required.
+In order to achieve a successful setup of the StarBLAST HPC system, a moderate amount of command line knowledge is required.
 
-Similar to the StarBLAST-Dockers on Atmosphere cloud, the StarBLAST-HPC system also has a Master-Worker set-up: a dockerized atmosphere VM machine acts as the Master, and the HPC acts as the Worker. It is suggested that the Worker is set up well ahead of time.
+Similar to the StarBLAST-Dockers on Atmosphere cloud, the StarBLAST-HPC system also has a Master-Worker set-up: an atmosphere VM machine acts as the Master, and the HPC acts as the Worker. It is suggested that the Worker is set up well ahead of time.
 
 Setting Up the Worker HPC
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -195,7 +194,7 @@ It is important that the following software are installed on the HPC:
 - CCTools (cctools-7.0.21-x86_64-centos7.tar.gz)
 
 Put both ncbi-blast+ and CCTools in your home directory.
-Databases need to be downloaded in a personal directory in the home folder.
+BLAST databases need to be downloaded in a <DATABASE> directory in the home folder.
 
 .. code::
 
@@ -208,39 +207,56 @@ Create a .pbs file that contains the following code and change the <VARIABLES> t
 .. code::
 
    #!/bin/bash
-   #PBS -W group_list=<GROUP_NAME>
-   #PBS -q <QUEUE_TYPE>
-   #PBS -l select=<NUMBER_OF_NODES>:ncpus=<NUMBER_OF_CPUS_PER_NODE>:mem=<NUMBER_OF_RAM_PER_NODE>gb
+   #PBS -W group_list=<GROUP_LIST>
+   #PBS -q windfall
+   #PBS -l select=<N_OF_NODES>:ncpus=<N_OF_CPUS>:mem=<N_MEMORY>gb
    #PBS -l place=pack:shared
-   #PBS -l walltime=<WALLTIME_REQUIRED>
-   #PBS -l cput=<WALLTIME_REQUIRED>
+   #PBS -l walltime=<MAX_TIME>
+   #PBS -l cput=<MAX_TIME>
+   module load blast
    module load unsupported
    module load ferng/glibc
-   export CCTOOLS_HOME=/home/<U_NUMBER>/<USER>/cctools-7.0.19-x86_64-centos7
+   module load singularity
+   export CCTOOLS_HOME=/home/u12/cosi/cctools-7.0.19-x86_64-centos7
    export PATH=${CCTOOLS_HOME}/bin:$PATH
-   export PATH=$PATH:/home/<U_NUMBER>/<USER>/ncbi-blast-2.9.0+/bin
-   /home/<U_NUMBER>/<USER>/cctools-7.0.19-x86_64-centos7/bin/work_queue_factory -M StarBLAST -T local -w <NUMBER_OF_WORKERS>
+
+   cd /home/<U_NUMBER>/<USER>/<WORKERS_DIRECTORY>
+
+   MASTER_IP=<MASTER_IP>
+   MASTER_PORT=<PORT_NUMBER>
+   TIME_OUT_TIME=<TIME_OUT_TIME>
+   PROJECT_NAME=<PROJECT_NAME>
+
+   /home/<U_NUMBER>/<USER>/<CCTOOLS_DIRECTORY>/bin/work_queue_factory -T local -M $PROJECT_NAME --cores <N_CORES> -w <MIN_N_WORKERS> -W <MAX_N_WORKERS> -t $TIME_OUT_TIME
 
 An example of a .pbs file running on the University of Arizona HPC:
 
 .. code::
 
    #!/bin/bash
-   #PBS -W group_list=ericlyons
+   #PBS -W group_list=lyons-lab
    #PBS -q windfall
-   #PBS -l select=2:ncpus=6:mem=24gb
+   #PBS -l select=2:ncpus=12:mem=24gb
    #PBS -l place=pack:shared
    #PBS -l walltime=02:00:00
    #PBS -l cput=02:00:00
+   module load blast
    module load unsupported
    module load ferng/glibc
-   module load blast
+   module load singularity
    export CCTOOLS_HOME=/home/u12/cosi/cctools-7.0.19-x86_64-centos7
    export PATH=${CCTOOLS_HOME}/bin:$PATH
-   cd /home/u12/cosi/cosi-workers
-   /home/u12/cosi/cctools-7.0.19-x86_64-centos7/bin/work_queue_factory -M StarBLAST -T local -w 2
 
-In the example above, the user already has blast installed (calls it using “module load blast“). The script will submit to the HPC nodes a total of 2 workers.
+   cd /home/u12/cosi/cosi-workers
+
+   MASTER_IP=128.196.142.13
+   MASTER_PORT=9123
+   TIME_OUT_TIME=1800
+   PROJECT_NAME="starBLAST"
+
+   /home/u12/cosi/cctools-7.0.19-x86_64-centos7/bin/work_queue_factory -T local -M $PROJECT_NAME --cores 12 -w 1 -W 8 -t $TIME_OUT_TIME
+
+In the example above, the user already has blast installed (calls it using “module load blast“). The script will submit to the HPC nodes a minimum of 1 and a maximum of 8 workers per node.
 
 Submit the .pbs script with 
 
@@ -248,32 +264,37 @@ Submit the .pbs script with
     
    qsub <NAME_OF_PBS>.pbs
    
-Setting Up Master Docker
-~~~~~~~~~~~~~~~~~~~~~~~~
+Setting Up Master Docker for starBLAST-HPC
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Copy and paste the following code in the Master instance to launch sequenceServer with two databases (Human_GRCh38_p12 & Mouse_GRCm38_p4) ready to distribute BLAST queries to workers
+**IMPORTANT: THE PATH TO THE DATABASE ON THE MASTER NEED TO BE THE SAME AS THE ONE ON THE WORKER**
 
-IMPORTANT: THE PATH TO THE DATABASE ON THE MASTER NEED TO BE THE SAME AS THE ONE ON THE WORKER
+To ensure both the databases on the Master VM and Worker HPC are in the same directory, on the Worker HPC go to the database directory and do
+
+.. code::
+
+   pwd
+   
+Then, on your Master VM, create the directory with the same path as above
+
+.. code::
+
+   mkdir -p SAME/PATH/TO/HPC/DATABASE/DIRECTORY/
+
+Copy and paste the following code in the Master instance to launch sequenceServer. BLAST databases need to be loaded manually onto the <DATABASE> folder. 
 
 .. code:: 
 
-   docker run --rm -ti -p 80:3000 -p 9123:9123 -e PROJECT_NAME=StarBLAST = -e BLAST_NUM_THREADS=4 -e SEQSERVER_DB_PATH=/home/<U_NUMBER>/<USER>/Database zhxu73/sequenceserver-scale
+   docker run --rm --name sequenceserver-scale -p 80:3000 -p 9123:9123 -e PROJECT_NAME=<PROJECT_NAME> -e WORKQUEUE_PASSWORD=<PASSWORD> -e BLAST_NUM_THREADS=<N THREADS> -e SEQSERVER_DB_PATH="/home/<U_NUMBER>/<USER>/<DATABASE_DIRECTORY>" -v /DATABASE/ON/MASTER:/DATABASE/ON/WORKER zhxu73/sequenceserver-scale:no-irods
    
 An example is:
 
 .. code:: 
 
-   docker run --rm -ti -p 80:3000 -p 9123:9123 -e PROJECT_NAME=StarBLAST = -e BLAST_NUM_THREADS=4 -e SEQSERVER_DB_PATH=/home/u12/cosi/Data zhxu73/sequenceserver-scale
+   docker run --rm --name sequenceserver-scale -p 80:3000 -p 9123:9123 -e PROJECT_NAME=starBLAST -e WORKQUEUE_PASSWORD= -e BLAST_NUM_THREADS=2 -e SEQSERVER_DB_PATH="/home/u12/cosi/DATABASE" -v /home/u12/cosi/DATABASE:/home/u12/cosi/DATABASE zhxu73/sequenceserver-scale:no-irods
    
-In case the user does not have access to iRODS please use:
-
-.. code::
-
-   docker run --rm -ti -p 80:3000 -p 9123:9123 -e PROJECT_NAME=StarBLAST -e WORKQUEUE_PASSWORD= -e BLAST_NUM_THREADS=4 -e /home/<U_NUMBER>/<USER>/Database -v $HOME/blastdb:/<U_NUMBER>/<USER>/Database zhxu73/sequenceserver-scale:no-irods
-   
-.. note::
-
    The custom Database folder on the Master needs to have read and write permissions
+   
 Start BLASTING! Enter the <MASTER_VM_IP_ADDRESS> in your browser using the actual Master IP address.
 
 .. code::
@@ -378,30 +399,30 @@ Acknowledgements
 .. |Tut_1| image:: ./img/Tut_06.PNG
     :width: 650
     :height: 450
-.. _Tut_1: 
+.. _Tut_1: https://raw.githubusercontent.com/uacic/StarBlast/master/img/Tut_06.PNG
 .. |Tut_2| image:: ./img/Tut_07.PNG
     :width: 650
     :height: 450
-.. _Tut_2: 
+.. _Tut_2: https://raw.githubusercontent.com/uacic/StarBlast/master/img/Tut_07.PNG
 .. |Tut_3| image:: ./img/Tut_08.PNG
     :width: 650
     :height: 450
-.. _Tut_3: 
+.. _Tut_3: https://raw.githubusercontent.com/uacic/StarBlast/master/img/Tut_08.PNG
 .. |Tut_4| image:: ./img/Tut_09.PNG
     :width: 650
     :height: 450
-.. _Tut_4: 
+.. _Tut_4: https://raw.githubusercontent.com/uacic/StarBlast/master/img/Tut_09.PNG
 .. |Tut_5| image:: ./img/Tut_10.PNG
     :width: 650
     :height: 450
-.. _Tut_5: 
+.. _Tut_5: https://raw.githubusercontent.com/uacic/StarBlast/master/img/Tut_10.PNG
 .. |Tut_6| image:: ./img/Tut_11.PNG
     :width: 650
     :height: 450
-.. _Tut_6: 
+.. _Tut_6: https://raw.githubusercontent.com/uacic/StarBlast/master/img/Tut_11.PNG
 .. |Tut_7| image:: ./img/Tut_12.PNG
     :width: 650
     :height: 450
-.. _Tut_7: 
+.. _Tut_7: https://raw.githubusercontent.com/uacic/StarBlast/master/img/Tut_12.PNG
     <a href="https://de.cyverse.org/de/" target="_blank">Discovery Environment</a>
     
