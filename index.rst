@@ -119,9 +119,9 @@ Launching Master & Worker Instances
 	+ Master script to launch sequenceServer front-end that can be accessed using the IP ADDRESS of the instance. 
 	+ Worker script to connect factory of workers to the Master
 
-2. The deployment scripts for a Master instance (atmo_deploy_master.sh) can be found `here <https://raw.githubusercontent.com/zhxu73/sequenceserver-scale-docker/cd4eeb52d1dcdbcd2b0c983bc34893212db0428c/deploy/atmo_deploy_master.sh>`_. 
+2. The deployment scripts for a Master instance (atmo_deploy_master.sh) can be found `here <https://raw.githubusercontent.com/zhxu73/sequenceserver-scale-docker/dev/deploy/atmo_deploy_master.sh>`_. 
 
-3. The deployment scripts for a Worker instance (atmo_deploy_worker.sh) can be found `here <https://raw.githubusercontent.com/zhxu73/sequenceserver-scale-docker/cd4eeb52d1dcdbcd2b0c983bc34893212db0428c/deploy/atmo_deploy_worker.sh>`_.
+3. The deployment scripts for a Worker instance (atmo_deploy_worker.sh) can be found `here <https://raw.githubusercontent.com/zhxu73/sequenceserver-scale-docker/dev/deploy/atmo_deploy_worker.sh>`_.
 
 .. note::
    Users can specify the blast databases to be downloaded in the deployment scripts 
