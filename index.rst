@@ -27,16 +27,16 @@ StarBLAST-VICE is an entry-level solution that does not need any set-up by instr
 2. StarBLAST-Dockers: A secondary, intermediate solution
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-StarBlast-Docker makes use of Cyverse Atmosphere or other cloud computing resources such as XSEDE Jetstream, Digital Ocean Cloud, or the Google Cloud Platform. StarBlast-Docker makes use of the Work Queue job management system to create separate “Master” and “Worker” cloud images.
+StarBlast-Docker makes use of NSF-funded XSEDE's `JetStream <https://use.jetstream-cloud.org/>`_ or other cloud computing resources such as Digital Ocean Cloud, or the Google Cloud Platform. StarBlast-Docker makes use of the Work Queue job management system to create separate “Master” and “Worker” cloud images.
 
-Although this solution requires a bit more setup time than the “VICE” solution, as well as some familiarity with the UNIX command line, it can accommodate larger classrooms of approximately 25 to 50 students.
+Although this solution requires a bit more setup time than the “VICE” solution, as well as some familiarity with the UNIX command line, it can accommodate larger classrooms of approximately <100 students.
 
 3. StarBLAST-HPC: A robust, tertiary solution
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Like the intermediate solution, the heaviest StarBLAST-HPC solution makes use of a “Master-Worker” set up in which a dockerized cloud environment virtual machine image serves as the “Master” computer. In contrast to the Docker on a cloud solution, the “Worker” computers are sourced from High-Performance Computer (HPC) systems.
 
-This solution allows a great deal of scalability, enabling classrooms of 50 or more students to run concurrent jobs.
+This solution allows a great deal of scalability, enabling classrooms of >100 or more students to run concurrent jobs.
 
 Platform(s)
 -----------
@@ -56,17 +56,16 @@ Platform(s)
       - Discovery Environment
       - 5-25 Students
       - `Discovery Environment <https://de.cyverse.org/de/>`_
-      - `DE Manual <https://wiki.cyverse.org/wiki/display/DEmanual/Table+of+Contents>`_
+      - `DE Manual <https://cyverse.atlassian.net/wiki/spaces/DEmanual/overview>`_
       - `Guide <https://learning.cyverse.org/projects/discovery-environment-guide/en/latest/>`__
-    * - StarBLAST-Dockers on Atmosphere Cloud
-      - Atmosphere Cloud / Docker
-      - 25-50 Students
-      - `Atmosphere <https://atmo.cyverse.org/de/>`_
-      - `Atmosphere Manual <https://wiki.cyverse.org/wiki/display/DEmanual/Table+of+Contents>`_
-      - `Guide <https://learning.cyverse.org/projects/atmosphere-guide/en/latest/>`__
+    * - StarBLAST-Docker on JetStream Cloud
+      - JetStream Cloud / Docker
+      - <100 Students
+      - `JetStream <https://use.jetstream-cloud.org/>`_
+      - `JetStream Manual & Guide <https://portal.xsede.org/jetstream>`_
     * - StarBLAST-HPC
-      - HPC & Atmosphere Cloud
-      - 50+ Students
+      - HPC & JetStream Cloud
+      - >100 Students
       - `cctools <https:://github.com/cooperative-computing-lab/>`_
       - `PBS on HPC  <https://public.confluence.arizona.edu/display/UAHPC>`_
       - `Workqueue <https://cctools.readthedocs.io/en/latest/work_queue/>`__
@@ -99,73 +98,79 @@ Quick Launch
 
 ----
 
-StarBLAST-Dockers Setup on Atmosphere Cloud 
+StarBLAST-Dockers Setup on JetStream Cloud 
 --------------------------------------------
 
-To deploy StarBLAST setup on CyVerse Atmosphere cloud, you will need access to `Atmosphere <https://atmo.cyverse.org/application/images>`_. Request access to Atmosphere from your `CyVerse user account <https://user.cyverse.org>`_.
+To deploy StarBLAST setup on the JetStream Cloud service, you will need access to `JetStream <https://use.jetstream-cloud.org/>`_. To log on JetStream you need to have either a `Globus <https://www.globus.org/>`_ account, an `XSEDE <https://portal.xsede.org/my-xsede#/guest>`_ account or for your institution to have access to XSEDE (you can check this by searching for your institution name from the drop down menu in JetStream's login page).
 
 .. note::
    The StarBlast implementation consists of one Master instance that will serve as the front-end for all users and one or more Worker instances that connect to the master and execute the BLAST jobs.
 
-You will need to launch a Master instance that will host sequenceServer front-end and one or more Worker instances as needed to distribute the blast jobs. 
+You will need to launch a Master instance that will host sequenceServer front-end and one or more Worker instances as needed to distribute the BLAST jobs. 
 
-Both the Master and Worker Virtual Machine instances use Docker containers to run sequenceServer and connect Workers. 
+Both the Master and Worker Virtual Machine instances use Docker containers to run SequenceServer and connect Workers. 
 
 Launching Master & Worker Instances
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. Login to `Atmosphere <https://atmo.cyverse.org/application/images>`_ where we will be setting up Master and Worker instances that are to be launched using the following respective deployment scripts. These deployment scripts (Master & Worker) are designed to:
-	+ download specified blast databases
+1. Login to `JetStream Cloud <https://use.jetstream-cloud.org/>`_ where we will be setting up Master and Worker instances that are to be launched using the following respective deployment scripts. These deployment scripts (Master & Worker) are designed to:
+	+ download specified BLAST databases
 	+ Master script to launch sequenceServer front-end that can be accessed using the IP ADDRESS of the instance. 
 	+ Worker script to connect factory of workers to the Master
 
-2. The deployment scripts for a Master instance (atmo_deploy_master.sh) can be found `here <https://raw.githubusercontent.com/zhxu73/sequenceserver-scale-docker/dev/deploy/atmo_deploy_master.sh>`_. 
+2. The deployment scripts for a Master instance (atmo_deploy_master.sh) can be found `here <https://raw.githubusercontent.com/zhxu73/sequenceserver-scale-docker/master/deploy/iRODS/Jetstream_deploy_master.sh>`_. 
 
-3. The deployment scripts for a Worker instance (atmo_deploy_worker.sh) can be found `here <https://raw.githubusercontent.com/zhxu73/sequenceserver-scale-docker/dev/deploy/atmo_deploy_worker.sh>`_.
+3. The deployment scripts for a Worker instance (atmo_deploy_worker.sh) can be found `here <https://raw.githubusercontent.com/zhxu73/sequenceserver-scale-docker/master/deploy/iRODS/Jetstream_deploy_worker.sh>`_.
 
 .. note::
-   Users can specify the blast databases to be downloaded in the deployment scripts 
+   Users can specify the BLAST databases to be downloaded in the deployment scripts 
 
 4. Launching Master instance with deployment script
-  
-- From `Atmosphere <https://atmo.cyverse.org/application/images>`_ dashboard, select “Launch New Instance”
+
+- From `JetStream's <https://use.jetstream-cloud.org/application/dashboard>`_ top menu, navigate to "Projects" and select "Create New Project".
+
+|Tut_0|_
+
+- In the "Project Name" field, name your project and add a description if needed.
+
+|Tut_0B|_
+
+- From `JetStream's <https://use.jetstream-cloud.org/application/dashboard>`_ dashboard, select “Launch New Instance”.
 
 |Tut_1|_
   
-- Search for “Docker” and select the “Docker” image here highlighted (or click `here <https://atmo.cyverse.org/application/images/1759>`_); click “Launch”
+- Search for “Docker_starBLAST” and select the “Docker_starBLAST” image (or click `here <https://use.jetstream-cloud.org/application/images/967>`_); click “Launch”
 
 |Tut_2|_
 
 |Tut_3|_ 
 
-- In the pop up menu you can customize your image (e.g. Instance Size. recommend a minimum of medium m1 instance for Master); select “Advanced Options”
+- In the pop up menu you can customize your image (e.g. Instance Size. recommend a minimum of m1.xlarge instance for Master, with at least 60GB disk space); select “Advanced Options”.
 
 |Tut_4|_
 
--  Select “Create a New Script” 
+-  Select “Create a New Script”. 
 
 |Tut_5|_
 
--  Title the script according to Master or Worker; Select “Raw Text” and copy and paste text from either the Master (if creating the Master virtual machine) or Worker (if creating the Worker virtual machine) deployment scripts linked above. Select “Save and Add Script”.
+-  Title the script according to Master (e.g. Master script) or Worker (e.g. Worker script) depending  on wether you're deploying the Master or Worker; Select “Raw Text” and copy and paste text from either the Master (if creating the Master virtual machine) or Worker (if creating the Worker virtual machine) deployment scripts linked above. Select “Save and Add Script” and then "Continue to Launch".
 
 .. note::
-   This step is required to be done **once** for both the Master and Worker virtual machines. The deployment scripts are stored in user's advanced settings and will be available readily for future use.
+   This step is required to be done **once** for the Master and **once for every Worker virtual machine**. The deployment scripts are stored in user's advanced settings and will be available readily for future use.
  
 |Tut_6|_
 
--  Select “Continue to Launch”
-
-|Tut_7|_
-
-5. Launch one ore more Worker instance(s) with a deployment script (atmo_deploy_worker.sh) as per the steps above. Strongly recommended to use Large images.
+5. Repeat for one or more Worker instance(s) with the Worker deployment script as per the steps above. Strongly recommended to use large or extra large images (at least 60GB of disk space is required).
 
 .. note::
-   Atmosphere will take around 5-10 minutes to set up and activate your customized virtual machines and the wait-time will increase with the size of the blast database.
+   JetStream cloud will take around 10-20 minutes to set up and activate your customized virtual machines and the wait-time will increase with the size of the BLAST database.
   
 Start Blasting
 ~~~~~~~~~~~~~~
 
 Now, anyone can open a web-browser and go to <MASTER_VM_IP_ADDRESS> to access sequence-Server front-end and start BLASTING!
+
+|Tut_7|_
 
 .. code::
 
@@ -191,14 +196,37 @@ It is important that the following software are installed on the HPC:
 
 - ncbi-blast+ version 2.6.0 or newer (ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/ncbi-blast-2.9.0+-src.tar.gz)
 
-- CCTools (cctools-7.0.21-x86_64-centos7.tar.gz)
+- CCTools version 7.0.21 or newer (https://ccl.cse.nd.edu/software/files/cctools-7.1.5-source.tar.gz).
 
-Put both ncbi-blast+ and CCTools in your home directory.
+Make both ncbi-blast+ and CCTools available in your home directory; to find out your home directory do
+
+.. code::
+
+   pwd
+   
+Your home directory should be something similar to
+
+.. code::
+
+   /home/<U_NUMBER>/<USER>/
+   
+Download the software (BLAST+ and CCTools), un-tar,and add to path using
+
+.. code::
+
+   wget <BLAST_URL or CCTOOLS_URL>
+   tar -xvf <BLAST_repo.tar.gz or CCTOOLS_repo.tar.gz>
+   export PATH=$HOME</PATH/TO/BLAST/BIN/>:$PATH
+   
+.. note::
+
+   CCTools only works with glibc version 2.14 or newer, confirm that your HPC has glibc version 2.14 or newer is installed or avaialbe to load (check module load or avaialable documentation). In the following examples, we assume that both glibc and BLAST+ are avaiable to be loaded through `module load`.
+
 BLAST databases need to be downloaded in a <DATABASE> directory in the home folder.
 
 .. code::
 
-   /home/<U_NUMBER>/<USER>/Database
+   /home/<U_NUMBER>/<USER>/<DATABASE>
    
 The HPC uses a .pbs and qsub system to submit jobs.
 
@@ -217,7 +245,7 @@ Create a .pbs file that contains the following code and change the <VARIABLES> t
    module load unsupported
    module load ferng/glibc
    module load singularity
-   export CCTOOLS_HOME=/home/u12/cosi/cctools-7.0.19-x86_64-centos7
+   export CCTOOLS_HOME=/home/<U_NUMBER>/<USER>/<CCTOOLS_DIRECTORY>
    export PATH=${CCTOOLS_HOME}/bin:$PATH
 
    cd /home/<U_NUMBER>/<USER>/<WORKERS_DIRECTORY>
@@ -264,12 +292,18 @@ Submit the .pbs script with
     
    qsub <NAME_OF_PBS>.pbs
    
-Setting Up Master Docker for starBLAST-HPC
+Setting Up Master VM for starBLAST-HPC
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**IMPORTANT: THE PATH TO THE DATABASE ON THE MASTER NEED TO BE THE SAME AS THE ONE ON THE WORKER**
+The Master VM for StarBLAST-HPC is set up similarly to how the Master for starBLAST-Docker is set up, with the difference that the Master for starBLAST-HPC **does not require the deployment script**. Therefore, in order to set up the Master for starBLAST-HPC, follow the same steps as above _without_ adding the Master deployment script. Additionally, BLAST databases need to be loaded manually onto the <DATABASE> folder.
 
-To ensure both the databases on the Master VM and Worker HPC are in the same directory, on the Worker HPC go to the database directory and do
+Once the VM is ready, either access it through ssh or by using the Web Shell ("Open Web Shell" button on your VM's page). Once inside follow the next steps.
+
+.. note::
+
+   **IMPORTANT: THE PATH TO THE DATABASE ON THE MASTER NEED TO BE THE SAME AS THE ONE ON THE WORKER**
+
+To ensure both the databases on the Master VM and Worker HPC are in the same directory, on the Worker HPC go to the <DATABASE> directory and do
 
 .. code::
 
@@ -281,7 +315,32 @@ Then, on your Master VM, create the directory with the same path as above
 
    mkdir -p SAME/PATH/TO/HPC/DATABASE/DIRECTORY/
 
-Copy and paste the following code in the Master instance to launch sequenceServer. BLAST databases need to be loaded manually onto the <DATABASE> folder. 
+Now you have set up the <DATABASE> directories but you still need the databases. Databases can be parsed manually through BLAST+'s `makeblastdb` if you have your own .fasta (or .faa, .fna) files or you can use the same databases as StarBLAST-Docker. In order to use the latter, you need to have iRODS installed (JetStream comes with iRODS pre-installed) and a CyVerse account. Then, do:
+
+.. code::
+
+   iinit
+
+It will ask for certain credentials, connect to the CyVerse with:
+
+.. code::
+
+   host name (DNS): data.cyverse.org
+   port #: 1247
+   username: <CyVerse_ID>
+   zone: iplant
+   password: <CyVerse_password>
+
+If successful, obtain the databases and move them to your <DATABASE> folder:
+
+.. code::
+
+   iget -rKVP /iplant/home/cosimichele/200503_Genomes_n_p
+   mv GCF_* /DATABASE/DIRECTORY/
+   
+Then move the databases to the HPC through either `sftp` or follow the same steps as above if your HPC system has access to iRODS.
+
+Copy and paste the following code in the Master instance to launch sequenceServer.
 
 .. code:: 
 
@@ -293,6 +352,8 @@ An example is:
 
    docker run --rm --name sequenceserver-scale -p 80:3000 -p 9123:9123 -e PROJECT_NAME=starBLAST -e WORKQUEUE_PASSWORD= -e BLAST_NUM_THREADS=2 -e SEQSERVER_DB_PATH="/home/u12/cosi/DATABASE" -v /home/u12/cosi/DATABASE:/home/u12/cosi/DATABASE zhxu73/sequenceserver-scale:no-irods
    
+.. note::
+
    The custom Database folder on the Master needs to have read and write permissions
    
 Start BLASTING! Enter the <MASTER_VM_IP_ADDRESS> in your browser using the actual Master IP address.
@@ -316,8 +377,8 @@ StarBLAST concept map
 
 |concept_map|_
 
-StarBLAST-Atmosphere Using iRods for Custom Databases
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+StarBLAST Using iRods for Custom Databases
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Set the PATH to custom databases on CyVerse Data Store by using the custom IRODS_SYNC_PATH variable 
 
@@ -379,39 +440,45 @@ Acknowledgements
 .. _seqserver_QL: https://de.cyverse.org/de/?type=quick-launch&quick-launch-id=0ade6455-4876-49cc-9b37-a29129d9558a&app-id=ab404686-ff20-11e9-a09c-008cfa5ae621
 
 .. |concept_map| image:: ./img/concept_map.png
-    :width: 500
+    :width: 700
 .. _concept_map: 
 
 .. |CyVerse logo| image:: ./img/cyverse_rgb.png
-    :width: 500
+    :width: 700
 .. _CyVerse logo: http://learning.cyverse.org/
 .. |Home_Icon| image:: ./img/homeicon.png
     :width: 25
 .. _Home_Icon: http://learning.cyverse.org/
 .. |starblast_logo| image:: ./img/starblast.jpeg
-    :width: 500
+    :width: 700
 .. _starblast_logo:   
 .. |discovery_enviornment| raw:: html
-.. |Tut_1| image:: ./img/Tut_06.PNG
-    :width: 500
-.. _Tut_1: https://raw.githubusercontent.com/uacic/StarBlast/master/img/Tut_06.PNG
-.. |Tut_2| image:: ./img/Tut_07.PNG
-    :width: 500
-.. _Tut_2: https://raw.githubusercontent.com/uacic/StarBlast/master/img/Tut_07.PNG
-.. |Tut_3| image:: ./img/Tut_08.PNG
-    :width: 500
-.. _Tut_3: https://raw.githubusercontent.com/uacic/StarBlast/master/img/Tut_08.PNG
-.. |Tut_4| image:: ./img/Tut_09.PNG
-    :width: 500
-.. _Tut_4: https://raw.githubusercontent.com/uacic/StarBlast/master/img/Tut_09.PNG
-.. |Tut_5| image:: ./img/Tut_10.PNG
-    :width: 500
-.. _Tut_5: https://raw.githubusercontent.com/uacic/StarBlast/master/img/Tut_10.PNG
-.. |Tut_6| image:: ./img/Tut_11.PNG
-    :width: 500
-.. _Tut_6: https://raw.githubusercontent.com/uacic/StarBlast/master/img/Tut_11.PNG
-.. |Tut_7| image:: ./img/Tut_12.PNG
-    :width: 500
-.. _Tut_7: https://raw.githubusercontent.com/uacic/StarBlast/master/img/Tut_12.PNG
+.. |Tut_0| image:: ./img/JS_03.png
+    :width: 700
+.. _Tut_0: https://raw.githubusercontent.com/uacic/StarBlast/master/img/JS_03.png
+.. |Tut_0B| image:: ./img/JS_04.png
+    :width: 700
+.. _Tut_0B: https://raw.githubusercontent.com/uacic/StarBlast/master/img/JS_04.png
+.. |Tut_1| image:: ./img/JS_02.png
+    :width: 700
+.. _Tut_1: https://raw.githubusercontent.com/uacic/StarBlast/master/img/JS_02.png
+.. |Tut_2| image:: ./img/TJS_05.png
+    :width: 700
+.. _Tut_2: https://raw.githubusercontent.com/uacic/StarBlast/master/img/JS_05.png
+.. |Tut_3| image:: ./img/JS_06.png
+    :width: 700
+.. _Tut_3: https://raw.githubusercontent.com/uacic/StarBlast/master/img/JS_06.png
+.. |Tut_4| image:: ./img/JS_07.png
+    :width: 700
+.. _Tut_4: https://raw.githubusercontent.com/uacic/StarBlast/master/img/JS_07.png
+.. |Tut_5| image:: ./img/JS_08.png
+    :width: 700
+.. _Tut_5: https://raw.githubusercontent.com/uacic/StarBlast/master/img/JS_08.png
+.. |Tut_6| image:: ./img/JS_09.png
+    :width: 700
+.. _Tut_6: https://raw.githubusercontent.com/uacic/StarBlast/master/img/JS_09.png
+.. |Tut_7| image:: ./img/JS_10.png
+    :width: 700
+.. _Tut_7: https://raw.githubusercontent.com/uacic/StarBlast/master/img/JS_10.png
     <a href="https://de.cyverse.org/de/" target="_blank">Discovery Environment</a>
     
