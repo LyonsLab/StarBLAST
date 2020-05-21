@@ -38,40 +38,6 @@ Like the intermediate solution, the heaviest StarBLAST-HPC solution makes use of
 
 This solution allows a great deal of scalability, enabling classrooms of >100 or more students to run concurrent jobs.
 
-Platform(s)
------------
-
-*We will use the following CyVerse platform(s):*
-
-.. list-table::
-    :header-rows: 1
-
-    * - Solution
-      - Platform
-      - Capacity
-      - Link
-      - Platform Documentation
-      - Learning Center Docs
-    * - StarBLAST-VICE
-      - Discovery Environment
-      - 5-25 Students
-      - `Discovery Environment <https://de.cyverse.org/de/>`_
-      - `DE Manual <https://cyverse.atlassian.net/wiki/spaces/DEmanual/overview>`_
-      - `Guide <https://learning.cyverse.org/projects/discovery-environment-guide/en/latest/>`__
-    * - StarBLAST-Docker on JetStream Cloud
-      - JetStream Cloud / Docker
-      - <100 Students
-      - `JetStream <https://use.jetstream-cloud.org/>`_
-      - `JetStream Manual & Guide <https://portal.xsede.org/jetstream>`_
-    * - StarBLAST-HPC
-      - HPC & JetStream Cloud
-      - >100 Students
-      - `cctools <https:://github.com/cooperative-computing-lab/>`_
-      - `PBS on HPC  <https://public.confluence.arizona.edu/display/UAHPC>`_
-      - `Workqueue <https://cctools.readthedocs.io/en/latest/work_queue/>`__
-
-----
-
 StarBLAST-VICE Setup
 --------------------
 
@@ -104,7 +70,14 @@ StarBLAST-Dockers Setup on JetStream Cloud
 To deploy StarBLAST setup on the JetStream Cloud service, you will need access to `JetStream <https://use.jetstream-cloud.org/>`_. To log on JetStream you need to have either a `Globus <https://www.globus.org/>`_ account, an `XSEDE <https://portal.xsede.org/my-xsede#/guest>`_ account or for your institution to have access to XSEDE (you can check this by searching for your institution name from the drop down menu in JetStream's login page).
 
 .. note::
-   The StarBlast implementation consists of one Master instance that will serve as the front-end for all users and one or more Worker instances that connect to the master and execute the BLAST jobs.
+   When first making a JetStream account, users will require to submit an abstract or plan of study to the JetStream team explaining what the resources will be used for. Upon locating your institution and creating an XSEDE account you will log into the JetStream and may receive an error message that your account is invalid. Follow the instructions under the Jetstream Requesting Trial Access Guide to request a trial allocation through your XSEDE account. If you are requesting a full allocation, you can follow the appropriate guidelines `here <https://iujetstream.atlassian.net/wiki/spaces/JWT/pages/49184781/Jetstream+Allocations>)`_. For purposes of starBLAST, you will want to submit an educational request and will need to report the following: 
++ the XSEDE usernames of your PIs and relevant collaborators (if applicable);
++ request “JetStream” with the estimated number of computing hours and IP addresses needed.
+
+
+.. note::
+   The StarBlast implementation consists of one Master instance that will serve as the front-end for all users and one or more Worker instances that connect to the master and execute the BLAST jobs. The “master instance” is the interface in which users will run their BLAST inquiries and the “workers” are the machines performing this work for the master.
+
 
 You will need to launch a Master instance that will host sequenceServer front-end and one or more Worker instances as needed to distribute the BLAST jobs. 
 
@@ -113,7 +86,7 @@ Both the Master and Worker Virtual Machine instances use Docker containers to ru
 Launching Master & Worker Instances
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. Login to `JetStream Cloud <https://use.jetstream-cloud.org/>`_ where we will be setting up Master and Worker instances that are to be launched using the following respective deployment scripts. These deployment scripts (Master & Worker) are designed to:
+1. Login to `JetStream Cloud <https://use.jetstream-cloud.org/>`_ where we will be setting up separate Master and Worker instances that are to be launched using the following respective deployment scripts. These deployment scripts (Master & Worker) are designed to:
 	+ download specified BLAST databases
 	+ Master script to launch sequenceServer front-end that can be accessed using the IP ADDRESS of the instance. 
 	+ Worker script to connect factory of workers to the Master
@@ -139,7 +112,7 @@ Launching Master & Worker Instances
 
 |Tut_1|_
   
-- Search for “Docker_starBLAST” and select the “Docker_starBLAST” image (or click `here <https://use.jetstream-cloud.org/application/images/967>`_); click “Launch”
+- Search for “Docker_starBLAST” and select the “Docker_starBLAST” image (or click `here <https://use.jetstream-cloud.org/application/images/967>`_); click “Launch”. These steps will be done at least twice, as separate instances are launched for the Master node and each Worker(s). It’s a good idea to click the star icon to “favorite” the image for ease of access for subsequent launches.
 
 |Tut_2|_
 
@@ -153,7 +126,7 @@ Launching Master & Worker Instances
 
 |Tut_5|_
 
--  Title the script according to Master (e.g. Master script) or Worker (e.g. Worker script) depending  on wether you're deploying the Master or Worker; Select “Raw Text” and copy and paste text from either the Master (if creating the Master virtual machine) or Worker (if creating the Worker virtual machine) deployment scripts linked above. Select “Save and Add Script” and then "Continue to Launch".
+-  Title the script according to Master (e.g. Master script) or Worker (e.g. Worker script) depending  on whether you're deploying the Master or Worker; Select “Raw Text” and copy and paste text from either the `Master <https://raw.githubusercontent.com/zhxu73/sequenceserver-scale-docker/master/deploy/iRODS/Jetstream_deploy_master.sh>`_ (if creating the Master virtual machine) or `Worker <https://raw.githubusercontent.com/zhxu73/sequenceserver-scale-docker/master/deploy/iRODS/Jetstream_deploy_worker.sh>`_ (if creating the Worker virtual machine) deployment scripts linked above. Select “Save and Add Script” and then "Continue to Launch".
 
 .. note::
    This step is required to be done **once** for the Master and **once for every Worker virtual machine**. The deployment scripts are stored in user's advanced settings and will be available readily for future use.
@@ -168,7 +141,7 @@ Launching Master & Worker Instances
 Start Blasting
 ~~~~~~~~~~~~~~
 
-Now, anyone can open a web-browser and go to <MASTER_VM_IP_ADDRESS> to access sequence-Server front-end and start BLASTING!
+Now anyone can copy and paste the IP address of the master node into the address bar to access your personal BLAST server!
 
 |Tut_7|_
 
@@ -192,11 +165,13 @@ Setting Up the Worker HPC
 
 It is important that the following software are installed on the HPC:
 
-- glibc version 2.14 or newer, 
+- glibc version 2.14 or newer; 
 
-- ncbi-blast+ version 2.6.0 or newer (ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/ncbi-blast-2.9.0+-src.tar.gz)
+- ncbi-blast+ version 2.6.0 or newer (ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/ncbi-blast-2.9.0+-src.tar.gz);
 
-- CCTools version 7.0.21 or newer (https://ccl.cse.nd.edu/software/files/cctools-7.1.5-source.tar.gz).
+- CCTools version 7.0.21 or newer (https://ccl.cse.nd.edu/software/files/cctools-7.1.5-x86_64-centos7.tar.gz);
+
+- Support for CentOS 7.
 
 Make both ncbi-blast+ and CCTools available in your home directory; to find out your home directory do
 
@@ -220,7 +195,7 @@ Download the software (BLAST+ and CCTools), un-tar,and add to path using
    
 .. note::
 
-   CCTools only works with glibc version 2.14 or newer, confirm that your HPC has glibc version 2.14 or newer is installed or avaialbe to load (check module load or avaialable documentation). In the following examples, we assume that both glibc and BLAST+ are avaiable to be loaded through `module load`.
+   CCTools only works with glibc version 2.14 or newer and CentOS7, confirm that your HPC has glibc version 2.14 or newer and is installed or avaialbe to load (check module load or avaialable documentation). Equally, ensure that your HPC has support for CentOS7. In the following examples, we assume that both glibc and BLAST+ are avaiable to be loaded through `module load`.
 
 BLAST databases need to be downloaded in a <DATABASE> directory in the home folder.
 
@@ -462,7 +437,7 @@ Acknowledgements
 .. |Tut_1| image:: ./img/JS_02.png
     :width: 700
 .. _Tut_1: https://raw.githubusercontent.com/uacic/StarBlast/master/img/JS_02.png
-.. |Tut_2| image:: ./img/TJS_05.png
+.. |Tut_2| image:: ./img/JS_05.png
     :width: 700
 .. _Tut_2: https://raw.githubusercontent.com/uacic/StarBlast/master/img/JS_05.png
 .. |Tut_3| image:: ./img/JS_06.png
