@@ -3,10 +3,10 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-|starblast_logo|_
-
 Welcome to StarBLAST!
 =======================================
+
+|starblast_logo|_
 
 StarBlast is a scalable extension of the open source `SequenceServer <http://sequenceserver.com/>`_ BLAST, with the goal of making BLAST more accessible to educators and researchers who want to run classroom-scale searches concurrently. 
 StarBLAST is distributed scaling of SequenceServer BLAST using `cctools <http://ccl.cse.nd.edu/>`_ and CyVerse's Visual Interactive Computing Environment (`VICE <https://learning.cyverse.org/projects/vice/en/latest/getting_started/about.html/>`_).
@@ -20,7 +20,7 @@ By providing distributed and scalable BLAST capabilities, StarBLAST enables rese
 
 .. toctree::
    :titlesonly:
-   
+
    2_StarBLAST-VICE
    3_StarBLAST-Docker
    4_StarBLAST-HPC

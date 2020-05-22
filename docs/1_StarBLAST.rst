@@ -31,29 +31,29 @@ By providing distributed and scalable BLAST capabilities, StarBLAST enables rese
 .. |discovery_enviornment| raw:: html
 .. |Tut_0| image:: ./img/JS_03.png
     :width: 700
-.. _Tut_0: https://raw.githubusercontent.com/uacic/StarBlast/master/img/JS_03.png
+.. _Tut_0: https://github.com/uacic/StarBlast/tree/master/docs/img/JS_03.png
 .. |Tut_0B| image:: ./img/JS_04.png
     :width: 700
-.. _Tut_0B: https://raw.githubusercontent.com/uacic/StarBlast/master/img/JS_04.png
+.. _Tut_0B: https://github.com/uacic/StarBlast/tree/master/docs/img/JS_04.png
 .. |Tut_1| image:: ./img/JS_02.png
     :width: 700
-.. _Tut_1: https://raw.githubusercontent.com/uacic/StarBlast/master/img/JS_02.png
+.. _Tut_1: https://github.com/uacic/StarBlast/tree/master/docs/img/JS_02.png
 .. |Tut_2| image:: ./img/TJS_05.png
     :width: 700
-.. _Tut_2: https://raw.githubusercontent.com/uacic/StarBlast/master/img/JS_05.png
+.. _Tut_2: https://github.com/uacic/StarBlast/tree/master/docs/img/JS_05.png
 .. |Tut_3| image:: ./img/JS_06.png
     :width: 700
-.. _Tut_3: https://raw.githubusercontent.com/uacic/StarBlast/master/img/JS_06.png
+.. _Tut_3: https://github.com/uacic/StarBlast/tree/master/docs/img/JS_06.png
 .. |Tut_4| image:: ./img/JS_07.png
     :width: 700
-.. _Tut_4: https://raw.githubusercontent.com/uacic/StarBlast/master/img/JS_07.png
+.. _Tut_4: https://github.com/uacic/StarBlast/tree/master/docs/img/JS_07.png
 .. |Tut_5| image:: ./img/JS_08.png
     :width: 700
-.. _Tut_5: https://raw.githubusercontent.com/uacic/StarBlast/master/img/JS_08.png
+.. _Tut_5: https://github.com/uacic/StarBlast/tree/master/docs/img/JS_08.png
 .. |Tut_6| image:: ./img/JS_09.png
     :width: 700
-.. _Tut_6: https://raw.githubusercontent.com/uacic/StarBlast/master/img/JS_09.png
+.. _Tut_6: https://github.com/uacic/StarBlast/tree/master/docs/img/JS_09.png
 .. |Tut_7| image:: ./img/JS_10.png
     :width: 700
-.. _Tut_7: https://raw.githubusercontent.com/uacic/StarBlast/master/img/JS_10.png
+.. _Tut_7: https://github.com/uacic/StarBlast/tree/master/docs/img/JS_10.png
     <a href="https://de.cyverse.org/de/" target="_blank">Discovery Environment</a>
