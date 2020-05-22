@@ -1,5 +1,5 @@
 StarBLAST-HPC Setup
--------------------
+---------------------
 
 The StarBLAST-HPC Setup is ideal for distributing BLAST searches across multiple nodes on a High-Performance Computer.
 
@@ -181,3 +181,50 @@ Start BLASTING! Enter the <MASTER_VM_IP_ADDRESS> in your browser using the actua
 .. code::
 
    <MASTER_VM_IP_ADDRESS>
+
+
+.. |seqserver_QL| image:: https://de.cyverse.org/Powered-By-CyVerse-blue.svg
+.. _seqserver_QL: https://de.cyverse.org/de/?type=quick-launch&quick-launch-id=0ade6455-4876-49cc-9b37-a29129d9558a&app-id=ab404686-ff20-11e9-a09c-008cfa5ae621
+
+.. |concept_map| image:: ./img/concept_map.png
+    :width: 700
+.. _concept_map: 
+
+.. |CyVerse logo| image:: ./img/cyverse_rgb.png
+    :width: 700
+.. _CyVerse logo: http://learning.cyverse.org/
+.. |Home_Icon| image:: ./img/homeicon.png
+    :width: 25
+.. _Home_Icon: http://learning.cyverse.org/
+.. |starblast_logo| image:: ./img/starblast.jpeg
+    :width: 700
+.. _starblast_logo:   
+.. |discovery_enviornment| raw:: html
+.. |Tut_0| image:: ./img/JS_03.png
+    :width: 700
+.. _Tut_0: https://raw.githubusercontent.com/uacic/StarBlast/master/img/JS_03.png
+.. |Tut_0B| image:: ./img/JS_04.png
+    :width: 700
+.. _Tut_0B: https://raw.githubusercontent.com/uacic/StarBlast/master/img/JS_04.png
+.. |Tut_1| image:: ./img/JS_02.png
+    :width: 700
+.. _Tut_1: https://raw.githubusercontent.com/uacic/StarBlast/master/img/JS_02.png
+.. |Tut_2| image:: ./img/TJS_05.png
+    :width: 700
+.. _Tut_2: https://raw.githubusercontent.com/uacic/StarBlast/master/img/JS_05.png
+.. |Tut_3| image:: ./img/JS_06.png
+    :width: 700
+.. _Tut_3: https://raw.githubusercontent.com/uacic/StarBlast/master/img/JS_06.png
+.. |Tut_4| image:: ./img/JS_07.png
+    :width: 700
+.. _Tut_4: https://raw.githubusercontent.com/uacic/StarBlast/master/img/JS_07.png
+.. |Tut_5| image:: ./img/JS_08.png
+    :width: 700
+.. _Tut_5: https://raw.githubusercontent.com/uacic/StarBlast/master/img/JS_08.png
+.. |Tut_6| image:: ./img/JS_09.png
+    :width: 700
+.. _Tut_6: https://raw.githubusercontent.com/uacic/StarBlast/master/img/JS_09.png
+.. |Tut_7| image:: ./img/JS_10.png
+    :width: 700
+.. _Tut_7: https://raw.githubusercontent.com/uacic/StarBlast/master/img/JS_10.png
+    <a href="https://de.cyverse.org/de/" target="_blank">Discovery Environment</a>

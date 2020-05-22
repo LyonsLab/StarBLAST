@@ -1,5 +1,5 @@
 StarBLAST-Dockers Setup on JetStream Cloud 
---------------------------------------------
+-------------------------------------------
 
 To deploy StarBLAST setup on the JetStream Cloud service, you will need access to `JetStream <https://use.jetstream-cloud.org/>`_. To log on JetStream you need to have either a `Globus <https://www.globus.org/>`_ account, an `XSEDE <https://portal.xsede.org/my-xsede#/guest>`_ account or for your institution to have access to XSEDE (you can check this by searching for your institution name from the drop down menu in JetStream's login page).
 
@@ -10,8 +10,7 @@ You will need to launch a Master instance that will host sequenceServer front-en
 
 Both the Master and Worker Virtual Machine instances use Docker containers to run SequenceServer and connect Workers. 
 
-Launching Master & Worker Instances
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**Launching Master & Worker Instances**
 
 1. Login to `JetStream Cloud <https://use.jetstream-cloud.org/>`_ where we will be setting up Master and Worker instances that are to be launched using the following respective deployment scripts. These deployment scripts (Master & Worker) are designed to:
 	+ download specified BLAST databases
@@ -74,4 +73,49 @@ Now, anyone can open a web-browser and go to <MASTER_VM_IP_ADDRESS> to access se
 
    <MASTER_VM_IP_ADDRESS>
 
-----
+
+.. |seqserver_QL| image:: https://de.cyverse.org/Powered-By-CyVerse-blue.svg
+.. _seqserver_QL: https://de.cyverse.org/de/?type=quick-launch&quick-launch-id=0ade6455-4876-49cc-9b37-a29129d9558a&app-id=ab404686-ff20-11e9-a09c-008cfa5ae621
+
+.. |concept_map| image:: ./img/concept_map.png
+    :width: 700
+.. _concept_map: 
+
+.. |CyVerse logo| image:: ./img/cyverse_rgb.png
+    :width: 700
+.. _CyVerse logo: http://learning.cyverse.org/
+.. |Home_Icon| image:: ./img/homeicon.png
+    :width: 25
+.. _Home_Icon: http://learning.cyverse.org/
+.. |starblast_logo| image:: ./img/starblast.jpeg
+    :width: 700
+.. _starblast_logo:   
+.. |discovery_enviornment| raw:: html
+.. |Tut_0| image:: ./img/JS_03.png
+    :width: 700
+.. _Tut_0: https://raw.githubusercontent.com/uacic/StarBlast/master/img/JS_03.png
+.. |Tut_0B| image:: ./img/JS_04.png
+    :width: 700
+.. _Tut_0B: https://raw.githubusercontent.com/uacic/StarBlast/master/img/JS_04.png
+.. |Tut_1| image:: ./img/JS_02.png
+    :width: 700
+.. _Tut_1: https://raw.githubusercontent.com/uacic/StarBlast/master/img/JS_02.png
+.. |Tut_2| image:: ./img/TJS_05.png
+    :width: 700
+.. _Tut_2: https://raw.githubusercontent.com/uacic/StarBlast/master/img/JS_05.png
+.. |Tut_3| image:: ./img/JS_06.png
+    :width: 700
+.. _Tut_3: https://raw.githubusercontent.com/uacic/StarBlast/master/img/JS_06.png
+.. |Tut_4| image:: ./img/JS_07.png
+    :width: 700
+.. _Tut_4: https://raw.githubusercontent.com/uacic/StarBlast/master/img/JS_07.png
+.. |Tut_5| image:: ./img/JS_08.png
+    :width: 700
+.. _Tut_5: https://raw.githubusercontent.com/uacic/StarBlast/master/img/JS_08.png
+.. |Tut_6| image:: ./img/JS_09.png
+    :width: 700
+.. _Tut_6: https://raw.githubusercontent.com/uacic/StarBlast/master/img/JS_09.png
+.. |Tut_7| image:: ./img/JS_10.png
+    :width: 700
+.. _Tut_7: https://raw.githubusercontent.com/uacic/StarBlast/master/img/JS_10.png
+    <a href="https://de.cyverse.org/de/" target="_blank">Discovery Environment</a>
