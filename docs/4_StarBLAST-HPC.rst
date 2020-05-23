@@ -13,11 +13,13 @@ HPC Requirements and Setup
 
 It is important that the following software are installed on the HPC:
 
-+ glibc version 2.14 or newer, 
++ glibc version 2.14 or newer; 
 
-+ `ncbi-blast+ version 2.6.0 or newer <ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/ncbi-blast-2.9.0+-src.tar.gz>`_
++ `ncbi-blast+ version 2.6.0 or newer <ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/ncbi-blast-2.9.0+-src.tar.gz>`_;
 
-+ `CCTools version 7.0.21 or newer <https://ccl.cse.nd.edu/software/files/cctools-7.1.5-source.tar.gz>`_
++ `CCTools version 7.0.21 or newer <https://ccl.cse.nd.edu/software/files/cctools-7.1.5-source.tar.gz>`_;
+
++ Support for CentOS7.
 
 **1.** Make both ncbi-blast+ and CCTools available in your home directory; to find out your home directory do
 
@@ -31,7 +33,7 @@ Your home directory should be something similar to
 
    /home/<U_NUMBER>/<USER>/
 
-**2.** Download the software (BLAST+ and CCTools), un-tar,and add to path using
+**2.** Download the software (BLAST+ and CCTools), un-tar, and add to path using
 
 .. code::
 

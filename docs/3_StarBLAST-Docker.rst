@@ -2,7 +2,9 @@
 StarBLAST-Dockers Setup on JetStream Cloud 
 ******************************************
 
-To deploy StarBLAST setup on the JetStream Cloud service, you will need access to `JetStream <https://use.jetstream-cloud.org/>`_. To log on JetStream you need to have either a `Globus <https://www.globus.org/>`_ account, an `XSEDE <https://portal.xsede.org/my-xsede#/guest>`_ account or for your institution to have access to XSEDE (you can check this by searching for your institution name from the drop down menu in JetStream's login page).
+To deploy StarBLAST setup on the JetStream Cloud service, you will need access to `JetStream <https://use.jetstream-cloud.org/>`_. 
+
+To log on JetStream you need to have either a `Globus <https://www.globus.org/>`_ account, an `XSEDE <https://portal.xsede.org/my-xsede#/guest>`_ account or for your institution to have access to XSEDE (you can check this by searching for your institution name from the drop down menu in JetStream's login page).
 
 .. note::
    The StarBlast implementation consists of one Master instance that will serve as the front-end for all users and one or more Worker instances that connect to the master and execute the BLAST jobs.
@@ -14,14 +16,16 @@ Both the Master and Worker Virtual Machine instances use Docker containers to ru
 Launching Master & Worker Instances
 ===================================
 
-**1.** Login to `JetStream Cloud <https://use.jetstream-cloud.org/>`_ where we will be setting up Master and Worker instances that are to be launched using the following respective deployment scripts. These deployment scripts (Master & Worker) are designed to:
-	+ download specified BLAST databases
-	+ Master script to launch sequenceServer front-end that can be accessed using the IP ADDRESS of the instance. 
-	+ Worker script to connect factory of workers to the Master
+**1.**  Login to `JetStream Cloud <https://use.jetstream-cloud.org/>`_ where we will be setting up Master and Worker instances that are to be launched using the following respective deployment scripts. These deployment scripts (Master & Worker) are designed to:
 
+	+ download specified BLAST databases;
+	+ Master script to launch sequenceServer front-end that can be accessed using the IP ADDRESS of the instance; 
+	+ Worker script to connect factory of workers to the Master.
+
+
+** Deployment Scripts **
 
 The deployment scripts for a Master instance (atmo_deploy_master.sh) can be found `here <https://raw.githubusercontent.com/zhxu73/sequenceserver-scale-docker/master/deploy/iRODS/Jetstream_deploy_master.sh>`_. 
-
 The deployment scripts for a Worker instance (atmo_deploy_worker.sh) can be found `here <https://raw.githubusercontent.com/zhxu73/sequenceserver-scale-docker/master/deploy/iRODS/Jetstream_deploy_worker.sh>`_.
 
 .. note::

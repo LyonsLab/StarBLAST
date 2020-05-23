@@ -1,5 +1,6 @@
+********************
 StarBLAST-VICE Setup
---------------------
+********************
 
 StarBLAST-VICE is a Visual and Interactive Computing Environment app in CyVerse’s Discovery Environment (DE) for running interactive apps such as SequenceServer. 
 
