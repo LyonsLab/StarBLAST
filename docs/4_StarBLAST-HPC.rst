@@ -57,7 +57,7 @@ Launching Workers on the HPC
 
 The HPC uses a .pbs and qsub system to submit jobs.
 
-**1.** Create a .pbs file that contains the following code and change the <VARIABLES> to preferred options:
+**1.** Create a :code:`.pbs` file that contains the following code and change the :code:`<VARIABLES>` to preferred options:
 
 .. code::
 
@@ -84,7 +84,7 @@ The HPC uses a .pbs and qsub system to submit jobs.
 
    /home/<U_NUMBER>/<USER>/<CCTOOLS_DIRECTORY>/bin/work_queue_factory -T local -M $PROJECT_NAME --cores <N_CORES> -w <MIN_N_WORKERS> -W <MAX_N_WORKERS> -t $TIME_OUT_TIME
 
-An **example of a .pbs file running on the University of Arizona HPC:
+An example of a :code:`.pbs` file running on the University of Arizona HPC:
 
 .. code::
 
@@ -113,7 +113,7 @@ An **example of a .pbs file running on the University of Arizona HPC:
 
 In the example above, the user already has blast installed (calls it using :code:“module load blast“). The script will submit to the HPC nodes a minimum of 1 and a maximum of 8 workers per node.
 
-**2.** Submit the .pbs script with 
+**2.** Submit the :code:`.pbs` script with 
 
 .. code::
     

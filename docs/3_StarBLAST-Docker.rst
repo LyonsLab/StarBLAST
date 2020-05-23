@@ -23,7 +23,7 @@ Launching Master & Worker Instances
 	+ Worker script to connect factory of workers to the Master.
 
 
-** Deployment Scripts **
+**Deployment Scripts**
 
 The deployment scripts for a Master instance (atmo_deploy_master.sh) can be found `here <https://raw.githubusercontent.com/zhxu73/sequenceserver-scale-docker/master/deploy/iRODS/Jetstream_deploy_master.sh>`_. 
 The deployment scripts for a Worker instance (atmo_deploy_worker.sh) can be found `here <https://raw.githubusercontent.com/zhxu73/sequenceserver-scale-docker/master/deploy/iRODS/Jetstream_deploy_worker.sh>`_.
@@ -43,7 +43,7 @@ The deployment scripts for a Worker instance (atmo_deploy_worker.sh) can be foun
 
 |Tut_1|_
 
-**5.** Search for “Docker_starBLAST” and select the “Docker_starBLAST” image (or click `here <https://use.jetstream-cloud.org/application/images/967>`_); click “Launch”
+**5.** Search for “Docker_starBLAST” and select the “Docker_starBLAST” image (or click `here <https://use.jetstream-cloud.org/application/images/967>`_); click “Launch”.
 
 |Tut_2|_
 
@@ -70,7 +70,7 @@ The deployment scripts for a Worker instance (atmo_deploy_worker.sh) can be foun
    JetStream cloud will take around 10-20 minutes to set up and activate your customized virtual machines and the wait-time will increase with the size of the BLAST database.
 
 
-**Now, anyone can open a web-browser and go to <MASTER_VM_IP_ADDRESS> to access sequence-Server front-end and BLAST!**
+**Now, anyone can open a web-browser and go to :code:`<MASTER_VM_IP_ADDRESS>` to access sequence-Server front-end and BLAST!**
 
 |Tut_7|_
 
@@ -101,7 +101,7 @@ The deployment scripts for a Worker instance (atmo_deploy_worker.sh) can be foun
 .. |Tut_1| image:: ./img/JS_02.png
     :width: 700
 .. _Tut_1: https://github.com/uacic/StarBlast/tree/master/docs/img/JS_02.png
-.. |Tut_2| image:: ./img/TJS_05.png
+.. |Tut_2| image:: ./img/JS_05.png
     :width: 700
 .. _Tut_2: https://github.com/uacic/StarBlast/tree/master/docs/img/JS_05.png
 .. |Tut_3| image:: ./img/JS_06.png
