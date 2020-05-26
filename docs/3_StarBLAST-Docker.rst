@@ -7,9 +7,9 @@ To deploy StarBLAST setup on the JetStream Cloud service, you will need access t
 To log on JetStream you need to have either a `Globus <https://www.globus.org/>`_ account, an `XSEDE <https://portal.xsede.org/my-xsede#/guest>`_ account or for your institution to have access to XSEDE (you can check this by searching for your institution name from the drop down menu in JetStream's login page).
 
 .. note::
-   The StarBlast implementation consists of one Master instance that will serve as the front-end for all users and one or more Worker instances that connect to the master and execute the BLAST jobs.
+   When creating a JetStream account, you will be asked for specific documentation (e.g. how many instances you require and the reason for such).
 
-You will need to launch a Master instance that will host sequenceServer front-end and one or more Worker instances as needed to distribute the BLAST jobs. 
+You will need to launch a Master instance that will host SequenceServer front-end and one or more Worker instances as needed to distribute the BLAST jobs. 
 
 Both the Master and Worker Virtual Machine instances use Docker containers to run SequenceServer and connect Workers. 
 
@@ -19,7 +19,7 @@ Launching Master & Worker Instances
 **1.**  Login to `JetStream Cloud <https://use.jetstream-cloud.org/>`_ where we will be setting up Master and Worker instances that are to be launched using the following respective deployment scripts. These deployment scripts (Master & Worker) are designed to:
 
 	+ download specified BLAST databases;
-	+ Master script to launch sequenceServer front-end that can be accessed using the IP ADDRESS of the instance; 
+	+ Master script to launch sequenceServer front-end that can be accessed using the :code:`<MASTER_IP_ADDRESS>` of the instance; 
 	+ Worker script to connect factory of workers to the Master.
 
 
@@ -57,7 +57,8 @@ Launching Master & Worker Instances
 
 |Tut_5|_
 
-**8.**  Title the script according to Master (e.g. Master script) or Worker (e.g. Worker script) depending  on wether you're deploying the Master or Worker; Select “Raw Text” and copy and paste text from either the Master (if creating the Master virtual machine) or Worker (if creating the Worker virtual machine) deployment scripts linked above. Select “Save and Add Script” and then "Continue to Launch".
+**8.**  Title the script according to `Master <https://raw.githubusercontent.com/zhxu73/sequenceserver-scale-docker/master/deploy/iRODS/Jetstream_deploy_master.sh>`_ (e.g. Master script) or `Worker <https://raw.githubusercontent.com/zhxu73/sequenceserver-scale-docker/master/deploy/iRODS/Jetstream_deploy_worker.sh>`_(e.g. Worker script) depending  on wether you're deploying the Master or Worker; 
+Select “Raw Text” and copy and paste text from either the Master (if creating the Master virtual machine) or Worker (if creating the Worker virtual machine) deployment scripts linked above. Select “Save and Add Script” and then "Continue to Launch".
 
 .. note::
    This step is required to be done **once** for the Master and **once for every Worker virtual machine**. The deployment scripts are stored in user's advanced settings and will be available readily for future use.
