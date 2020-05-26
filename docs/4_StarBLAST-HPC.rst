@@ -123,7 +123,7 @@ Setting Up the Master VM on the Cloud Service
 =============================================
 
 The Master VM for StarBLAST-HPC is set up similarly to how the Master for starBLAST-Docker is set up, with the difference that the Master for starBLAST-HPC **does not require the deployment script**. 
-Therefore, in order to set up the Master for starBLAST-HPC, follow the same steps as in StarBLAST-Docker **without** adding the Master deployment script. Additionally, BLAST databases need to be loaded manually onto the :code:<DATABASE> folder.
+Therefore, in order to set up the Master for starBLAST-HPC, follow the same steps as in StarBLAST-Docker **without** adding the Master deployment script. Additionally, BLAST databases need to be loaded manually onto the :code:`<DATABASE>` folder.
 
 Once the VM is ready, either access it through ssh or by using the Web Shell ("Open Web Shell" button on your VM's page). Once inside follow the next steps.
 
@@ -131,7 +131,7 @@ Once the VM is ready, either access it through ssh or by using the Web Shell ("O
 
    **IMPORTANT: THE PATH TO THE DATABASE ON THE MASTER NEED TO BE THE SAME AS THE ONE ON THE WORKER**
 
-To ensure both the databases on the Master VM and Worker HPC are in the same directory, on the Worker HPC go to the <DATABASE> directory and do
+To ensure both the databases on the Master VM and Worker HPC are in the same directory, on the Worker HPC go to the :code:`<DATABASE>` directory and do
 
 .. code::
 
@@ -143,7 +143,7 @@ Then, on your Master VM, create the directory with the same path as above
 
    mkdir -p SAME/PATH/TO/HPC/DATABASE/DIRECTORY/
 
-Now you have set up the :code:<DATABASE> directories but you still need the databases. Databases can be parsed manually through BLAST+'s `makeblastdb` if you have your own :code:`.fasta (or .faa, .fna)` files or you can use the same databases as StarBLAST-Docker. In order to use the latter, you need to have iRODS installed (JetStream comes with iRODS pre-installed) and a CyVerse account. Then, do:
+Now you have set up the :code:`<DATABASE>` directories but you still need the databases. Databases can be parsed manually through BLAST+'s `makeblastdb` if you have your own :code:`.fasta (or .fa, .faa, .fna)` files or you can use the same databases as StarBLAST-Docker. In order to use the latter, you need to have iRODS installed (JetStream comes with iRODS pre-installed) and a CyVerse account. Then, do:
 
 .. code::
 
@@ -159,7 +159,7 @@ It will ask for certain credentials, connect to the CyVerse with:
    zone: iplant
    password: <CyVerse_password>
 
-If successful, obtain the databases and move them to your <DATABASE> folder:
+If successful, obtain the databases and move them to your :code:`<DATABASE>` folder:
 
 .. code::
 
@@ -185,10 +185,6 @@ An example is:
    The custom Database folder on the Master needs to have read and write permissions
    
 Start BLASTING! Now anyone can enter the :code:`<MASTER_VM_IP_ADDRESS>` in their browser using to access SequenceServer.
-
-.. code::
-
-   <MASTER_VM_IP_ADDRESS>
 
 
 .. |seqserver_QL| image:: https://de.cyverse.org/Powered-By-CyVerse-blue.svg
