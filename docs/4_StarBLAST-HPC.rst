@@ -1,6 +1,6 @@
-***********************************************
-StarBLAST-HPC: HPC Deployment for Large Classes
-***********************************************
+******************************************************
+StarBLAST-HPC: HPC Deployment for Large Classes (>100)
+******************************************************
 
 The StarBLAST-HPC Setup is ideal for distributing BLAST searches across multiple nodes on a High-Performance Computer.
 
@@ -13,13 +13,17 @@ HPC Requirements and Setup
 
 It is important that the following software are installed on the HPC:
 
-+ glibc version 2.14 or newer; 
++ `IRODS <https://docs.irods.org/master/getting_started/installation/>`_;
 
 + `ncbi-blast+ version 2.6.0 or newer <ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/ncbi-blast-2.9.0+-src.tar.gz>`_;
 
 + `CCTools version 7.0.21 or newer <https://ccl.cse.nd.edu/software/files/cctools-7.1.5-source.tar.gz>`_;
 
++ glibc version 2.14 or newer; 
+
 + Support for CentOS7.
+
+Additionally, a CyVerse account is required.
 
 **1.** Make both ncbi-blast+ and CCTools available in your home directory; to find out your home directory do
 

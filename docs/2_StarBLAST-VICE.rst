@@ -1,6 +1,6 @@
-************************************************
-StarBLAST-VICE: Web Deployment for Small Classes
-************************************************
+******************************************************
+StarBLAST-VICE: Web Deployment for Small Classes (<25)
+******************************************************
 
 StarBLAST-VICE is a personalizable implementation of SequenceServer, deployable as a VICE (Visual and Interactive Computing Environment) web application and hosted on the CyVerse’s Discovery Environment (DE).
 StarBLAST-VICE is launchable with a maximum of 8 CPU cores, 16 GB RAM, and 512 GB disk space.
@@ -42,7 +42,7 @@ To add your own BLAST databases you will need a :code:`.fasta (or .fa, .faa, .fn
 **3.** Click on the "Search Apps" bar and search for "Create BLAST Database" or click `here <https://de.cyverse.org/de/?type=apps&app-id=decdd668-5616-11e7-9724-008cfa5ae621&system-id=de>`_. 
 
 
-**4.** In the "Inputs" tab, choose the fasta file you uploaded. Additionally, add a name for your BLAST database and choose a destination folder (highly suggested you make a new folder).
+**4.** In the "Inputs" tab, choose the fasta file you uploaded. Additionally, add a name for your BLAST database and choose a mew destination folder.
 
 
 **5.** Click "Launch Analysis" and wait for the notification bell to notify you when the BLAST database is finished creating.
