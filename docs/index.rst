@@ -3,12 +3,14 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
+*********************
 Welcome to StarBLAST!
-=====================
+*********************
 
 |starblast_logo|_
 
 StarBLAST is a scalable extension of the open source `SequenceServer <http://sequenceserver.com/>`_ BLAST implementation, with the goal of making BLAST more accessible to researchers and educators who want to run classroom-scale searches concurrently. 
+
 StarBLAST allows SequenceServer to scale using `CCTOOLS <http://ccl.cse.nd.edu/>`_, a collection of programs that enable jobs to be distributed over a network. 
 Furthermore, we developed a StarBLAST application hosted on the CyVerse's Visual Interactive Computing Environment (`VICE <https://learning.cyverse.org/projects/vice/en/latest/getting_started/about.html/>`_) for quickly accessing a personalizable SequenceServer app. 
 
@@ -16,9 +18,11 @@ Furthermore, we developed a StarBLAST application hosted on the CyVerse's Visual
 What is SequenceServer?
 =======================
 
-In 2015 a modern front-end implementation of BLAST, SequenceServer, was developed by the Wurmlab at Queen Mary University of London (Priyam et al., 2019). 
+In 2015 a modern front-end implementation of BLAST, SequenceServer, was developed by the Wurmlab at Queen Mary University of London (Priyam *et al.*, 2019). 
+
 SequenceServer provides various advantages over the NCBI BLAST implementation, such as an improved GUI to visualize BLAST results and the ability to use custom databases. 
 Read more about SequenceServer's user-centric design and sustainable software development philosophy `here <https://doi.org/10.1093/molbev/msz185>`_. 
+
 Despite being a state-of-the-art BLAST service, the current SequenceServer implementation is not easily scalable, especially for classes without IT support or classes with hundreds of students.
 
 The StarBLAST Suite
