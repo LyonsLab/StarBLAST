@@ -31,7 +31,7 @@ Launching StarBLAST-VICE with Example Databases
 Adding Your Own Databases to StarBLAST-VICE
 ===========================================
 
-To add your own BLAST databases you will need a fasta (or fa, faa, fxa) file of your organism of choice. These are easily aquirable from NCBI or other databases.
+To add your own BLAST databases you will need a fasta (or fa, faa, fna) file of your organism of choice. These are easily aquirable from NCBI or other databases.
 
 **1.** Click on the "Data" button. 
 
