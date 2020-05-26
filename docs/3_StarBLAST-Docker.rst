@@ -70,7 +70,7 @@ Launching Master & Worker Instances
    JetStream cloud will take around 10-20 minutes to set up and activate your customized virtual machines and the wait-time will increase with the size of the BLAST database.
 
 
-**Now, anyone can open a web-browser and go to :code:`<MASTER_VM_IP_ADDRESS>` to access sequence-Server front-end and BLAST!**
+Start BLASTING! Now anyone can enter the :code:`<MASTER_VM_IP_ADDRESS>` in their browser using to access SequenceServer.
 
 |Tut_7|_
 

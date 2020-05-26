@@ -119,11 +119,11 @@ In the example above, the user already has blast installed (calls it using :code
     
    qsub <NAME_OF_PBS>.pbs
 
-Setting Up the Master VM for starBLAST-HPC
-==========================================
+Setting Up the Master VM on the Cloud Service
+=============================================
 
 The Master VM for StarBLAST-HPC is set up similarly to how the Master for starBLAST-Docker is set up, with the difference that the Master for starBLAST-HPC **does not require the deployment script**. 
-Therefore, in order to set up the Master for starBLAST-HPC, follow the same steps as above **without** adding the Master deployment script. Additionally, BLAST databases need to be loaded manually onto the :code:<DATABASE> folder.
+Therefore, in order to set up the Master for starBLAST-HPC, follow the same steps as in StarBLAST-Docker **without** adding the Master deployment script. Additionally, BLAST databases need to be loaded manually onto the :code:<DATABASE> folder.
 
 Once the VM is ready, either access it through ssh or by using the Web Shell ("Open Web Shell" button on your VM's page). Once inside follow the next steps.
 
@@ -184,7 +184,7 @@ An example is:
 
    The custom Database folder on the Master needs to have read and write permissions
    
-Start BLASTING! Enter the :code:<MASTER_VM_IP_ADDRESS> in your browser using the actual Master IP address.
+Start BLASTING! Now anyone can enter the :code:`<MASTER_VM_IP_ADDRESS>` in their browser using to access SequenceServer.
 
 .. code::
 
