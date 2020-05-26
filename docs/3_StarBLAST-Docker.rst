@@ -57,7 +57,7 @@ Launching Master & Worker Instances
 
 |Tut_5|_
 
-**8.**  Title the script according to `Master <https://raw.githubusercontent.com/zhxu73/sequenceserver-scale-docker/master/deploy/iRODS/Jetstream_deploy_master.sh>`_ (e.g. Master script) or `Worker <https://raw.githubusercontent.com/zhxu73/sequenceserver-scale-docker/master/deploy/iRODS/Jetstream_deploy_worker.sh>`_(e.g. Worker script) depending  on wether you're deploying the Master or Worker; 
+**8.**  Title the script according to `Master <https://raw.githubusercontent.com/zhxu73/sequenceserver-scale-docker/master/deploy/iRODS/Jetstream_deploy_master.sh>`_ (e.g. Master script) or `Worker <https://raw.githubusercontent.com/zhxu73/sequenceserver-scale-docker/master/deploy/iRODS/Jetstream_deploy_worker.sh>`_ (e.g. Worker script) depending  on wether you're deploying the Master or Worker; 
 Select “Raw Text” and copy and paste text from either the Master (if creating the Master virtual machine) or Worker (if creating the Worker virtual machine) deployment scripts linked above. Select “Save and Add Script” and then "Continue to Launch".
 
 .. note::
