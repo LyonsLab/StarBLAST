@@ -30,9 +30,9 @@ The StarBLAST Suite
 
 Navigate to each implementation for  information on guided deployment:
 
-+ `StarBLAST-VICE <https://starblast.readthedocs.io/en/latest/2_StarBLAST-VICE.html>`_
-+ `StarBLAST-Docker <https://starblast.readthedocs.io/en/latest/3_StarBLAST-Docker.html>`_
-+ `StarBLAST-HPC <https://starblast.readthedocs.io/en/latest/4_StarBLAST-HPC.html>`_
++ `StarBLAST-VICE: Web Deployment for Small Classes (<25 students) <https://starblast.readthedocs.io/en/latest/2_StarBLAST-VICE.html>`_
++ `StarBLAST-Docker: Cloud Deployment for Medium  Classes (25-100 students) <https://starblast.readthedocs.io/en/latest/3_StarBLAST-Docker.html>`_
++ `StarBLAST-HPC: HPC Deployment for Large Classes (>100 students) <https://starblast.readthedocs.io/en/latest/4_StarBLAST-HPC.html>`_
 
 .. |seqserver_QL| image:: https://de.cyverse.org/Powered-By-CyVerse-blue.svg
 .. _seqserver_QL: https://de.cyverse.org/de/?type=quick-launch&quick-launch-id=0ade6455-4876-49cc-9b37-a29129d9558a&app-id=ab404686-ff20-11e9-a09c-008cfa5ae621
