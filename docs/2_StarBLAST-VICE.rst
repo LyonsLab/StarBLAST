@@ -1,24 +1,48 @@
-********************
-StarBLAST-VICE Setup
-********************
+************************************************
+StarBLAST-VICE: Web Deployment for Small Classes
+************************************************
 
-StarBLAST-VICE is a Visual and Interactive Computing Environment app in CyVerse’s Discovery Environment (DE) for running interactive apps such as SequenceServer. 
+StarBLAST-VICE is a personalizable implementation of SequenceServer, deployable as a VICE (Visual and Interactive Computing Environment) web application and hosted on the CyVerse’s Discovery Environment (DE).
+StarBLAST-VICE is launchable with a maximum of 8 CPU cores, 16 GB RAM, and 512 GB disk space.
 
 .. note::
 
-   Requires access to Cyverse `Discovery Environment <https://de.cyverse.org/de/>`_
+   Before proceeding, a CyVerse account is required. Click `here <https://de.cyverse.org/de/>`_ to register or log in. 
 
-1. Click on the following button to launch SequenceServer in CyVerse Discovery Environment with two blast databases (Human_GRCh38_p12 & Mouse_GRCm38_p4).
+Launching StarBLAST-VICE with Example Databases
+===============================================
+
+**1.** Click on the following button to launch SequenceServer in CyVerse Discovery Environment with two BLAST databases (Human_GRCh38_p12 & Mouse_GRCm38_p4 - **requires CyVerse account**).
 
 	|seqserver_QL|_
 	
-2. Click [Launch Analysis]
-3. Check the notifications Bell Icon for a link to access your SequenceServer instance.
-4. Click `here <https://www.ncbi.nlm.nih.gov/nuccore/NG_007114.1?from=4986&to=6416&report=fasta>`_ for a sample DNA sequence to test the sequence similarity of the query fragment with random human and mouse sequences.
-5. Paste the query sequence and select both the available databases and submit job.
+**2.** Choose your own analysis name and the DE output folder. Click "Launch Analysis".
+**3.** Check the notifications Bell Icon for a link to access your SequenceServer instance. This might take a few minutes depending on the amount of resources requested.
+**4.** Click on the notification to open the SequenceServer instance in a new tab. Click `here <https://www.ncbi.nlm.nih.gov/nuccore/NG_007114.1?from=4986&to=6416&report=fasta>`_ for a sample DNA sequence to test the sequence similarity of the query fragment with random human and mouse sequences.
+**5.** Paste the query sequence and select both the available databases and submit job.
 
-.. note::
-   To set up your own custom database on the VICE platform, see the appendix section.
+Adding Your Own Databases to StarBLAST-VICE
+===========================================
+
+To add your own BLAST databases you will need a fasta (or fa, faa, fxa) file of your organism of choice. These are easily aquirable from NCBI or other databases.
+
+**1.** Click on the "Data" button. 
+**2.** Upload or import your fasta file to the CyVerse DE (click on "Upload" and choose whether to uplodad from your computer or insert the fasta URL). The sequence will be stored in your own private folder.
+**3.** Click on the "Search Apps" bar and search for "Create BLAST Database" or click `here <https://de.cyverse.org/de/?type=apps&app-id=decdd668-5616-11e7-9724-008cfa5ae621&system-id=de>`_. 
+**4.** In the "Inputs" tab, choose the fasta file you uploaded. Additionally, add a name for your BLAST database and choose a destination folder (highly suggested you make a new folder).
+**5.** Click "Launch Analysis" and wait for the notification bell to notify you when the BLAST database is finished creating.
+
+Launching StarBLAST-VICE with Your Own Databases
+================================================
+
+You have now created your own BLAST database. From within the CyVerse DE, to launch StarBLAST-VICE with your own database do:
+
+**1.** Access the SequenceServer app as above, but **do not click "Launch Analysis" just yet**.
+**2.** Navigate to the "Input" tab and choose the folder where you saved the BLAST database you created.
+**3.** Proceed by clicking "Launch Analysis". As before, this might take a few minutes depending on the amount of resources requested.
+
+
+
 
 .. |seqserver_QL| image:: https://de.cyverse.org/Powered-By-CyVerse-blue.svg
 .. _seqserver_QL: https://de.cyverse.org/de/?type=quick-launch&quick-launch-id=0ade6455-4876-49cc-9b37-a29129d9558a&app-id=ab404686-ff20-11e9-a09c-008cfa5ae621

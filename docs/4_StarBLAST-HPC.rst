@@ -1,6 +1,6 @@
-*******************
-StarBLAST-HPC Setup
-*******************
+***********************************************
+StarBLAST-HPC: HPC Deployment for Large Classes
+***********************************************
 
 The StarBLAST-HPC Setup is ideal for distributing BLAST searches across multiple nodes on a High-Performance Computer.
 

@@ -8,7 +8,6 @@
 
 
 .. toctree::
-   :numbered:
    :caption: User Guides  
 
    2_StarBLAST-VICE

@@ -1,6 +1,6 @@
-******************************************
-StarBLAST-Dockers Setup on JetStream Cloud 
-******************************************
+******************************************************
+StarBLAST-Docker: Cloud Deployment for Medium  Classes 
+******************************************************
 
 To deploy StarBLAST setup on the JetStream Cloud service, you will need access to `JetStream <https://use.jetstream-cloud.org/>`_. 
 
