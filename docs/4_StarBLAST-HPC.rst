@@ -114,7 +114,7 @@ An example of a :code:`.pbs` file running on the University of Arizona HPC:
 
    /home/u12/cosi/cctools-7.0.19-x86_64-centos7/bin/work_queue_factory -T local -M $PROJECT_NAME --cores 12 -w 1 -W 8 -t $TIME_OUT_TIME
 
-In the example above, the user already has blast installed (calls it using :code:“module load blast“). The script will submit to the HPC nodes a minimum of 1 and a maximum of 8 workers per node.
+In the example above, the user already has blast installed (calls it using :code: “module load blast“). The script will submit to the HPC nodes a minimum of 1 and a maximum of 8 workers per node.
 
 **2.** Submit the :code:`.pbs` script with 
 
