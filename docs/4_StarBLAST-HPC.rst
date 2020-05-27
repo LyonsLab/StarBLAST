@@ -56,7 +56,7 @@ It should output something similar to
    /home/<U_NUMBER>/<USER>/<DATABASE>/
 
 .. note::
-   an example of BLAST databases can be downloaded with iRODS here: :code:`/iplant/home/cosimichele/200503_Genomes_n_p/`.
+   An example of BLAST databases can be downloaded with iRODS here: :code:`/iplant/home/cosimichele/200503_Genomes_n_p`.
    Read how to initiate iRODS below. 
 
 Launching Workers on the HPC
