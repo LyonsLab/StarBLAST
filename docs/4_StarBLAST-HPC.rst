@@ -36,7 +36,7 @@ It should output something similar to
 
    /home/<U_NUMBER>/<USER>/
 
-**2.** Download the software (BLAST+ and CCTools), un-tar, and add to path using
+**2.** Download the software (BLAST+ and CCTools), un-tar, and add to path using (links above)
 
 .. code::
 
