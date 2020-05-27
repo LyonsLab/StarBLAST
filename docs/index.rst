@@ -11,7 +11,7 @@ Welcome to StarBLAST!
 
 StarBlast is a scalable extension of `SequenceServer <http://sequenceserver.com/>`_ BLAST, making BLAST accessible to educators and researchers running classroom-scale searches concurrently. 
 
-StarBLAST utilizes `cctools <http://ccl.cse.nd.edu/>`_ for faster, distributed computing and CyVerse's Visual Interactive Computing Environment (`VICE <https://learning.cyverse.org/projects/vice/en/latest/getting_started/about.html/>`_)  
+StarBLAST utilizes `cctools <http://ccl.cse.nd.edu/>`_ for faster, distributed computing and CyVerse's Visual Interactive Computing Environment (`VICE <https://learning.cyverse.org/projects/vice/en/latest/getting_started/about.html/>`_).  
 
 
 What is SequenceServer?
