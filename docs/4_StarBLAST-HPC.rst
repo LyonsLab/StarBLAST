@@ -2,11 +2,10 @@
 StarBLAST-HPC: HPC Deployment for Large Classes (>100)
 ******************************************************
 
-The StarBLAST-HPC Setup is ideal for distributing BLAST searches across multiple nodes on a High-Performance Computer.
+The StarBLAST-HPC Setup is designed to distribute BLAST searches across multiple nodes on a High-Performance Computer and uses a Master-Worker set-up similar to StarBLAST-Docker (an atmosphere instance as the Master, and the HPC as the Worker). It is suggested that the Worker is set up ahead of time.
 
-In order to achieve a successful setup of the StarBLAST HPC system, a moderate amount of command line knowledge is required.
+Some command line knowledge is required for setup.
 
-Similar to the StarBLAST-Dockers on Atmosphere cloud, the StarBLAST-HPC system also has a Master-Worker set-up: an atmosphere VM machine acts as the Master, and the HPC acts as the Worker. It is suggested that the Worker is set up well ahead of time.
 
 HPC Requirements and Setup
 ==========================
@@ -15,23 +14,23 @@ It is important that the following software are installed on the HPC:
 
 + `IRODS <https://docs.irods.org/master/getting_started/installation/>`_;
 
-+ `ncbi-blast+ version 2.6.0 or newer <ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/ncbi-blast-2.9.0+-src.tar.gz>`_;
++ `ncbi-blast+ version **2.9.0** or newer <ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/ncbi-blast-2.9.0+-src.tar.gz>`_;
 
-+ `CCTools version 7.0.21 or newer <https://ccl.cse.nd.edu/software/files/cctools-7.1.5-source.tar.gz>`_;
++ `CCTools version **7.0.21** or newer <https://ccl.cse.nd.edu/software/files/cctools-7.1.5-source.tar.gz>`_;
 
-+ glibc version 2.14 or newer; 
++ glibc version **2.14** or newer; 
 
 + Support for CentOS7.
 
 Additionally, a CyVerse account is required.
 
-**1.** Make both ncbi-blast+ and CCTools available in your home directory; to find out your home directory do
+**1.** Make both ncbi-blast+ and CCTools available in your home directory, which can be found using
 
 .. code::
 
    pwd
 
-Your home directory should be something similar to
+It should output something similar to
 
 .. code::
 
@@ -48,7 +47,7 @@ Your home directory should be something similar to
 
 .. note::
 
-   CCTools only works with glibc version 2.14 or newer, confirm that your HPC has glibc version 2.14 or newer is installed or avaialbe to load (check module load or avaialable documentation). In the following examples, we assume that both glibc and BLAST+ are avaiable to be loaded through `module load`.
+   CCTools only works if your HPC has glibc version 2.14 or newer. In the following examples, glibc and BLAST+ are loaded through `module load`.
 
 **3.** BLAST databases need to be downloaded in a <DATABASE> directory in the home folder.
 
@@ -126,34 +125,36 @@ In the example above, the user already has blast installed (calls it using :code
 Setting Up the Master VM on the Cloud Service
 =============================================
 
-The Master VM for StarBLAST-HPC is set up similarly to how the Master for starBLAST-Docker is set up, with the difference that the Master for starBLAST-HPC **does not require the deployment script**. 
-Therefore, in order to set up the Master for starBLAST-HPC, follow the same steps as in StarBLAST-Docker **without** adding the Master deployment script. Additionally, BLAST databases need to be loaded manually onto the :code:`<DATABASE>` folder.
+Set up the Master instance for starBLAST-HPC by following the same steps as for StarBLAST-Docker, but **without adding the Master deployment script**. Additionally, BLAST databases need to be loaded manually onto the :code:`<DATABASE>` folder.
 
-Once the VM is ready, either access it through ssh or by using the Web Shell ("Open Web Shell" button on your VM's page). Once inside follow the next steps.
+Once the VM is running, access it through ssh or by using the Web Shell ("Open Web Shell" button on your VM's page). Once inside follow the next steps.
 
 .. note::
 
    **IMPORTANT: THE PATH TO THE DATABASE ON THE MASTER NEED TO BE THE SAME AS THE ONE ON THE WORKER**
 
-To ensure both the databases on the Master VM and Worker HPC are in the same directory, on the Worker HPC go to the :code:`<DATABASE>` directory and do
+
+**1.** Ensure the databases on both the Master VM and Worker HPC are in the same directory. On the Worker HPC go to the :code:`<DATABASE>` directory and do
 
 .. code::
 
    pwd
    
-Then, on your Master VM, create the directory with the same path as above
+Then, on your Master VM, create the directory with the same path output above
 
 .. code::
 
    mkdir -p SAME/PATH/TO/HPC/DATABASE/DIRECTORY/
 
-Now you have set up the :code:`<DATABASE>` directories but you still need the databases. Databases can be parsed manually through BLAST+'s `makeblastdb` if you have your own :code:`.fasta (or .fa, .faa, .fna)` files or you can use the same databases as StarBLAST-Docker. In order to use the latter, you need to have iRODS installed (JetStream comes with iRODS pre-installed) and a CyVerse account. Then, do:
+**2.** Now the :code:`<DATABASE>` directories have been set up to contain the desired databases. You can use the same databases preset for StarBLAST-Docker or make your own from a :code:`.fasta (or .fa, .faa, .fna)` file using BLAST+'s `makeblastdb` referenced in StarBLAST-VICE. Both require iRODS (JetStream comes with iRODS pre-installed) and a CyVerse account. 
+
+Access iRODS using:
 
 .. code::
 
    iinit
 
-It will ask for certain credentials, connect to the CyVerse with:
+You will be prompted to connect to the CyVerse with:
 
 .. code::
 
@@ -163,16 +164,16 @@ It will ask for certain credentials, connect to the CyVerse with:
    zone: iplant
    password: <CyVerse_password>
 
-If successful, obtain the databases and move them to your :code:`<DATABASE>` folder:
+**3.** Once connected, retreive and move the databases to your :code:`<DATABASE>` folder (shown for preset):
 
 .. code::
 
    iget -rKVP /iplant/home/cosimichele/200503_Genomes_n_p
    mv GCF_* /DATABASE/DIRECTORY/
    
-Then move the databases to the HPC through either :code:`sftp` or follow the same steps as above if your HPC system has access to iRODS.
+**4.** Move the databases to the HPC using either :code:`sftp` or the steps as above if your HPC system has iRODS.
 
-Copy and paste the following code in the Master instance to launch sequenceServer.
+**5.** Use this code within the Master instance to launch sequenceServer:
 
 .. code:: 
 

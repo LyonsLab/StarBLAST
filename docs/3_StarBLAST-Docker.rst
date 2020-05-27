@@ -2,40 +2,25 @@
 StarBLAST-Docker: Cloud Deployment for Medium  Classes (25-100)
 ***************************************************************
 
-To deploy StarBLAST setup on the JetStream Cloud service, you will need access to `JetStream <https://use.jetstream-cloud.org/>`_. 
+To deploy StarBLAST setup on the JetStream Cloud service, you need access to `JetStream <https://use.jetstream-cloud.org/>`_ either through a `Globus <https://www.globus.org/>`_ account, an `XSEDE <https://portal.xsede.org/my-xsede#/guest>`_ account or institutional  access to XSEDE (search for your institution name from the drop down menu in JetStream's login page).
 
-To log on JetStream you need to have either a `Globus <https://www.globus.org/>`_ account, an `XSEDE <https://portal.xsede.org/my-xsede#/guest>`_ account or for your institution to have access to XSEDE (you can check this by searching for your institution name from the drop down menu in JetStream's login page).
+This setup uses a "Master" instance for front-end sequenceServer and one or more "Worker" instances to distribute computational load. SequenceServer is run and Workers are connected using Docker containers and launched using deployment scripts. These deployment scripts are designed to:
 
-.. note::
-   The StarBlast implementation consists of one Master instance that will serve as the front-end for all users and one or more Worker instances that connect to the master and execute the BLAST jobs.
-
-You will need to launch a Master instance that will host sequenceServer front-end and one or more Worker instances as needed to distribute the BLAST jobs. 
-
-Both the Master and Worker Virtual Machine instances use Docker containers to run SequenceServer and connect Workers. 
+  + download specified BLAST databases (can customize)
+  + Launch sequenceServer front-end that can be accessed using the IP ADDRESS of the instance 
+  + Connect factory of workers to the Master
 
 Launching Master & Worker Instances
 ===================================
 
-**1.**  Login to `JetStream Cloud <https://use.jetstream-cloud.org/>`_ where we will be setting up Master and Worker instances that are to be launched using the following respective deployment scripts. These deployment scripts (Master & Worker) are designed to:
+**1.**  Login to `JetStream Cloud <https://use.jetstream-cloud.org/>`_. 
 
-	+ download specified BLAST databases;
-	+ Master script to launch sequenceServer front-end that can be accessed using the IP ADDRESS of the instance; 
-	+ Worker script to connect factory of workers to the Master.
-
-
-**Deployment Scripts**
-
-+ The deployment scripts for a *Master instance (atmo_deploy_master.sh)* can be found `here <https://raw.githubusercontent.com/zhxu73/sequenceserver-scale-docker/master/deploy/iRODS/Jetstream_deploy_master.sh>`_.
-+ The deployment scripts for a *Worker instance (atmo_deploy_worker.sh)* can be found `here <https://raw.githubusercontent.com/zhxu73/sequenceserver-scale-docker/master/deploy/iRODS/Jetstream_deploy_worker.sh>`_.
-
-.. note::
-   Users can specify the BLAST databases to be downloaded in the deployment scripts 
 
 **2.** From `JetStream's <https://use.jetstream-cloud.org/application/dashboard>`_ top menu, navigate to "Projects" and select "Create New Project".
 
 |Tut_0|_
 
-**3.** In the "Project Name" field, name your project and add a description if needed.
+**3.** In the "Project Name" field, name your project and add a description.
 
 |Tut_0B|_
 
@@ -49,7 +34,7 @@ Launching Master & Worker Instances
 
 |Tut_3|_ 
 
-**6.** In the pop up menu you can customize your image (e.g. Instance Size. recommend a minimum of m1.xlarge instance for Master, with at least 60GB disk space); select “Advanced Options”.
+**6.** In the pop up menu you can customize your image (e.g. Instance Size. Use a minimum of m1.xlarge instance for Master, with at least 60GB disk space); select “Advanced Options”.
 
 |Tut_4|_
 
@@ -57,20 +42,25 @@ Launching Master & Worker Instances
 
 |Tut_5|_
 
-**8.**  Title the script according to Master (e.g. Master script) or Worker (e.g. Worker script) depending  on wether you're deploying the Master or Worker; Select “Raw Text” and copy and paste text from either the Master (if creating the Master virtual machine) or Worker (if creating the Worker virtual machine) deployment scripts linked above. Select “Save and Add Script” and then "Continue to Launch".
+**8.**  Title the script "Master" or similar, select “Raw Text” and copy and paste the Master script, linked below. Select “Save and Add Script” and then "Continue to Launch".
+
+**Deployment Scripts**
+
++ The deployment scripts for a *Master instance (atmo_deploy_master.sh)* can be found `here <https://raw.githubusercontent.com/zhxu73/sequenceserver-scale-docker/master/deploy/iRODS/Jetstream_deploy_master.sh>`_.
++ The deployment scripts for a *Worker instance (atmo_deploy_worker.sh)* can be found `here <https://raw.githubusercontent.com/zhxu73/sequenceserver-scale-docker/master/deploy/iRODS/Jetstream_deploy_worker.sh>`_.
 
 .. note::
-   This step is required to be done **once** for the Master and **once for every Worker virtual machine**. The deployment scripts are stored in user's advanced settings and will be available readily for future use.
+   This step is required to be done **once** for the Master and **once for each Worker instance**. The deployment scripts are stored for future use.
 
 |Tut_6|_
 
-**9.** Repeat for one or more Worker instance(s) with the Worker deployment script as per the steps above. Strongly recommended to use large or extra large images (at least 60GB of disk space is required).
+**9.** Repeat step 8 for one or more Worker instance(s), using the Worker deployment script. Use large or extra large images (at least 60GB of disk space is required).
 
 .. note::
-   JetStream cloud will take around 10-20 minutes to set up and activate your customized virtual machines and the wait-time will increase with the size of the BLAST database.
+   JetStream cloud will take at least 10-20 minutes and the wait-time will increase with the size of the BLAST database.
 
 
-Start BLASTING! Now anyone can enter the :code:`<MASTER_VM_IP_ADDRESS>` in their browser using to access SequenceServer.
+Start BLASTING! Now anyone can enter the :code:`<MASTER_VM_IP_ADDRESS>` into their browser and access SequenceServer.
 
 |Tut_7|_
 
