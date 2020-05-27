@@ -49,11 +49,15 @@ It should output something similar to
 
    CCTools only works if your HPC has glibc version 2.14 or newer. In the following examples, glibc and BLAST+ are loaded through `module load`.
 
-**3.** BLAST databases need to be downloaded in a <DATABASE> directory in the home folder.
+**3.** BLAST databases need to be downloaded in a :code:`<DATABASE>/` directory in the home folder.
 
 .. code::
 
-   /home/<U_NUMBER>/<USER>/<DATABASE>
+   /home/<U_NUMBER>/<USER>/<DATABASE>/
+
+.. note::
+   an example of BLAST databases can be downloaded with iRODS here: :code:`/iplant/home/cosimichele/200503_Genomes_n_p/`.
+   Read how to initiate iRODS below. 
 
 Launching Workers on the HPC
 ============================
@@ -114,7 +118,7 @@ An example of a :code:`.pbs` file running on the University of Arizona HPC:
 
    /home/u12/cosi/cctools-7.0.19-x86_64-centos7/bin/work_queue_factory -T local -M $PROJECT_NAME --cores 12 -w 1 -W 8 -t $TIME_OUT_TIME
 
-In the example above, the user already has blast installed (calls it using :code: “module load blast“). The script will submit to the HPC nodes a minimum of 1 and a maximum of 8 workers per node.
+In the example above, the user already has blast installed (calls it using :code:`module load blast`). The script will submit to the HPC nodes a minimum of 1 and a maximum of 8 workers per node.
 
 **2.** Submit the :code:`.pbs` script with 
 
@@ -125,7 +129,7 @@ In the example above, the user already has blast installed (calls it using :code
 Setting Up the Master VM on the Cloud Service
 =============================================
 
-Set up the Master instance for starBLAST-HPC by following the same steps as for StarBLAST-Docker, but **without adding the Master deployment script**. Additionally, BLAST databases need to be loaded manually onto the :code:`<DATABASE>` folder.
+Set up the Master instance for starBLAST-HPC by following the same steps as for StarBLAST-Docker, but **without adding the Master deployment script**. Additionally, BLAST databases need to be loaded manually onto the :code:`<DATABASE>/` folder.
 
 Once the VM is running, access it through ssh or by using the Web Shell ("Open Web Shell" button on your VM's page). Once inside follow the next steps.
 
@@ -134,7 +138,7 @@ Once the VM is running, access it through ssh or by using the Web Shell ("Open W
    **IMPORTANT: THE PATH TO THE DATABASE ON THE MASTER NEED TO BE THE SAME AS THE ONE ON THE WORKER**
 
 
-**1.** Ensure the databases on both the Master VM and Worker HPC are in the same directory. On the Worker HPC go to the :code:`<DATABASE>` directory and do
+**1.** Ensure the databases on both the Master VM and Worker HPC are in the same directory. On the Worker HPC go to the :code:`<DATABASE>/` directory and do
 
 .. code::
 
@@ -146,7 +150,7 @@ Then, on your Master VM, create the directory with the same path output above
 
    mkdir -p SAME/PATH/TO/HPC/DATABASE/DIRECTORY/
 
-**2.** Now the :code:`<DATABASE>` directories have been set up to contain the desired databases. You can use the same databases preset for StarBLAST-Docker or make your own from a :code:`.fasta (or .fa, .faa, .fna)` file using BLAST+'s `makeblastdb` referenced in StarBLAST-VICE. Both require iRODS (JetStream comes with iRODS pre-installed) and a CyVerse account. 
+**2.** Now the :code:`<DATABASE>/` directories have been set up to contain the desired databases. You can use the same databases preset for StarBLAST-Docker or make your own from a :code:`.fasta (or .fa, .faa, .fna)` file using BLAST+'s `makeblastdb` referenced in StarBLAST-VICE. Both require iRODS (JetStream comes with iRODS pre-installed) and a CyVerse account. 
 
 Access iRODS using:
 
@@ -164,7 +168,7 @@ You will be prompted to connect to the CyVerse with:
    zone: iplant
    password: <CyVerse_password>
 
-**3.** Once connected, retreive and move the databases to your :code:`<DATABASE>` folder (shown for preset):
+**3.** Once connected, retreive and move the databases to your :code:`<DATABASE>/` folder (shown for preset):
 
 .. code::
 
@@ -189,7 +193,7 @@ An example is:
 
    The custom Database folder on the Master needs to have read and write permissions
    
-Start BLASTING! Now anyone can enter the :code:`<MASTER_VM_IP_ADDRESS>` in their browser using to access SequenceServer.
+Start BLASTING! Now anyone can enter the :code:`<MASTER_IP_ADDRESS>` in their browser using to access SequenceServer.
 
 
 .. |seqserver_QL| image:: https://de.cyverse.org/Powered-By-CyVerse-blue.svg

@@ -17,7 +17,7 @@ StarBLAST utilizes `cctools <http://ccl.cse.nd.edu/>`_ for faster, distributed c
 What is SequenceServer?
 =======================
 
-SequenceServer is a front-end implementation of BLAST with improved GUI and customizable database input developed by the Wurmlab at Queen Mary University of London (`Priyam *et al.*, 2019) <https://doi.org/10.1093/molbev/msz185>`_. However, it is limited scaling and may be difficult to deploy for some people. StarBLAST extends SequenceServer for easier deployment and to scale for a larger number of simultaneous users (e.g., students).
+SequenceServer is a front-end implementation of BLAST with improved GUI and customizable database input developed by the Wurmlab at Queen Mary University of London (`Priyam et al., 2019) <https://doi.org/10.1093/molbev/msz185>`_. However, it is limited scaling and may be difficult to deploy for some people. StarBLAST extends SequenceServer for easier deployment and to scale for a larger number of simultaneous users (e.g., students).
 
 The StarBLAST Suite
 ===================

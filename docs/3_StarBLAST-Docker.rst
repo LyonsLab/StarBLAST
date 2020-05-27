@@ -6,9 +6,9 @@ To deploy StarBLAST setup on the JetStream Cloud service, you need access to `Je
 
 This setup uses a "Master" instance for the front-end sequenceServer and one or more "Worker" instances to distribute the computational load of running blast. Docker containers are used to deploy the Master and Workers that deployment scripts. These deployment scripts are designed to:
 
-  + Download specified BLAST databases (can customize)
-  + Launch sequenceServer front-end that can be accessed using the IP ADDRESS of the instance 
-  + Connect factory of workers to the Master
+  + Download specified BLAST databases (can customize);
+  + Launch sequenceServer front-end that can be accessed using the code:`<MASTER_IP_ADDRESS>` of the instance;
+  + Connect factory of workers to the Master.
 
 Launching Master & Worker Instances
 ===================================
@@ -42,7 +42,7 @@ Launching Master & Worker Instances
 
 |Tut_5|_
 
-**8.**  Title the script "Master" or similar, select “Raw Text” and copy and paste the Master script, linked below. Select “Save and Add Script” and then "Continue to Launch".
+**8.**  Title the script "Master" or similar, select “Raw Text” and copy and paste the Master script, linked below. The scripts generate a password and username based on the user account, but these can be personalized if needed (*not suggested for new users*). Select “Save and Add Script” and then "Continue to Launch".
 
 **Deployment Scripts**
 
@@ -60,7 +60,7 @@ Launching Master & Worker Instances
    JetStream cloud will take at least 10-20 minutes and the wait-time will increase with the size of the BLAST database.
 
 
-Start BLASTING! Now anyone can enter the :code:`<MASTER_VM_IP_ADDRESS>` into their browser and access SequenceServer.
+Start BLASTING! Now anyone can enter the :code:`<MASTER_IP_ADDRESS>` into their browser and access SequenceServer.
 
 |Tut_7|_
 
