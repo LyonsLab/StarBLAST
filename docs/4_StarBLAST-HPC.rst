@@ -14,11 +14,11 @@ It is important that the following software are installed on the HPC:
 
 + `IRODS <https://docs.irods.org/master/getting_started/installation/>`_;
 
-+ `ncbi-blast+ version **2.9.0** or newer <ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/ncbi-blast-2.9.0+-src.tar.gz>`_;
++ `ncbi-blast+ version 2.9.0 or newer <ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/ncbi-blast-2.9.0+-src.tar.gz>`_;
 
-+ `CCTools version **7.0.21** or newer <https://ccl.cse.nd.edu/software/files/cctools-7.1.5-source.tar.gz>`_;
++ `CCTools version 7.0.21 or newer <https://ccl.cse.nd.edu/software/files/cctools-7.1.5-source.tar.gz>`_;
 
-+ glibc version **2.14** or newer; 
++ glibc version 2.14 or newer; 
 
 + Support for CentOS7.
 
