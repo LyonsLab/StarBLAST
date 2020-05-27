@@ -6,9 +6,10 @@ To deploy StarBLAST setup in a cloud provider, you will need accounts with those
 
 This setup uses a "Master" instance for the front-end sequenceServer and one or more "Worker" instances to distribute the computational load of running blast. Docker containers are used to deploy the Master and Workers through deployment scripts. These deployment scripts are designed to:
 
-  + Download specified BLAST databases (can customize);
-  + Launch sequenceServer front-end that can be accessed using the code:`<MASTER_IP_ADDRESS>` of the instance;
-  + Connect factory of workers to the Master.
+  + Get appropriate  `Worker <https://hub.docker.com/r/zhxu73/sequenceserver-scale-worker>`_ and `Master <https://hub.docker.com/r/zhxu73/sequenceserver-scale>`_ containers
+  + Download specified BLAST databases (can customize)
+  + Launch sequenceServer front-end that can be accessed using the code:`<MASTER_IP_ADDRESS>` of the instance
+  + Connect factory of workers to the Master
 
 Launching Master & Worker Instances
 ===================================
