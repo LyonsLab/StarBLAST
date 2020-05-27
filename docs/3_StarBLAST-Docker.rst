@@ -6,7 +6,7 @@ To deploy StarBLAST setup on the JetStream Cloud service, you need access to `Je
 
 This setup uses a "Master" instance for front-end sequenceServer and one or more "Worker" instances to distribute computational load. SequenceServer is run and Workers are connected using Docker containers and launched using deployment scripts. These deployment scripts are designed to:
 
-  + download specified BLAST databases (can customize)
+  + Download specified BLAST databases (can customize)
   + Launch sequenceServer front-end that can be accessed using the IP ADDRESS of the instance 
   + Connect factory of workers to the Master
 
