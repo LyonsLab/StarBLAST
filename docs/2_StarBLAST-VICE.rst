@@ -2,7 +2,7 @@
 StarBLAST-VICE: Web Deployment for Small Classes (<25)
 ******************************************************
 
-StarBLAST-VICE is a personalizable implementation of SequenceServer, deployable as a VICE (Visual and Interactive Computing Environment) web application and hosted on the CyVerse’s Discovery Environment (DE).
+StarBLAST-VICE is a customizable implementation of SequenceServer, deployed as a VICE (Visual and Interactive Computing Environment) web application and hosted on the CyVerse Discovery Environment (DE).
 StarBLAST-VICE is launchable with a maximum of 8 CPU cores, 16 GB RAM, and 512 GB disk space.
 
 .. note::
@@ -20,45 +20,48 @@ Launching StarBLAST-VICE with Example Databases
 **2.** Choose your own analysis name and the DE output folder. Click "Launch Analysis".
 
 
-**3.** Check the notifications Bell Icon for a link to access your SequenceServer instance. This might take a few minutes depending on the amount of resources requested.
+**3.** Check the notifications Bell Icon for a link to access your SequenceServer instance. This might take a few minutes.
 
 
-**4.** Click on the notification to open the SequenceServer instance in a new tab. Click `here <https://www.ncbi.nlm.nih.gov/nuccore/NG_007114.1?from=4986&to=6416&report=fasta>`_ for a sample DNA sequence to test the sequence similarity of the query fragment with random human and mouse sequences.
+**4.** To test, click `here <https://www.ncbi.nlm.nih.gov/nuccore/NG_007114.1?from=4986&to=6416&report=fasta>`_ for a sample DNA sequence.
 
 
-**5.** Paste the query sequence and select both the available databases and submit job.
+**5.** Paste the query sequence, select both the available databases and submit job.
 
 Adding Your Own Databases to StarBLAST-VICE
 ===========================================
 
 To add your own BLAST databases you will need a :code:`.fasta (or .fa, .faa, .fna)`  file of your organism of choice. These are easily aquirable from NCBI or other databases.
 
-**1.** Click on the "Data" button. 
+**1.** Within the CyVerse DE, click on the "Data" icon. 
 
 
-**2.** Upload or import your fasta file to the CyVerse DE (click on "Upload" and choose whether to uplodad from your computer or insert the fasta URL). The sequence will be stored in your own private folder.
+**2.** Select "Upload" and specify the import from your desktop or its URL. This will be stored in your personal folder.
 
 
-**3.** Click on the "Search Apps" bar and search for "Create BLAST Database" or click `here <https://de.cyverse.org/de/?type=apps&app-id=decdd668-5616-11e7-9724-008cfa5ae621&system-id=de>`_. 
+**3.** Select "File" + "New Folder" to create a folder for your database.
 
 
-**4.** In the "Inputs" tab, choose the fasta file you uploaded. Additionally, add a name for your BLAST database and choose a mew destination folder.
+**4.** Click on the "Apps" icon and use the search bar to find "Create BLAST Database" or click `here <https://de.cyverse.org/de/?type=apps&app-id=decdd668-5616-11e7-9724-008cfa5ae621&system-id=de>`_. 
 
 
-**5.** Click "Launch Analysis" and wait for the notification bell to notify you when the BLAST database is finished creating.
+**5.** Enter a name for your database under "Analysis Name" and choose the new folder you created for the output. In the "Inputs" tab, select "Browse" and choose the fasta file you uploaded.
+
+
+**6.** Click "Launch Analysis" and wait to be notified of its completion.
 
 Launching StarBLAST-VICE with Your Own Databases
 ================================================
 
-You have now created your own BLAST database. From within the CyVerse DE, to launch StarBLAST-VICE with your own database do:
+To launch StarBLAST-VICE with your own database:
 
-**1.** Access the SequenceServer app as above, but **do not click "Launch Analysis" just yet**.
-
-
-**2.** Navigate to the "Input" tab and choose the folder where you saved the BLAST database you created.
+**1.** Use the same button for Example Databases, but **do not click "Launch Analysis" just yet**.
 
 
-**3.** Proceed by clicking "Launch Analysis". As before, this might take a few minutes depending on the amount of resources requested.
+**2.** In the "Input" tab, select the folder containing your databse.
+
+
+**3.** Click "Launch Analysis". This might take a few minutes.
 
 
 

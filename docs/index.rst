@@ -9,21 +9,15 @@ Welcome to StarBLAST!
 
 |starblast_logo|_
 
-StarBLAST is a scalable extension of the open source `SequenceServer <http://sequenceserver.com/>`_ BLAST implementation, with the goal of making BLAST more accessible to researchers and educators who want to run classroom-scale searches concurrently. 
+StarBlast is a scalable extension of `SequenceServer <http://sequenceserver.com/>`_ BLAST, making BLAST accessible to educators and researchers running classroom-scale searches concurrently. 
 
-StarBLAST allows SequenceServer to scale using `CCTOOLS <http://ccl.cse.nd.edu/>`_, a collection of programs that enable jobs to be distributed over a network. 
-Furthermore, we developed a StarBLAST application hosted on the CyVerse's Visual Interactive Computing Environment (`VICE <https://learning.cyverse.org/projects/vice/en/latest/getting_started/about.html/>`_) for quickly accessing a personalizable SequenceServer app. 
+StarBLAST utilizes `cctools <http://ccl.cse.nd.edu/>`_ for faster, distributed computing and CyVerse's Visual Interactive Computing Environment (`VICE <https://learning.cyverse.org/projects/vice/en/latest/getting_started/about.html/>`_)  
 
 
 What is SequenceServer?
 =======================
 
-In 2015 a modern front-end implementation of BLAST, SequenceServer, was developed by the Wurmlab at Queen Mary University of London (Priyam *et al.*, 2019). 
-
-SequenceServer provides various advantages over the NCBI BLAST implementation, such as an improved GUI to visualize BLAST results and the ability to use custom databases. 
-Read more about SequenceServer's user-centric design and sustainable software development philosophy `here <https://doi.org/10.1093/molbev/msz185>`_. 
-
-Despite being a state-of-the-art BLAST service, the current SequenceServer implementation is not easily scalable, especially for classes without IT support or classes with hundreds of students.
+A front-end implementation of BLAST with improved GUI and customizable database input developed by the Wurmlab at Queen Mary University of London in 2015 (Priyam *et al.*, 2019). Read more `here <https://doi.org/10.1093/molbev/msz185>`_. It is limited in scalability, and StarBLAST allows the user to work in larger groups.
 
 The StarBLAST Suite
 ===================
