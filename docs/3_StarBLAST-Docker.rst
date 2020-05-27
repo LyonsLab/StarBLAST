@@ -8,7 +8,7 @@ This setup uses a "Master" instance for the front-end sequenceServer and one or 
 
   + Get appropriate  `Worker <https://hub.docker.com/r/zhxu73/sequenceserver-scale-worker>`_ and `Master <https://hub.docker.com/r/zhxu73/sequenceserver-scale>`_ containers
   + Download specified BLAST databases (can customize)
-  + Launch sequenceServer front-end that can be accessed using the code:`<MASTER_IP_ADDRESS>` of the instance
+  + Launch sequenceServer front-end that can be accessed using the code: `<MASTER_IP_ADDRESS>` of the instance
   + Connect factory of workers to the Master
 
 Launching Master & Worker Instances
