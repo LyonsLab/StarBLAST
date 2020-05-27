@@ -6,14 +6,37 @@ To deploy StarBLAST setup on the JetStream Cloud service, you need access to `Je
 
 This setup uses a "Master" instance for front-end sequenceServer and one or more "Worker" instances to distribute computational load. SequenceServer is run and Workers are connected using Docker containers and launched using deployment scripts. These deployment scripts are designed to:
 
+<<<<<<< HEAD
   + download specified BLAST databases (can customize)
   + Launch sequenceServer front-end that can be accessed using the IP ADDRESS of the instance 
   + Connect factory of workers to the Master
+=======
+.. note::
+   When creating a JetStream account, you will be asked for specific documentation (e.g. how many instances you require and the reason for such).
+
+You will need to launch a Master instance that will host SequenceServer front-end and one or more Worker instances as needed to distribute the BLAST jobs. 
+
+Both the Master and Worker Virtual Machine instances use Docker containers to run SequenceServer and connect Workers. 
+>>>>>>> 5b11fa6a930ff7c4bb4cce59f668198553502689
 
 Launching Master & Worker Instances
 ===================================
 
+<<<<<<< HEAD
 **1.**  Login to `JetStream Cloud <https://use.jetstream-cloud.org/>`_. 
+=======
+**1.**  Login to `JetStream Cloud <https://use.jetstream-cloud.org/>`_ where we will be setting up Master and Worker instances that are to be launched using the following respective deployment scripts. These deployment scripts (Master & Worker) are designed to:
+
+	+ download specified BLAST databases;
+	+ Master script to launch sequenceServer front-end that can be accessed using the :code:`<MASTER_IP_ADDRESS>` of the instance; 
+	+ Worker script to connect factory of workers to the Master.
+
+
+**Deployment Scripts**
+
++ The deployment scripts for a *Master instance (atmo_deploy_master.sh)* can be found `here <https://raw.githubusercontent.com/zhxu73/sequenceserver-scale-docker/master/deploy/iRODS/Jetstream_deploy_master.sh>`_.
++ The deployment scripts for a *Worker instance (atmo_deploy_worker.sh)* can be found `here <https://raw.githubusercontent.com/zhxu73/sequenceserver-scale-docker/master/deploy/iRODS/Jetstream_deploy_worker.sh>`_.
+>>>>>>> 5b11fa6a930ff7c4bb4cce59f668198553502689
 
 
 **2.** From `JetStream's <https://use.jetstream-cloud.org/application/dashboard>`_ top menu, navigate to "Projects" and select "Create New Project".
@@ -42,12 +65,17 @@ Launching Master & Worker Instances
 
 |Tut_5|_
 
+<<<<<<< HEAD
 **8.**  Title the script "Master" or similar, select “Raw Text” and copy and paste the Master script, linked below. Select “Save and Add Script” and then "Continue to Launch".
 
 **Deployment Scripts**
 
 + The deployment scripts for a *Master instance (atmo_deploy_master.sh)* can be found `here <https://raw.githubusercontent.com/zhxu73/sequenceserver-scale-docker/master/deploy/iRODS/Jetstream_deploy_master.sh>`_.
 + The deployment scripts for a *Worker instance (atmo_deploy_worker.sh)* can be found `here <https://raw.githubusercontent.com/zhxu73/sequenceserver-scale-docker/master/deploy/iRODS/Jetstream_deploy_worker.sh>`_.
+=======
+**8.**  Title the script according to `Master <https://raw.githubusercontent.com/zhxu73/sequenceserver-scale-docker/master/deploy/iRODS/Jetstream_deploy_master.sh>`_ (e.g. Master script) or `Worker <https://raw.githubusercontent.com/zhxu73/sequenceserver-scale-docker/master/deploy/iRODS/Jetstream_deploy_worker.sh>`_ (e.g. Worker script) depending  on wether you're deploying the Master or Worker; 
+Select “Raw Text” and copy and paste text from either the Master (if creating the Master virtual machine) or Worker (if creating the Worker virtual machine) deployment scripts linked above. Select “Save and Add Script” and then "Continue to Launch".
+>>>>>>> 5b11fa6a930ff7c4bb4cce59f668198553502689
 
 .. note::
    This step is required to be done **once** for the Master and **once for each Worker instance**. The deployment scripts are stored for future use.
