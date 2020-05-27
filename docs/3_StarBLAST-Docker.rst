@@ -2,9 +2,9 @@
 StarBLAST-Docker: Cloud Deployment for Medium  Classes (25-100)
 ***************************************************************
 
-To deploy StarBLAST setup on the JetStream Cloud service, you need access to `JetStream <https://use.jetstream-cloud.org/>`_ either through a `Globus <https://www.globus.org/>`_ account, an `XSEDE <https://portal.xsede.org/my-xsede#/guest>`_ account or institutional  access to XSEDE (search for your institution name from the drop down menu in JetStream's login page).
+To deploy StarBLAST setup on the JetStream Cloud service, you need access to `JetStream <https://use.jetstream-cloud.org/>`_ either through a `Globus <https://www.globus.org/>`_ account, an `XSEDE <https://portal.xsede.org/my-xsede#/guest>`_ account, or institutional access to XSEDE (search for your institution name from the drop down menu in JetStream's login page).
 
-This setup uses a "Master" instance for front-end sequenceServer and one or more "Worker" instances to distribute computational load. SequenceServer is run and Workers are connected using Docker containers and launched using deployment scripts. These deployment scripts are designed to:
+This setup uses a "Master" instance for the front-end sequenceServer and one or more "Worker" instances to distribute the computational load of running blast. Docker containers are used to deploy the Master and Workers that deployment scripts. These deployment scripts are designed to:
 
   + download specified BLAST databases (can customize)
   + Launch sequenceServer front-end that can be accessed using the IP ADDRESS of the instance 
