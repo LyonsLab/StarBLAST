@@ -6,42 +6,41 @@ tags:
   - BLAST
   - Genetics
   - Education
-  - tectonics
 authors:
- - name: Michele Cosi
-   orcid: 
-   affiliation: "1"
- - name: J.J. Forstedt
-   orcid: 
-   affiliation: "1"
+- name: Michele Cosi
+  orcid:
+  affiliation: "1"
+- name: J.J. Forstedt
+  orcid: 
+  affiliation: "1"
 - name: Emmanuel Gonzalez
-   orcid: 
-   affiliation: "1"
+  orcid: 
+  affiliation: "1"
 - name: Zhuoyun Xu
-   orcid: 
-   affiliation: "1"
+  orcid: 
+  affiliation: "1"
 - name: Sateesh Peri
-   orcid: 
-   affiliation: "1"   
+  orcid: 
+  affiliation: "1"   
 - name: Reetu Tuteja
-   orcid: 
-   affiliation: "1"
+  orcid: 
+  affiliation: "1"
 - name: Kai Blumberg
-   orcid: 
-   affiliation: "1"
+  orcid: 
+  affiliation: "1"
 - name: Tanner Campbell
-   orcid: 
-   affiliation: "1"
+  orcid: 
+  affiliation: "1"
 - name: Nirav Merchant
-   orcid: 
-   affiliation: "1"
+  orcid: 
+  affiliation: "1"
 - name: Eric Lyons
-   orcid: 
-   affiliation: "1"
+  orcid: 
+  affiliation: "1"
 
 affiliations:
- - name:  - name: Data Sciences Institute, University of Arizona, Tucson, AZ 85721, USA
-   index: 1
+- name: Data Sciences Institute, University of Arizona, Tucson, AZ 85721, USA
+  index: 1
 
 date: 14 August 2020
 bibliography: citations.bib
