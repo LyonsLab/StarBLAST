@@ -52,7 +52,7 @@ Basic Local Alignment Search Tool (BLAST) [@madden2002] is a heuristic nucleotid
 
 # Description
 
-StarBLAST methods include StarBLAST-VICE, StarBLAST-Docker, and StarBLAST-HPC. StarBLAST-VICE is hosted in the CyVerse Discovery Environment (DE) [@merchant2016], a web-based data science workbench for researchers. StarBLAST-Docker and StarBlast-HPC integrate SequenceServer with WorkQueue and Makeflow for distributing BLAST jobs across multiple computer nodes on the Cloud or high-performance computing (HPC) environments.
+StarBLAST deployment methods include StarBLAST-VICE, StarBLAST-Docker, and StarBLAST-HPC. StarBLAST-VICE is hosted in the CyVerse Discovery Environment (DE) [@merchant2016], a web-based data science workbench for researchers. StarBLAST-Docker and StarBlast-HPC integrate SequenceServer with WorkQueue and Makeflow for distributing BLAST jobs across multiple computer nodes on the Cloud or high-performance computing (HPC) environments.
 
 ## StarBLAST-VICE
 
