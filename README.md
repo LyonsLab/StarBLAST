@@ -1,8 +1,8 @@
 # StarBLAST
 
-StarBlast is a scalable extension of SequenceServer BLAST, making BLAST accessible to educators and researchers running classroom-scale searches concurrently.
+StarBLAST is a scalable extension of SequenceServer BLAST, making BLAST accessible to educators and researchers running classroom-scale searches concurrently.
 
-StarBLAST utilizes CCTOOLS for faster, distributed computing and CyVerse’s Visual Interactive Computing Environment (VICE).
+StarBLAST utilizes CCTOOLS for faster, distributed computing and CyVerse’s Visual Interactive Computing Environment (VICE). For a more in depth explaination and step-by-step tutorials of the whole StarBLAST collection, visit our [documentation page](https://starblast.readthedocs.io/en/latest/).
 
 
 #### What is SequenceServer?
@@ -11,9 +11,9 @@ SequenceServer is a front-end implementation of BLAST with improved GUI and cust
 
 #### The StarBLAST Suite
 
-[StarBLAST-VICE: Web Deployment for Small Classes (<25 students)](https://starblast.readthedocs.io/en/latest/2_StarBLAST-VICE.html)
-[StarBLAST-Docker: Cloud Deployment for Medium Classes (25-100 students)](https://starblast.readthedocs.io/en/latest/3_StarBLAST-Docker.html)
-[StarBLAST-HPC: HPC Deployment for Large Classes (>100 students)](https://starblast.readthedocs.io/en/latest/4_StarBLAST-HPC.html)
++ [StarBLAST-VICE: Web Deployment for Small Classes (<25 students)](https://starblast.readthedocs.io/en/latest/2_StarBLAST-VICE.html)
++ [StarBLAST-Docker: Cloud Deployment for Medium Classes (25-100 students)](https://starblast.readthedocs.io/en/latest/3_StarBLAST-Docker.html)
++ [StarBLAST-HPC: HPC Deployment for Large Classes (>100 students)](https://starblast.readthedocs.io/en/latest/4_StarBLAST-HPC.html)
 
 #### Read more about StarBLAST here:
 
