@@ -8,7 +8,7 @@ tags:
   - Education
 authors:
 - name: Michele Cosi
-  orcid:
+  orcid: 0000-0001-7609-1939
   affiliation: "1"
 - name: J.J. Forstedt
   orcid: 
