@@ -11,10 +11,10 @@ authors:
   orcid: 0000-0001-7609-1939
   affiliation: "1"
 - name: J.J. Forstedt
-  orcid: 
+  orcid: 0000-0003-4484-0127
   affiliation: "1"
 - name: Emmanuel Gonzalez
-  orcid: 
+  orcid: 0000-0002-3021-9842
   affiliation: "1"
 - name: Zhuoyun Xu
   orcid: 
@@ -35,7 +35,7 @@ authors:
   orcid: 
   affiliation: "1"
 - name: Eric Lyons
-  orcid: 
+  orcid: 0000-0002-3348-8845
   affiliation: "1"
 
 affiliations:
