@@ -20,19 +20,19 @@ authors:
   orcid: 
   affiliation: "1"
 - name: Sateesh Peri
-  orcid: 
+  orcid: 0000-0002-9879-9070
   affiliation: "1"   
 - name: Reetu Tuteja
-  orcid: 
+  orcid: 0000-0001-7628-4108
   affiliation: "1"
 - name: Kai Blumberg
-  orcid: 
+  orcid: 0000-0002-3410-4655
   affiliation: "1"
 - name: Tanner Campbell
   orcid: 
   affiliation: "1"
 - name: Nirav Merchant
-  orcid: 
+  orcid: 0000-0002-1988-8180
   affiliation: "1"
 - name: Eric Lyons
   orcid: 0000-0002-3348-8845
