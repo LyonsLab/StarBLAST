@@ -17,7 +17,7 @@ authors:
   orcid: 0000-0002-3021-9842
   affiliation: "1"
 - name: Zhuoyun Xu
-  orcid: 
+  orcid: 0000-0002-6322-3012
   affiliation: "1"
 - name: Sateesh Peri
   orcid: 0000-0002-9879-9070
@@ -29,7 +29,7 @@ authors:
   orcid: 0000-0002-3410-4655
   affiliation: "1"
 - name: Tanner Campbell
-  orcid: 
+  orcid: 0000-0001-9418-1663
   affiliation: "1"
 - name: Nirav Merchant
   orcid: 0000-0002-1988-8180
