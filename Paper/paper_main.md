@@ -77,4 +77,5 @@ The Fall 2019 Applied Concepts in Cyberinfrastructure class at the University of
 # Funding
 
 This work was supported by the National Science Foundation [grant numbers IOS – 1849708, IOS–1743442, IOS–1444490].
-*Conflict of Interest:* none declared.
+
+# References
