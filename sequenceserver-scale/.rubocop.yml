@@ -1,0 +1,61 @@
+AllCops:
+  TargetRubyVersion: 2.3
+  Exclude:
+    # Because these are vendor files.
+    - 'node_modules/**/*'
+
+Metrics/AbcSize:
+  Exclude:
+    # TODO
+    - 'lib/sequenceserver.rb'
+Metrics/MethodLength:
+  # Because 15 lines in a method is just about as good as 10 (default). And we
+  # have a couple that can't be helped.
+  Max: 15
+  Exclude:
+    # TODO:
+    - 'lib/sequenceserver.rb'
+Metrics/ModuleLength:
+  Exclude:
+    # TODO:
+    #   Revisit later.
+    - 'lib/sequenceserver.rb'
+    - 'spec/blast_spec.rb'
+Metrics/ClassLength:
+  Max: 150
+Metrics/BlockNesting:
+  Exclude:
+    - 'bin/sequenceserver'
+Metrics/BlockLength:
+  Exclude:
+    - 'bin/sequenceserver'
+    - 'sequenceserver.gemspec'
+
+Style/UnlessElse:
+  # TODO:
+  #   Fix in bin/sequenceserver and re-enable.
+  Enabled: false
+Style/ClassAndModuleCamelCase:
+  Exclude:
+    # TODO:
+    #   Revisit later.
+    - 'lib/sequenceserver/exceptions.rb'
+Style/Lambda:
+  Exclude:
+    # Because we support 1.8.7.
+    - '**/*.rb'
+Style/EachWithObject:
+  Exclude:
+    # Because we support 1.8.7.
+    - '**/*.rb'
+Style/AsciiComments:
+  # Nothing wrong with non-ascii chars, like © in comments.
+  Enabled: false
+Style/SignalException:
+  # Roughly, use fail to fail and raise to signal.
+  EnforcedStyle: semantic
+Style/FrozenStringLiteralComment:
+  # Immutability is good. Switching to immutable strings is like a paradigm
+  # shift and should be approached more carefully. Thus, disabling this cop
+  # for now.
+  Enabled: false

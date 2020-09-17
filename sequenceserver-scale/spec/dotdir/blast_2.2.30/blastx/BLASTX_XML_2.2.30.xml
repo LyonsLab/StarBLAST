@@ -1,0 +1,1181 @@
+<?xml version="1.0"?>
+<!DOCTYPE BlastOutput PUBLIC "-//NCBI//NCBI BlastOutput/EN" "http://www.ncbi.nlm.nih.gov/dtd/NCBI_BlastOutput.dtd">
+<BlastOutput>
+  <BlastOutput_program>blastx</BlastOutput_program>
+  <BlastOutput_version>BLASTX 2.2.30+</BlastOutput_version>
+  <BlastOutput_reference>Stephen F. Altschul, Thomas L. Madden, Alejandro A. Sch&amp;auml;ffer, Jinghui Zhang, Zheng Zhang, Webb Miller, and David J. Lipman (1997), &quot;Gapped BLAST and PSI-BLAST: a new generation of protein database search programs&quot;, Nucleic Acids Res. 25:3389-3402.</BlastOutput_reference>
+  <BlastOutput_db>nr_db/nr</BlastOutput_db>
+  <BlastOutput_query-ID>Query_1</BlastOutput_query-ID>
+  <BlastOutput_query-def>MH011443.1 Homo sapiens TP53 (TP53) gene, exon 5 and partial cds</BlastOutput_query-def>
+  <BlastOutput_query-len>123</BlastOutput_query-len>
+  <BlastOutput_param>
+    <Parameters>
+      <Parameters_matrix>BLOSUM62</Parameters_matrix>
+      <Parameters_expect>10</Parameters_expect>
+      <Parameters_gap-open>11</Parameters_gap-open>
+      <Parameters_gap-extend>1</Parameters_gap-extend>
+      <Parameters_filter>L;</Parameters_filter>
+    </Parameters>
+  </BlastOutput_param>
+<BlastOutput_iterations>
+<Iteration>
+  <Iteration_iter-num>1</Iteration_iter-num>
+  <Iteration_query-ID>Query_1</Iteration_query-ID>
+  <Iteration_query-def>MH011443.1 Homo sapiens TP53 (TP53) gene, exon 5 and partial cds</Iteration_query-def>
+  <Iteration_query-len>123</Iteration_query-len>
+<Iteration_hits>
+<Hit>
+  <Hit_num>1</Hit_num>
+  <Hit_id>gi|1486783307|gb|AYF55702.1|</Hit_id>
+  <Hit_def>TP53, partial [Homo sapiens]</Hit_def>
+  <Hit_accession>AYF55702</Hit_accession>
+  <Hit_len>41</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>87.4261</Hsp_bit-score>
+      <Hsp_score>215</Hsp_score>
+      <Hsp_evalue>1.00256e-20</Hsp_evalue>
+      <Hsp_query-from>1</Hsp_query-from>
+      <Hsp_query-to>123</Hsp_query-to>
+      <Hsp_hit-from>1</Hsp_hit-from>
+      <Hsp_hit-to>41</Hsp_hit-to>
+      <Hsp_query-frame>1</Hsp_query-frame>
+      <Hsp_hit-frame>0</Hsp_hit-frame>
+      <Hsp_identity>41</Hsp_identity>
+      <Hsp_positive>41</Hsp_positive>
+      <Hsp_gaps>0</Hsp_gaps>
+      <Hsp_align-len>41</Hsp_align-len>
+      <Hsp_qseq>WVDSTPPPGTRVRAVAIYKQSQHMTEVVRRCPHHERCSDSD</Hsp_qseq>
+      <Hsp_hseq>WVDSTPPPGTRVRAVAIYKQSQHMTEVVRRCPHHERCSDSD</Hsp_hseq>
+      <Hsp_midline>WVDSTPPPGTRVRAVAIYKQSQHMTEVVRRCPHHERCSDSD</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
+<Hit>
+  <Hit_num>2</Hit_num>
+  <Hit_id>gi|379056362|dbj|BAL63213.2|</Hit_id>
+  <Hit_def>p53 protein, partial [Homo sapiens]</Hit_def>
+  <Hit_accession>BAL63213</Hit_accession>
+  <Hit_len>61</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>87.8113</Hsp_bit-score>
+      <Hsp_score>216</Hsp_score>
+      <Hsp_evalue>1.06236e-20</Hsp_evalue>
+      <Hsp_query-from>1</Hsp_query-from>
+      <Hsp_query-to>123</Hsp_query-to>
+      <Hsp_hit-from>21</Hsp_hit-from>
+      <Hsp_hit-to>61</Hsp_hit-to>
+      <Hsp_query-frame>1</Hsp_query-frame>
+      <Hsp_hit-frame>0</Hsp_hit-frame>
+      <Hsp_identity>40</Hsp_identity>
+      <Hsp_positive>41</Hsp_positive>
+      <Hsp_gaps>0</Hsp_gaps>
+      <Hsp_align-len>41</Hsp_align-len>
+      <Hsp_qseq>WVDSTPPPGTRVRAVAIYKQSQHMTEVVRRCPHHERCSDSD</Hsp_qseq>
+      <Hsp_hseq>WVDSTPPPGTRVRAMAIYKQSQHMTEVVRRCPHHERCSDSD</Hsp_hseq>
+      <Hsp_midline>WVDSTPPPGTRVRA+AIYKQSQHMTEVVRRCPHHERCSDSD</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
+<Hit>
+  <Hit_num>3</Hit_num>
+  <Hit_id>gi|42821410|dbj|BAD11806.1|</Hit_id>
+  <Hit_def>P53, partial [Homo sapiens] &gt;gi|122938420|gb|ABM69023.1| tumor protein p53, partial [Homo sapiens] &gt;gi|169666820|gb|ACA63978.1| tumor protein p53, partial [Homo sapiens] &gt;gi|349734066|gb|AEQ16483.1| p53, partial [Homo sapiens]</Hit_def>
+  <Hit_accession>BAD11806</Hit_accession>
+  <Hit_len>61</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>87.8113</Hsp_bit-score>
+      <Hsp_score>216</Hsp_score>
+      <Hsp_evalue>1.19637e-20</Hsp_evalue>
+      <Hsp_query-from>1</Hsp_query-from>
+      <Hsp_query-to>123</Hsp_query-to>
+      <Hsp_hit-from>21</Hsp_hit-from>
+      <Hsp_hit-to>61</Hsp_hit-to>
+      <Hsp_query-frame>1</Hsp_query-frame>
+      <Hsp_hit-frame>0</Hsp_hit-frame>
+      <Hsp_identity>40</Hsp_identity>
+      <Hsp_positive>41</Hsp_positive>
+      <Hsp_gaps>0</Hsp_gaps>
+      <Hsp_align-len>41</Hsp_align-len>
+      <Hsp_qseq>WVDSTPPPGTRVRAVAIYKQSQHMTEVVRRCPHHERCSDSD</Hsp_qseq>
+      <Hsp_hseq>WVDSTPPPGTRVRAMAIYKQSQHMTEVVRRCPHHERCSDSD</Hsp_hseq>
+      <Hsp_midline>WVDSTPPPGTRVRA+AIYKQSQHMTEVVRRCPHHERCSDSD</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
+<Hit>
+  <Hit_num>4</Hit_num>
+  <Hit_id>gi|157086935|gb|ABV21350.1|</Hit_id>
+  <Hit_def>p53, partial [Homo sapiens]</Hit_def>
+  <Hit_accession>ABV21350</Hit_accession>
+  <Hit_len>61</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>87.4261</Hsp_bit-score>
+      <Hsp_score>215</Hsp_score>
+      <Hsp_evalue>1.31849e-20</Hsp_evalue>
+      <Hsp_query-from>1</Hsp_query-from>
+      <Hsp_query-to>123</Hsp_query-to>
+      <Hsp_hit-from>21</Hsp_hit-from>
+      <Hsp_hit-to>61</Hsp_hit-to>
+      <Hsp_query-frame>1</Hsp_query-frame>
+      <Hsp_hit-frame>0</Hsp_hit-frame>
+      <Hsp_identity>40</Hsp_identity>
+      <Hsp_positive>41</Hsp_positive>
+      <Hsp_gaps>0</Hsp_gaps>
+      <Hsp_align-len>41</Hsp_align-len>
+      <Hsp_qseq>WVDSTPPPGTRVRAVAIYKQSQHMTEVVRRCPHHERCSDSD</Hsp_qseq>
+      <Hsp_hseq>WVDSTPPPGTRVRAMAIYKQSQHMTEVVRRCPHHERCSDSD</Hsp_hseq>
+      <Hsp_midline>WVDSTPPPGTRVRA+AIYKQSQHMTEVVRRCPHHERCSDSD</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
+<Hit>
+  <Hit_num>5</Hit_num>
+  <Hit_id>gi|1528997475|gb|AZI94701.1|</Hit_id>
+  <Hit_def>tumor protein p53, partial [Homo sapiens]</Hit_def>
+  <Hit_accession>AZI94701</Hit_accession>
+  <Hit_len>58</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>87.4261</Hsp_bit-score>
+      <Hsp_score>215</Hsp_score>
+      <Hsp_evalue>1.48218e-20</Hsp_evalue>
+      <Hsp_query-from>1</Hsp_query-from>
+      <Hsp_query-to>123</Hsp_query-to>
+      <Hsp_hit-from>12</Hsp_hit-from>
+      <Hsp_hit-to>52</Hsp_hit-to>
+      <Hsp_query-frame>1</Hsp_query-frame>
+      <Hsp_hit-frame>0</Hsp_hit-frame>
+      <Hsp_identity>40</Hsp_identity>
+      <Hsp_positive>41</Hsp_positive>
+      <Hsp_gaps>0</Hsp_gaps>
+      <Hsp_align-len>41</Hsp_align-len>
+      <Hsp_qseq>WVDSTPPPGTRVRAVAIYKQSQHMTEVVRRCPHHERCSDSD</Hsp_qseq>
+      <Hsp_hseq>WVDSTPPPGTRVRAMAIYKQSQHMTEVVRRCPHHERCSDSD</Hsp_hseq>
+      <Hsp_midline>WVDSTPPPGTRVRA+AIYKQSQHMTEVVRRCPHHERCSDSD</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
+<Hit>
+  <Hit_num>6</Hit_num>
+  <Hit_id>gi|127461441|gb|ABO28415.1|</Hit_id>
+  <Hit_def>tumor protein p53, partial [Homo sapiens]</Hit_def>
+  <Hit_accession>ABO28415</Hit_accession>
+  <Hit_len>88</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>88.1965</Hsp_bit-score>
+      <Hsp_score>217</Hsp_score>
+      <Hsp_evalue>1.62053e-20</Hsp_evalue>
+      <Hsp_query-from>1</Hsp_query-from>
+      <Hsp_query-to>123</Hsp_query-to>
+      <Hsp_hit-from>21</Hsp_hit-from>
+      <Hsp_hit-to>61</Hsp_hit-to>
+      <Hsp_query-frame>1</Hsp_query-frame>
+      <Hsp_hit-frame>0</Hsp_hit-frame>
+      <Hsp_identity>40</Hsp_identity>
+      <Hsp_positive>41</Hsp_positive>
+      <Hsp_gaps>0</Hsp_gaps>
+      <Hsp_align-len>41</Hsp_align-len>
+      <Hsp_qseq>WVDSTPPPGTRVRAVAIYKQSQHMTEVVRRCPHHERCSDSD</Hsp_qseq>
+      <Hsp_hseq>WVDSTPPPGTRVRAMAIYKQSQHMTEVVRRCPHHERCSDSD</Hsp_hseq>
+      <Hsp_midline>WVDSTPPPGTRVRA+AIYKQSQHMTEVVRRCPHHERCSDSD</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
+<Hit>
+  <Hit_num>7</Hit_num>
+  <Hit_id>gi|89147794|gb|ABD62752.1|</Hit_id>
+  <Hit_def>p53deltaEx4, partial [Homo sapiens]</Hit_def>
+  <Hit_accession>ABD62752</Hit_accession>
+  <Hit_len>112</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>88.5817</Hsp_bit-score>
+      <Hsp_score>218</Hsp_score>
+      <Hsp_evalue>1.70462e-20</Hsp_evalue>
+      <Hsp_query-from>1</Hsp_query-from>
+      <Hsp_query-to>123</Hsp_query-to>
+      <Hsp_hit-from>58</Hsp_hit-from>
+      <Hsp_hit-to>98</Hsp_hit-to>
+      <Hsp_query-frame>1</Hsp_query-frame>
+      <Hsp_hit-frame>0</Hsp_hit-frame>
+      <Hsp_identity>40</Hsp_identity>
+      <Hsp_positive>41</Hsp_positive>
+      <Hsp_gaps>0</Hsp_gaps>
+      <Hsp_align-len>41</Hsp_align-len>
+      <Hsp_qseq>WVDSTPPPGTRVRAVAIYKQSQHMTEVVRRCPHHERCSDSD</Hsp_qseq>
+      <Hsp_hseq>WVDSTPPPGTRVRAMAIYKQSQHMTEVVRRCPHHERCSDSD</Hsp_hseq>
+      <Hsp_midline>WVDSTPPPGTRVRA+AIYKQSQHMTEVVRRCPHHERCSDSD</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
+<Hit>
+  <Hit_num>8</Hit_num>
+  <Hit_id>gi|127461465|gb|ABO28427.1|</Hit_id>
+  <Hit_def>tumor protein p53, partial [Homo sapiens]</Hit_def>
+  <Hit_accession>ABO28427</Hit_accession>
+  <Hit_len>89</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>87.8113</Hsp_bit-score>
+      <Hsp_score>216</Hsp_score>
+      <Hsp_evalue>1.93025e-20</Hsp_evalue>
+      <Hsp_query-from>1</Hsp_query-from>
+      <Hsp_query-to>123</Hsp_query-to>
+      <Hsp_hit-from>21</Hsp_hit-from>
+      <Hsp_hit-to>61</Hsp_hit-to>
+      <Hsp_query-frame>1</Hsp_query-frame>
+      <Hsp_hit-frame>0</Hsp_hit-frame>
+      <Hsp_identity>40</Hsp_identity>
+      <Hsp_positive>41</Hsp_positive>
+      <Hsp_gaps>0</Hsp_gaps>
+      <Hsp_align-len>41</Hsp_align-len>
+      <Hsp_qseq>WVDSTPPPGTRVRAVAIYKQSQHMTEVVRRCPHHERCSDSD</Hsp_qseq>
+      <Hsp_hseq>WVDSTPPPGTRVRAMAIYKQSQHMTEVVRRCPHHERCSDSD</Hsp_hseq>
+      <Hsp_midline>WVDSTPPPGTRVRA+AIYKQSQHMTEVVRRCPHHERCSDSD</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
+<Hit>
+  <Hit_num>9</Hit_num>
+  <Hit_id>gi|99031288|gb|ABF61799.1|</Hit_id>
+  <Hit_def>truncated p53, partial [Homo sapiens]</Hit_def>
+  <Hit_accession>ABF61799</Hit_accession>
+  <Hit_len>81</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>87.4261</Hsp_bit-score>
+      <Hsp_score>215</Hsp_score>
+      <Hsp_evalue>2.10603e-20</Hsp_evalue>
+      <Hsp_query-from>1</Hsp_query-from>
+      <Hsp_query-to>123</Hsp_query-to>
+      <Hsp_hit-from>5</Hsp_hit-from>
+      <Hsp_hit-to>45</Hsp_hit-to>
+      <Hsp_query-frame>1</Hsp_query-frame>
+      <Hsp_hit-frame>0</Hsp_hit-frame>
+      <Hsp_identity>40</Hsp_identity>
+      <Hsp_positive>41</Hsp_positive>
+      <Hsp_gaps>0</Hsp_gaps>
+      <Hsp_align-len>41</Hsp_align-len>
+      <Hsp_qseq>WVDSTPPPGTRVRAVAIYKQSQHMTEVVRRCPHHERCSDSD</Hsp_qseq>
+      <Hsp_hseq>WVDSTPPPGTRVRAMAIYKQSQHMTEVVRRCPHHERCSDSD</Hsp_hseq>
+      <Hsp_midline>WVDSTPPPGTRVRA+AIYKQSQHMTEVVRRCPHHERCSDSD</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
+<Hit>
+  <Hit_num>10</Hit_num>
+  <Hit_id>gi|1472901694|gb|AXU92289.1|</Hit_id>
+  <Hit_def>TP53, partial [Homo sapiens]</Hit_def>
+  <Hit_accession>AXU92289</Hit_accession>
+  <Hit_len>41</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>86.2705</Hsp_bit-score>
+      <Hsp_score>212</Hsp_score>
+      <Hsp_evalue>2.45968e-20</Hsp_evalue>
+      <Hsp_query-from>1</Hsp_query-from>
+      <Hsp_query-to>123</Hsp_query-to>
+      <Hsp_hit-from>1</Hsp_hit-from>
+      <Hsp_hit-to>41</Hsp_hit-to>
+      <Hsp_query-frame>1</Hsp_query-frame>
+      <Hsp_hit-frame>0</Hsp_hit-frame>
+      <Hsp_identity>40</Hsp_identity>
+      <Hsp_positive>41</Hsp_positive>
+      <Hsp_gaps>0</Hsp_gaps>
+      <Hsp_align-len>41</Hsp_align-len>
+      <Hsp_qseq>WVDSTPPPGTRVRAVAIYKQSQHMTEVVRRCPHHERCSDSD</Hsp_qseq>
+      <Hsp_hseq>WVDSTPPPGTRVRAMAIYKQSQHMTEVVRRCPHHERCSDSD</Hsp_hseq>
+      <Hsp_midline>WVDSTPPPGTRVRA+AIYKQSQHMTEVVRRCPHHERCSDSD</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
+<Hit>
+  <Hit_num>11</Hit_num>
+  <Hit_id>gi|307333898|gb|ADN42962.1|</Hit_id>
+  <Hit_def>tumor protein p53, partial [Homo sapiens]</Hit_def>
+  <Hit_accession>ADN42962</Hit_accession>
+  <Hit_len>99</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>87.8113</Hsp_bit-score>
+      <Hsp_score>216</Hsp_score>
+      <Hsp_evalue>2.56496e-20</Hsp_evalue>
+      <Hsp_query-from>1</Hsp_query-from>
+      <Hsp_query-to>123</Hsp_query-to>
+      <Hsp_hit-from>21</Hsp_hit-from>
+      <Hsp_hit-to>61</Hsp_hit-to>
+      <Hsp_query-frame>1</Hsp_query-frame>
+      <Hsp_hit-frame>0</Hsp_hit-frame>
+      <Hsp_identity>40</Hsp_identity>
+      <Hsp_positive>41</Hsp_positive>
+      <Hsp_gaps>0</Hsp_gaps>
+      <Hsp_align-len>41</Hsp_align-len>
+      <Hsp_qseq>WVDSTPPPGTRVRAVAIYKQSQHMTEVVRRCPHHERCSDSD</Hsp_qseq>
+      <Hsp_hseq>WVDSTPPPGTRVRAMAIYKQSQHMTEVVRRCPHHERCSDSD</Hsp_hseq>
+      <Hsp_midline>WVDSTPPPGTRVRA+AIYKQSQHMTEVVRRCPHHERCSDSD</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
+<Hit>
+  <Hit_num>12</Hit_num>
+  <Hit_id>gi|430765717|gb|AGA62856.1|</Hit_id>
+  <Hit_def>tumor suppressor p53, partial [Homo sapiens]</Hit_def>
+  <Hit_accession>AGA62856</Hit_accession>
+  <Hit_len>99</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>87.8113</Hsp_bit-score>
+      <Hsp_score>216</Hsp_score>
+      <Hsp_evalue>2.70655e-20</Hsp_evalue>
+      <Hsp_query-from>1</Hsp_query-from>
+      <Hsp_query-to>123</Hsp_query-to>
+      <Hsp_hit-from>21</Hsp_hit-from>
+      <Hsp_hit-to>61</Hsp_hit-to>
+      <Hsp_query-frame>1</Hsp_query-frame>
+      <Hsp_hit-frame>0</Hsp_hit-frame>
+      <Hsp_identity>40</Hsp_identity>
+      <Hsp_positive>41</Hsp_positive>
+      <Hsp_gaps>0</Hsp_gaps>
+      <Hsp_align-len>41</Hsp_align-len>
+      <Hsp_qseq>WVDSTPPPGTRVRAVAIYKQSQHMTEVVRRCPHHERCSDSD</Hsp_qseq>
+      <Hsp_hseq>WVDSTPPPGTRVRAMAIYKQSQHMTEVVRRCPHHERCSDSD</Hsp_hseq>
+      <Hsp_midline>WVDSTPPPGTRVRA+AIYKQSQHMTEVVRRCPHHERCSDSD</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
+<Hit>
+  <Hit_num>13</Hit_num>
+  <Hit_id>gi|430766052|gb|AGA63023.1|</Hit_id>
+  <Hit_def>tumor suppressor p53, partial [Homo sapiens]</Hit_def>
+  <Hit_accession>AGA63023</Hit_accession>
+  <Hit_len>99</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>87.8113</Hsp_bit-score>
+      <Hsp_score>216</Hsp_score>
+      <Hsp_evalue>2.76535e-20</Hsp_evalue>
+      <Hsp_query-from>1</Hsp_query-from>
+      <Hsp_query-to>123</Hsp_query-to>
+      <Hsp_hit-from>21</Hsp_hit-from>
+      <Hsp_hit-to>61</Hsp_hit-to>
+      <Hsp_query-frame>1</Hsp_query-frame>
+      <Hsp_hit-frame>0</Hsp_hit-frame>
+      <Hsp_identity>40</Hsp_identity>
+      <Hsp_positive>41</Hsp_positive>
+      <Hsp_gaps>0</Hsp_gaps>
+      <Hsp_align-len>41</Hsp_align-len>
+      <Hsp_qseq>WVDSTPPPGTRVRAVAIYKQSQHMTEVVRRCPHHERCSDSD</Hsp_qseq>
+      <Hsp_hseq>WVDSTPPPGTRVRAMAIYKQSQHMTEVVRRCPHHERCSDSD</Hsp_hseq>
+      <Hsp_midline>WVDSTPPPGTRVRA+AIYKQSQHMTEVVRRCPHHERCSDSD</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
+<Hit>
+  <Hit_num>14</Hit_num>
+  <Hit_id>gi|430766026|gb|AGA63010.1|</Hit_id>
+  <Hit_def>tumor suppressor p53, partial [Homo sapiens]</Hit_def>
+  <Hit_accession>AGA63010</Hit_accession>
+  <Hit_len>99</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>87.8113</Hsp_bit-score>
+      <Hsp_score>216</Hsp_score>
+      <Hsp_evalue>2.79523e-20</Hsp_evalue>
+      <Hsp_query-from>1</Hsp_query-from>
+      <Hsp_query-to>123</Hsp_query-to>
+      <Hsp_hit-from>21</Hsp_hit-from>
+      <Hsp_hit-to>61</Hsp_hit-to>
+      <Hsp_query-frame>1</Hsp_query-frame>
+      <Hsp_hit-frame>0</Hsp_hit-frame>
+      <Hsp_identity>40</Hsp_identity>
+      <Hsp_positive>41</Hsp_positive>
+      <Hsp_gaps>0</Hsp_gaps>
+      <Hsp_align-len>41</Hsp_align-len>
+      <Hsp_qseq>WVDSTPPPGTRVRAVAIYKQSQHMTEVVRRCPHHERCSDSD</Hsp_qseq>
+      <Hsp_hseq>WVDSTPPPGTRVRAMAIYKQSQHMTEVVRRCPHHERCSDSD</Hsp_hseq>
+      <Hsp_midline>WVDSTPPPGTRVRA+AIYKQSQHMTEVVRRCPHHERCSDSD</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
+<Hit>
+  <Hit_num>15</Hit_num>
+  <Hit_id>gi|430766042|gb|AGA63018.1|</Hit_id>
+  <Hit_def>tumor suppressor p53, partial [Homo sapiens]</Hit_def>
+  <Hit_accession>AGA63018</Hit_accession>
+  <Hit_len>99</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>87.8113</Hsp_bit-score>
+      <Hsp_score>216</Hsp_score>
+      <Hsp_evalue>2.82543e-20</Hsp_evalue>
+      <Hsp_query-from>1</Hsp_query-from>
+      <Hsp_query-to>123</Hsp_query-to>
+      <Hsp_hit-from>21</Hsp_hit-from>
+      <Hsp_hit-to>61</Hsp_hit-to>
+      <Hsp_query-frame>1</Hsp_query-frame>
+      <Hsp_hit-frame>0</Hsp_hit-frame>
+      <Hsp_identity>40</Hsp_identity>
+      <Hsp_positive>41</Hsp_positive>
+      <Hsp_gaps>0</Hsp_gaps>
+      <Hsp_align-len>41</Hsp_align-len>
+      <Hsp_qseq>WVDSTPPPGTRVRAVAIYKQSQHMTEVVRRCPHHERCSDSD</Hsp_qseq>
+      <Hsp_hseq>WVDSTPPPGTRVRAMAIYKQSQHMTEVVRRCPHHERCSDSD</Hsp_hseq>
+      <Hsp_midline>WVDSTPPPGTRVRA+AIYKQSQHMTEVVRRCPHHERCSDSD</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
+<Hit>
+  <Hit_num>16</Hit_num>
+  <Hit_id>gi|430765725|gb|AGA62860.1|</Hit_id>
+  <Hit_def>tumor suppressor p53, partial [Homo sapiens]</Hit_def>
+  <Hit_accession>AGA62860</Hit_accession>
+  <Hit_len>99</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>87.8113</Hsp_bit-score>
+      <Hsp_score>216</Hsp_score>
+      <Hsp_evalue>2.88681e-20</Hsp_evalue>
+      <Hsp_query-from>1</Hsp_query-from>
+      <Hsp_query-to>123</Hsp_query-to>
+      <Hsp_hit-from>21</Hsp_hit-from>
+      <Hsp_hit-to>61</Hsp_hit-to>
+      <Hsp_query-frame>1</Hsp_query-frame>
+      <Hsp_hit-frame>0</Hsp_hit-frame>
+      <Hsp_identity>40</Hsp_identity>
+      <Hsp_positive>41</Hsp_positive>
+      <Hsp_gaps>0</Hsp_gaps>
+      <Hsp_align-len>41</Hsp_align-len>
+      <Hsp_qseq>WVDSTPPPGTRVRAVAIYKQSQHMTEVVRRCPHHERCSDSD</Hsp_qseq>
+      <Hsp_hseq>WVDSTPPPGTRVRAMAIYKQSQHMTEVVRRCPHHERCSDSD</Hsp_hseq>
+      <Hsp_midline>WVDSTPPPGTRVRA+AIYKQSQHMTEVVRRCPHHERCSDSD</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
+<Hit>
+  <Hit_num>17</Hit_num>
+  <Hit_id>gi|127461435|gb|ABO28412.1|</Hit_id>
+  <Hit_def>tumor protein p53, partial [Homo sapiens] &gt;gi|127461437|gb|ABO28413.1| tumor protein p53, partial [Homo sapiens] &gt;gi|127461439|gb|ABO28414.1| tumor protein p53, partial [Homo sapiens] &gt;gi|127461443|gb|ABO28416.1| tumor protein p53, partial [Homo sapiens] &gt;gi|127461445|gb|ABO28417.1| tumor protein p53, partial [Homo sapiens] &gt;gi|127461447|gb|ABO28418.1| tumor protein p53, partial [Homo sapiens] &gt;gi|127461449|gb|ABO28419.1| tumor protein p53, partial [Homo sapiens] &gt;gi|127461451|gb|ABO28420.1| tumor protein p53, partial [Homo sapiens] &gt;gi|127461453|gb|ABO28421.1| tumor protein p53, partial [Homo sapiens] &gt;gi|127461455|gb|ABO28422.1| tumor protein p53, partial [Homo sapiens] &gt;gi|127461457|gb|ABO28423.1| tumor protein p53, partial [Homo sapiens] &gt;gi|127461459|gb|ABO28424.1| tumor protein p53, partial [Homo sapiens] &gt;gi|127461461|gb|ABO28425.1| tumor protein p53, partial [Homo sapiens] &gt;gi|127461463|gb|ABO28426.1| tumor protein p53, partial [Homo sapiens] &gt;gi|127461467|gb|ABO28428.1| tumor protein p53, partial [Homo sapiens] &gt;gi|127461469|gb|ABO28429.1| tumor protein p53, partial [Homo sapiens] &gt;gi|127461471|gb|ABO28430.1| tumor protein p53, partial [Homo sapiens] &gt;gi|127461473|gb|ABO28431.1| tumor protein p53, partial [Homo sapiens] &gt;gi|127461475|gb|ABO28432.1| tumor protein p53, partial [Homo sapiens] &gt;gi|127461477|gb|ABO28433.1| tumor protein p53, partial [Homo sapiens] &gt;gi|127461479|gb|ABO28434.1| tumor protein p53, partial [Homo sapiens] &gt;gi|127461481|gb|ABO28435.1| tumor protein p53, partial [Homo sapiens] &gt;gi|127461483|gb|ABO28436.1| tumor protein p53, partial [Homo sapiens] &gt;gi|127461485|gb|ABO28437.1| tumor protein p53, partial [Homo sapiens] &gt;gi|127461487|gb|ABO28438.1| tumor protein p53, partial [Homo sapiens] &gt;gi|127461489|gb|ABO28439.1| tumor protein p53, partial [Homo sapiens] &gt;gi|430765661|gb|AGA62828.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765663|gb|AGA62829.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765665|gb|AGA62830.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765667|gb|AGA62831.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765671|gb|AGA62833.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765673|gb|AGA62834.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765675|gb|AGA62835.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765677|gb|AGA62836.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765679|gb|AGA62837.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765681|gb|AGA62838.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765683|gb|AGA62839.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765685|gb|AGA62840.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765687|gb|AGA62841.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765689|gb|AGA62842.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765691|gb|AGA62843.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765693|gb|AGA62844.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765695|gb|AGA62845.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765697|gb|AGA62846.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765699|gb|AGA62847.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765701|gb|AGA62848.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765703|gb|AGA62849.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765705|gb|AGA62850.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765707|gb|AGA62851.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765709|gb|AGA62852.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765711|gb|AGA62853.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765713|gb|AGA62854.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765715|gb|AGA62855.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765719|gb|AGA62857.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765721|gb|AGA62858.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765723|gb|AGA62859.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765727|gb|AGA62861.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765729|gb|AGA62862.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765731|gb|AGA62863.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765733|gb|AGA62864.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765735|gb|AGA62865.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765737|gb|AGA62866.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765739|gb|AGA62867.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765741|gb|AGA62868.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765743|gb|AGA62869.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765745|gb|AGA62870.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765747|gb|AGA62871.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765749|gb|AGA62872.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765751|gb|AGA62873.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765753|gb|AGA62874.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765755|gb|AGA62875.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765757|gb|AGA62876.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765759|gb|AGA62877.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765761|gb|AGA62878.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765763|gb|AGA62879.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765765|gb|AGA62880.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765767|gb|AGA62881.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765769|gb|AGA62882.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765771|gb|AGA62883.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765773|gb|AGA62884.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765775|gb|AGA62885.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765777|gb|AGA62886.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765779|gb|AGA62887.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765781|gb|AGA62888.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765783|gb|AGA62889.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765785|gb|AGA62890.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765787|gb|AGA62891.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765789|gb|AGA62892.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765791|gb|AGA62893.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765793|gb|AGA62894.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765795|gb|AGA62895.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765797|gb|AGA62896.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765799|gb|AGA62897.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765801|gb|AGA62898.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765803|gb|AGA62899.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765805|gb|AGA62900.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765807|gb|AGA62901.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765809|gb|AGA62902.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765811|gb|AGA62903.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765813|gb|AGA62904.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765815|gb|AGA62905.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765817|gb|AGA62906.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765819|gb|AGA62907.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765821|gb|AGA62908.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765823|gb|AGA62909.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765825|gb|AGA62910.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765827|gb|AGA62911.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765829|gb|AGA62912.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765831|gb|AGA62913.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765833|gb|AGA62914.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765835|gb|AGA62915.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765837|gb|AGA62916.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765839|gb|AGA62917.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765841|gb|AGA62918.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765843|gb|AGA62919.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765845|gb|AGA62920.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765847|gb|AGA62921.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765849|gb|AGA62922.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765851|gb|AGA62923.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765853|gb|AGA62924.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765855|gb|AGA62925.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765857|gb|AGA62926.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765859|gb|AGA62927.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765861|gb|AGA62928.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765863|gb|AGA62929.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765865|gb|AGA62930.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765867|gb|AGA62931.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765869|gb|AGA62932.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765871|gb|AGA62933.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765873|gb|AGA62934.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765875|gb|AGA62935.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765877|gb|AGA62936.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765879|gb|AGA62937.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765881|gb|AGA62938.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765883|gb|AGA62939.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765885|gb|AGA62940.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765887|gb|AGA62941.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765889|gb|AGA62942.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765891|gb|AGA62943.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765893|gb|AGA62944.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765895|gb|AGA62945.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765897|gb|AGA62946.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765899|gb|AGA62947.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765901|gb|AGA62948.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765903|gb|AGA62949.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765905|gb|AGA62950.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765907|gb|AGA62951.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765909|gb|AGA62952.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765911|gb|AGA62953.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765913|gb|AGA62954.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765915|gb|AGA62955.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765917|gb|AGA62956.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765919|gb|AGA62957.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765921|gb|AGA62958.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765923|gb|AGA62959.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765925|gb|AGA62960.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765927|gb|AGA62961.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765929|gb|AGA62962.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765931|gb|AGA62963.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765933|gb|AGA62964.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765935|gb|AGA62965.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765937|gb|AGA62966.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765939|gb|AGA62967.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765941|gb|AGA62968.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765943|gb|AGA62969.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765945|gb|AGA62970.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765947|gb|AGA62971.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765949|gb|AGA62972.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765951|gb|AGA62973.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765953|gb|AGA62974.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765955|gb|AGA62975.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765957|gb|AGA62976.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765959|gb|AGA62977.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765961|gb|AGA62978.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765963|gb|AGA62979.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765965|gb|AGA62980.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765967|gb|AGA62981.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765969|gb|AGA62982.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765971|gb|AGA62983.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765973|gb|AGA62984.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765975|gb|AGA62985.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765977|gb|AGA62986.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765979|gb|AGA62987.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765981|gb|AGA62988.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765983|gb|AGA62989.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765985|gb|AGA62990.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765987|gb|AGA62991.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765989|gb|AGA62992.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765991|gb|AGA62993.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765993|gb|AGA62994.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765995|gb|AGA62995.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765997|gb|AGA62996.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430765999|gb|AGA62997.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766001|gb|AGA62998.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766003|gb|AGA62999.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766005|gb|AGA63000.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766007|gb|AGA63001.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766009|gb|AGA63002.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766011|gb|AGA63003.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766013|gb|AGA63004.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766015|gb|AGA63005.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766017|gb|AGA63006.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766019|gb|AGA63007.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766022|gb|AGA63008.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766024|gb|AGA63009.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766028|gb|AGA63011.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766030|gb|AGA63012.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766034|gb|AGA63014.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766038|gb|AGA63016.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766044|gb|AGA63019.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766046|gb|AGA63020.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766048|gb|AGA63021.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766050|gb|AGA63022.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766054|gb|AGA63024.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766056|gb|AGA63025.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766058|gb|AGA63026.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766062|gb|AGA63028.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766066|gb|AGA63030.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766068|gb|AGA63031.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766070|gb|AGA63032.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766072|gb|AGA63033.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766074|gb|AGA63034.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766076|gb|AGA63035.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766080|gb|AGA63037.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766084|gb|AGA63039.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766086|gb|AGA63040.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766088|gb|AGA63041.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766090|gb|AGA63042.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766096|gb|AGA63045.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766098|gb|AGA63046.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766100|gb|AGA63047.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766102|gb|AGA63048.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766104|gb|AGA63049.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766106|gb|AGA63050.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766108|gb|AGA63051.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766112|gb|AGA63053.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766114|gb|AGA63054.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766116|gb|AGA63055.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766118|gb|AGA63056.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766120|gb|AGA63057.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766122|gb|AGA63058.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766124|gb|AGA63059.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766126|gb|AGA63060.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766128|gb|AGA63061.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766130|gb|AGA63062.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766132|gb|AGA63063.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766134|gb|AGA63064.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766136|gb|AGA63065.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766138|gb|AGA63066.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766140|gb|AGA63067.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766142|gb|AGA63068.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766144|gb|AGA63069.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766146|gb|AGA63070.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766148|gb|AGA63071.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766150|gb|AGA63072.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766152|gb|AGA63073.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766154|gb|AGA63074.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766156|gb|AGA63075.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766158|gb|AGA63076.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766160|gb|AGA63077.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766162|gb|AGA63078.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766164|gb|AGA63079.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766166|gb|AGA63080.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766168|gb|AGA63081.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766170|gb|AGA63082.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766172|gb|AGA63083.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766174|gb|AGA63084.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766176|gb|AGA63085.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766178|gb|AGA63086.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766180|gb|AGA63087.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766182|gb|AGA63088.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766184|gb|AGA63089.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766186|gb|AGA63090.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766188|gb|AGA63091.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766190|gb|AGA63092.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766192|gb|AGA63093.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766194|gb|AGA63094.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766196|gb|AGA63095.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766198|gb|AGA63096.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766200|gb|AGA63097.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766202|gb|AGA63098.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766204|gb|AGA63099.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766206|gb|AGA63100.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766208|gb|AGA63101.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766210|gb|AGA63102.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766212|gb|AGA63103.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766214|gb|AGA63104.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766216|gb|AGA63105.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766218|gb|AGA63106.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766220|gb|AGA63107.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766222|gb|AGA63108.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766224|gb|AGA63109.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766226|gb|AGA63110.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766228|gb|AGA63111.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766230|gb|AGA63112.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766232|gb|AGA63113.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766234|gb|AGA63114.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766236|gb|AGA63115.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766238|gb|AGA63116.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766240|gb|AGA63117.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766242|gb|AGA63118.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766244|gb|AGA63119.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766246|gb|AGA63120.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766248|gb|AGA63121.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766250|gb|AGA63122.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766252|gb|AGA63123.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766254|gb|AGA63124.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766256|gb|AGA63125.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766258|gb|AGA63126.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766260|gb|AGA63127.1| tumor suppressor p53, partial [Homo sapiens] &gt;gi|430766262|gb|AGA63128.1| tumor suppressor p53, partial [Homo sapiens]</Hit_def>
+  <Hit_accession>ABO28412</Hit_accession>
+  <Hit_len>99</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>87.8113</Hsp_bit-score>
+      <Hsp_score>216</Hsp_score>
+      <Hsp_evalue>2.918e-20</Hsp_evalue>
+      <Hsp_query-from>1</Hsp_query-from>
+      <Hsp_query-to>123</Hsp_query-to>
+      <Hsp_hit-from>21</Hsp_hit-from>
+      <Hsp_hit-to>61</Hsp_hit-to>
+      <Hsp_query-frame>1</Hsp_query-frame>
+      <Hsp_hit-frame>0</Hsp_hit-frame>
+      <Hsp_identity>40</Hsp_identity>
+      <Hsp_positive>41</Hsp_positive>
+      <Hsp_gaps>0</Hsp_gaps>
+      <Hsp_align-len>41</Hsp_align-len>
+      <Hsp_qseq>WVDSTPPPGTRVRAVAIYKQSQHMTEVVRRCPHHERCSDSD</Hsp_qseq>
+      <Hsp_hseq>WVDSTPPPGTRVRAMAIYKQSQHMTEVVRRCPHHERCSDSD</Hsp_hseq>
+      <Hsp_midline>WVDSTPPPGTRVRA+AIYKQSQHMTEVVRRCPHHERCSDSD</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
+<Hit>
+  <Hit_num>18</Hit_num>
+  <Hit_id>gi|430766094|gb|AGA63044.1|</Hit_id>
+  <Hit_def>tumor suppressor p53, partial [Homo sapiens]</Hit_def>
+  <Hit_accession>AGA63044</Hit_accession>
+  <Hit_len>99</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>87.8113</Hsp_bit-score>
+      <Hsp_score>216</Hsp_score>
+      <Hsp_evalue>2.98139e-20</Hsp_evalue>
+      <Hsp_query-from>1</Hsp_query-from>
+      <Hsp_query-to>123</Hsp_query-to>
+      <Hsp_hit-from>21</Hsp_hit-from>
+      <Hsp_hit-to>61</Hsp_hit-to>
+      <Hsp_query-frame>1</Hsp_query-frame>
+      <Hsp_hit-frame>0</Hsp_hit-frame>
+      <Hsp_identity>40</Hsp_identity>
+      <Hsp_positive>41</Hsp_positive>
+      <Hsp_gaps>0</Hsp_gaps>
+      <Hsp_align-len>41</Hsp_align-len>
+      <Hsp_qseq>WVDSTPPPGTRVRAVAIYKQSQHMTEVVRRCPHHERCSDSD</Hsp_qseq>
+      <Hsp_hseq>WVDSTPPPGTRVRAMAIYKQSQHMTEVVRRCPHHERCSDSD</Hsp_hseq>
+      <Hsp_midline>WVDSTPPPGTRVRA+AIYKQSQHMTEVVRRCPHHERCSDSD</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
+<Hit>
+  <Hit_num>19</Hit_num>
+  <Hit_id>gi|430766060|gb|AGA63027.1|</Hit_id>
+  <Hit_def>tumor suppressor p53, partial [Homo sapiens]</Hit_def>
+  <Hit_accession>AGA63027</Hit_accession>
+  <Hit_len>99</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>87.8113</Hsp_bit-score>
+      <Hsp_score>216</Hsp_score>
+      <Hsp_evalue>3.0136e-20</Hsp_evalue>
+      <Hsp_query-from>1</Hsp_query-from>
+      <Hsp_query-to>123</Hsp_query-to>
+      <Hsp_hit-from>21</Hsp_hit-from>
+      <Hsp_hit-to>61</Hsp_hit-to>
+      <Hsp_query-frame>1</Hsp_query-frame>
+      <Hsp_hit-frame>0</Hsp_hit-frame>
+      <Hsp_identity>40</Hsp_identity>
+      <Hsp_positive>41</Hsp_positive>
+      <Hsp_gaps>0</Hsp_gaps>
+      <Hsp_align-len>41</Hsp_align-len>
+      <Hsp_qseq>WVDSTPPPGTRVRAVAIYKQSQHMTEVVRRCPHHERCSDSD</Hsp_qseq>
+      <Hsp_hseq>WVDSTPPPGTRVRAMAIYKQSQHMTEVVRRCPHHERCSDSD</Hsp_hseq>
+      <Hsp_midline>WVDSTPPPGTRVRA+AIYKQSQHMTEVVRRCPHHERCSDSD</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
+<Hit>
+  <Hit_num>20</Hit_num>
+  <Hit_id>gi|430766082|gb|AGA63038.1|</Hit_id>
+  <Hit_def>tumor suppressor p53, partial [Homo sapiens]</Hit_def>
+  <Hit_accession>AGA63038</Hit_accession>
+  <Hit_len>99</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>87.8113</Hsp_bit-score>
+      <Hsp_score>216</Hsp_score>
+      <Hsp_evalue>3.04616e-20</Hsp_evalue>
+      <Hsp_query-from>1</Hsp_query-from>
+      <Hsp_query-to>123</Hsp_query-to>
+      <Hsp_hit-from>21</Hsp_hit-from>
+      <Hsp_hit-to>61</Hsp_hit-to>
+      <Hsp_query-frame>1</Hsp_query-frame>
+      <Hsp_hit-frame>0</Hsp_hit-frame>
+      <Hsp_identity>40</Hsp_identity>
+      <Hsp_positive>41</Hsp_positive>
+      <Hsp_gaps>0</Hsp_gaps>
+      <Hsp_align-len>41</Hsp_align-len>
+      <Hsp_qseq>WVDSTPPPGTRVRAVAIYKQSQHMTEVVRRCPHHERCSDSD</Hsp_qseq>
+      <Hsp_hseq>WVDSTPPPGTRVRAMAIYKQSQHMTEVVRRCPHHERCSDSD</Hsp_hseq>
+      <Hsp_midline>WVDSTPPPGTRVRA+AIYKQSQHMTEVVRRCPHHERCSDSD</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
+</Iteration_hits>
+  <Iteration_stat>
+    <Statistics>
+      <Statistics_db-num>206763544</Statistics_db-num>
+      <Statistics_db-len>75193366533</Statistics_db-len>
+      <Statistics_hsp-len>15</Statistics_hsp-len>
+      <Statistics_eff-space>1874389747698</Statistics_eff-space>
+      <Statistics_kappa>0.041</Statistics_kappa>
+      <Statistics_lambda>0.267</Statistics_lambda>
+      <Statistics_entropy>0.14</Statistics_entropy>
+    </Statistics>
+  </Iteration_stat>
+</Iteration>
+<Iteration>
+  <Iteration_iter-num>2</Iteration_iter-num>
+  <Iteration_query-ID>Query_2</Iteration_query-ID>
+  <Iteration_query-def>NM_001861.5 Homo sapiens cytochrome c oxidase subunit 4I1 (COX4I1), transcript variant 1, mRNA</Iteration_query-def>
+  <Iteration_query-len>749</Iteration_query-len>
+<Iteration_hits>
+<Hit>
+  <Hit_num>1</Hit_num>
+  <Hit_id>gi|4502981|ref|NP_001852.1|</Hit_id>
+  <Hit_def>cytochrome c oxidase subunit 4 isoform 1, mitochondrial isoform 1 precursor [Homo sapiens] &gt;gi|353681773|ref|NP_001238844.1| cytochrome c oxidase subunit 4 isoform 1, mitochondrial [Pan troglodytes] &gt;gi|974005293|ref|NP_001305715.1| cytochrome c oxidase subunit 4 isoform 1, mitochondrial isoform 1 precursor [Homo sapiens] &gt;gi|397500380|ref|XP_003820894.1| cytochrome c oxidase subunit 4 isoform 1, mitochondrial isoform X2 [Pan paniscus] &gt;gi|117086|sp|P13073.1|COX41_HUMAN RecName: Full=Cytochrome c oxidase subunit 4 isoform 1, mitochondrial; AltName: Full=Cytochrome c oxidase polypeptide IV; AltName: Full=Cytochrome c oxidase subunit IV isoform 1; Short=COX IV-1; Flags: Precursor &gt;gi|180933|gb|AAA99312.1| cytochrome c oxidase subunit IV precursor [Homo sapiens] &gt;gi|180935|gb|AAA52059.1| cytochrome c oxidase subunit IV (COX4) [Homo sapiens] &gt;gi|517252|emb|CAA38573.1| cytochrome-c oxidase subunit IV [Homo sapiens] &gt;gi|1913896|gb|AAB51058.1| cytochrome c oxidase subunit IV [Homo sapiens] &gt;gi|2738492|gb|AAB94819.1| cytochrome c oxidase subunit IV precursor [Homo sapiens] &gt;gi|4092857|gb|AAC99578.1| cytochrome c oxidase subunit IV precursor [Homo sapiens] &gt;gi|14250514|gb|AAH08704.1| Cytochrome c oxidase subunit IV isoform 1 [Homo sapiens] &gt;gi|18203795|gb|AAH21236.1| Cytochrome c oxidase subunit IV isoform 1 [Homo sapiens] &gt;gi|54696512|gb|AAV38628.1| cytochrome c oxidase subunit IV isoform 1 [Homo sapiens] &gt;gi|61357719|gb|AAX41434.1| cytochrome c oxidase subunit IV isoform 1 [synthetic construct] &gt;gi|119615843|gb|EAW95437.1| cytochrome c oxidase subunit IV isoform 1, isoform CRA_b [Homo sapiens] &gt;gi|119615844|gb|EAW95438.1| cytochrome c oxidase subunit IV isoform 1, isoform CRA_b [Homo sapiens] &gt;gi|123992973|gb|ABM84088.1| cytochrome c oxidase subunit IV isoform 1 [synthetic construct] &gt;gi|123999899|gb|ABM87458.1| cytochrome c oxidase subunit IV isoform 1, partial [synthetic construct] &gt;gi|189053167|dbj|BAG34789.1| unnamed protein product [Homo sapiens] &gt;gi|649099306|gb|AIC48546.1| COX4I1, partial [synthetic construct] &gt;gi|1147695033|emb|SJX40556.1| unnamed protein product, partial [Human ORFeome Gateway entry vector] &gt;gi|1331786218|gb|PNI45832.1| COX4I1 isoform 7 [Pan troglodytes] &gt;gi|1331786219|gb|PNI45833.1| COX4I1 isoform 8 [Pan troglodytes] &gt;gi|1331786220|gb|PNI45834.1| COX4I1 isoform 11 [Pan troglodytes] &gt;gi|225734|prf||1312293A cytochrome c oxidase IV</Hit_def>
+  <Hit_accession>NP_001852</Hit_accession>
+  <Hit_len>169</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>350.517</Hsp_bit-score>
+      <Hsp_score>898</Hsp_score>
+      <Hsp_evalue>6.86588e-119</Hsp_evalue>
+      <Hsp_query-from>60</Hsp_query-from>
+      <Hsp_query-to>566</Hsp_query-to>
+      <Hsp_hit-from>1</Hsp_hit-from>
+      <Hsp_hit-to>169</Hsp_hit-to>
+      <Hsp_query-frame>3</Hsp_query-frame>
+      <Hsp_hit-frame>0</Hsp_hit-frame>
+      <Hsp_identity>169</Hsp_identity>
+      <Hsp_positive>169</Hsp_positive>
+      <Hsp_gaps>0</Hsp_gaps>
+      <Hsp_align-len>169</Hsp_align-len>
+      <Hsp_qseq>MLATRVFSLVGKRAISTSVCVRAHESVVKSEDFSLPAYMDRRDHPLPEVAHVKHLSASQKALKEKEKASWSSLSMDEKVELYRIKFKESFAEMNRGSNEWKTVVGGAMFFIGFTALVIMWQKHYVYGPLPQSFDKEWVAKQTKRMLDMKVNPIQGLASKWDYEKNEWKK</Hsp_qseq>
+      <Hsp_hseq>MLATRVFSLVGKRAISTSVCVRAHESVVKSEDFSLPAYMDRRDHPLPEVAHVKHLSASQKALKEKEKASWSSLSMDEKVELYRIKFKESFAEMNRGSNEWKTVVGGAMFFIGFTALVIMWQKHYVYGPLPQSFDKEWVAKQTKRMLDMKVNPIQGLASKWDYEKNEWKK</Hsp_hseq>
+      <Hsp_midline>MLATRVFSLVGKRAISTSVCVRAHESVVKSEDFSLPAYMDRRDHPLPEVAHVKHLSASQKALKEKEKASWSSLSMDEKVELYRIKFKESFAEMNRGSNEWKTVVGGAMFFIGFTALVIMWQKHYVYGPLPQSFDKEWVAKQTKRMLDMKVNPIQGLASKWDYEKNEWKK</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
+<Hit>
+  <Hit_num>2</Hit_num>
+  <Hit_id>gi|397500384|ref|XP_003820896.1|</Hit_id>
+  <Hit_def>cytochrome c oxidase subunit 4 isoform 1, mitochondrial isoform X1 [Pan paniscus] &gt;gi|694964928|ref|XP_009429631.1| cytochrome c oxidase subunit 4 isoform 1, mitochondrial isoform X1 [Pan troglodytes] &gt;gi|1370467949|ref|XP_024305924.1| cytochrome c oxidase subunit 4 isoform 1, mitochondrial isoform X1 [Homo sapiens]</Hit_def>
+  <Hit_accession>XP_003820896</Hit_accession>
+  <Hit_len>175</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>350.517</Hsp_bit-score>
+      <Hsp_score>898</Hsp_score>
+      <Hsp_evalue>7.01628e-119</Hsp_evalue>
+      <Hsp_query-from>60</Hsp_query-from>
+      <Hsp_query-to>566</Hsp_query-to>
+      <Hsp_hit-from>7</Hsp_hit-from>
+      <Hsp_hit-to>175</Hsp_hit-to>
+      <Hsp_query-frame>3</Hsp_query-frame>
+      <Hsp_hit-frame>0</Hsp_hit-frame>
+      <Hsp_identity>169</Hsp_identity>
+      <Hsp_positive>169</Hsp_positive>
+      <Hsp_gaps>0</Hsp_gaps>
+      <Hsp_align-len>169</Hsp_align-len>
+      <Hsp_qseq>MLATRVFSLVGKRAISTSVCVRAHESVVKSEDFSLPAYMDRRDHPLPEVAHVKHLSASQKALKEKEKASWSSLSMDEKVELYRIKFKESFAEMNRGSNEWKTVVGGAMFFIGFTALVIMWQKHYVYGPLPQSFDKEWVAKQTKRMLDMKVNPIQGLASKWDYEKNEWKK</Hsp_qseq>
+      <Hsp_hseq>MLATRVFSLVGKRAISTSVCVRAHESVVKSEDFSLPAYMDRRDHPLPEVAHVKHLSASQKALKEKEKASWSSLSMDEKVELYRIKFKESFAEMNRGSNEWKTVVGGAMFFIGFTALVIMWQKHYVYGPLPQSFDKEWVAKQTKRMLDMKVNPIQGLASKWDYEKNEWKK</Hsp_hseq>
+      <Hsp_midline>MLATRVFSLVGKRAISTSVCVRAHESVVKSEDFSLPAYMDRRDHPLPEVAHVKHLSASQKALKEKEKASWSSLSMDEKVELYRIKFKESFAEMNRGSNEWKTVVGGAMFFIGFTALVIMWQKHYVYGPLPQSFDKEWVAKQTKRMLDMKVNPIQGLASKWDYEKNEWKK</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
+<Hit>
+  <Hit_num>3</Hit_num>
+  <Hit_id>gi|38382823|gb|AAH62437.1|</Hit_id>
+  <Hit_def>Cytochrome c oxidase subunit IV isoform 1 [Homo sapiens]</Hit_def>
+  <Hit_accession>AAH62437</Hit_accession>
+  <Hit_len>169</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>348.977</Hsp_bit-score>
+      <Hsp_score>894</Hsp_score>
+      <Hsp_evalue>2.74712e-118</Hsp_evalue>
+      <Hsp_query-from>60</Hsp_query-from>
+      <Hsp_query-to>566</Hsp_query-to>
+      <Hsp_hit-from>1</Hsp_hit-from>
+      <Hsp_hit-to>169</Hsp_hit-to>
+      <Hsp_query-frame>3</Hsp_query-frame>
+      <Hsp_hit-frame>0</Hsp_hit-frame>
+      <Hsp_identity>168</Hsp_identity>
+      <Hsp_positive>168</Hsp_positive>
+      <Hsp_gaps>0</Hsp_gaps>
+      <Hsp_align-len>169</Hsp_align-len>
+      <Hsp_qseq>MLATRVFSLVGKRAISTSVCVRAHESVVKSEDFSLPAYMDRRDHPLPEVAHVKHLSASQKALKEKEKASWSSLSMDEKVELYRIKFKESFAEMNRGSNEWKTVVGGAMFFIGFTALVIMWQKHYVYGPLPQSFDKEWVAKQTKRMLDMKVNPIQGLASKWDYEKNEWKK</Hsp_qseq>
+      <Hsp_hseq>MLTTRVFSLVGKRAISTSVCVRAHESVVKSEDFSLPAYMDRRDHPLPEVAHVKHLSASQKALKEKEKASWSSLSMDEKVELYRIKFKESFAEMNRGSNEWKTVVGGAMFFIGFTALVIMWQKHYVYGPLPQSFDKEWVAKQTKRMLDMKVNPIQGLASKWDYEKNEWKK</Hsp_hseq>
+      <Hsp_midline>ML TRVFSLVGKRAISTSVCVRAHESVVKSEDFSLPAYMDRRDHPLPEVAHVKHLSASQKALKEKEKASWSSLSMDEKVELYRIKFKESFAEMNRGSNEWKTVVGGAMFFIGFTALVIMWQKHYVYGPLPQSFDKEWVAKQTKRMLDMKVNPIQGLASKWDYEKNEWKK</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
+<Hit>
+  <Hit_num>4</Hit_num>
+  <Hit_id>gi|426383129|ref|XP_004058144.1|</Hit_id>
+  <Hit_def>PREDICTED: cytochrome c oxidase subunit 4 isoform 1, mitochondrial [Gorilla gorilla gorilla]</Hit_def>
+  <Hit_accession>XP_004058144</Hit_accession>
+  <Hit_len>169</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>348.206</Hsp_bit-score>
+      <Hsp_score>892</Hsp_score>
+      <Hsp_evalue>4.39298e-118</Hsp_evalue>
+      <Hsp_query-from>60</Hsp_query-from>
+      <Hsp_query-to>566</Hsp_query-to>
+      <Hsp_hit-from>1</Hsp_hit-from>
+      <Hsp_hit-to>169</Hsp_hit-to>
+      <Hsp_query-frame>3</Hsp_query-frame>
+      <Hsp_hit-frame>0</Hsp_hit-frame>
+      <Hsp_identity>168</Hsp_identity>
+      <Hsp_positive>169</Hsp_positive>
+      <Hsp_gaps>0</Hsp_gaps>
+      <Hsp_align-len>169</Hsp_align-len>
+      <Hsp_qseq>MLATRVFSLVGKRAISTSVCVRAHESVVKSEDFSLPAYMDRRDHPLPEVAHVKHLSASQKALKEKEKASWSSLSMDEKVELYRIKFKESFAEMNRGSNEWKTVVGGAMFFIGFTALVIMWQKHYVYGPLPQSFDKEWVAKQTKRMLDMKVNPIQGLASKWDYEKNEWKK</Hsp_qseq>
+      <Hsp_hseq>MLATRVFSLVGKRAISTSVCVRAHESVVKSEDFSLPAYMDRRDYPLPEVAHVKHLSASQKALKEKEKASWSSLSMDEKVELYRIKFKESFAEMNRGSNEWKTVVGGAMFFIGFTALVIMWQKHYVYGPLPQSFDKEWVAKQTKRMLDMKVNPIQGLASKWDYEKNEWKK</Hsp_hseq>
+      <Hsp_midline>MLATRVFSLVGKRAISTSVCVRAHESVVKSEDFSLPAYMDRRD+PLPEVAHVKHLSASQKALKEKEKASWSSLSMDEKVELYRIKFKESFAEMNRGSNEWKTVVGGAMFFIGFTALVIMWQKHYVYGPLPQSFDKEWVAKQTKRMLDMKVNPIQGLASKWDYEKNEWKK</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
+<Hit>
+  <Hit_num>5</Hit_num>
+  <Hit_id>gi|332246822|ref|XP_003272552.1|</Hit_id>
+  <Hit_def>PREDICTED: cytochrome c oxidase subunit 4 isoform 1, mitochondrial isoform X2 [Nomascus leucogenys] &gt;gi|332246824|ref|XP_003272553.1| PREDICTED: cytochrome c oxidase subunit 4 isoform 1, mitochondrial isoform X2 [Nomascus leucogenys]</Hit_def>
+  <Hit_accession>XP_003272552</Hit_accession>
+  <Hit_len>169</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>344.354</Hsp_bit-score>
+      <Hsp_score>882</Hsp_score>
+      <Hsp_evalue>1.47706e-116</Hsp_evalue>
+      <Hsp_query-from>60</Hsp_query-from>
+      <Hsp_query-to>566</Hsp_query-to>
+      <Hsp_hit-from>1</Hsp_hit-from>
+      <Hsp_hit-to>169</Hsp_hit-to>
+      <Hsp_query-frame>3</Hsp_query-frame>
+      <Hsp_hit-frame>0</Hsp_hit-frame>
+      <Hsp_identity>163</Hsp_identity>
+      <Hsp_positive>169</Hsp_positive>
+      <Hsp_gaps>0</Hsp_gaps>
+      <Hsp_align-len>169</Hsp_align-len>
+      <Hsp_qseq>MLATRVFSLVGKRAISTSVCVRAHESVVKSEDFSLPAYMDRRDHPLPEVAHVKHLSASQKALKEKEKASWSSLSMDEKVELYRIKFKESFAEMNRGSNEWKTVVGGAMFFIGFTALVIMWQKHYVYGPLPQSFDKEWVAKQTKRMLDMKVNPIQGLASKWDYEKNEWKK</Hsp_qseq>
+      <Hsp_hseq>MLATRVFSLVGKRAVSTSVCVRAHESVMKSEDFSLPAYVDRRDHPLPEVAHVKHLSASQKALKEKEKAAWSSLSMDEKVELYRIKFKESFAEMNRGSNEWKTVVGGAMFFIGFTALIIMWQKHYVYGPLPQTFDKEWVAKQTKRMLDMKVNPIQGLASKWDYEKNEWKK</Hsp_hseq>
+      <Hsp_midline>MLATRVFSLVGKRA+STSVCVRAHESV+KSEDFSLPAY+DRRDHPLPEVAHVKHLSASQKALKEKEKA+WSSLSMDEKVELYRIKFKESFAEMNRGSNEWKTVVGGAMFFIGFTAL+IMWQKHYVYGPLPQ+FDKEWVAKQTKRMLDMKVNPIQGLASKWDYEKNEWKK</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
+<Hit>
+  <Hit_num>6</Hit_num>
+  <Hit_id>gi|332246826|ref|XP_003272554.1|</Hit_id>
+  <Hit_def>PREDICTED: cytochrome c oxidase subunit 4 isoform 1, mitochondrial isoform X1 [Nomascus leucogenys]</Hit_def>
+  <Hit_accession>XP_003272554</Hit_accession>
+  <Hit_len>175</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>344.354</Hsp_bit-score>
+      <Hsp_score>882</Hsp_score>
+      <Hsp_evalue>1.93934e-116</Hsp_evalue>
+      <Hsp_query-from>60</Hsp_query-from>
+      <Hsp_query-to>566</Hsp_query-to>
+      <Hsp_hit-from>7</Hsp_hit-from>
+      <Hsp_hit-to>175</Hsp_hit-to>
+      <Hsp_query-frame>3</Hsp_query-frame>
+      <Hsp_hit-frame>0</Hsp_hit-frame>
+      <Hsp_identity>163</Hsp_identity>
+      <Hsp_positive>169</Hsp_positive>
+      <Hsp_gaps>0</Hsp_gaps>
+      <Hsp_align-len>169</Hsp_align-len>
+      <Hsp_qseq>MLATRVFSLVGKRAISTSVCVRAHESVVKSEDFSLPAYMDRRDHPLPEVAHVKHLSASQKALKEKEKASWSSLSMDEKVELYRIKFKESFAEMNRGSNEWKTVVGGAMFFIGFTALVIMWQKHYVYGPLPQSFDKEWVAKQTKRMLDMKVNPIQGLASKWDYEKNEWKK</Hsp_qseq>
+      <Hsp_hseq>MLATRVFSLVGKRAVSTSVCVRAHESVMKSEDFSLPAYVDRRDHPLPEVAHVKHLSASQKALKEKEKAAWSSLSMDEKVELYRIKFKESFAEMNRGSNEWKTVVGGAMFFIGFTALIIMWQKHYVYGPLPQTFDKEWVAKQTKRMLDMKVNPIQGLASKWDYEKNEWKK</Hsp_hseq>
+      <Hsp_midline>MLATRVFSLVGKRA+STSVCVRAHESV+KSEDFSLPAY+DRRDHPLPEVAHVKHLSASQKALKEKEKA+WSSLSMDEKVELYRIKFKESFAEMNRGSNEWKTVVGGAMFFIGFTAL+IMWQKHYVYGPLPQ+FDKEWVAKQTKRMLDMKVNPIQGLASKWDYEKNEWKK</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
+<Hit>
+  <Hit_num>7</Hit_num>
+  <Hit_id>gi|197098966|ref|NP_001126477.1|</Hit_id>
+  <Hit_def>cytochrome c oxidase subunit 4 isoform 1, mitochondrial [Pongo abelii] &gt;gi|55731628|emb|CAH92520.1| hypothetical protein [Pongo abelii] &gt;gi|1331881524|gb|PNJ29661.1| COX4I1 isoform 1 [Pongo abelii] &gt;gi|1331881525|gb|PNJ29662.1| COX4I1 isoform 5 [Pongo abelii] &gt;gi|1331881526|gb|PNJ29663.1| COX4I1 isoform 6 [Pongo abelii]</Hit_def>
+  <Hit_accession>NP_001126477</Hit_accession>
+  <Hit_len>169</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>340.502</Hsp_bit-score>
+      <Hsp_score>872</Hsp_score>
+      <Hsp_evalue>5.53667e-115</Hsp_evalue>
+      <Hsp_query-from>60</Hsp_query-from>
+      <Hsp_query-to>566</Hsp_query-to>
+      <Hsp_hit-from>1</Hsp_hit-from>
+      <Hsp_hit-to>169</Hsp_hit-to>
+      <Hsp_query-frame>3</Hsp_query-frame>
+      <Hsp_hit-frame>0</Hsp_hit-frame>
+      <Hsp_identity>164</Hsp_identity>
+      <Hsp_positive>167</Hsp_positive>
+      <Hsp_gaps>0</Hsp_gaps>
+      <Hsp_align-len>169</Hsp_align-len>
+      <Hsp_qseq>MLATRVFSLVGKRAISTSVCVRAHESVVKSEDFSLPAYMDRRDHPLPEVAHVKHLSASQKALKEKEKASWSSLSMDEKVELYRIKFKESFAEMNRGSNEWKTVVGGAMFFIGFTALVIMWQKHYVYGPLPQSFDKEWVAKQTKRMLDMKVNPIQGLASKWDYEKNEWKK</Hsp_qseq>
+      <Hsp_hseq>MLATRVFSLVGKRAISTSVCVRAHESVVKSEDFSLSAYVDRRDHPLPEVAHVKHLSASQKALKEKEKASWSSLSMDEKVELYRIKFKESFAEMNRGSNEWKTVVGGAMFFIGFTALIIMWQKRHVYGPLPQSFDKEWVAKQTKRMLDMKVNPIQGLASKWDYEKNEWKK</Hsp_hseq>
+      <Hsp_midline>MLATRVFSLVGKRAISTSVCVRAHESVVKSEDFSL AY+DRRDHPLPEVAHVKHLSASQKALKEKEKASWSSLSMDEKVELYRIKFKESFAEMNRGSNEWKTVVGGAMFFIGFTAL+IMWQK +VYGPLPQSFDKEWVAKQTKRMLDMKVNPIQGLASKWDYEKNEWKK</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
+<Hit>
+  <Hit_num>8</Hit_num>
+  <Hit_id>gi|724957535|ref|XP_010353910.1|</Hit_id>
+  <Hit_def>PREDICTED: cytochrome c oxidase subunit 4 isoform 1, mitochondrial [Rhinopithecus roxellana]</Hit_def>
+  <Hit_accession>XP_010353910</Hit_accession>
+  <Hit_len>169</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>333.183</Hsp_bit-score>
+      <Hsp_score>853</Hsp_score>
+      <Hsp_evalue>3.5798e-112</Hsp_evalue>
+      <Hsp_query-from>60</Hsp_query-from>
+      <Hsp_query-to>566</Hsp_query-to>
+      <Hsp_hit-from>1</Hsp_hit-from>
+      <Hsp_hit-to>169</Hsp_hit-to>
+      <Hsp_query-frame>3</Hsp_query-frame>
+      <Hsp_hit-frame>0</Hsp_hit-frame>
+      <Hsp_identity>160</Hsp_identity>
+      <Hsp_positive>165</Hsp_positive>
+      <Hsp_gaps>0</Hsp_gaps>
+      <Hsp_align-len>169</Hsp_align-len>
+      <Hsp_qseq>MLATRVFSLVGKRAISTSVCVRAHESVVKSEDFSLPAYMDRRDHPLPEVAHVKHLSASQKALKEKEKASWSSLSMDEKVELYRIKFKESFAEMNRGSNEWKTVVGGAMFFIGFTALVIMWQKHYVYGPLPQSFDKEWVAKQTKRMLDMKVNPIQGLASKWDYEKNEWKK</Hsp_qseq>
+      <Hsp_hseq>MLATRVFSLVGKRAISTSVCVRAHESVVKREDFSLPAYVDRRDYPLPDVAHVKHLSASQKALKEKEKASWSSLSMDEKVELYRIKFKETFAEMNRGSNEWKTVVGTAMFFIGFTALVIMWQKLYVYGPLPQTFDKEWVAMQTKRMLDMKVNPIQGLASKWDYEKNEWKK</Hsp_hseq>
+      <Hsp_midline>MLATRVFSLVGKRAISTSVCVRAHESVVK EDFSLPAY+DRRD+PLP+VAHVKHLSASQKALKEKEKASWSSLSMDEKVELYRIKFKE+FAEMNRGSNEWKTVVG AMFFIGFTALVIMWQK YVYGPLPQ+FDKEWVA QTKRMLDMKVNPIQGLASKWDYEKNEWKK</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
+<Hit>
+  <Hit_num>9</Hit_num>
+  <Hit_id>gi|795346036|ref|XP_011783438.1|</Hit_id>
+  <Hit_def>PREDICTED: cytochrome c oxidase subunit 4 isoform 1, mitochondrial [Colobus angolensis palliatus]</Hit_def>
+  <Hit_accession>XP_011783438</Hit_accession>
+  <Hit_len>169</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>332.798</Hsp_bit-score>
+      <Hsp_score>852</Hsp_score>
+      <Hsp_evalue>5.72317e-112</Hsp_evalue>
+      <Hsp_query-from>60</Hsp_query-from>
+      <Hsp_query-to>566</Hsp_query-to>
+      <Hsp_hit-from>1</Hsp_hit-from>
+      <Hsp_hit-to>169</Hsp_hit-to>
+      <Hsp_query-frame>3</Hsp_query-frame>
+      <Hsp_hit-frame>0</Hsp_hit-frame>
+      <Hsp_identity>159</Hsp_identity>
+      <Hsp_positive>165</Hsp_positive>
+      <Hsp_gaps>0</Hsp_gaps>
+      <Hsp_align-len>169</Hsp_align-len>
+      <Hsp_qseq>MLATRVFSLVGKRAISTSVCVRAHESVVKSEDFSLPAYMDRRDHPLPEVAHVKHLSASQKALKEKEKASWSSLSMDEKVELYRIKFKESFAEMNRGSNEWKTVVGGAMFFIGFTALVIMWQKHYVYGPLPQSFDKEWVAKQTKRMLDMKVNPIQGLASKWDYEKNEWKK</Hsp_qseq>
+      <Hsp_hseq>MLATRVFSLVGKRAISTSVCVRAHESVVKREDFSLPAYVDRRDYPLPDVAHVKHLSASQKALKEKEKASWSSLSMDEKVELYRIKFKETFAEMNRGSNEWKTVVGTAMFFIGFTALIIMWQKLYVYGPLPQTFDKEWVAMQTKRMLDMKVNPIQGLASKWDYEKNEWKK</Hsp_hseq>
+      <Hsp_midline>MLATRVFSLVGKRAISTSVCVRAHESVVK EDFSLPAY+DRRD+PLP+VAHVKHLSASQKALKEKEKASWSSLSMDEKVELYRIKFKE+FAEMNRGSNEWKTVVG AMFFIGFTAL+IMWQK YVYGPLPQ+FDKEWVA QTKRMLDMKVNPIQGLASKWDYEKNEWKK</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
+<Hit>
+  <Hit_num>10</Hit_num>
+  <Hit_id>gi|1059096511|ref|XP_017716062.1|</Hit_id>
+  <Hit_def>PREDICTED: cytochrome c oxidase subunit 4 isoform 1, mitochondrial [Rhinopithecus bieti]</Hit_def>
+  <Hit_accession>XP_017716062</Hit_accession>
+  <Hit_len>285</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>337.035</Hsp_bit-score>
+      <Hsp_score>863</Hsp_score>
+      <Hsp_evalue>7.03715e-112</Hsp_evalue>
+      <Hsp_query-from>60</Hsp_query-from>
+      <Hsp_query-to>566</Hsp_query-to>
+      <Hsp_hit-from>117</Hsp_hit-from>
+      <Hsp_hit-to>285</Hsp_hit-to>
+      <Hsp_query-frame>3</Hsp_query-frame>
+      <Hsp_hit-frame>0</Hsp_hit-frame>
+      <Hsp_identity>160</Hsp_identity>
+      <Hsp_positive>165</Hsp_positive>
+      <Hsp_gaps>0</Hsp_gaps>
+      <Hsp_align-len>169</Hsp_align-len>
+      <Hsp_qseq>MLATRVFSLVGKRAISTSVCVRAHESVVKSEDFSLPAYMDRRDHPLPEVAHVKHLSASQKALKEKEKASWSSLSMDEKVELYRIKFKESFAEMNRGSNEWKTVVGGAMFFIGFTALVIMWQKHYVYGPLPQSFDKEWVAKQTKRMLDMKVNPIQGLASKWDYEKNEWKK</Hsp_qseq>
+      <Hsp_hseq>MLATRVFSLVGKRAISTSVCVRAHESVVKREDFSLPAYVDRRDYPLPDVAHVKHLSASQKALKEKEKASWSSLSMDEKVELYRIKFKETFAEMNRGSNEWKTVVGTAMFFIGFTALVIMWQKLYVYGPLPQTFDKEWVAMQTKRMLDMKVNPIQGLASKWDYEKNEWKK</Hsp_hseq>
+      <Hsp_midline>MLATRVFSLVGKRAISTSVCVRAHESVVK EDFSLPAY+DRRD+PLP+VAHVKHLSASQKALKEKEKASWSSLSMDEKVELYRIKFKE+FAEMNRGSNEWKTVVG AMFFIGFTALVIMWQK YVYGPLPQ+FDKEWVA QTKRMLDMKVNPIQGLASKWDYEKNEWKK</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
+<Hit>
+  <Hit_num>11</Hit_num>
+  <Hit_id>gi|635034209|ref|XP_007992456.1|</Hit_id>
+  <Hit_def>PREDICTED: cytochrome c oxidase subunit 4 isoform 1, mitochondrial isoform X2 [Chlorocebus sabaeus]</Hit_def>
+  <Hit_accession>XP_007992456</Hit_accession>
+  <Hit_len>169</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>332.413</Hsp_bit-score>
+      <Hsp_score>851</Hsp_score>
+      <Hsp_evalue>8.47693e-112</Hsp_evalue>
+      <Hsp_query-from>60</Hsp_query-from>
+      <Hsp_query-to>566</Hsp_query-to>
+      <Hsp_hit-from>1</Hsp_hit-from>
+      <Hsp_hit-to>169</Hsp_hit-to>
+      <Hsp_query-frame>3</Hsp_query-frame>
+      <Hsp_hit-frame>0</Hsp_hit-frame>
+      <Hsp_identity>159</Hsp_identity>
+      <Hsp_positive>166</Hsp_positive>
+      <Hsp_gaps>0</Hsp_gaps>
+      <Hsp_align-len>169</Hsp_align-len>
+      <Hsp_qseq>MLATRVFSLVGKRAISTSVCVRAHESVVKSEDFSLPAYMDRRDHPLPEVAHVKHLSASQKALKEKEKASWSSLSMDEKVELYRIKFKESFAEMNRGSNEWKTVVGGAMFFIGFTALVIMWQKHYVYGPLPQSFDKEWVAKQTKRMLDMKVNPIQGLASKWDYEKNEWKK</Hsp_qseq>
+      <Hsp_hseq>MLATRVFSLVGKRAISTSVCVRAHESVVKSEDFSLPAYVDRRDYPLPDVAHVKHLSASQKALKEKEKASWSSLSMDEKVELYRIKFKESFAEMNRGSNEWKTVVGTALFFIGFTALVVMWEKLYVYGPLPQTFDKEWVAMQTKRMLDMKVNPIQGLASKWDYEKNEWKK</Hsp_hseq>
+      <Hsp_midline>MLATRVFSLVGKRAISTSVCVRAHESVVKSEDFSLPAY+DRRD+PLP+VAHVKHLSASQKALKEKEKASWSSLSMDEKVELYRIKFKESFAEMNRGSNEWKTVVG A+FFIGFTALV+MW+K YVYGPLPQ+FDKEWVA QTKRMLDMKVNPIQGLASKWDYEKNEWKK</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
+<Hit>
+  <Hit_num>12</Hit_num>
+  <Hit_id>gi|635034207|ref|XP_007992455.1|</Hit_id>
+  <Hit_def>PREDICTED: cytochrome c oxidase subunit 4 isoform 1, mitochondrial isoform X1 [Chlorocebus sabaeus]</Hit_def>
+  <Hit_accession>XP_007992455</Hit_accession>
+  <Hit_len>175</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>332.413</Hsp_bit-score>
+      <Hsp_score>851</Hsp_score>
+      <Hsp_evalue>1.04143e-111</Hsp_evalue>
+      <Hsp_query-from>60</Hsp_query-from>
+      <Hsp_query-to>566</Hsp_query-to>
+      <Hsp_hit-from>7</Hsp_hit-from>
+      <Hsp_hit-to>175</Hsp_hit-to>
+      <Hsp_query-frame>3</Hsp_query-frame>
+      <Hsp_hit-frame>0</Hsp_hit-frame>
+      <Hsp_identity>159</Hsp_identity>
+      <Hsp_positive>166</Hsp_positive>
+      <Hsp_gaps>0</Hsp_gaps>
+      <Hsp_align-len>169</Hsp_align-len>
+      <Hsp_qseq>MLATRVFSLVGKRAISTSVCVRAHESVVKSEDFSLPAYMDRRDHPLPEVAHVKHLSASQKALKEKEKASWSSLSMDEKVELYRIKFKESFAEMNRGSNEWKTVVGGAMFFIGFTALVIMWQKHYVYGPLPQSFDKEWVAKQTKRMLDMKVNPIQGLASKWDYEKNEWKK</Hsp_qseq>
+      <Hsp_hseq>MLATRVFSLVGKRAISTSVCVRAHESVVKSEDFSLPAYVDRRDYPLPDVAHVKHLSASQKALKEKEKASWSSLSMDEKVELYRIKFKESFAEMNRGSNEWKTVVGTALFFIGFTALVVMWEKLYVYGPLPQTFDKEWVAMQTKRMLDMKVNPIQGLASKWDYEKNEWKK</Hsp_hseq>
+      <Hsp_midline>MLATRVFSLVGKRAISTSVCVRAHESVVKSEDFSLPAY+DRRD+PLP+VAHVKHLSASQKALKEKEKASWSSLSMDEKVELYRIKFKESFAEMNRGSNEWKTVVG A+FFIGFTALV+MW+K YVYGPLPQ+FDKEWVA QTKRMLDMKVNPIQGLASKWDYEKNEWKK</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
+<Hit>
+  <Hit_num>13</Hit_num>
+  <Hit_id>gi|795617343|ref|XP_011730216.1|</Hit_id>
+  <Hit_def>cytochrome c oxidase subunit 4 isoform 1, mitochondrial-like [Macaca nemestrina]</Hit_def>
+  <Hit_accession>XP_011730216</Hit_accession>
+  <Hit_len>169</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>331.257</Hsp_bit-score>
+      <Hsp_score>848</Hsp_score>
+      <Hsp_evalue>2.49678e-111</Hsp_evalue>
+      <Hsp_query-from>60</Hsp_query-from>
+      <Hsp_query-to>566</Hsp_query-to>
+      <Hsp_hit-from>1</Hsp_hit-from>
+      <Hsp_hit-to>169</Hsp_hit-to>
+      <Hsp_query-frame>3</Hsp_query-frame>
+      <Hsp_hit-frame>0</Hsp_hit-frame>
+      <Hsp_identity>160</Hsp_identity>
+      <Hsp_positive>165</Hsp_positive>
+      <Hsp_gaps>0</Hsp_gaps>
+      <Hsp_align-len>169</Hsp_align-len>
+      <Hsp_qseq>MLATRVFSLVGKRAISTSVCVRAHESVVKSEDFSLPAYMDRRDHPLPEVAHVKHLSASQKALKEKEKASWSSLSMDEKVELYRIKFKESFAEMNRGSNEWKTVVGGAMFFIGFTALVIMWQKHYVYGPLPQSFDKEWVAKQTKRMLDMKVNPIQGLASKWDYEKNEWKK</Hsp_qseq>
+      <Hsp_hseq>MLATRVFSLVGKRAISTSVCVRAHESVVKSEDFSLPAYVDRRDYPLPDVAHVKHLSASQKALKEKEKASWSSLSMDEKVELYRIKFKESFAEMNRRSNEWKTVVGTAMFFIGFTALVIMWEKLYVYGPLPQTFDKEWVAMQTKRMLDMKVNPIQGLASKWDYEKNEWKK</Hsp_hseq>
+      <Hsp_midline>MLATRVFSLVGKRAISTSVCVRAHESVVKSEDFSLPAY+DRRD+PLP+VAHVKHLSASQKALKEKEKASWSSLSMDEKVELYRIKFKESFAEMNR SNEWKTVVG AMFFIGFTALVIMW+K YVYGPLPQ+FDKEWVA QTKRMLDMKVNPIQGLASKWDYEKNEWKK</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
+<Hit>
+  <Hit_num>14</Hit_num>
+  <Hit_id>gi|795470675|ref|XP_011890910.1|</Hit_id>
+  <Hit_def>PREDICTED: cytochrome c oxidase subunit 4 isoform 1, mitochondrial [Cercocebus atys]</Hit_def>
+  <Hit_accession>XP_011890910</Hit_accession>
+  <Hit_len>169</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>330.487</Hsp_bit-score>
+      <Hsp_score>846</Hsp_score>
+      <Hsp_evalue>5.01943e-111</Hsp_evalue>
+      <Hsp_query-from>60</Hsp_query-from>
+      <Hsp_query-to>566</Hsp_query-to>
+      <Hsp_hit-from>1</Hsp_hit-from>
+      <Hsp_hit-to>169</Hsp_hit-to>
+      <Hsp_query-frame>3</Hsp_query-frame>
+      <Hsp_hit-frame>0</Hsp_hit-frame>
+      <Hsp_identity>159</Hsp_identity>
+      <Hsp_positive>165</Hsp_positive>
+      <Hsp_gaps>0</Hsp_gaps>
+      <Hsp_align-len>169</Hsp_align-len>
+      <Hsp_qseq>MLATRVFSLVGKRAISTSVCVRAHESVVKSEDFSLPAYMDRRDHPLPEVAHVKHLSASQKALKEKEKASWSSLSMDEKVELYRIKFKESFAEMNRGSNEWKTVVGGAMFFIGFTALVIMWQKHYVYGPLPQSFDKEWVAKQTKRMLDMKVNPIQGLASKWDYEKNEWKK</Hsp_qseq>
+      <Hsp_hseq>MLATRVFSLVGKRAISTSVCVRAHESVVKSEDFTLPAYVDRRDYPLPDVAHVKHLSASQKALKEKEKASWSSLSMDEKVELYRIKFKESFAEMNRRSNEWKTVVGTAMFFIGFTALVIMWEKLYVYGPLPQTFDKEWVAMQTKRMLDMKVNPIQGLASKWDYEKNEWKK</Hsp_hseq>
+      <Hsp_midline>MLATRVFSLVGKRAISTSVCVRAHESVVKSEDF+LPAY+DRRD+PLP+VAHVKHLSASQKALKEKEKASWSSLSMDEKVELYRIKFKESFAEMNR SNEWKTVVG AMFFIGFTALVIMW+K YVYGPLPQ+FDKEWVA QTKRMLDMKVNPIQGLASKWDYEKNEWKK</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
+<Hit>
+  <Hit_num>15</Hit_num>
+  <Hit_id>gi|402895796|ref|XP_003911001.1|</Hit_id>
+  <Hit_def>cytochrome c oxidase subunit 4 isoform 1, mitochondrial-like [Papio anubis]</Hit_def>
+  <Hit_accession>XP_003911001</Hit_accession>
+  <Hit_len>169</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>330.487</Hsp_bit-score>
+      <Hsp_score>846</Hsp_score>
+      <Hsp_evalue>5.24334e-111</Hsp_evalue>
+      <Hsp_query-from>60</Hsp_query-from>
+      <Hsp_query-to>566</Hsp_query-to>
+      <Hsp_hit-from>1</Hsp_hit-from>
+      <Hsp_hit-to>169</Hsp_hit-to>
+      <Hsp_query-frame>3</Hsp_query-frame>
+      <Hsp_hit-frame>0</Hsp_hit-frame>
+      <Hsp_identity>159</Hsp_identity>
+      <Hsp_positive>165</Hsp_positive>
+      <Hsp_gaps>0</Hsp_gaps>
+      <Hsp_align-len>169</Hsp_align-len>
+      <Hsp_qseq>MLATRVFSLVGKRAISTSVCVRAHESVVKSEDFSLPAYMDRRDHPLPEVAHVKHLSASQKALKEKEKASWSSLSMDEKVELYRIKFKESFAEMNRGSNEWKTVVGGAMFFIGFTALVIMWQKHYVYGPLPQSFDKEWVAKQTKRMLDMKVNPIQGLASKWDYEKNEWKK</Hsp_qseq>
+      <Hsp_hseq>MLATRVFSLVGKRAVSTSVCVRAHESVVKSEDFSLPAYVDRRDYPLPDVAHVKHLSASQKALKEKEKASWSSLSMDEKVELYRIKFKESFAEMNRRSNEWKTVVGTAMFFIGFTALVIMWEKLYVYGPLPQTFDKEWVAMQTKRMLDMKVNPIQGLASKWDYEKNEWKK</Hsp_hseq>
+      <Hsp_midline>MLATRVFSLVGKRA+STSVCVRAHESVVKSEDFSLPAY+DRRD+PLP+VAHVKHLSASQKALKEKEKASWSSLSMDEKVELYRIKFKESFAEMNR SNEWKTVVG AMFFIGFTALVIMW+K YVYGPLPQ+FDKEWVA QTKRMLDMKVNPIQGLASKWDYEKNEWKK</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
+<Hit>
+  <Hit_num>16</Hit_num>
+  <Hit_id>gi|1297693740|ref|XP_023084794.1|</Hit_id>
+  <Hit_def>cytochrome c oxidase subunit 4 isoform 1, mitochondrial isoform X1 [Piliocolobus tephrosceles]</Hit_def>
+  <Hit_accession>XP_023084794</Hit_accession>
+  <Hit_len>169</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>329.717</Hsp_bit-score>
+      <Hsp_score>844</Hsp_score>
+      <Hsp_evalue>8.38234e-111</Hsp_evalue>
+      <Hsp_query-from>60</Hsp_query-from>
+      <Hsp_query-to>566</Hsp_query-to>
+      <Hsp_hit-from>1</Hsp_hit-from>
+      <Hsp_hit-to>169</Hsp_hit-to>
+      <Hsp_query-frame>3</Hsp_query-frame>
+      <Hsp_hit-frame>0</Hsp_hit-frame>
+      <Hsp_identity>158</Hsp_identity>
+      <Hsp_positive>163</Hsp_positive>
+      <Hsp_gaps>0</Hsp_gaps>
+      <Hsp_align-len>169</Hsp_align-len>
+      <Hsp_qseq>MLATRVFSLVGKRAISTSVCVRAHESVVKSEDFSLPAYMDRRDHPLPEVAHVKHLSASQKALKEKEKASWSSLSMDEKVELYRIKFKESFAEMNRGSNEWKTVVGGAMFFIGFTALVIMWQKHYVYGPLPQSFDKEWVAKQTKRMLDMKVNPIQGLASKWDYEKNEWKK</Hsp_qseq>
+      <Hsp_hseq>MLATRVFSLVGKRAISTSVCARAHEGVVKREDFSLPAYVDRRDYPLPDVAHVKHLSASQKALKEKEKASWSSLSMDEKVELYRIKFKETFAEMNRGSNEWKTVVGTAMFFIGFTALVIMWQKLYVYGPLPQTFDKEWVAMQTKRMLDMKVNPIQGLASKWDYEKNEWKK</Hsp_hseq>
+      <Hsp_midline>MLATRVFSLVGKRAISTSVC RAHE VVK EDFSLPAY+DRRD+PLP+VAHVKHLSASQKALKEKEKASWSSLSMDEKVELYRIKFKE+FAEMNRGSNEWKTVVG AMFFIGFTALVIMWQK YVYGPLPQ+FDKEWVA QTKRMLDMKVNPIQGLASKWDYEKNEWKK</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
+<Hit>
+  <Hit_num>17</Hit_num>
+  <Hit_id>gi|1411106847|ref|XP_025212666.1|</Hit_id>
+  <Hit_def>cytochrome c oxidase subunit 4 isoform 1, mitochondrial-like [Theropithecus gelada]</Hit_def>
+  <Hit_accession>XP_025212666</Hit_accession>
+  <Hit_len>169</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>329.717</Hsp_bit-score>
+      <Hsp_score>844</Hsp_score>
+      <Hsp_evalue>9.34867e-111</Hsp_evalue>
+      <Hsp_query-from>60</Hsp_query-from>
+      <Hsp_query-to>566</Hsp_query-to>
+      <Hsp_hit-from>1</Hsp_hit-from>
+      <Hsp_hit-to>169</Hsp_hit-to>
+      <Hsp_query-frame>3</Hsp_query-frame>
+      <Hsp_hit-frame>0</Hsp_hit-frame>
+      <Hsp_identity>159</Hsp_identity>
+      <Hsp_positive>164</Hsp_positive>
+      <Hsp_gaps>0</Hsp_gaps>
+      <Hsp_align-len>169</Hsp_align-len>
+      <Hsp_qseq>MLATRVFSLVGKRAISTSVCVRAHESVVKSEDFSLPAYMDRRDHPLPEVAHVKHLSASQKALKEKEKASWSSLSMDEKVELYRIKFKESFAEMNRGSNEWKTVVGGAMFFIGFTALVIMWQKHYVYGPLPQSFDKEWVAKQTKRMLDMKVNPIQGLASKWDYEKNEWKK</Hsp_qseq>
+      <Hsp_hseq>MLATRVFSLVGKRAVSTSVCVRAHESVVKSEDFSLPAYVDRRDCPLPDVAHVKHLSASQKALKEKEKASWSSLSMDEKVELYRIKFKESFAEMNRSSNEWKTVVGTAMFFIGFTALVIMWEKLYVYGPLPQTFDKEWVAMQTKRMLDMKVNPIQGLASKWDYEKNEWKK</Hsp_hseq>
+      <Hsp_midline>MLATRVFSLVGKRA+STSVCVRAHESVVKSEDFSLPAY+DRRD PLP+VAHVKHLSASQKALKEKEKASWSSLSMDEKVELYRIKFKESFAEMNR SNEWKTVVG AMFFIGFTALVIMW+K YVYGPLPQ+FDKEWVA QTKRMLDMKVNPIQGLASKWDYEKNEWKK</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
+<Hit>
+  <Hit_num>18</Hit_num>
+  <Hit_id>gi|795067150|ref|XP_011826905.1|</Hit_id>
+  <Hit_def>PREDICTED: cytochrome c oxidase subunit 4 isoform 1, mitochondrial isoform X2 [Mandrillus leucophaeus] &gt;gi|795067155|ref|XP_011826912.1| PREDICTED: cytochrome c oxidase subunit 4 isoform 1, mitochondrial isoform X2 [Mandrillus leucophaeus]</Hit_def>
+  <Hit_accession>XP_011826905</Hit_accession>
+  <Hit_len>169</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>328.176</Hsp_bit-score>
+      <Hsp_score>840</Hsp_score>
+      <Hsp_evalue>3.90365e-110</Hsp_evalue>
+      <Hsp_query-from>60</Hsp_query-from>
+      <Hsp_query-to>566</Hsp_query-to>
+      <Hsp_hit-from>1</Hsp_hit-from>
+      <Hsp_hit-to>169</Hsp_hit-to>
+      <Hsp_query-frame>3</Hsp_query-frame>
+      <Hsp_hit-frame>0</Hsp_hit-frame>
+      <Hsp_identity>158</Hsp_identity>
+      <Hsp_positive>164</Hsp_positive>
+      <Hsp_gaps>0</Hsp_gaps>
+      <Hsp_align-len>169</Hsp_align-len>
+      <Hsp_qseq>MLATRVFSLVGKRAISTSVCVRAHESVVKSEDFSLPAYMDRRDHPLPEVAHVKHLSASQKALKEKEKASWSSLSMDEKVELYRIKFKESFAEMNRGSNEWKTVVGGAMFFIGFTALVIMWQKHYVYGPLPQSFDKEWVAKQTKRMLDMKVNPIQGLASKWDYEKNEWKK</Hsp_qseq>
+      <Hsp_hseq>MLATRVFSLVGKRAISTSVCVRAHESVVKSEDFTLPAYVDRRDYPLPDVAHVKHLSASQKALKEKEKASWSSLSMDEKVELYRIKFKESFAEMNRRSNEWKTVVGTAMFFIGITALVIMWEKLYVYGPLPQTFDKEWVAMQTKRMLDMKVNPIQGLASKWDYEKNEWKK</Hsp_hseq>
+      <Hsp_midline>MLATRVFSLVGKRAISTSVCVRAHESVVKSEDF+LPAY+DRRD+PLP+VAHVKHLSASQKALKEKEKASWSSLSMDEKVELYRIKFKESFAEMNR SNEWKTVVG AMFFIG TALVIMW+K YVYGPLPQ+FDKEWVA QTKRMLDMKVNPIQGLASKWDYEKNEWKK</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
+<Hit>
+  <Hit_num>19</Hit_num>
+  <Hit_id>gi|544490916|ref|XP_005580214.1|</Hit_id>
+  <Hit_def>PREDICTED: cytochrome c oxidase subunit 4 isoform 1, mitochondrial-like [Macaca fascicularis]</Hit_def>
+  <Hit_accession>XP_005580214</Hit_accession>
+  <Hit_len>169</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>327.791</Hsp_bit-score>
+      <Hsp_score>839</Hsp_score>
+      <Hsp_evalue>5.97392e-110</Hsp_evalue>
+      <Hsp_query-from>60</Hsp_query-from>
+      <Hsp_query-to>566</Hsp_query-to>
+      <Hsp_hit-from>1</Hsp_hit-from>
+      <Hsp_hit-to>169</Hsp_hit-to>
+      <Hsp_query-frame>3</Hsp_query-frame>
+      <Hsp_hit-frame>0</Hsp_hit-frame>
+      <Hsp_identity>159</Hsp_identity>
+      <Hsp_positive>164</Hsp_positive>
+      <Hsp_gaps>0</Hsp_gaps>
+      <Hsp_align-len>169</Hsp_align-len>
+      <Hsp_qseq>MLATRVFSLVGKRAISTSVCVRAHESVVKSEDFSLPAYMDRRDHPLPEVAHVKHLSASQKALKEKEKASWSSLSMDEKVELYRIKFKESFAEMNRGSNEWKTVVGGAMFFIGFTALVIMWQKHYVYGPLPQSFDKEWVAKQTKRMLDMKVNPIQGLASKWDYEKNEWKK</Hsp_qseq>
+      <Hsp_hseq>MLATRVFSLVGKRAISTSVCVRAHESVVKSEDFSLPAYVDRRDYPLPDVAHVKHLSASQKALKEKEKASWSSLSMDEKVELYRIKFKESFAEMNRRWNEWKTVVGTAMFFIGFTALVIMWEKLYVYGPLPQTFDKEWVAMQTKRMLDMKVNPIQGLASKWDYEKNEWKK</Hsp_hseq>
+      <Hsp_midline>MLATRVFSLVGKRAISTSVCVRAHESVVKSEDFSLPAY+DRRD+PLP+VAHVKHLSASQKALKEKEKASWSSLSMDEKVELYRIKFKESFAEMNR  NEWKTVVG AMFFIGFTALVIMW+K YVYGPLPQ+FDKEWVA QTKRMLDMKVNPIQGLASKWDYEKNEWKK</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
+<Hit>
+  <Hit_num>20</Hit_num>
+  <Hit_id>gi|795564181|ref|XP_011908771.1|</Hit_id>
+  <Hit_def>PREDICTED: cytochrome c oxidase subunit 4 isoform 1, mitochondrial-like [Cercocebus atys]</Hit_def>
+  <Hit_accession>XP_011908771</Hit_accession>
+  <Hit_len>169</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>327.02</Hsp_bit-score>
+      <Hsp_score>837</Hsp_score>
+      <Hsp_evalue>9.7605e-110</Hsp_evalue>
+      <Hsp_query-from>60</Hsp_query-from>
+      <Hsp_query-to>566</Hsp_query-to>
+      <Hsp_hit-from>1</Hsp_hit-from>
+      <Hsp_hit-to>169</Hsp_hit-to>
+      <Hsp_query-frame>3</Hsp_query-frame>
+      <Hsp_hit-frame>0</Hsp_hit-frame>
+      <Hsp_identity>159</Hsp_identity>
+      <Hsp_positive>164</Hsp_positive>
+      <Hsp_gaps>0</Hsp_gaps>
+      <Hsp_align-len>169</Hsp_align-len>
+      <Hsp_qseq>MLATRVFSLVGKRAISTSVCVRAHESVVKSEDFSLPAYMDRRDHPLPEVAHVKHLSASQKALKEKEKASWSSLSMDEKVELYRIKFKESFAEMNRGSNEWKTVVGGAMFFIGFTALVIMWQKHYVYGPLPQSFDKEWVAKQTKRMLDMKVNPIQGLASKWDYEKNEWKK</Hsp_qseq>
+      <Hsp_hseq>MLATRVFSLVGKRAISTSVCVRAHESVVKSEDFSLPAYVDWRDYPLPDVAHVKHLSASQKALKEKEKASWSSLSMDEKVELYRIKFKESFAEMNRRSNEWKTVVGTAMFFIGFTALVIMWEKLYVYGPLPQTFDKEWVAMQTKRMLDMKVNPIQGLASKWDYEKNEWKK</Hsp_hseq>
+      <Hsp_midline>MLATRVFSLVGKRAISTSVCVRAHESVVKSEDFSLPAY+D RD+PLP+VAHVKHLSASQKALKEKEKASWSSLSMDEKVELYRIKFKESFAEMNR SNEWKTVVG AMFFIGFTALVIMW+K YVYGPLPQ+FDKEWVA QTKRMLDMKVNPIQGLASKWDYEKNEWKK</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
+</Iteration_hits>
+  <Iteration_stat>
+    <Statistics>
+      <Statistics_db-num>206763544</Statistics_db-num>
+      <Statistics_db-len>75193366533</Statistics_db-len>
+      <Statistics_hsp-len>153</Statistics_hsp-len>
+      <Statistics_eff-space>4181620252896</Statistics_eff-space>
+      <Statistics_kappa>0.041</Statistics_kappa>
+      <Statistics_lambda>0.267</Statistics_lambda>
+      <Statistics_entropy>0.14</Statistics_entropy>
+    </Statistics>
+  </Iteration_stat>
+</Iteration>
+</BlastOutput_iterations>
+</BlastOutput>
+

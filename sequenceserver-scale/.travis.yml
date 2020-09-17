@@ -1,0 +1,38 @@
+language: ruby
+
+rvm:
+  - 2.3
+  - 2.5
+
+branches:
+  only:
+    - 1.0.x  # stable
+    - master
+
+install:
+  - wget -c "https://github.com/mozilla/geckodriver/releases/download/v0.24.0/geckodriver-v0.24.0-linux64.tar.gz"
+  - mkdir geckodriver && tar xvf geckodriver-*.tar.gz -C geckodriver
+  - export PATH="geckodriver:$PATH"
+  - wget -c "ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.9.0/ncbi-blast-2.9.0+-x64-linux.tar.gz"
+  - tar xvf ncbi-blast-*.tar.gz
+  - gem install bundler && bundle
+  - bundle exec bin/sequenceserver -s -b ncbi-blast-2.9.0+/bin -d spec/database/sample
+
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter && chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
+script:
+  - bundle exec rspec
+after_script:
+  - ./cc-test-reporter after-build # --exit-code $TRAVIS_TEST_RESULT
+
+cache:
+  directories:
+    - vendor/bundle
+    - ncbi-blast-2.9.0+
+
+sudo: false
+
+env:
+  global:
+    - CC_TEST_REPORTER_ID=ec48bb03c72db6b43ce71fd488110b4707abfde4386c144d886d711378d8db64

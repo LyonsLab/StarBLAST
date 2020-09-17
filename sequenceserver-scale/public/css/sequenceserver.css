@@ -1,0 +1,479 @@
+/**********************
+ * Override Bootstrap *
+ **********************/
+
+@import url('../vendor/github/nicgirault/circosJs@1.7.0/dist/colorBrewer.css');
+@import url('../vendor/github/twbs/bootstrap@3.3.5/css/bootstrap.min.css');
+@import url('../vendor/npm/font-awesome@4.4.0/css/font-awesome.min.css');
+@import url('grapher.css');
+@import url('fonts.css');
+
+/**
+ * For scrollspy, etc.
+ */
+body {
+  font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
+  position: relative;
+  color: black;
+}
+
+/**
+ * No underlines on links, ever
+ */
+a:hover, .btn-link:hover {
+  text-decoration: none;
+}
+
+/**
+ * Disable resize grabber on textarea.
+ */
+textarea {
+  resize: vertical;
+  min-height: 214px;
+}
+
+/**
+ * Use normal font weight for labels and indicate they are clickable by setting
+ * `cursor: pointer`.
+ */
+label {
+  cursor: pointer;
+  margin-bottom: 0;
+  font-weight: normal;
+}
+
+small {
+  color: inherit !important;
+}
+
+/**
+ * Without this .disabled elements hardly look disabled.
+ */
+.disabled {
+  color: #ccc;
+}
+a.disabled:hover,
+.btn-link[disabled]:hover {
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+/**
+ * Increase font size, add border, make place for subtext to app name.
+ */
+.navbar {
+  margin-bottom: 0;
+  border-radius: 0;
+  border-bottom: 1px solid #eee;
+}
+.navbar-brand {
+  height: auto;
+  padding: 20px 15px;
+  font-size: 32px;
+  color: rgb(51, 51, 51);
+}
+.navbar-brand > small {
+  font-size: 50%;
+}
+
+.navbar-nav > li > a {
+  padding: 24px 15px;
+  font-size: 14px;
+  color: rgb(51, 51, 51);
+}
+
+/**
+ * Like BS' .page-header but without extra margin and the ability to display a
+ * sub-text on right.
+ */
+.section-header {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 5px;
+  display: table;
+  width: 100%;
+}
+.section-header > * {
+  display: table-cell;
+}
+.section-header > *:first-child {
+  width: 100%;
+}
+.section-content {
+  padding: 5px 0 0 0px;
+}
+/**
+ * Take out border, cut down margin and padding, and remove background color
+ * from panel.
+ */
+.panel {
+  border: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+.panel .panel-heading {
+  padding: 4px 0 5px 0;
+  background-color: inherit;
+}
+.panel .panel-heading h4 {
+  margin: 0;
+}
+
+/**
+ * Take padding-right out of .control-label and keep padding of .input-group.
+ * Works better when browser is resized to smaller width.
+ */
+.control-label[class*="col-"] {
+ padding-right: 0;
+}
+.input-group[class*="col-"] {
+ padding-left: 15px;
+ padding-right: 15px;
+}
+
+/**
+ * Take out border from each row and apply only to table header.
+ */
+.table {
+  margin-bottom: 0;
+}
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td,
+.table>tbody>tr>td, .table>tfoot>tr>td {
+  border-top: none;
+  padding-left: 0;
+  font-weight: normal;
+}
+.table>thead>tr>th {
+  border-bottom: 1px solid #ddd;
+}
+
+/**
+ * Set max-width and font-family on tooltips.
+ */
+.tooltip-inner {
+  max-width: 350px;
+  font-family: "Source sans pro","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+/********************
+ * Extend Bootstrap *
+ ********************/
+
+/**
+ * Capitalize text.
+ */
+.text-capitalize {
+  text-transform: capitalize;
+}
+
+/**
+ * Uppercase text.
+ */
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+/**
+ * Use monospace font.
+ */
+.text-monospace {
+  font-family: monospace;
+}
+
+/**
+ * Make text bold.
+ */
+.text-bold {
+  font-weight: bold;
+}
+
+/**
+ * Set cursor: pointer on the given element.
+ */
+.cursor-pointer {
+  cursor: pointer;
+}
+
+/**
+ * Do not wrap text or show horizontal scrollbar if text overflows the width of
+ * the element. Show ellipsis instead.
+ */
+.nowrap-ellipsis {
+  overflow-x: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/**
+ * Helpers to override :hover and .active on .nav elements.
+ */
+.nav.hover-reset>li>a:hover {
+  background-color: inherit;
+}
+.nav.focus-reset>li>a:focus {
+  background-color: inherit;
+}
+.nav.active-bold>.active>a {
+  font-weight: bold;
+}
+
+/**
+ * Use with .label class to use the foreground color defined by parent element.
+ */
+.label-reset {
+  color: inherit;
+  line-height: inherit;
+  font-weight: normal;
+}
+
+/**
+ * Reset Bootstrap's CSS for pre tags.
+ */
+.pre-reset {
+  margin: 0 0;
+  border: none;
+  padding: 0;
+  border-radius: 0;
+  background-color: inherit;
+}
+
+/***************************
+ * SequenceServer specific *
+ ***************************/
+.nojs-error {
+  margin-top: 10px;
+  padding: 10px;
+  color: white;
+  background-color: red;
+}
+
+.dnd-errors {
+  color: red;
+  font-size: 18px;
+}
+
+.biojs-vis-sequence pre {
+  margin: 0 0;
+  border: none;
+  padding: 0;
+  border-radius: 0;
+  background-color: inherit;
+}
+
+.query-container {
+  margin-top: 35px;
+  margin-bottom: 0;
+}
+
+.notifications {
+  position: relative;
+  height: 32px;
+  top: -16px;
+}
+.notification {
+  height: 32px !important;
+}
+.notification .alert-info, .notification .alert-danger {
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  -webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+  font-weight: bold;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  text-align: center;
+  padding: 6px 12px 6px 12px;
+}
+
+.databases .list-group-item {
+  border: none;
+  padding: 3px 0 0;
+}
+
+#help pre:hover {
+  background-color: #FFC;
+}
+
+label[for="advanced"] {
+  font-size: 16px;
+  display: table-cell;
+  width: 1%;
+  white-space: nowrap;
+  vertical-align: middle;
+  padding: 5px 12px 5px 0;
+}
+input[name="advanced"] {
+  border-top-left-radius: 4px !important;
+  border-bottom-left-radius: 4px !important;
+}
+
+#method {
+  letter-spacing: 1px;
+}
+
+#methods li {
+  cursor: pointer;
+  text-align: center;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  letter-spacing: 1px;
+}
+
+.dropdown-menu li {
+  border-bottom: 1px solid #ccc;
+}
+
+.dropdown-menu li:last-child {
+  border-bottom: 0;
+}
+
+/**********************
+        Sidebar
+ **********************/
+.sidebar > div {
+  /* To line up with the results on the right */
+  margin-top: 20px;
+}
+.sidebar h4 {
+  font-size: 14px;
+}
+.sidebar li a {
+  padding: 7px 10px;
+}
+
+.sidebar.affix {
+  margin-top: 0;
+  top: 0;
+}
+@media (min-width: 992px) {
+  /* MacBook Pro etc. */
+  .sidebar.affix {
+    width: 212.5px;
+  }
+}
+@media (min-width: 1200px) {
+  /* iMac etc. */
+  .sidebar.affix {
+    width: 262.5px;
+  }
+}
+
+/* Result per query. */
+.overview {
+  /* To line up with the sidebar on the left */
+  margin: 20px 0;
+}
+.resultn {
+  margin-bottom: 25px;
+}
+
+.graphical-overview {
+  font-size: 12px;
+  text-align: center;
+}
+.graphical-overview .btn {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.tabular-view {
+  margin-top: 14px;
+  margin-left: 6px;
+  margin-bottom: 14px;
+}
+
+.hit {
+  padding-top: 14px;
+  margin-top: 4px;
+}
+.hit:first-child {
+  padding-top: 0;
+}
+.hit h4 {
+  cursor: pointer;
+}
+.hit h4 span {
+  cursor: text;
+}
+.hit > p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.hsps {
+  padding: 0 0 10px 10px;
+}
+.hsp {
+  padding-bottom: 14px;
+}
+.hsp:last-child {
+  padding-bottom: 0;
+}
+.hsp pre {
+  font-size: 12px;
+}
+.hsp-stats {
+  word-break: normal;
+  white-space: pre-wrap;
+}
+.hsp .hsp-lines {
+  margin-top: 5px;
+  font-size: 10px;
+  letter-spacing: 1.2px;
+}
+.hsp .hsp-coords {
+  color: rgb(110, 110, 110);
+}
+
+.hit-links * {
+  padding-left: 3px;
+  letter-spacing: 1px;
+}
+.btn-link {
+  border: none;
+  padding: 0px;
+  letter-spacing: 1px;
+}
+
+.fastan > .section-header {
+  padding-bottom: 8px;
+}
+.fastan > .section-content {
+  padding-top: 8px;
+  padding-left: 0;
+}
+
+.footer a:first-child {
+  vertical-align: super;
+}
+
+.dnd-overlay {
+  position: absolute;
+  top: 51px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  background-color: rgba(255, 255, 255, 0.75);
+}
+
+.dnd-overlay * {
+  pointer-events: none;
+}
+
+.dnd-overlay-container {
+  padding-top: 72px;
+}
+
+.dnd-overlay-container p {
+  font-size: 48px;
+}
+
+.glow {
+  border-left: 2px solid #f0ad4e;
+}
+
+.downloads a {
+  cursor: pointer;
+}

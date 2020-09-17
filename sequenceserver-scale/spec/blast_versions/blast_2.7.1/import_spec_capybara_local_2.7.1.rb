@@ -1,0 +1,56 @@
+require 'spec_helper'
+require 'sauce_whisk'
+require 'capybara/rspec'
+require 'selenium-webdriver'
+
+RSpec.configure do |config|
+  config.include Capybara::DSL
+end
+
+describe 'report generated from imported XML', :js => true do
+  before do |scenario|
+    Capybara.app = SequenceServer.init
+    Capybara.server = :webrick
+    Capybara.javascript_driver = :selenium
+    Capybara.default_max_wait_time = 120
+
+   Capybara.register_driver :selenium do |app|
+      capabilities = Selenium::WebDriver::Remote::Capabilities.firefox(
+      takesScreenshot: true,
+      firefox_options: {args: ["--headless","disable-gpu" "window-size=1024,768"]})
+      client = Selenium::WebDriver::Remote::Http::Default.new
+      client.read_timeout = 120
+      Capybara::Selenium::Driver.new(app, browser: :firefox, desired_capabilities: capabilities, http_client: client)
+    end
+  end
+
+
+  # Fasta files used for testing consist of TP53 and COX41 protein/nucleotide sequences for reproducibility.
+  it 'loads BLASTP xml output' do
+    access_by_uuid('blast_2.7.1/blastp')
+  end
+
+  it 'loads BLASTX xml output' do
+    access_by_uuid('blast_2.7.1/blastx')
+  end
+
+  it 'loads BLASTN xml output' do
+    access_by_uuid('blast_2.7.1/blastn')
+  end
+
+  it 'loads TBLASTN xml output' do
+    access_by_uuid('blast_2.7.1/tblastn')
+  end
+
+  it 'loads TBLASTX xml output' do
+    access_by_uuid('blast_2.7.1/tblastx')
+  end
+
+  ## Helpers ##
+
+  def access_by_uuid(id)
+    url = url_encode(id)
+    visit "/#{url}"
+    page.should have_content('Query')
+  end
+end 

@@ -1,0 +1,31 @@
+---
+version: "2"
+checks:
+  file-lines:
+    config:
+      threshold: 1000
+  method-count:
+    config:
+      threshold: 50
+engines:
+  rubocop:
+    enabled: true
+  eslint:
+    enabled: true
+  csslint:
+    enabled: true
+ratings:
+  paths:
+  - "**.rb"
+  - "**.js"
+  - "**.css"
+exclude_paths:
+- public/js/sequence.js
+- public/sequenceserver.min.css
+- public/sequenceserver.min.js
+- public/js/kablammo/*
+- public/vendor/**/*
+- node_modules/**/*
+- public/shims/**/*
+- public/vendor/*
+- spec/**/*

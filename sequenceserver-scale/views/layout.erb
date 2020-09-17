@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>SequenceServer: Custom BLAST Server</title>
+  <meta name="author" content="Anurag Priyam">
+  <meta name="author" content="Ben J. Woodcroft">
+  <meta name="author" content="Vivek Rai">
+  <meta name="author" content="Cedric Wurm">
+  <meta name="author" content="Yannick Wurm">
+  <meta name="description" content="Custom BLAST server provided by SequenceServer (http://www.sequenceserver.com)"/>
+
+  <!-- CSS -->
+  <% if settings.production? %>
+    <link rel="stylesheet" media="screen,print" type="text/css" href="css/sequenceserver.min.css?ver=<%= SequenceServer::VERSION %>"/>
+  <% else %>
+    <link rel="stylesheet" media="screen,print" type="text/css" href="css/sequenceserver.css"/>
+  <% end %>
+</head>
+
+<body>
+  <div
+    class="navbar">
+    <div
+      class="container">
+      <a
+        class="navbar-brand"
+        href="http://sequenceserver.com" target="_blank">
+        SequenceServer
+        <small>
+          <%= SequenceServer::VERSION %>
+        </small>
+      </a>
+      <ul class="nav navbar-nav navbar-right hover-reset focus-reset">
+        <li>
+          <a
+            target="_blank"
+            href="http://www.sequenceserver.com/#license-and-support">
+            <i class="fa fa-comment-o"></i>
+            &nbsp;Help &amp; Support
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div
+    class="container">
+    <noscript>
+      <div
+        class="nojs-error">
+        <h3>SequenceServer can't work without JavaScript.</h3>
+        <ul>
+          <li>Please see if you can enable JavaScript in your browser's preferences.</li>
+          <li>If your browser doesn't support JavaScript, please consider upgrading to the latest version or using Firefox or Chrome.</li>
+        </ul>
+      </div>
+    </noscript>
+  </div>
+
+  <%= yield %>
+
+  <div
+    class="footer" id="footer">
+    <hr>
+    <div
+      class="container">
+      <p
+        class="text-center">
+        <a
+          href='http://www.sequenceserver.com'>
+          <%=
+            quote = [
+              "Custom BLAST web interface by SequenceServer.",
+              "SequenceServer: Local BLAST with bespoke html interface.",
+              "Set up custom BLAST interface with SequenceServer.",
+              "Easy BLASTing with SequenceServer.",
+              "Run BLAST locally with Sequenceserver.",
+              "BLAST against a custom, local database with SequenceServer.",
+              "Run BLAST locally on Mac OSX with SequenceServer.",
+              "Run BLAST locally on Ubuntu with SequenceServer.",
+              "Run BLAST locally on Linux with SequenceServer."
+            ][rand(9)]
+          %>
+        </a>
+        <a
+          class="twitter-share-button"
+          href="https://twitter.com/share"
+          data-url="http://www.sequenceserver.com" data-text="<%= quote %>" data-via="yeban" data-hashtags="bioinformatics">
+         Tweet
+        </a>
+        <br>
+        Please cite relevant data sources and:
+        <a href="https://doi.org/10.1093/molbev/msz185">
+          Priyam et al. (2019) Sequenceserver: a modern graphical user interface for custom BLAST databases</a>.
+      </p>
+    </div> <!-- /container -->
+  </div>
+
+  <div
+    class="modal fade" id="help"
+    tabindex="-1">
+    <div
+      class="modal-dialog modal-lg">
+      <div
+        class="modal-content">
+        <div
+          class="modal-header">
+          <h3>Advanced Options</h3>
+        </div>
+        <div
+          class="modal-body">
+          <%= erb :_options %>
+        </div>
+        <div
+          class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-default btn-primary"
+            data-dismiss="modal">
+            Got it!
+          </button>
+        </div>
+      </div>
+    </div>
+  </div> <!-- advanced options -->
+
+  <!-- twitter -->
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</body>
+</html>
