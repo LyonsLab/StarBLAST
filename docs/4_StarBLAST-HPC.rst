@@ -14,7 +14,7 @@ It is important that the following software are installed on the HPC:
 
 + `iRODS <https://docs.irods.org/master/getting_started/installation/>`_
 
-+ `ncbi-blast+ version 2.9.0 or newer <ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/ncbi-blast-2.9.0+-src.tar.gz>`_
++ `ncbi-blast+ version 2.9.0 or newer <https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.9.0/ncbi-blast-2.9.0+-x64-linux.tar.gz>`_
 
 + `CCTools version 7.0.21 or newer <https://ccl.cse.nd.edu/software/files/cctools-7.1.5-source.tar.gz>`_
 
