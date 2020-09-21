@@ -43,7 +43,7 @@ affiliations:
   index: 1
 
 date: 14 August 2020
-bibliography: citations.bib
+bibliography: paper.bib
 ---
 
 # Summary
