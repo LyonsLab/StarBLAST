@@ -28,6 +28,7 @@ It is important that the following software are installed on the HPC:
 
 .. code::
 
+   cd
    pwd
 
 It should output something similar to
