@@ -194,7 +194,7 @@ An example is:
 
    The custom Database folder on the Master needs to have read and write permissions
    
-Start BLASTING! Now anyone can enter the :code:`<MASTER_IP_ADDRESS>` in their browser using to access SequenceServer.
+Start BLASTING! Now anyone can enter the :code:`<MASTER_IP_ADDRESS>` in their browser to access SequenceServer.
 
 
 .. |seqserver_QL| image:: https://de.cyverse.org/Powered-By-CyVerse-blue.svg
