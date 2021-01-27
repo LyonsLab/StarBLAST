@@ -29,7 +29,7 @@ Launching Master & Worker Instances
 
 |Tut_1|_
 
-**5.** Search for “Docker_starBLAST” and select the “Docker_starBLAST” image (or click `here <https://use.jetstream-cloud.org/application/images/967>`_); click “Launch”.
+**5.** Be sure to change the default tab from "Show Featured" to "Show All", search for “Docker_starBLAST” and select the “Docker_starBLAST” image (or click `here <https://use.jetstream-cloud.org/application/images/967>`_); click “Launch”.
 
 |Tut_2|_
 
@@ -55,7 +55,7 @@ Launching Master & Worker Instances
 
 |Tut_6|_
 
-**9.** Repeat step 8 for one or more Worker instance(s), using the Worker deployment script. Use large or extra large images (at least 60GB of disk space is required).
+**9.** Repeat steps 4-8 for one or more Worker instance(s), using the Worker deployment script. Use large or extra large images (at least 60GB of disk space is required).
 
 .. note::
    JetStream cloud will take at least 10-20 minutes and the wait-time will increase with the size of the BLAST database.
