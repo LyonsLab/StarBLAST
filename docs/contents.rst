@@ -13,3 +13,4 @@
    2_StarBLAST-VICE
    3_StarBLAST-Docker
    4_StarBLAST-HPC
+   5_SS_usage
