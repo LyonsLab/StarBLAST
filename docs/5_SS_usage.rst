@@ -13,6 +13,7 @@ SequenceServer's Main Page
 ==========================
 
 On the main page, the user will see:
+
 + (1) the main input box where nucleotide (DNA) or amino acid (protein) sequences can be input using the `FASTA convention <https://blast.ncbi.nlm.nih.gov/Blast.cgi?CMD=Web&PAGE_TYPE=BlastDocs&DOC_TYPE=BlastHelp>`_. 
 + (2) the nucleotide databases (left) and protein databases (right). The user will be able to choose which databases to BLAST against by clicking the boxes left to the databases' names. 
 + (3) the advanced parameters box. A list and description of all the advanced options can be accessed by pressing the "**?**" button. 
