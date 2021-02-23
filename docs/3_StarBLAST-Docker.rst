@@ -4,7 +4,7 @@ StarBLAST-Docker: Cloud Deployment for Medium  Classes (25-100)
 
 To deploy StarBLAST setup in a cloud provider, you will need accounts with those providers.  This example uses  `XSEDE's JetStream Cloud service <https://use.jetstream-cloud.org/>`_. You can access JetStream using an `XSEDE <https://portal.xsede.org/my-xsede#/guest>`_ account, a `Globus <https://www.globus.org/>`_ account, or via institutional access to XSEDE (search for your institution name from the drop down menu in JetStream's login page).
 
-This setup uses a "Foreman" instance for the front-end sequenceServer and one or more "Worker" instances to distribute the computational load of running blast. Docker containers are used to deploy the Master and Workers through deployment scripts. These deployment scripts are designed to:
+This setup uses a "Foreman" instance for the front-end sequenceServer and one or more "Worker" instances to distribute the computational load of running blast. Docker containers are used to deploy the Foreman and Workers through deployment scripts. These deployment scripts are designed to:
 
   + Get appropriate  `Worker <https://hub.docker.com/r/zhxu73/sequenceserver-scale-worker>`_ and `Foreman <https://hub.docker.com/r/zhxu73/sequenceserver-scale>`_ containers
   + Download specified BLAST databases (can customize)
