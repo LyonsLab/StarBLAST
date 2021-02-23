@@ -2,16 +2,16 @@
 StarBLAST-Docker: Cloud Deployment for Medium  Classes (25-100)
 ***************************************************************
 
-To deploy StarBLAST setup in a cloud provider, you will need accounts with those providers.  This example uses  `XSEDE's JetStream Cloud service <https://use.jetstream-cloud.org/>`_   You can access JetStream using an `XSEDE <https://portal.xsede.org/my-xsede#/guest>`_ account, a `Globus <https://www.globus.org/>`_ account, or via institutional access to XSEDE (search for your institution name from the drop down menu in JetStream's login page).
+To deploy StarBLAST setup in a cloud provider, you will need accounts with those providers.  This example uses  `XSEDE's JetStream Cloud service <https://use.jetstream-cloud.org/>`_. You can access JetStream using an `XSEDE <https://portal.xsede.org/my-xsede#/guest>`_ account, a `Globus <https://www.globus.org/>`_ account, or via institutional access to XSEDE (search for your institution name from the drop down menu in JetStream's login page).
 
-This setup uses a "Master" instance for the front-end sequenceServer and one or more "Worker" instances to distribute the computational load of running blast. Docker containers are used to deploy the Master and Workers through deployment scripts. These deployment scripts are designed to:
+This setup uses a "Foreman" instance for the front-end sequenceServer and one or more "Worker" instances to distribute the computational load of running blast. Docker containers are used to deploy the Master and Workers through deployment scripts. These deployment scripts are designed to:
 
-  + Get appropriate  `Worker <https://hub.docker.com/r/zhxu73/sequenceserver-scale-worker>`_ and `Master <https://hub.docker.com/r/zhxu73/sequenceserver-scale>`_ containers
+  + Get appropriate  `Worker <https://hub.docker.com/r/zhxu73/sequenceserver-scale-worker>`_ and `Foreman <https://hub.docker.com/r/zhxu73/sequenceserver-scale>`_ containers
   + Download specified BLAST databases (can customize)
-  + Launch sequenceServer front-end that can be accessed using the code: `<MASTER_IP_ADDRESS>` of the instance
-  + Connect factory of workers to the Master
+  + Launch sequenceServer front-end that can be accessed using the code: `<FOREMAN_IP_ADDRESS>` of the instance
+  + Connect factory of workers to the Foreman
 
-Launching Master & Worker Instances
+Launching Foreman & Worker Instances
 ===================================
 
 **1.**  Login to `JetStream Cloud <https://use.jetstream-cloud.org/>`_. 
@@ -35,7 +35,7 @@ Launching Master & Worker Instances
 
 |Tut_3|_ 
 
-**6.** In the pop up menu you can customize your image (e.g. Instance Size. Use a minimum of m1.xlarge instance for Master, with at least 60GB disk space); select “Advanced Options”.
+**6.** In the pop up menu you can customize your image (e.g. Instance Size. Use a minimum of m1.xlarge instance for Foreman, with at least 60GB disk space); select “Advanced Options”.
 
 |Tut_4|_
 
@@ -43,15 +43,15 @@ Launching Master & Worker Instances
 
 |Tut_5|_
 
-**8.**  Title the script "Master" or similar, select “Raw Text” and copy and paste the Master script, linked below. The scripts generate a password and username based on the user account, but these can be personalized if needed (*not suggested for new users*). Select “Save and Add Script” and then "Continue to Launch".
+**8.**  Title the script "Foreman" or similar, select “Raw Text” and copy and paste the Foreman script, linked below. The scripts generate a password and username based on the user account, but these can be personalized if needed (*not suggested for new users*). Select “Save and Add Script” and then "Continue to Launch".
 
 **Deployment Scripts**
 
-+ The deployment scripts for a *Master instance (atmo_deploy_master.sh)* can be found `here <https://raw.githubusercontent.com/zhxu73/sequenceserver-scale-docker/master/deploy/iRODS/Jetstream_deploy_master.sh>`_.
++ The deployment scripts for a *Foreman instance (atmo_deploy_master.sh)* can be found `here <https://raw.githubusercontent.com/zhxu73/sequenceserver-scale-docker/master/deploy/iRODS/Jetstream_deploy_master.sh>`_.
 + The deployment scripts for a *Worker instance (atmo_deploy_worker.sh)* can be found `here <https://raw.githubusercontent.com/zhxu73/sequenceserver-scale-docker/master/deploy/iRODS/Jetstream_deploy_worker.sh>`_.
 
 .. note::
-   This step is required to be done **once** for the Master and **once for each Worker instance**. The deployment scripts are stored for future use.
+   This step is required to be done **once** for the Foreman and **once for each Worker instance**. The deployment scripts are stored for future use.
 
 |Tut_6|_
 
@@ -61,7 +61,7 @@ Launching Master & Worker Instances
    JetStream cloud will take at least 10-20 minutes and the wait-time will increase with the size of the BLAST database.
 
 
-Start BLASTING! Now anyone can enter the :code:`<MASTER_IP_ADDRESS>` into their browser and access SequenceServer.
+Start BLASTING! Now anyone can enter the :code:`<FOREMAN_IP_ADDRESS>` into their browser and access SequenceServer.
 
 |Tut_7|_
 
