@@ -41,11 +41,11 @@ To add your own BLAST databases you will need a :code:`.fasta (or .fa, .faa, .fn
 
 (4) Enter a name for your database under "Analysis Name"; this will become your database containing folder. 
 
-(4.1) "Select output folder" should be your personal folder or any folder of your choice (default will be a foler named "analyses" within your personal folder).
+   1. "Select output folder" should be your personal folder or any folder of your choice (default will be a foler named "analyses" within your personal folder).
 
-(4.2) In the "Inputs" tab, select "Browse" and choose the fasta file you uploaded. Select Nucleotide or Protein under "Input Sequence Format". Under "Prefix" choose a name to well reflect your database (e.g. :code:`a_thaliana`).
+   2. In the "Inputs" tab, select "Browse" and choose the fasta file you uploaded. Select Nucleotide or Protein under "Input Sequence Format". Under "Prefix" choose a name to well reflect your database (e.g. :code:`a_thaliana`).
 
-(5) Click "Launch Analysis" and wait to be notified of its completion. Upon completion, navigate to the output folder specified in step 4.1; Inside you will find a directory with the name you specified in step 4 followed by a timestamp. Within this folder you will find logs and the newly generated database (if nucleotide :code:`<>.nhr,<>.nin,<>.nog,<>.nsd,<>.nsi,<>.nsq` will be found; if protein, :code:`<>.phr, <>.psq` files will be found).
+(5) Click "Launch Analysis" and wait to be notified of its completion. Upon completion, navigate to the output folder specified in step 4.1; Inside you will find a directory with the name you specified in step 4 followed by a timestamp. Within this folder you will find logs and the newly generated database (if nucleotide :code:`.nhr,.nin, .nog, .nsd, .nsi, .nsq` files will be found; if protein, :code:`.phr, .psq` files will be found).
 
 Launching StarBLAST-VICE with Your Own Databases
 ================================================
@@ -54,9 +54,9 @@ To launch StarBLAST-VICE with your own database:
 
 (1) Use the same button for Example Databases, but **do not click "Launch Analysis" just yet**.
 
-(2) In the "Input" tab, select the folder containing your database (if not specified, default is :code:`swissprot-db`)
+(2) In the "Input" tab, select the folder containing your database (if not specified, default is :code:`swissprot-db`).
 
-.. note:
+.. note::
 
   The user will not be able to see the databases within the folder at this step. Ensure that databases files (as explained in step 4.2 of the previous section) are present beforehand.
 
