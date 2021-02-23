@@ -22,10 +22,15 @@ On the main page, the user will see:
   Advanced Parameters can heavily influence the resulting BLAST results, we suggest to read the descriptions beforehand.
 
 |SB_running_tut_01|_
+
 |SB_running_tut_02|_
+
 |SB_running_tut_03|_
+
 |SB_running_tut_04|_
+
 |SB_running_tut_05|_
+
 |SB_running_tut_06|_
 
 .. |SB_running_tut_01| image:: ./img/SB_running_tut_01.png
