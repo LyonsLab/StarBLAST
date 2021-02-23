@@ -24,7 +24,7 @@ On the main page, the user will see:
 |SB_running_tut_01|_
 
 The input box will recognize the added nucleotide or amino acid sequence. The user can then select the database of choice (this step can be performed before adding the query sequence). 
-In the example below, an isoform of the Wacky protein FASTA sequence (https://www.uniprot.org/uniprot/M9PEY4) was added to the input box and the _Drosophila melanogaster (D. melanogaster)_ DNA database was selected.
+In the example below, an isoform of the `Wacky protein FASTA sequence <https://www.uniprot.org/uniprot/M9PEY4>`_ was added to the input box and the *Drosophila melanogaster* (*D. melanogaster*) DNA database was selected.
 
 |SB_running_tut_02|_
 
@@ -44,10 +44,10 @@ For more information on the BLAST output, visit the `NCBI BLAST FAQ page <https:
 
 |SB_running_tut_04|_
 
-No-hit Example
-==============
+No-hit Example & Further Reading
+================================
 
-Below, we input the protein sequence of the human p53 gene, a well known tumor suppressor (https://www.uniprot.org/uniprot/P04637). 
+Below, we input the protein sequence of the human `p53 gene <https://www.uniprot.org/uniprot/P04637>`_, a well known tumor suppressor. 
 Then, we purposefully select non human databases to check for possilble BLAST hits, expecting no results.
 
 |SB_running_tut_05|_
