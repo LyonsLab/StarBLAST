@@ -22,7 +22,27 @@ On the main page, the user will see:
   Advanced Parameters can heavily influence the resulting BLAST results, we suggest to read the descriptions beforehand.
 
 |SB_running_tut_01|_
+|SB_running_tut_02|_
+|SB_running_tut_03|_
+|SB_running_tut_04|_
+|SB_running_tut_05|_
+|SB_running_tut_06|_
 
 .. |SB_running_tut_01| image:: ./img/SB_running_tut_01.png
     :width: 700
 .. _SB_running_tut_01: https://github.com/uacic/StarBlast/tree/master/docs/img/SB_running_tut_01.png
+.. |SB_running_tut_01| image:: ./img/SB_running_tut_02.png
+    :width: 700
+.. _SB_running_tut_01: https://github.com/uacic/StarBlast/tree/master/docs/img/SB_running_tut_02.png
+.. |SB_running_tut_01| image:: ./img/SB_running_tut_03.png
+    :width: 700
+.. _SB_running_tut_01: https://github.com/uacic/StarBlast/tree/master/docs/img/SB_running_tut_03.png
+.. |SB_running_tut_01| image:: ./img/SB_running_tut_04.png
+    :width: 700
+.. _SB_running_tut_01: https://github.com/uacic/StarBlast/tree/master/docs/img/SB_running_tut_04.png
+.. |SB_running_tut_01| image:: ./img/SB_running_tut_05.png
+    :width: 700
+.. _SB_running_tut_01: https://github.com/uacic/StarBlast/tree/master/docs/img/SB_running_tut_05.png
+.. |SB_running_tut_01| image:: ./img/SB_running_tut_06.png
+    :width: 700
+.. _SB_running_tut_01: https://github.com/uacic/StarBlast/tree/master/docs/img/SB_running_tut_06.png
