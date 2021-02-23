@@ -56,7 +56,7 @@ Here is the BLAST results page reporting no resulting BLAST hits, as expected.
 
 |SB_running_tut_06|_
 
-For a more comprehensive and indepth understanding of BLAST, results and advanced parameters, please refer to the `official NCBI BLAST Handbook <https://www.ncbi.nlm.nih.gov/books/NBK279690/pdf/Bookshelf_NBK279690.pdf>`_.
+For a more comprehensive and in-depth understanding of BLAST, results and advanced parameters, please refer to the `official NCBI BLAST Handbook <https://www.ncbi.nlm.nih.gov/books/NBK279690/pdf/Bookshelf_NBK279690.pdf>`_.
 
 .. |SB_running_tut_01| image:: ./img/SB_running_tut_01.png
     :width: 700
