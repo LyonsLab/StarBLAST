@@ -42,7 +42,7 @@ To add your own BLAST databases you will need a :code:`.fasta (or .fa, .faa, .fn
 **3.** Select "File" + "New Folder" to create a folder for your database.
 
 
-**4.** Click on the "Apps" icon and use the search bar to find "Create BLAST Database" or click `here <https://de.cyverse.org/de/?type=apps&app-id=decdd668-5616-11e7-9724-008cfa5ae621&system-id=de>`_. 
+**4.** Click on the "Apps" icon and use the search bar to find "Create BLAST Database" or click `here <https://de.cyverse.org/de/?type=apps&app-id=decdd668-5616-11e7-9724-008cfa5ae621&system-id=de>`_. As there is a possiblity that there may be multiple apps with the same name, please locate the "Create BLAST Database" developed by developed by Upendra Kumar Devisetty.
 
 
 **5.** Enter a name for your database under "Analysis Name" and choose the new folder you created for the output. In the "Inputs" tab, select "Browse" and choose the fasta file you uploaded.

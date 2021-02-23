@@ -47,3 +47,8 @@ Navigate to each implementation for  information on guided deployment:
 .. |discovery_enviornment| raw:: html
 .. |Tut_0| image:: ./img/JS_03.png
     :width: 700
+
+Contacts & Issues
+=================
+
+If you have questions, suggestions or have encountered a problem, please raise an issue on our `GitHub Issues page <https://github.com/LyonsLab/StarBLAST/issues>`_. 
