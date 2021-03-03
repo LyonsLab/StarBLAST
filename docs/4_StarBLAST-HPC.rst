@@ -14,7 +14,7 @@ It is important that the following software are installed on the HPC:
 
 + `iRODS <https://docs.irods.org/master/getting_started/installation/>`_
 
-+ `ncbi-blast+ version 2.9.0 or newer <https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.9.0/ncbi-blast-2.9.0+-x64-linux.tar.gz>`_
++ `ncbi-BLAST+ version 2.9.0 or newer <https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.9.0/ncbi-blast-2.9.0+-x64-linux.tar.gz>`_
 
 + `CCTools version 7.0.21 or newer <https://ccl.cse.nd.edu/software/files/cctools-7.1.5-source.tar.gz>`_
 
@@ -24,7 +24,17 @@ It is important that the following software are installed on the HPC:
 
 + `CyVerse user account <https://user.cyverse.org>`_ 
 
-**1.** Make both ncbi-blast+ and CCTools available in your home directory, which can be found using
+iRODS Installation Guide
+------------------------
+
+ncbi-BLAST+ Installation Guide
+------------------------------
+
+CCTools Installation Guide
+--------------------------
+
+
+(1) Make both ncbi-BLAST+ and CCTools available in your home directory, which can be found using
 
 .. code::
 
@@ -37,7 +47,7 @@ It should output something similar to
 
    /home/<U_NUMBER>/<USER>/
 
-**2.** Download the software (BLAST+ and CCTools), un-tar, and add to path using (links above)
+(2) Download the software (BLAST+ and CCTools), un-tar, and add to path using (links above)
 
 .. code::
 
@@ -50,7 +60,7 @@ It should output something similar to
 
    CCTools only works if your HPC has glibc version 2.14 or newer. In the following examples, glibc and BLAST+ are loaded through `module load`.
 
-**3.** BLAST databases need to be downloaded in a :code:`<DATABASE>/` directory in the home folder.
+(3) BLAST databases need to be downloaded in a :code:`<DATABASE>/` directory in the home folder.
 
 .. code::
 
@@ -65,7 +75,7 @@ Launching Workers on the HPC
 
 The HPC uses a .pbs and qsub system to submit jobs.
 
-**1.** Create a :code:`.pbs` file that contains the following code and change the :code:`<VARIABLES>` to preferred options:
+(1) Create a :code:`.pbs` file that contains the following code and change the :code:`<VARIABLES>` to preferred options:
 
 .. code::
 
@@ -121,7 +131,7 @@ An example of a :code:`.pbs` file running on the University of Arizona HPC:
 
 In the example above, the user already has blast installed (calls it using :code:`module load blast`). The script will submit to the HPC nodes a minimum of 1 and a maximum of 8 workers per node.
 
-**2.** Submit the :code:`.pbs` script with 
+(2) Submit the :code:`.pbs` script with 
 
 .. code::
     
@@ -139,7 +149,7 @@ Once the VM is running, access it through ssh or by using the Web Shell ("Open W
    **IMPORTANT: THE PATH TO THE DATABASE ON THE MASTER NEED TO BE THE SAME AS THE ONE ON THE WORKER**
 
 
-**1.** Ensure the databases on both the Master VM and Worker HPC are in the same directory. On the Worker HPC go to the :code:`<DATABASE>/` directory and do
+(1) Ensure the databases on both the Master VM and Worker HPC are in the same directory. On the Worker HPC go to the :code:`<DATABASE>/` directory and do
 
 .. code::
 
@@ -151,7 +161,7 @@ Then, on your Master VM, create the directory with the same path output above
 
    mkdir -p SAME/PATH/TO/HPC/DATABASE/DIRECTORY/
 
-**2.** Now the :code:`<DATABASE>/` directories have been set up to contain the desired databases. You can use the same databases preset for StarBLAST-Docker or make your own from a :code:`.fasta (or .fa, .faa, .fna)` file using BLAST+'s `makeblastdb` referenced in StarBLAST-VICE. Both require iRODS (JetStream comes with iRODS pre-installed) and a CyVerse account. 
+(2) Now the :code:`<DATABASE>/` directories have been set up to contain the desired databases. You can use the same databases preset for StarBLAST-Docker or make your own from a :code:`.fasta (or .fa, .faa, .fna)` file using BLAST+'s `makeblastdb` referenced in StarBLAST-VICE. Both require iRODS (JetStream comes with iRODS pre-installed) and a CyVerse account. 
 
 Access iRODS using:
 
@@ -169,16 +179,16 @@ You will be prompted to connect to the CyVerse with:
    zone: iplant
    password: <CyVerse_password>
 
-**3.** Once connected, retreive and move the databases to your :code:`<DATABASE>/` folder (shown for preset):
+(3) Once connected, retreive and move the databases to your :code:`<DATABASE>/` folder (shown for preset):
 
 .. code::
 
    iget -rKVP /iplant/home/cosimichele/200503_Genomes_n_p
    mv GCF_* /DATABASE/DIRECTORY/
    
-**4.** Move the databases to the HPC using either :code:`sftp` or the steps as above if your HPC system has iRODS.
+(4) Move the databases to the HPC using either :code:`sftp` or the steps as above if your HPC system has iRODS.
 
-**5.** Use this code within the Master instance to launch sequenceServer:
+(5) Use this code within the Master instance to launch sequenceServer:
 
 .. code:: 
 
