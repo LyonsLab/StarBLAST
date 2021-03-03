@@ -12,7 +12,7 @@ HPC Requirements and Setup
 
 It is important that the following software are installed on the HPC:
 
-+ `iRODS <https://docs.irods.org/master/getting_started/installation/>`_
++ `iRODS version 4.0 or newer <https://docs.irods.org/master/getting_started/installation/>`_
 
 + `ncbi-BLAST+ version 2.9.0 or newer <https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.9.0/ncbi-blast-2.9.0+-x64-linux.tar.gz>`_
 
@@ -24,17 +24,7 @@ It is important that the following software are installed on the HPC:
 
 + `CyVerse user account <https://user.cyverse.org>`_ 
 
-iRODS Installation Guide
-------------------------
-
-ncbi-BLAST+ Installation Guide
-------------------------------
-
-CCTools Installation Guide
---------------------------
-
-
-(1) Make both ncbi-BLAST+ and CCTools available in your home directory, which can be found using
+iRODS, ncbi-BLAST+ and CCTools should be available in your home directory, which can be found using
 
 .. code::
 
@@ -47,18 +37,51 @@ It should output something similar to
 
    /home/<U_NUMBER>/<USER>/
 
-(2) Download the software (BLAST+ and CCTools), un-tar, and add to path using (links above)
+iRODS Installation Guide
+------------------------
+
+(1) From your home directory, obtain and install iRODS with the command
 
 .. code::
 
-   wget <BLAST_URL or CCTOOLS_URL>
-   tar -xvf <BLAST_repo.tar.gz or CCTOOLS_repo.tar.gz>
+   wget https://files.renci.org/pub/irods/releases/4.1.10/ubuntu14/irods-icommands-4.1.10-ubuntu14-x86_64.deb
+   apt-get install ./irods-icommands-4.1.10-ubuntu14-x86_64.deb
+
+(2) Upon installation, set up the iCommands (requires a CyVerse account):
+
+.. code::
+
+   iinit
+
+(3) You will be prompted to connect to the CyVerse with:
+
+.. code::
+
+   host name (DNS): data.cyverse.org
+   port #: 1247
+   username: <CyVerse_ID>
+   zone: iplant
+   password: <CyVerse_password>
+
+iRODS should be installed and configured. If problems persists, a more in depth tutorial on iRODS and iCommands installation can be found `here <https://cyverse.atlassian.net/wiki/spaces/DS/pages/241869823/Setting+Up+iCommands>`_.
+
+ncbi-BLAST+ Installation Guide
+------------------------------
+
+(1) From your home directory, obtain and decompress ncbi-BLAST+ with
+
+.. code::
+
+   wget https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.9.0/ncbi-blast-2.9.0+-x64-linux.tar.gz
+   tar -xvf ncbi-blast-2.9.0+-x64-linux.tar.gz
+
+(2) Add ncbi-BLAST+ to the path (change the path to reflect the correct location of the ncbi-BLAST+ bin files):
+
+.. code::
+
    export PATH=$HOME</PATH/TO/BLAST/BIN/>:$PATH
-   export PATH=$HOME</PATH/TO/CCTOOLS/BIN/>:$PATH
 
-.. note::
-
-   CCTools only works if your HPC has glibc version 2.14 or newer. In the following examples, glibc and BLAST+ are loaded through `module load`.
+At this point, ncbi-BLAST+ should be installed and accessible.
 
 (3) BLAST databases need to be downloaded in a :code:`<DATABASE>/` directory in the home folder.
 
@@ -67,8 +90,30 @@ It should output something similar to
    /home/<U_NUMBER>/<USER>/<DATABASE>/
 
 .. note::
-   An example of BLAST databases can be downloaded with iRODS here: :code:`/iplant/home/cosimichele/200503_Genomes_n_p`.
-   Read how to initiate iRODS below. 
+
+   An example of BLAST databases can be downloaded with iRODS here: :code:`/iplant/home/cosimichele/200503_Genomes_n_p`. Read more on installing iRODS and iCommands above.
+
+CCTools Installation Guide
+--------------------------
+
+(1) From your home directory, obtain and decompress CCTools with
+
+.. code::
+
+   wget https://ccl.cse.nd.edu/software/files/cctools-7.1.6-source.tar.gz
+   tar -xvf cctools-7.1.6-source.tar.gz
+
+(2) Add CCTools to the path (change the path to reflect the correct location of the CCTools bin files):
+
+.. code ::
+
+   export PATH=$HOME</PATH/TO/CCTOOLS/BIN/>:$PATH
+
+At this point, CCTools should be installed and accessible.
+
+.. note::
+
+   CCTools only works if your HPC has glibc version 2.14 or newer. In the following examples, glibc and BLAST+ are loaded through `module load`. `module load` is not necessary if the HPC system already supports glibc 2.14 and if ncbi-BLAST+ has been added to the path as described above.
 
 Launching Workers on the HPC
 ============================
@@ -205,7 +250,6 @@ An example is:
    The custom Database folder on the Master needs to have read and write permissions
    
 Start BLASTING! Now anyone can enter the :code:`<MASTER_IP_ADDRESS>` in their browser to access SequenceServer.
-
 
 .. |seqserver_QL| image:: https://de.cyverse.org/Powered-By-CyVerse-blue.svg
 .. _seqserver_QL: https://de.cyverse.org/de/?type=quick-launch&quick-launch-id=0ade6455-4876-49cc-9b37-a29129d9558a&app-id=ab404686-ff20-11e9-a09c-008cfa5ae621
