@@ -113,7 +113,7 @@ At this point, CCTools should be installed and accessible.
 
 .. note::
 
-   CCTools only works if your HPC has glibc version 2.14 or newer. In the following examples, glibc and BLAST+ are loaded through `module load`. `module load` is not necessary if the HPC system already supports glibc 2.14 and if ncbi-BLAST+ has been added to the path as described above.
+   CCTools only works if your HPC has glibc version 2.14 or newer. In the following examples, glibc and BLAST+ are loaded through :code:`module load`. :code:`module load` is not necessary if the HPC system already supports glibc 2.14 and if ncbi-BLAST+ has been added to the path as described above.
 
 Launching Workers on the HPC
 ============================
