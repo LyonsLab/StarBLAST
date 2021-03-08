@@ -31,6 +31,7 @@ Launching StarBLAST-VICE with Example Databases
 |DE_running_tut_11|
 
 |DE_running_tut_03|
+
 |DE_running_tut_04|
 
 (4) To test, click `here <https://www.ncbi.nlm.nih.gov/nuccore/NG_007114.1?from=4986&to=6416&report=fasta>`_ for a sample DNA sequence.
@@ -59,6 +60,7 @@ To add your own BLAST databases you will need a :code:`.fasta (or .fa, .faa, .fn
    2. In the "Inputs" tab, select "Browse" and choose the fasta file you uploaded. Select Nucleotide or Protein under "Input Sequence Format". Under "Prefix" choose a name to well reflect your database (e.g. :code:`a_thaliana`).
 
 |DE_running_tut_07|
+
 |DE_running_tut_08|
 
 (5) Click "Launch Analysis" and wait to be notified of its completion. Upon completion, navigate to the output folder specified in step 4.1; Inside you will find a directory with the name you specified in step 4 followed by a timestamp. Within this folder you will find logs and the newly generated database (if nucleotide :code:`.nhr,.nin, .nog, .nsd, .nsi, .nsq` files will be found; if protein, :code:`.phr, .psq` files will be found).
@@ -88,6 +90,7 @@ The notification bell should show your currently running apps and jobs.
 In case you want to see all your jobs and access your running apps (and app history), navigate to the Analyses button.
 
 |DE_running_tut_12|
+
 |DE_running_tut_10|
 
 .. |seqserver_QL| image:: https://de.cyverse.org/Powered-By-CyVerse-blue.svg
