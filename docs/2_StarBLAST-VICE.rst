@@ -28,6 +28,8 @@ Launching StarBLAST-VICE with Example Databases
 
 (3) Check the notifications Bell Icon for a link to access your SequenceServer instance. This might take a few minutes. Once the notification shows that the app is running, click on the link. This will open a loading screen in a new tab; Once the app is loaded, you should be able to BLAST through the SequenceServer app.
 
+|DE_running_tut_11|
+
 |DE_running_tut_03|
 |DE_running_tut_04|
 
@@ -56,7 +58,6 @@ To add your own BLAST databases you will need a :code:`.fasta (or .fa, .faa, .fn
 
    2. In the "Inputs" tab, select "Browse" and choose the fasta file you uploaded. Select Nucleotide or Protein under "Input Sequence Format". Under "Prefix" choose a name to well reflect your database (e.g. :code:`a_thaliana`).
 
-|DE_running_tut_11|
 |DE_running_tut_07|
 |DE_running_tut_08|
 
@@ -74,8 +75,6 @@ To launch StarBLAST-VICE with your own database:
 .. note::
 
   The user will not be able to see the databases within the folder at this step. Ensure that databases files (as explained in step 4.2 of the previous section) are present beforehand.
-
-|DE_running_tut_05|
 
 (3) Click "Launch Analysis". This might take a few minutes.
 
