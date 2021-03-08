@@ -60,20 +60,20 @@ For a more comprehensive and in-depth understanding of BLAST, results and advanc
 
 .. |SB_running_tut_01| image:: ./img/SB_running_tut_01.png
     :width: 700
-.. _SB_running_tut_01: https://github.com/uacic/StarBlast/tree/master/docs/img/SB_running_tut_01.png
+.. _SB_running_tut_01: https://github.com/LyonsLab/StarBLAST/tree/master/docs/img/SB_running_tut_01.png
 .. |SB_running_tut_02| image:: ./img/SB_running_tut_02.png
     :width: 700
-.. _SB_running_tut_02: https://github.com/uacic/StarBlast/tree/master/docs/img/SB_running_tut_02.png
+.. _SB_running_tut_02: https://github.com/LyonsLab/StarBLAST/tree/master/docs/img/SB_running_tut_02.png
 .. |SB_running_tut_03| image:: ./img/SB_running_tut_03.png
     :width: 700
-.. _SB_running_tut_03: https://github.com/uacic/StarBlast/tree/master/docs/img/SB_running_tut_03.png
+.. _SB_running_tut_03: https://github.com/LyonsLab/StarBLAST/tree/master/docs/img/SB_running_tut_03.png
 .. |SB_running_tut_04| image:: ./img/SB_running_tut_04.png
     :width: 700
-.. _SB_running_tut_04: https://github.com/uacic/StarBlast/tree/master/docs/img/SB_running_tut_04.png
+.. _SB_running_tut_04: https://github.com/LyonsLab/StarBLAST/tree/master/docs/img/SB_running_tut_04.png
 .. |SB_running_tut_05| image:: ./img/SB_running_tut_05.png
     :width: 700
-.. _SB_running_tut_05: https://github.com/uacic/StarBlast/tree/master/docs/img/SB_running_tut_05.png
+.. _SB_running_tut_05: https://github.com/LyonsLab/StarBLAST/tree/master/docs/img/SB_running_tut_05.png
 .. |SB_running_tut_06| image:: ./img/SB_running_tut_06.png
     :width: 700
-.. _SB_running_tut_06: https://github.com/uacic/StarBlast/tree/master/docs/img/SB_running_tut_06.png
+.. _SB_running_tut_06: https://github.com/LyonsLab/StarBLAST/tree/master/docs/img/SB_running_tut_06.png
 
