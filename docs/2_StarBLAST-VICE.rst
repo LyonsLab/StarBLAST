@@ -18,7 +18,7 @@ Launching StarBLAST-VICE with Example Databases
 	
 .. note::
 
-   SWISS-PROT is a curated protein sequence database, read more on the `release <https://www.uniprot.org/statistics/Swiss-Prot>`_ or its `orignal publication <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC102476/>`_ 
+   SWISS-PROT is a curated protein sequence database, read more on the `release <https://www.uniprot.org/statistics/Swiss-Prot>`_ or its `orignal publication <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC102476/>`_.
 
 |DE_running_tut_01|
 
