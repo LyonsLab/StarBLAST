@@ -10,7 +10,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "clean-css": "^3.4.1",
+    "clean-css": "^4.2.3",
     "jspm": "^0.16.2"
   },
   "scripts": {
