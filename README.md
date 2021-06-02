@@ -18,9 +18,8 @@ SequenceServer is a front-end implementation of BLAST with improved GUI and cust
 #### Read more about StarBLAST here:
 
 + Official documentation: https://starblast.readthedocs.io/en/latest/
-
++ JOSS (Journal of Open Source Education) publication: [![DOI](https://jose.theoj.org/papers/10.21105/jose.00102/status.svg)](https://doi.org/10.21105/jose.00102) 
 + [Medium.com article](https://medium.com/@samanthalrobbins/starblast-cafd04f7916a#860a)
-
 
 #### Acknowledgements
 
