@@ -58,4 +58,4 @@ Official Publication & Citation
 
 The official publication at the Journal of Open Source Education (JOSE): https://doi.org/10.21105/jose.00102
 
-Cite our work as :code:`Cosi, M., Forstedt, J., Gonzalez, E., Xu, Z., Peri, S., Tuteja, R., Blumberg, K., Campbell, T., Merchant, N. & Lyons E. (2021). StarBLAST: a scalable BLAST+ solution for the classroom. Journal Of Open Source Education, 4(38), 102. doi: 10.21105/jose.00102`
+Cite our work as: "Cosi, M., Forstedt, J., Gonzalez, E., Xu, Z., Peri, S., Tuteja, R., Blumberg, K., Campbell, T., Merchant, N. & Lyons E. (2021). StarBLAST: a scalable BLAST+ solution for the classroom. Journal Of Open Source Education, 4(38), 102. doi: 10.21105/jose.00102"
